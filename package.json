@@ -1,0 +1,19 @@
+{
+  "name": "begrepskatalogen-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navikt/begrepskatalogen-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navikt/begrepskatalogen-frontend/issues"
+  },
+  "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme"
+}
