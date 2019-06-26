@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel src/index.html"
+    "start": "rimraf .cache && parcel src/index.html"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/navikt/begrepskatalogen-frontend/issues"
   },
-  "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme"
+  "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
+  "dependencies": {
+    "rimraf": "^2.6.3"
+  }
 }
