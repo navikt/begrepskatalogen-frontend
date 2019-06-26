@@ -116,5 +116,6 @@ $RECYCLE.BIN/
 
 .cache/
 .DS_Store
+dist/
 .dist/
 node_modules/
