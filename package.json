@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/navikt/begrepskatalogen-frontend/issues"
   },
-  "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme"
+  "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
 }
