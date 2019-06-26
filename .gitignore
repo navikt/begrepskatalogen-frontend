@@ -115,5 +115,8 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/windows,intellij
 
 .cache/
+tmp/
+node_modules/
+
 .DS_Store
 .dist/
