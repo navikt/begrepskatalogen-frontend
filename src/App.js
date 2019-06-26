@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import NyttBegrep from './KontaktOss';
+
+import { Flatknapp } from 'nav-frontend-knapper';
+import KontaktOss from './KontaktOss';
+
+
 
 class App extends Component{
+
     render(){
-        console.log("hei dette funker");
-        return(
+
+        return (
+            <Router>
             <div className= "App">
-                <h1>Halla dennis balla</h1>
-              
+                <h1>Hei</h1>
+                <Flatknapp>Kontakt oss</Flatknapp>
                 
+        <Route path = "/KontaktOss" exact={true} render = {{props} => (<KontaktOss {...props}/>)/>
             </div>
+            </Router>
+
         );
     }
 }
