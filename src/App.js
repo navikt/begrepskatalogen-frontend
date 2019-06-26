@@ -5,7 +5,7 @@ class App extends Component{
         console.log("hei dette funker");
         return(
             <div className= "App">
-                <h1>Halla balla</h1>
+                <h1>Halla dennis balla</h1>
               
                 
             </div>
