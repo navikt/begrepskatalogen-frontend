@@ -111,7 +111,7 @@ $RECYCLE.BIN/
 *.lnk
 
 #
-*.dist/
+.dist/
 
 # End of https://www.gitignore.io/api/windows,intellij
 
