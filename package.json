@@ -21,6 +21,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "express": "^4.17.1",
+    "@babel/preset-react": "^7.0.0",
+    "less": "^3.9.0",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",
     "nav-frontend-js-utils": "^1.0.7",
@@ -28,6 +30,9 @@
     "nav-frontend-knapper-style": "^0.3.26",
     "nav-frontend-lenker": "^1.0.27",
     "nav-frontend-lenker-style": "^0.2.20",
+    "nav-frontend-paneler-style": "^0.3.15",
+    "nav-frontend-skjema": "^1.0.67",
+    "nav-frontend-skjema-style": "^1.0.40",
     "nav-frontend-typografi": "^2.0.12",
     "nav-frontend-typografi-style": "^1.0.13",
     "parcel-bundler": "^1.12.3",
@@ -36,7 +41,9 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1"
   },
-  "devDependencies": {
-    "less": "^3.9.0"
+  "babel": {
+    "preset": [
+      "@babel/preset-react"
+    ]
   }
 }
