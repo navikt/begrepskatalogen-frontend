@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Navigation from './components/Navigation';
-import KontaktOss from './KontaktOss';
-import Home from './Home';
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from './composition/header/Header';
+import './App.less'
 import SearchBar from './components/SearchBar/SearchBar';
 import FilterField from './components/FilterSelectField/FilterField';
 import SortField from './components/SortSelectField/SortField';
 
 
 
+import Table from './components/table/Table';
 
 class App extends Component{
 
     render(){
-
         return (
-            <Router>
             <div className= "App">
-
-                <Navigation/>
-                <Route path="/" exact component={Home}/>
-                <Route path="/kontaktOss" component = {KontaktOss}/>
-                <SearchBar/>
-                <FilterField/><SortField/>
-                
+                <Router>
+                    <Header/>
+                    <SearchBar/>
+                    <Table/>
+                    <FilterField/><SortField/>
+                    
+                </Router>
 
             </div>
-            </Router>
-
         );
     }
 }
