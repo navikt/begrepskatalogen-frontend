@@ -19,21 +19,28 @@
   },
   "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
   "dependencies": {
-    
+    "@babel/preset-react": "^7.0.0",
     "classnames": "^2.2.6",
+    "express": "^4.17.1",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",
     "nav-frontend-js-utils": "^1.0.7",
     "nav-frontend-knapper": "^1.0.30",
     "nav-frontend-knapper-style": "^0.3.26",
+    "nav-frontend-typografi": "^2.0.12",
     "nav-frontend-typografi-style": "^1.0.13",
     "parcel-bundler": "^1.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "express": "^4.17.1",
-    "parcel-bundler": "^1.12.3"
-
+    "react-router-dom": "^5.0.1"
+  },
+  "babel": {
+    "preset": [
+      "@babel/preset-react"
+    ]
+  },
+  "devDependencies": {
+    "less": "^3.9.0"
   }
 }
