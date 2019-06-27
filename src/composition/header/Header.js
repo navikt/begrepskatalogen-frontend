@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Systemtittel } from 'nav-frontend-typografi';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navigation from '../components/Navigation';
-import KontaktOss from '../KontaktOss';
-import Home from '../Home';
+import Navigation from '../../components/navigation/Navigation';
+import KontaktOss from '../../KontaktOss';
+import Home from '../../Home';
 
 import './Header.less'
 
