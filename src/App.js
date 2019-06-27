@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Navigation from './components/Navigation';
 import KontaktOss from './KontaktOss';
 import Home from './Home';
+import Table from './components/table/Table';
+import './App.less'
 import SearchBar from './components/SearchBar/SearchBar';
 
 
@@ -19,6 +21,7 @@ class App extends Component{
                 <Navigation/>
                 <Route path="/" exact component={Home}/>
                 <Route path="/kontaktOss" component = {KontaktOss}/>
+                <Table/>
                 <SearchBar/>
 
             </div>
