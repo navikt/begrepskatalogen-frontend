@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Navigation from './components/Navigation';
+import KontaktOss from './KontaktOss';
+import Home from './Home';
+
+
+
 
 class App extends Component{
+
     render(){
-        console.log("hei dette funker");
-        return(
+
+        return (
+            <Router>
             <div className= "App">
-                <h1>Halla dennis balla</h1>
-              
-                
+
+                <Navigation/>
+                <Route path="/" exact component={Home}/>
+                <Route path="/kontaktOss" component = {KontaktOss}/>
+
             </div>
+            </Router>
+
         );
     }
 }
