@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rimraf .cache && parcel src/index.html"
+    "start": "rimraf .cache && parcel src/index.html",
+    "serve": "node devserver.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
   "dependencies": {
+    
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",
@@ -29,6 +31,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "express": "^4.17.1",
+    "parcel-bundler": "^1.12.3"
+
   }
 }
