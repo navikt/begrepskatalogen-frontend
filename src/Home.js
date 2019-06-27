@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navigation from './components/Navigation';
 
 export class Home extends Component {
     render() {
@@ -7,8 +6,8 @@ export class Home extends Component {
             <div>
                 <h1>homepage</h1>
             </div>
-        )
+        );
     }
 }
 
-export default Home
+export default Home;
