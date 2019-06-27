@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import KontaktOss from './KontaktOss';
 import Home from './Home';
 import SearchBar from './components/SearchBar/SearchBar';
+import FilterField from './components/FilterSelectField/FilterField';
 
 
 
@@ -20,6 +21,7 @@ class App extends Component{
                 <Route path="/" exact component={Home}/>
                 <Route path="/kontaktOss" component = {KontaktOss}/>
                 <SearchBar/>
+                <FilterField/>
 
             </div>
             </Router>
