@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import NyttBegrep from './KontaktOss';
-
-import { Flatknapp } from 'nav-frontend-knapper';
+import Navigation from './components/Navigation';
 import KontaktOss from './KontaktOss';
+import Home from './Home';
+
 
 
 
@@ -15,10 +14,11 @@ class App extends Component{
         return (
             <Router>
             <div className= "App">
-                <h1>Hei</h1>
-                <Flatknapp>Kontakt oss</Flatknapp>
-                
-        <Route path = "/KontaktOss" exact={true} render = {{props} => (<KontaktOss {...props}/>)/>
+
+                <Navigation/>
+                <Route path="/" exact component={Home}/>
+                <Route path="/kontaktOss" component = {KontaktOss}/>
+
             </div>
             </Router>
 
