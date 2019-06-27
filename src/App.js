@@ -6,6 +6,7 @@ import Home from './Home';
 import Table from './components/table/Table';
 import './App.less'
 import SearchBar from './components/SearchBar/SearchBar';
+import Footer from './components/footer/Footer';
 
 
 
@@ -23,7 +24,7 @@ class App extends Component{
                 <Route path="/kontaktOss" component = {KontaktOss}/>
                 <Table/>
                 <SearchBar/>
-
+                <Footer/>
             </div>
             </Router>
 
