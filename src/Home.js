@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navigation from './components/Navigation';
 
 export class Home extends Component {
     render() {
@@ -11,4 +10,4 @@ export class Home extends Component {
     }
 }
 
-export default Home
+export default Home;

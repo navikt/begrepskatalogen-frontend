@@ -26,11 +26,17 @@
     "nav-frontend-js-utils": "^1.0.7",
     "nav-frontend-knapper": "^1.0.30",
     "nav-frontend-knapper-style": "^0.3.26",
+    "nav-frontend-lenker": "^1.0.27",
+    "nav-frontend-lenker-style": "^0.2.20",
+    "nav-frontend-typografi": "^2.0.12",
     "nav-frontend-typografi-style": "^1.0.13",
     "parcel-bundler": "^1.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1"
+  },
+  "devDependencies": {
+    "less": "^3.9.0"
   }
 }
