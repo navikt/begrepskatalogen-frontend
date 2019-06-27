@@ -22,6 +22,7 @@
     "@babel/preset-react": "^7.0.0",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
+    "less": "^3.9.0",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",
     "nav-frontend-js-utils": "^1.0.7",
@@ -42,8 +43,5 @@
     "preset": [
       "@babel/preset-react"
     ]
-  },
-  "devDependencies": {
-    "less": "^3.9.0"
   }
 }
