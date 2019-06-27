@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rimraf .cache && parcel src/index.html"
+    "start": "rimraf .cache && parcel src/index.html",
+    "serve": "node devserver.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,11 @@
   },
   "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "parcel-bundler": "^1.12.3"
   }
 }
