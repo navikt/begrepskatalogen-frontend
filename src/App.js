@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from './composition/Header';
 import './App.less'
-
+import SearchBar from './components/SearchBar/SearchBar';
+import Table from './components/table/Table';
 
 class App extends Component{
 
