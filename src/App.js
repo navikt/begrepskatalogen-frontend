@@ -5,6 +5,7 @@ import './App.less'
 import SearchBar from './components/SearchBar/SearchBar';
 import FilterField from './components/FilterSelectField/FilterField';
 import SortField from './components/SortSelectField/SortField';
+import Footer from './components/footer/Footer';
 
 
 
@@ -20,9 +21,8 @@ class App extends Component{
                     <SearchBar/>
                     <Table/>
                     <FilterField/><SortField/>
-                    
+                    <Footer/>
                 </Router>
-
             </div>
         );
     }

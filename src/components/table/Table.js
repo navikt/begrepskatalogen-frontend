@@ -21,6 +21,21 @@ class Table extends React.Component{
                 {navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Foreldrepenger', definisjon: 'penger til foreldre ', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Foreldrepenger', definisjon: 'penger til foreldre ', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Foreldrepenger', definisjon: 'penger til foreldre ', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'}
             ]
         }
