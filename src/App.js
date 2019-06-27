@@ -5,23 +5,17 @@ import KontaktOss from './KontaktOss';
 import Home from './Home';
 
 
-
-
 class App extends Component{
 
     render(){
-
         return (
             <Router>
             <div className= "App">
-
                 <Navigation/>
                 <Route path="/" exact component={Home}/>
                 <Route path="/kontaktOss" component = {KontaktOss}/>
-
             </div>
             </Router>
-
         );
     }
 }
