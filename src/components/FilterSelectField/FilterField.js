@@ -5,7 +5,7 @@ import './FilterField.less'
 
 function FilterField(){
     return(
-        <div class="wrapper">
+        <div className="wrapper">
             
             <div className="filtertekst">
                 <Normaltekst >
