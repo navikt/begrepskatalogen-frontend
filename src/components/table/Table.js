@@ -84,7 +84,7 @@ class Table extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="altavtabell">
                 <table className="begreper">
                     <thead className="separator">
                     <tr>
