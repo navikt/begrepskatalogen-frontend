@@ -6,6 +6,7 @@ import 'nav-frontend-lenker-style'
 import './Navigation.less'
 import './HeaderButtons.less'
 
+
 function Navigation(){
     return (
         <nav className="navStyle">

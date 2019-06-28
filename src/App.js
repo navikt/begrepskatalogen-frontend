@@ -6,10 +6,8 @@ import SearchBar from './components/SearchBar/SearchBar';
 import FilterField from './components/FilterSelectField/FilterField';
 import SortField from './components/SortSelectField/SortField';
 import Footer from './components/footer/Footer';
-
-
-
 import Table from './components/table/Table';
+
 
 class App extends Component{
 
