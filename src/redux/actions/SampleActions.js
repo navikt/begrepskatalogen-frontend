@@ -1,3 +1,3 @@
 import * as types from './../actionTypes/ActionTypes';
 
-// export a const
+// export a const, need a type key

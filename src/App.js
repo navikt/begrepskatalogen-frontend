@@ -7,16 +7,23 @@ import FilterField from './components/FilterSelectField/FilterField';
 import SortField from './components/SortSelectField/SortField';
 import Footer from './components/footer/Footer';
 import Table from './components/table/Table';
+import { connect} from 'react-redux';
 
+
+const mapStateToProps = (store) => ({
+    loading: store.loading
+});
 
 class App extends Component{
 
     render(){
+        console.log(this.props.loading);
         return (
             <div className= "App">
                 <Router>
                     <Header/>
                     <SearchBar/>
+                    { this.props.loading }
                     <Table/>
                     <FilterField/><SortField/>
                     <Footer/>
@@ -26,4 +33,4 @@ class App extends Component{
     }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

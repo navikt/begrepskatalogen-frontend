@@ -1,12 +1,14 @@
 import * as types from './../actionTypes/ActionTypes';
 
-// Dummy (ish), dont have variable yet
 const initialState = {
-    aState: true
+    loading: true
 };
 
-function sample(state = initialState, action) {
-    // return a state
+function appReducer(state = initialState, action) {
+    switch (action.type) {
+        default:
+            return state
+    }
 }
 
-export default sample;
+export default appReducer;
