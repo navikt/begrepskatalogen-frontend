@@ -19,8 +19,8 @@ class App extends Component{
                 <Router>
                     <Header/>
                     <SearchBar/>
-                    <Table/>
                     <FilterField/><SortField/>
+                    <Table/>
                     <Footer/>
                 </Router>
             </div>
