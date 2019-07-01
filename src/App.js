@@ -12,28 +12,24 @@ import Home from './Home';
 import KontaktOss from './KontaktOss';
 
 const mapStateToProps = (store) => ({
-    loading: store.loading
+    fancy: store.fancy
 });
 
 class App extends Component{
 
     constructor(props) {
         super(props);
-        console.log("Constructor", this.props);
     }
 
     render(){
-        console.log(this.props.loading);
         return (
-            <div className= "App">
+            <div className="App">
+                { this.props.fancy && <div id="fancy" /> }
                 <Router>
                     <Header/>
                     <SearchBar/>
                     <Route exact path = '/' component = {Home} />
                     <Route exact path='/kontaktoss' component = {KontaktOss}/>
-                    { this.props.loading }
-                    <Table/>
-                    <FilterField/><SortField/>
                     <Footer/>
 
                 </Router>

@@ -1,12 +1,15 @@
 const initialState = {
-    loading: true
+    fancy: false
 };
 
 function appReducer(state = initialState, action) {
-    // switch (action) {
-    //     default:
-    //         return state
-    // }
+    switch (action.type) {
+    	case 'TOGGLE_FANCY': 
+    		return Object.assign({}, state, { fancy: !state.fancy });
+    		break;
+        default:
+            return state
+    }
 
     return state;
 }
