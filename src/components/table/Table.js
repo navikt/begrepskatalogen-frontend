@@ -54,7 +54,7 @@ class Table extends React.Component{
 
     constructor(props){
         super(props);
-        this.renderTableData = this.renderTableData.bind(this);
+        this.state = {};
     }
 
     componentDidMount(){
@@ -64,8 +64,12 @@ class Table extends React.Component{
         .then(data => this.setState({items: data}));
     }
 
-    renderTableData(){
+    renderTableData = () => {
         console.log(this.state)
+
+        if (this.state['items']) {
+            console.log('yes');
+        }
         
         /*
         if(!this.state["hits"]){
