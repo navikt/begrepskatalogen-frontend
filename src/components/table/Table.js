@@ -55,36 +55,30 @@ class Table extends React.Component{
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
+        this.state = {};
     }
 
     componentDidMount(){
-        console.log("Halla")
         fetch(API)
         .then(res => res.json())
         .then(data => this.setState({items: data}));
     }
 
     renderTableData(){
-        console.log(this.state)
-        
-        /*
-        if(!this.state["hits"]){
+        if(!this.state.items){
             return false;
         }
-            const { hits } = this.state;
-            console.log("HER"+hits);
+        return this.state.items.map((item) => {
+            const {key,term,assignee} = item
             return(
-                <tr>
-                    {hits.map(hit =>
-                        <td key={hit.key}>
-                            <p>{ hit.term }</p>
-                       
-                        </td>
-                    )}
+                <tr key= {key}>
+                    <td><Normaltekst>{key}</Normaltekst></td>
+                    <td><Normaltekst>{term}</Normaltekst></td>
+                    <td><Normaltekst>{assignee}</Normaltekst></td>
                 </tr>
-                
             );
-            */
+        })
+        
     }
 
     render(){
@@ -93,12 +87,10 @@ class Table extends React.Component{
                 <table className="begreper">
                     <thead className="separator">
                     <tr>
-                    
+                        <th><Systemtittel>Nøkkel</Systemtittel></th>
                         <th><Systemtittel>Term</Systemtittel></th>
-                        <th><Systemtittel>Definisjon</Systemtittel></th>
-                        <th><Systemtittel>Fagområde</Systemtittel></th>
                         <th><Systemtittel>Begrepseier</Systemtittel></th>
-                        <th><Systemtittel>Oppdatert</Systemtittel></th>
+        
                     </tr>
                     
                     </thead>
