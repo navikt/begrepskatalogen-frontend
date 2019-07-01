@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 
 
 const mapStateToProps = (store) => {
-    console.log("mapStateToProps", store);
     return {
         loading: store.loading
     }
