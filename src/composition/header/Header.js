@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Systemtittel } from 'nav-frontend-typografi';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from '../../components/navigation/Navigation';
 import KontaktOss from '../../KontaktOss';
 import Home from '../../Home';
 
 import './Header.less'
+import { Flatknapp } from 'nav-frontend-knapper';
 
 class Header extends Component {
 
@@ -29,11 +30,13 @@ class Header extends Component {
                     <Systemtittel className="headerLogo__title">Begrepskatalogen</Systemtittel>
                 </a>
                 </div>
+
                 <div className="navigation">
+
                     <Navigation/>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/kontaktOss" component = {KontaktOss}/>
                 </div>
+
+                
             </div>
         );
     }
