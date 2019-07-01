@@ -20,8 +20,10 @@
   "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "less": "^3.9.0",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",
@@ -46,5 +48,8 @@
     "preset": [
       "@babel/preset-react"
     ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3"
   }
 }
