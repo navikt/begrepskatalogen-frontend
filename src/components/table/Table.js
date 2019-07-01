@@ -69,12 +69,13 @@ class Table extends React.Component{
             return false;
         }
         return this.state.items.map((item) => {
-            const {key,term,assignee} = item
+            const {key,term,assignee,definisjon,oppdatert} = item
             return(
                 <tr key= {key}>
-                    <td><Normaltekst>{key}</Normaltekst></td>
                     <td><Normaltekst>{term}</Normaltekst></td>
+                    <td><Normaltekst>{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
+                    <td><Normaltekst>{oppdatert}</Normaltekst></td>
                 </tr>
             );
         })
@@ -87,9 +88,10 @@ class Table extends React.Component{
                 <table className="begreper">
                     <thead className="separator">
                     <tr>
-                        <th><Systemtittel>Nøkkel</Systemtittel></th>
                         <th><Systemtittel>Term</Systemtittel></th>
+                        <th><Systemtittel>Definisjon</Systemtittel></th>
                         <th><Systemtittel>Begrepseier</Systemtittel></th>
+                        <th><Systemtittel>Oppatert</Systemtittel></th>
         
                     </tr>
                     
