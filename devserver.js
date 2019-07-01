@@ -12,4 +12,4 @@ const bundler = new Bundler(file, options);
 mockApi(app);
 app.use(bundler.middleware());
 // Listen on port 1234
-app.listen(1234);
+app.listen(8080);
