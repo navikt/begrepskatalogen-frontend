@@ -58,19 +58,12 @@ class Table extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Halla")
         fetch(API)
         .then(res => res.json())
         .then(data => this.setState({items: data}));
     }
 
     renderTableData = () => {
-        console.log(this.state)
-
-        if (this.state['items']) {
-            console.log('yes');
-        }
-        
         /*
         if(!this.state["hits"]){
             return false;
