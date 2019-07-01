@@ -9,6 +9,10 @@ module.exports = function(app) {
         assignee: issue.fields.assignee !== null
             ? issue.fields.assignee.displayName
             : '',
+        status: issue.fields.status.statusCategory.key,
+        definisjon: issue.fields.customfield_10610,
+        oppdatert: issue.fields.lastViewed,
+        
       });
     });
     res.send(responseData);
