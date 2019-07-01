@@ -1,11 +1,12 @@
 import React from 'react';
+import Header from './composition/header/Header'
 
 
 function KontaktOss(){
     return (
-        <React.Fragment>
-            <h1>Kontakt oss siden.</h1>
-        </React.Fragment>
+        <div>
+            <h1>""""Kontakt oss"""""-siden. Hei Eskil</h1>
+        </div>
     );
 }
 

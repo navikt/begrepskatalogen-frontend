@@ -11,9 +11,12 @@ import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
     {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'}
 ]*/
 
+const API = 'http://localhost:8080/api/issues';
+const DEFAULT_QUERY = 'redux';
+
 class Table extends React.Component{
 
-    constructor(props){
+/*    constructor(props){
         super(props);
         this.state = {
             mockupData: [
@@ -36,49 +39,61 @@ class Table extends React.Component{
                 {navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},{navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},{navn: 'Placeholder', definisjon: 'penger til foreldrepenger til foreldrepenger til http://localhost:1234/http:/localhost:1234/foreldrepenger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
+                {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'},
                 {navn: 'Placeholder', definisjon: 'penger til foreldre', fagomraade: 'Placeholder', begrepseier: 'Dennis', oppdatert:'Placeholder'}
             ]
         }
+    }*/
+
+    
+
+    constructor(props){
+        super(props);
+        this.state = {};
     }
 
-/*    constructor(props){
-        super(props);
-        this.row = this.row.bind(this);
-    }*/
+    componentDidMount(){
+        console.log("Halla")
+        fetch(API)
+        .then(res => res.json())
+        .then(data => this.setState({items: data}));
+    }
 
-  /*  row = (item) => {
-        console.log(item)
-        return(
-        <tr>
-        <td>{item.navn}</td>
-        <td>{item.definisjon}</td>
-        <td>{item.fagomraade}</td>
-        <td>{item.begrepseier}</td>
-        <td>{item.oppdatert}</td>
-        </tr>
-        )
-    }*/
+    renderTableData = () => {
+        console.log(this.state)
 
-    renderTableData(){
-        return this.state.mockupData.map((item,index)=>{
-            const {navn,definisjon,fagomraade,begrepseier,oppdatert} = item
+        if (this.state['items']) {
+            console.log('yes');
+        }
+        
+        /*
+        if(!this.state["hits"]){
+            return false;
+        }
+            const { hits } = this.state;
+            console.log("HER"+hits);
             return(
-                
-                <tr key = {`${navn}${index}`}>
-                <td><Normaltekst>{navn}</Normaltekst></td>
-                <td><Normaltekst>{definisjon}</Normaltekst></td>
-                <td><Normaltekst>{fagomraade}</Normaltekst></td>
-                <td><Normaltekst>{begrepseier}</Normaltekst></td>
-                <td><Normaltekst>{oppdatert}</Normaltekst></td>
+                <tr>
+                    {hits.map(hit =>
+                        <td key={hit.key}>
+                            <p>{ hit.term }</p>
+                       
+                        </td>
+                    )}
                 </tr>
                 
             );
-        })
+            */
     }
 
     render(){
         return (
-            <div>
+            <div className="altavtabell">
                 <table className="begreper">
                     <thead className="separator">
                     <tr>

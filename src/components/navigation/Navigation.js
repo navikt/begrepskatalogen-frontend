@@ -1,28 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Element } from 'nav-frontend-typografi';
-import { Knapp } from 'nav-frontend-knapper';
+import { Knapp, Flatknapp } from 'nav-frontend-knapper';
 import 'nav-frontend-lenker-style'
 import './Navigation.less'
 import './HeaderButtons.less'
 
+class Navigation extends React.Component{
+   
 
-function Navigation(){
-    return (
-        <nav className="navStyle">
-            <ul className="navStyle__navLinks">
-                <Link className="navStyle__navLink lenke"  to="">
-                <li className="header-button"><Element>Om begrepskatalogen</Element></li>
-                </Link>
-                <Link className="navStyle__navLink lenke" to="/KontaktOss">
-                <li className="header-button"><Element>Kontakt oss</Element></li>
-                </Link>
-                <Link to="">
-                <li className="header-button"><Knapp>MELD INN NYTT BEGREP</Knapp></li>
-                </Link>
-            </ul>
-        </nav>
-    );
+    render(){
+        return (
+
+                <div>
+                    <nav className="navStyle">
+                        <ul className="navStyle__navLinks">
+                            <li>
+                            <Link to = {"/"} className ="navStyle__navLink lenke"> 
+                                <Element >Om begrepskatalogen</Element>
+                            </Link>
+                            </li>
+                            <li> 
+                                <Link to = {"/kontaktoss"}  className ="navStyle__navLink lenke">
+                                    <Element>Kontakt oss</Element>
+                                </Link>
+                            </li>
+                            <li>  <Link to = {""} className ="navStyle__navLink lenke">
+                                    <Knapp>Meld inn nytt begrep</Knapp>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <hr/>
+                </div>
+
+        );
+    }
 }
 
 export default Navigation;
