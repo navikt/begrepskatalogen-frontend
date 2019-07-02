@@ -10,19 +10,19 @@ const sortReducer = (state = initialState, action) => {
     switch(action.type){
         case TERM:
             return{
-                orderBy: "Term",
+                orderBy: "Kategori",
                 order: 1
 
             };
         case DEFINISJON: 
             return{
-                orderBy: "Definisjon",
+                orderBy: "Innhold",
                 order: 1
             };
 
         case ASSIGNEE:
             return{
-                orderBy: "Begrepseier",
+                orderBy: "Begrepseier Alfabetisk",
                 order: 1
             };
         
