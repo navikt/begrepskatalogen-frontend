@@ -9,13 +9,10 @@ import './HeaderButtons.less'
 
 import { toggleFancy } from '../../redux/actions/AppActions';
 
-const mapStateToProps = (state) => ({
-    gandalf: state.gandalf
-});
 
 class Navigation extends React.Component{
     handleClick = () => {
-        this.props.dispatch(toggleFancy());
+        this.props.dispatch(togggleFancy());
     }
 
     render(){
@@ -46,4 +43,4 @@ class Navigation extends React.Component{
     }
 }
 
-export default connect(mapStateToProps)(Navigation);
+export default connect()(Navigation);

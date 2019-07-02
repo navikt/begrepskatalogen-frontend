@@ -19,8 +19,6 @@
   },
   "homepage": "https://github.com/navikt/begrepskatalogen-frontend#readme",
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "classnames": "^2.2.6",
@@ -48,5 +46,9 @@
     "react-scroll-up-button": "^1.6.4",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4"
   }
 }
