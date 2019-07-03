@@ -8,7 +8,7 @@ export class TermPage extends React.Component{
     render(){
         return(
             <div className="gridContainer">
-            <div className="TermPage">
+          
                 <div className="begrepsHeader">
                     <Normaltekst className="status">Status</Normaltekst>
                     <Normaltekst className="linker">Del begrepet</Normaltekst>
@@ -64,7 +64,7 @@ export class TermPage extends React.Component{
 
 
 
-            </div>
+            
             </div>
         );
     }
