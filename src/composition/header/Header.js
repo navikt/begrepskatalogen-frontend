@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from '../../components/navigation/Navigation';
 import KontaktOss from '../../KontaktOss';
 import Home from '../../Home';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 import './Header.less'
 import { Flatknapp } from 'nav-frontend-knapper';
@@ -32,9 +33,10 @@ class Header extends Component {
                 </div>
 
                 <div className="navigation">
-
                     <Navigation/>
+                    <SearchBar/>
                 </div>
+                <hr/>
 
                 
             </div>
