@@ -10,10 +10,11 @@ class Footer extends React.Component {
 
             //Todo: LEgge til router så knappene fungerer. 
             <div className="footer">
-                
-                <ScrollUpButton><Flatknapp>Til toppen</Flatknapp></ScrollUpButton>
-                <Flatknapp>Søk i katalogen</Flatknapp>
-                <Flatknapp>Meld inn nytt begrep</Flatknapp>
+                <div className="footerElements">
+                    <ScrollUpButton><Flatknapp>Til toppen</Flatknapp></ScrollUpButton>
+                    <Flatknapp>Søk i katalogen</Flatknapp>
+                    <Flatknapp>Meld inn nytt begrep</Flatknapp>
+                </div>
             </div>
 
         )
