@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Table from './components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
-import FilterField from './components/FilterSelectField/FilterField';
-import SortField from './components/SortSelectField/SortField';
 import './Home.less';
 
 
@@ -28,8 +26,9 @@ export class Home extends Component {
                     <button onClick = {this.toggleHidden.bind(this)}>
                         se alle begrepene</button> </Ingress>
                 <br/>
-                <FilterField/><SortField/>
-                {!this.state.isHidden && <Table/>}
+                
+                {this.state.isHidden ? <p>hei</p>:<Table/>}
+                
                 
 
             </div>
