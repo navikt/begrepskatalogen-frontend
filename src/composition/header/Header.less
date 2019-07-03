@@ -1,13 +1,30 @@
-.headerLogo {
-    &__logosvg {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        position: absolute;
+.header{
+    position: sticky;
+
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding-top: 1rem;
+
+    .navigation{
+        
     }
 
-    &__title {
-        padding-top: 0.6rem;
-        padding-left: 1.2rem;
+
+    .headerLogo {
+
+        &__logosvg {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            align-items: center;
+            padding-top: 1rem;
+        }
+
+        &__title {
+            
+            padding-left: 2.5rem;
+        }
+
     }
+
 }

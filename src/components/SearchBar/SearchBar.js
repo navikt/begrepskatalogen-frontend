@@ -25,6 +25,7 @@ class SearchBar extends React.Component{
         return(
             <div className="inputwrapper" >
                 <Input 
+                    placeholder={"Søk etter en term"}
                     bredde={"XXL"} 
                     className="inputfelt" 
                     id="inputfelt1" 

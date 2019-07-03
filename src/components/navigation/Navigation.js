@@ -36,7 +36,7 @@ class Navigation extends React.Component{
                             </li>
                         </ul>
                     </nav>
-                    <hr/>
+                   
                 </div>
 
         );
