@@ -10,6 +10,7 @@ import Table from './components/table/Table';
 import { connect } from 'react-redux';
 import Home from './Home';
 import KontaktOss from './KontaktOss';
+import TermPage from './TermPage';
 
 const mapStateToProps = (store) => ({
     fancy: store.fancy
@@ -34,6 +35,7 @@ class App extends Component{
             
                     <Route exact path = '/' component = {Home} />
                     <Route exact path='/kontaktoss' component = {KontaktOss}/>
+                    <Route exact path = '/begrepsside' component = {TermPage}/>
                     <Footer/>
 
                 </Router>

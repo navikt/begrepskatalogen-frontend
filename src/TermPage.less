@@ -1,0 +1,27 @@
+@import (reference) '~nav-frontend-core/less/_variabler';
+
+.begrepsHeader {grid-area: header;}
+.venstreFeltAvSiden {grid-area: leftSide;}
+.hoyreFeltAvSiden {grid-area: rightSide;}
+
+
+.gridContainer{
+    display: grid;
+    grid-template-areas: 
+    'header header  header'
+    'leftside leftside  rightSide'
+    'leftside leftside  rightSide';
+
+    grid-gap: 10px;
+    background-color: lightblue;
+    padding:10px;
+
+    div{
+        background-color: lightcyan;
+        text-align: center;
+        padding: 15px 0;
+    
+    }
+
+
+}
