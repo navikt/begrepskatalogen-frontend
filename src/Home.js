@@ -28,8 +28,9 @@ export class Home extends Component {
                     <button onClick = {this.toggleHidden.bind(this)}>
                         se alle begrepene</button> </Ingress>
                 <br/>
-                <FilterField/><SortField/>
-                {!this.state.isHidden && <Table/>}
+                
+                {this.state.isHidden ? <p>hei</p>:<Table/>}
+                
                 
 
             </div>
