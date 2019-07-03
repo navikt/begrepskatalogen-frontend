@@ -6,22 +6,81 @@
 
 
 .gridContainer{
+
+    margin-right: 5%;
+    margin-left: 5%;
     display: grid;
     grid-template-areas: 
-    'header header header header'
-    'leftside leftside leftside rightSide'
-    'leftside leftside leftside rightSide';
+    'header header header header '
+    'leftSide leftSide leftSide rightSide'
+    'leftSide leftSide leftSide rightSide'
+    'leftSide leftSide leftSide rightSide';
 
-    grid-gap: 10px;
-    background-color: lightblue;
-    padding:10px;
+    grid-gap: 1.5px;
+    background-color: @navLysGra;
+    padding:1px;
 
     div{
-        background-color: lightcyan;
-        text-align: center;
+        background-color: white;
+
         padding: 15px 0;
     
     }
 
+    .begrepsHeader{
+        justify-content: flex-end;
+        display: flex;
+
+
+        .status {
+            position: relative;
+        }
+
+        .linker{
+            margin-left: 8%;
+            padding-right: 3%;
+            position: relative;
+        }
+    }
+
+    .begrepsoverskrift{
+        margin-left: 2%;
+    }
+
+    .begrepsforklaring{
+        margin-left: 2%;
+    }
+
+    .eksempler{
+        margin-left: 2%;
+    }
+
+    .kilde{
+        margin-left: 2%;
+    }
+
+    .relasjoner{
+        margin-left: 2%;
+    }
+
+    .revidert{
+        margin-left: 2%;
+    }
+
+    .hoyreFeltAvSiden{
+
+        .beskrivelsestype{
+            margin-left: 2%;
+        }
+
+        .fagomraade{
+            margin-left: 2%;
+
+        }
+
+        .begrepseier{
+            margin-left: 2%;
+        }
+    }
 
 }

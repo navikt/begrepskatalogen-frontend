@@ -10,6 +10,7 @@ export class TermPage extends React.Component{
             <div className="gridContainer">
           
                 <div className="begrepsHeader">
+                   
                     <Normaltekst className="status">Status</Normaltekst>
                     <Normaltekst className="linker">Del begrepet</Normaltekst>
                     <Normaltekst className="linker">Gi innspill til begrepet</Normaltekst>
