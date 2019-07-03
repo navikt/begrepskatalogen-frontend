@@ -24,7 +24,7 @@ export class Home extends Component {
         return (
             <div>
 
-                <Ingress>Søk etter et begrep, stykkord eller 
+                <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller 
                     <button onClick = {this.toggleHidden.bind(this)}>
                         se alle begrepene</button> </Ingress>
                 <br/>

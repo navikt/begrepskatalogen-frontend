@@ -31,7 +31,7 @@ class App extends Component{
                 { this.props.fancy && <div id="fancy" /> }
                 <Router>
                     <Header/>
-                    <SearchBar/>
+            
                     <Route exact path = '/' component = {Home} />
                     <Route exact path='/kontaktoss' component = {KontaktOss}/>
                     <Footer/>
