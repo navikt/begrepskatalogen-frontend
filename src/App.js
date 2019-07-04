@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './composition/header/Header';
-import './App.less'
+import './App.less';
 import SearchBar from './components/SearchBar/SearchBar';
 import FilterField from './components/FilterSelectField/FilterField';
 import SortField from './components/SortSelectField/SortField';

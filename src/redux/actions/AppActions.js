@@ -7,6 +7,7 @@ export function toggleFancy() {
 //.then(res => res.json()
 
 export function fetchData(){
+    const API = 'http://localhost:8080/api/issues';
     return function(dispatch){
         dispatch({
             type: 'FETCH_DATA_BEGIN'

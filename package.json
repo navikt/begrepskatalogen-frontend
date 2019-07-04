@@ -45,9 +45,9 @@
     "react-router-dom": "^5.0.1",
     "react-scroll-up-button": "^1.6.4",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6"
-  },
-  "devDependencies": {
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.1",
+    "redux-thunk": "^2.3.0",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4"
   }
