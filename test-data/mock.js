@@ -13,8 +13,8 @@ module.exports = function(app) {
         definisjon: issue.fields.customfield_10610,
         oppdatert: issue.fields.updated !== null ? issue.fields.updated : "",
         begrepseier: issue.fields.customfield_12712 !== null ? issue.fields.customfield_12712.value : "",
-
-
+        kilde: issue.fields.customfield_12811 !== null ? issue.fields.customfield_12811 : "",
+        komponenter: issue.fields.components.name !== null ? issue.fields.components.name : "",
         
       });
     });
