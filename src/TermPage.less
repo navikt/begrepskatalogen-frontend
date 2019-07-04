@@ -11,10 +11,10 @@
     margin-left: 5%;
     display: grid;
     grid-template-areas: 
-    'header header header header '
-    'leftSide leftSide leftSide rightSide'
-    'leftSide leftSide leftSide rightSide'
-    'leftSide leftSide leftSide rightSide';
+    'header header  header '
+    'leftSide  leftSide rightSide'
+    'leftSide  leftSide rightSide'
+    'leftSide  leftSide rightSide';
 
     grid-gap: 1.5px;
     background-color: @navLysGra;
@@ -28,17 +28,18 @@
     }
 
     .begrepsHeader{
-        justify-content: flex-end;
+        justify-content: flex-start;
         display: flex;
 
 
         .status {
             position: relative;
+            margin-left: 3%;
         }
 
         .linker{
             margin-left: 8%;
-            padding-right: 3%;
+
             position: relative;
         }
     }

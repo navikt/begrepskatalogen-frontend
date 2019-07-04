@@ -2,6 +2,7 @@ import React from 'react';
 import { Sidetittel, Ingress, Undertittel, Normaltekst} from 'nav-frontend-typografi';
 import { Link } from 'nav-frontend-knapper';
 import './TermPage.less';
+import { Lukknapp } from 'nav-frontend-lukknapp';
 
 export class TermPage extends React.Component{
 
@@ -14,6 +15,7 @@ export class TermPage extends React.Component{
                     <Normaltekst className="status">Status</Normaltekst>
                     <Normaltekst className="linker">Del begrepet</Normaltekst>
                     <Normaltekst className="linker">Gi innspill til begrepet</Normaltekst>
+                    
                 </div>
                 <div className="venstreFeltAvSiden">
                     <div className = "begrepsoverskrift">

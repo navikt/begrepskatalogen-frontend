@@ -9,9 +9,12 @@ module.exports = function(app) {
         assignee: issue.fields.assignee !== null
             ? issue.fields.assignee.displayName
             : '',
-        status: issue.fields.status.statusCategory.key,
+        status: issue.fields.status.name,
         definisjon: issue.fields.customfield_10610,
-        oppdatert: issue.fields.lastViewed,
+        oppdatert: issue.fields.updated !== null ? issue.fields.updated : "",
+        begrepseier: issue.fields.customfield_12712 !== null ? issue.fields.customfield_12712.value : "",
+
+
         
       });
     });
