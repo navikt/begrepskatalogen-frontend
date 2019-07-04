@@ -11,8 +11,11 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import KontaktOss from './KontaktOss';
 
+import { fetchData } from './redux/actions/AppActions';
+
 const mapStateToProps = (store) => ({
-    fancy: store.fancy
+    fancy: store.fancy,
+    loading: store.loading
 });
 
 
@@ -23,6 +26,10 @@ class App extends Component{
 
     }
 
+    componentDidMount(){
+        console.log("funker");
+        this.props.dispatch(fetchData());
+    }
   
 
     render(){

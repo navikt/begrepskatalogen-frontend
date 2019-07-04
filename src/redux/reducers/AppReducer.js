@@ -1,5 +1,7 @@
 const initialState = {
-    fancy: false
+    fancy: false,
+    loading: false,
+    items: []
 };
 
 function appReducer(state = initialState, action) {
@@ -10,6 +12,10 @@ function appReducer(state = initialState, action) {
         case 'search:updateSearch':
             console.log(action)
             return Object.assign({}, state, { search: action.search });
+        case 'FETCH_DATA_BEGIN':
+            return Object.assign({}, state, { loading: true }); 
+        case 'FETCH_DATA_COMPLETE':
+            return Object.assign({}, state, { items: action.payload });
         default:
             return state 
     }
