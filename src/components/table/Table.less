@@ -3,28 +3,50 @@
 .begreper{
     border-top: 2px solid lightgray ;
     //background: @navLysGra;
-
-    width: 100%;
+    width: 10rem;
     margin-bottom: 12rem; //avstand til bunnen av tabellen for å hindre overlapp i header og tabellfelter
 
     th{
         
         //height: 10rem;
-        text-align: center;
+        text-align: left;
         color: black;   //tekstfargen
         //border-bottom: 1px black;
 
-        padding: 0.7rem;
+        padding: 1.2rem;
     }
 
-    tr {
-        
+    tr {  
         td {
             border-bottom: 1px solid black; //delelinjene i selve tabellen
-            padding: 0.7rem;
+            padding: 0.9rem;
+            
         }
     }
 }
+
+
+/**
+.begreper td:nth-child(1),
+.begreper td:nth-child(3),
+.begreper td:nth-child(4){
+    width: 20%;
+}
+.begreper td:nth-child(2){
+    width: 40%;
+}*/
+
+
+//LES ESKIL: DENNE DELEN SOM PER NÅ GJØR AT LAYOUTEN IKKE SER MONGO UT
+table {
+    table-layout: fixed;
+}
+th,
+td {
+    width: 25rem;
+    
+}
+
 
 .separator{
     //background: red;
@@ -34,26 +56,37 @@
     //background-position: 0,100%,0,100%;
 }
 
-.altaltalt{
+.altaltalt{  //gråfarge fra header og ned
     background: @navLysGra;
 }
 
 .altalt{
     position: relative;
-    top: 5rem;
-    margin-left: 2.5rem;
-    
+    top: 4rem;
+    margin-left: 9.3rem;
+    margin-right: 9rem;
+    //background: green;  //tabell med selectfirelds
+    justify-self: center;
 }
 
 .selectfields{
     position: relative;
     top: 0.1rem;
+    margin-left: 1rem;      //posisjon fra venstre på selectfields
 }
 
 .altavtabell{
     //starter fra tabellheader
     position: relative;
-    top: 7rem;
+    top: 6rem;
+    //background: blue; //minus selectfields
 }
 
+.altavtabell td:nth-child(2){
+    background: red;
+}
+
+col{
+    background: red;
+}
 

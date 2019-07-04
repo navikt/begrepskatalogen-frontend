@@ -52,7 +52,7 @@ class Table extends React.Component{
                     <div className="altavtabell">
                         
                         
-                        <table className="begreper">
+                        <table class="sturdy" className="begreper">
                             
 
                             <thead className="separator">
