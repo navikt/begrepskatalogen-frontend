@@ -29,9 +29,14 @@ class Navigation extends React.Component{
                                 </Link>
                             </li>
                             <li>  <Link to = {"/begrepsside"} className ="navStyle__navLink lenke">
+                                    <Element>TermPage</Element>
+                                </Link>
+                            </li>
+                            <li>  <Link to={'/meld-inn-nytt-begrep'} className ="navStyle__navLink lenke">
                                     <Element>Meld inn nytt begrep</Element>
                                 </Link>
                             </li>
+
                         </ul>
                     </nav>
                    
