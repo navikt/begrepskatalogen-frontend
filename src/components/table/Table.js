@@ -27,15 +27,18 @@ class Table extends React.Component{
         if(!this.state.items){
             return false;
         }
+        
         return this.state.items.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert} = item
+            const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
-                <tr key= {key}>
+                <tr key= {key} className="definisjon">
                     <td><Normaltekst>{term}</Normaltekst></td>
-                    <td><Normaltekst>{definisjon}</Normaltekst></td>
+                    <td><Normaltekst >{definisjon}</Normaltekst></td>
+                    <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{oppdatert}</Normaltekst></td>
                 </tr>
+                
             );
         })
         
@@ -59,7 +62,8 @@ class Table extends React.Component{
                                 
                             <tr>
                                 <th><Systemtittel>Term</Systemtittel></th>
-                                <th><Systemtittel>Definisjon</Systemtittel></th>
+                                <th ><Systemtittel>Definisjon</Systemtittel></th>
+                                <th><Systemtittel>Status</Systemtittel></th>
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
                                 <th><Systemtittel>Oppatert</Systemtittel></th>
                 
