@@ -8,7 +8,7 @@ export class Home extends Component {
     constructor(){
         super();
         this.state = {
-            isHidden: true
+            isHidden: true //true når tabellen skal være skjult 
         }
     }
     
@@ -22,12 +22,23 @@ export class Home extends Component {
         return (
             <div>
 
+                {this.state.isHidden ? 
                 <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller 
                     <button onClick = {this.toggleHidden.bind(this)}>
-                        se alle begrepene</button> </Ingress>
-                <br/>
+                        se alle begrepene</button> </Ingress> 
+                        : 
+                        <div className="afterSearch">
+                            <Ingress>Viser XX godkjente begreper relevant til ditt søk.</Ingress> 
+                        </div>
+                    }
                 
-                {this.state.isHidden ? <p>hei</p>:<Table/>}
+                {this.state.isHidden ?
+                    <div className="beforeSearch">
+                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise <br/>  alle begrepene i katalogen</Ingress> 
+                    </div>
+                    :
+                    <Table/>
+                }
                 
                 
 
