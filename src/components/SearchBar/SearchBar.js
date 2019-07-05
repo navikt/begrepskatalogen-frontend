@@ -2,6 +2,7 @@ import React from 'react';
 import { Input } from 'nav-frontend-skjema';
 import './SearchBar.less';
 
+//import { Field, reduxForm } from "redux-form";
 import {connect} from 'react-redux';
 import { updateSearch } from '../../redux/actions/SearchAction';
 
@@ -45,6 +46,12 @@ class SearchBar extends React.Component{
     }
 
 }
+
+/** handleSubmit = event =>{
+    event.preventDefault();
+    this.props.search();
+    this.props.page();
+}*/
 
 const mapStateToProps = (state, props) => {
     console.log(props);
