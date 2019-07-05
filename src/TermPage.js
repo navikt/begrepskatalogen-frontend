@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidetittel, Ingress, Undertittel, Normaltekst} from 'nav-frontend-typografi';
+import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-frontend-typografi';
 
 import './TermPage.less';
 import Lukknapp  from 'nav-frontend-lukknapp';
@@ -13,14 +13,18 @@ export class TermPage extends React.Component{
           
                 <div className="begrepsHeader">
                    
-                    <Normaltekst className="status">Status</Normaltekst>
-                    <Normaltekst className="linker">Del begrepet</Normaltekst>
-                    <Normaltekst className="linker">Gi innspill til begrepet</Normaltekst>
-                    <Link className="lukknapp" to={'/'}>
-                    </Link>
+                    <Link className="tilbake" to ={'/'}><Element>⇦ Tilbake</Element></Link>
+                    <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
+                    <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
+
+
 
                 </div>
+
+                <div  className= "status"><Normaltekst>Godkjent / Ikke godkjent begrep</Normaltekst></div>
+
                 <div className="venstreFeltAvSiden">
+
                     <div className = "begrepsoverskrift">
                         <Sidetittel>Begrep</Sidetittel>
                         <br/>

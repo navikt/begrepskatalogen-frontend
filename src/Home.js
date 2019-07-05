@@ -28,7 +28,11 @@ export class Home extends Component {
                         se alle begrepene</button> </Ingress> 
                         : 
                         <div className="afterSearch">
-                            <Ingress>Viser XX godkjente begreper relevant til ditt søk.</Ingress> 
+                            <Ingress>
+                                Viser XX godkjente begreper relevant til ditt søk.<br/>
+                                Viser XX ikke-godkjente begreper. <button>Vil du skjule dem?</button> <br/>
+                                Eller vil du se <button /*onclick*/>alle begrepene i katalogen?</button>
+                            </Ingress> 
                         </div>
                     }
                 

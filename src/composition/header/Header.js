@@ -36,7 +36,7 @@ class Header extends Component {
                     <Navigation/>
                     <SearchBar/>
                 </div>
-                <hr/>
+
 
                 
             </div>

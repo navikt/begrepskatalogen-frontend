@@ -3,6 +3,8 @@
 .begrepsHeader {grid-area: header;}
 .venstreFeltAvSiden {grid-area: leftSide;}
 .hoyreFeltAvSiden {grid-area: rightSide;}
+.status {grid-area: status;}
+
 
 
 .gridContainer{
@@ -12,6 +14,7 @@
     display: grid;
     grid-template-areas: 
     'header header  header '
+    'status status status'
     'leftSide  leftSide rightSide'
     'leftSide  leftSide rightSide'
     'leftSide  leftSide rightSide';
@@ -32,47 +35,58 @@
         display: flex;
         border-bottom: solid 0.0001rem black;
 
-        .lukknapp{
-            margin-left: 60%;
+        .tilbake{
+            padding-left: 2%;
+            padding-right: 58%;
             position: relative;
-        }
-
-        .status {
-            position: relative;
-            margin-left: 3%;
+            text-decoration: none;
+            color: #0067C5;
         }
 
         .linker{
-            margin-left: 8%;
-
+            padding-left: 4%;
+            text-decoration: none;
             position: relative;
+            color: #0067C5;
+        }
+
+        
+    }
+
+    .status{
+
+        padding-left: 2%
+    }
+
+    .venstreFeltAvSiden{
+        
+        .begrepsoverskrift{
+            margin-left: 3%;
+    
+        }
+    
+        .begrepsforklaring{
+            margin-left: 3%;
+        }
+    
+        .eksempler{
+            margin-left: 3%;
+        }
+    
+        .kilde{
+            margin-left: 3%;
+        }
+    
+        .relasjoner{
+            margin-left: 3%;
+        }
+    
+        .revidert{
+            margin-left: 3%;
         }
     }
 
-    .begrepsoverskrift{
-        margin-left: 3%;
-
-    }
-
-    .begrepsforklaring{
-        margin-left: 3%;
-    }
-
-    .eksempler{
-        margin-left: 3%;
-    }
-
-    .kilde{
-        margin-left: 3%;
-    }
-
-    .relasjoner{
-        margin-left: 3%;
-    }
-
-    .revidert{
-        margin-left: 3%;
-    }
+    
 
     .hoyreFeltAvSiden{
 
