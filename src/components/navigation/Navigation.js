@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Element } from 'nav-frontend-typografi';
 import { Knapp, Flatknapp } from 'nav-frontend-knapper';
-import 'nav-frontend-lenker-style'
-import './Navigation.less'
-import './HeaderButtons.less'
+import 'nav-frontend-lenker-style';
+import './Navigation.less';
+import './HeaderButtons.less';
 
 import { toggleFancy } from '../../redux/actions/AppActions';
 
 
 class Navigation extends React.Component{
-    handleClick = () => {
-        this.props.dispatch(togggleFancy());
-    }
+    
 
     render(){
         return (
@@ -30,8 +28,8 @@ class Navigation extends React.Component{
                                     <Element>Kontakt oss</Element>
                                 </Link>
                             </li>
-                            <li>  <Link to = {""} className ="navStyle__navLink lenke">
-                                    <Knapp onClick={this.handleClick}>Meld inn nytt begrep</Knapp>
+                            <li>  <Link to = {"/begrepsside"} className ="navStyle__navLink lenke">
+                                    <Element>Meld inn nytt begrep</Element>
                                 </Link>
                             </li>
                         </ul>

@@ -1,0 +1,107 @@
+@import (reference) '~nav-frontend-core/less/_variabler';
+
+.begrepsHeader {grid-area: header;}
+.venstreFeltAvSiden {grid-area: leftSide;}
+.hoyreFeltAvSiden {grid-area: rightSide;}
+.status {grid-area: status;}
+
+
+
+.gridContainer{
+
+    margin-right: 3%;
+    margin-left: 3%;
+    display: grid;
+    grid-template-areas: 
+    'header header  header '
+    'status status status'
+    'leftSide  leftSide rightSide'
+    'leftSide  leftSide rightSide'
+    'leftSide  leftSide rightSide';
+
+    grid-gap: 1.5px;
+    background-color: @navLysGra;
+    padding:1px;
+
+    div{
+        background-color: white;
+
+        padding: 15px 0;
+    
+    }
+
+    .begrepsHeader{
+        justify-content: flex-start;
+        display: flex;
+        border-bottom: solid 0.0001rem black;
+
+        .tilbake{
+            padding-left: 2%;
+            padding-right: 58%;
+            position: relative;
+            text-decoration: none;
+            color: #0067C5;
+        }
+
+        .linker{
+            padding-left: 4%;
+            text-decoration: none;
+            position: relative;
+            color: #0067C5;
+        }
+
+        
+    }
+
+    .status{
+
+        padding-left: 2%
+    }
+
+    .venstreFeltAvSiden{
+        
+        .begrepsoverskrift{
+            margin-left: 3%;
+    
+        }
+    
+        .begrepsforklaring{
+            margin-left: 3%;
+        }
+    
+        .eksempler{
+            margin-left: 3%;
+        }
+    
+        .kilde{
+            margin-left: 3%;
+        }
+    
+        .relasjoner{
+            margin-left: 3%;
+        }
+    
+        .revidert{
+            margin-left: 3%;
+        }
+    }
+
+    
+
+    .hoyreFeltAvSiden{
+
+        .beskrivelsestype{
+            margin-left: 3%;
+        }
+
+        .fagomraade{
+            margin-left: 3%;
+
+        }
+
+        .begrepseier{
+            margin-left: 3%;
+        }
+    }
+
+}
