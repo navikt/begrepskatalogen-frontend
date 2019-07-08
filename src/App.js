@@ -18,7 +18,6 @@ const mapStateToProps = (store) => ({
     fancy: store.fancy,
     loading: store.loading,
     counter: store.counter
-    //page: state.page
 });
 
 
@@ -34,8 +33,6 @@ class App extends Component{
         this.props.dispatch(fetchData());
         this.props.dispatch(addOne());
         this.props.dispatch(addX(5));
-        this.props.dispatch(searchResult());
-        //this.props.sortItems();
     }
    
 
