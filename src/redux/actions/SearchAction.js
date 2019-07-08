@@ -8,9 +8,3 @@ export function updateSearch(newSearch){
         search: newSearch
     }
 }
-
-//sort page func
-export const sortItems = (page, sort) => async dispatch =>{
-    dispatch({type: 'UPDATE_SORT', payload: sort});
-    dispatch({type: 'UPDATE_PAGE', payload: page});
-}
