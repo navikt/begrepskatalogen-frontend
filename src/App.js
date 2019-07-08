@@ -12,12 +12,13 @@ import Home from './Home';
 import KontaktOss from './KontaktOss';
 import TermPage from './TermPage';
 
-import { fetchData, addOne, addX } from './redux/actions/AppActions';
+import { fetchData, addOne, addX, searchResult } from './redux/actions/AppActions';
 
 const mapStateToProps = (store) => ({
     fancy: store.fancy,
     loading: store.loading,
     counter: store.counter
+    //page: state.page
 });
 
 
@@ -32,9 +33,11 @@ class App extends Component{
         console.log("funker");
         this.props.dispatch(fetchData());
         this.props.dispatch(addOne());
-        this.props.dispatch(addX(5))
+        this.props.dispatch(addX(5));
+        this.props.dispatch(searchResult());
+        //this.props.sortItems();
     }
-  
+   
 
     render(){
         return (
