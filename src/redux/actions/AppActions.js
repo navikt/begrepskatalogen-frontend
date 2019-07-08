@@ -6,7 +6,7 @@ export function toggleFancy() {
 
 //.then(res => res.json()
 
-/* export function fetchData(){
+export function fetchData(){
     const API = 'http://localhost:8080/api/issues';
     return function(dispatch){
         dispatch({
@@ -21,7 +21,8 @@ export function toggleFancy() {
             });
         });
     }
-}*/
+}
+/*
 export function fetchData() {
     const API = 'http://localhost:8080/api/issues';
     return dispatch =>{
@@ -57,7 +58,7 @@ export const fetchProdctsSuccess = API => ({
 export const fetchProductsFailure = error => ({
     type: FETCH_PRODUCTS_FAILURE,
     payload: { error }
-});
+});*/
 
 export function addOne(){
     return{

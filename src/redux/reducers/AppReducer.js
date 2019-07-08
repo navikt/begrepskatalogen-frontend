@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
     fancy: false,
     loading: false,
     items: [],
@@ -28,6 +28,7 @@ function appReducer(state = initialState, action) {
             return Object.assign({},state, {counter: action.payload}); 
             
 
+            /*
         case 'FETCH_PRODUCTS_BEGIN':
             //mark state as "loading" for spinner. + reset errors for fresh start
             return{
@@ -52,7 +53,7 @@ function appReducer(state = initialState, action) {
                 error: action.payload.error,
                 items: []
             }
-
+*/
 
     
 
