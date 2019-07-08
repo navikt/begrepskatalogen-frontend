@@ -16,8 +16,12 @@ import { fetchData, addOne, addX, searchResult } from './redux/actions/AppAction
 
 const mapStateToProps = (store) => ({
     fancy: store.fancy,
-    loading: store.loading,
-    counter: store.counter
+    //loading: store.loading,
+    counter: store.counter,
+    
+    API: store.API.items,
+    loading: store.API.loading,
+    error: store.API.error
 });
 
 
