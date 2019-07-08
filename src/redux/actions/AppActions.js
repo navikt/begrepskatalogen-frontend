@@ -35,3 +35,10 @@ export function addX(addX){
         payload: addX
     }
 }
+
+export function searchResult(searchResult){
+    return{
+        type:'SEARCHRESULT',
+        payload: searchResult
+    }
+}

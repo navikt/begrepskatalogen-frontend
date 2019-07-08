@@ -2,7 +2,8 @@ const initialState = {
     fancy: false,
     loading: false,
     items: [],
-    counter: 0
+    counter: 0,
+    updatedSearch: []
 };
 
 function appReducer(state = initialState, action) {
@@ -23,6 +24,10 @@ function appReducer(state = initialState, action) {
 
         case 'ADD_X':
             return Object.assign({},state, {counter: action.payload});    
+
+        //fyller inn updatedSearch (tom liste) med søkeresultatene
+        case 'SEARCHRESULT':
+            return Object.assign({},state, {items: action.payload});
 
         default:
             return state 
