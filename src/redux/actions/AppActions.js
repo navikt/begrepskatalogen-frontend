@@ -1,3 +1,5 @@
+//import { FILTRER_KATEGORI } from "./types";
+
 export function toggleFancy() {
     return {
         type: 'TOGGLE_FANCY'
@@ -72,3 +74,11 @@ export function addX(addX){
         payload: addX
     }
 }
+
+//tar opp listen med alle elementer, og kategori du filtrerer ved
+/*export const filterCategory = category => (dispatch)=> {
+    return dispatch({
+        type: FILTRER_KATEGORI,
+        payload: category
+    })
+}*/
