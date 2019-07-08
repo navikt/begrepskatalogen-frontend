@@ -3,8 +3,7 @@ export const initialState = {
     loading: false,
     items: [],
     counter: 0,
-    updatedSearch: [],
-    error: null
+    //error: null
 };
 
 

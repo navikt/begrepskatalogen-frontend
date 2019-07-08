@@ -1,14 +1,16 @@
-import { TERM, DEFINISJON, ASSIGNEE, OPPDATERT} from '../actions/types';
+//import { TERM, DEFINISJON, ASSIGNEE, OPPDATERT} from '../actions/types';
 
 const initialState = {
-    orderBy: "Term",
-    order: 1
+    /*orderBy: "Term",
+    order: 1*/
+    sortBy: 'id',
+    order: 'asc'
 
 };
 
 const sortReducer = (state = initialState, action) => {
     switch(action.type){
-        case TERM:
+        /*case TERM:
             return{
                 orderBy: "Kategori",
                 order: 1
@@ -30,7 +32,14 @@ const sortReducer = (state = initialState, action) => {
             return{
                 orderBy: "Sist endret",
                 order: 1
+            };*/
+        
+        case 'SORT_BY_SELECTED':
+            return{
+                ...state,
+                sortBy: action.selected
             };
+
             
         
         default:
