@@ -10,7 +10,7 @@ export function updateSearch(newSearch){
 }
 
 //sort page func
-export const getItems = (page, sort) => async dispatch =>{
+export const sortItems = (page, sort) => async dispatch =>{
     dispatch({type: 'UPDATE_SORT', payload: sort});
     dispatch({type: 'UPDATE_PAGE', payload: page});
 }
