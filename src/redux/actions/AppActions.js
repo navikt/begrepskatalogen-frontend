@@ -17,7 +17,7 @@ export function fetchData(){
         .then(function(response){
             dispatch({
                 type: 'FETCH_DATA_COMPLETE',
-                payload: ret = response.json()
+                payload: response.json()
             });
         });
     }
