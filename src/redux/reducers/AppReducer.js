@@ -3,7 +3,6 @@ export const initialState = {
     loading: false,
     items: [],
     counter: 0,
-    //error: null
 };
 
 
@@ -26,36 +25,6 @@ function appReducer(state = initialState, action) {
         case 'ADD_X':
             return Object.assign({},state, {counter: action.payload}); 
             
-
-            /*
-        case 'FETCH_PRODUCTS_BEGIN':
-            //mark state as "loading" for spinner. + reset errors for fresh start
-            return{
-                ...state,
-                loading: true,
-                error: null
-            };
-        
-        case 'FETCH_PRODUCTS_SUCCESS':
-            //When loading done, set to "loading to false"
-            //replace items with the ones form server
-            return{
-                ...state,
-                loading: false,
-                items: action.payload.API
-            }
-
-        case 'FETCH_PRODUCTS_FAILURE':
-            return{
-                ...state,
-                loading: false,
-                error: action.payload.error,
-                items: []
-            }
-*/
-
-    
-
         default:
             return state; 
     }

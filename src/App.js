@@ -12,17 +12,13 @@ import Home from './Home';
 import KontaktOss from './KontaktOss';
 import TermPage from './TermPage';
 
-import { fetchData, addOne, addX, searchResult } from './redux/actions/AppActions';
+import { fetchData, addOne, addX } from './redux/actions/AppActions';
 
 const mapStateToProps = (store) => ({
     fancy: store.fancy,
     loading: store.loading,
     counter: store.counter,
     
-    /*
-    API: store.API.items,
-    loading: store.API.loading,
-    error: store.API.error*/
 });
 
 
