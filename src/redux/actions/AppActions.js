@@ -17,26 +17,9 @@ export function fetchData(){
         .then(function(response){
             dispatch({
                 type: 'FETCH_DATA_COMPLETE',
-                payload: response.json()
+                items: response.json()
             });
         });
     }
 }
-
-/* eksempel
-export function addOne(){
-    return{
-        type: 'ADD_ONE'  
-    };
-}
-
-
-export function addX(addX){
-    return{
-        type: 'ADD_X',
-        payload: addX
-    }
-}
-}*/
-
 
