@@ -82,3 +82,10 @@ export function addX(addX){
         payload: category
     })
 }*/
+
+export function updateSearchText(txt){
+    return{
+        type: 'UPDATE_SEARCHTEXT',
+        payload: txt
+    }
+}

@@ -1,9 +1,13 @@
+import { updateSearchText } from "../actions/AppActions";
+
 export const initialState = {
     fancy: false,
     loading: false,
     items: [],
     counter: 0,
     //error: null
+
+    searchText: '',
 };
 
 
@@ -54,6 +58,9 @@ function appReducer(state = initialState, action) {
             }
 */
 
+
+        case 'UPDATE_SEARCHTEXT':
+            return Object.assign({}, state, {searchText: action.payload});
     
 
         default:
