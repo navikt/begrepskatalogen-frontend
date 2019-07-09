@@ -1,9 +1,5 @@
-import { UPDATE_SEARCH } from '../actions/SearchAction';
-
 const initialState={
     query ="",
-    sort: "num",
-    page = 0
 };
 
 export default function searchReducer(state=initialState, action){
@@ -28,7 +24,6 @@ export default function searchReducer(state=initialState, action){
                 ...state,
                 sort: action.payload
             }
-
 
         default:
             return search;
