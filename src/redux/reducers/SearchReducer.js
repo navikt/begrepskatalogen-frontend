@@ -1,4 +1,3 @@
-import { UPDATE_SEARCH } from '../actions/SearchAction';
 
 const initialState={
     query ="",
