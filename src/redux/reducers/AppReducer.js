@@ -1,10 +1,11 @@
-const initialState = {
+export const initialState = {
     fancy: false,
     loading: false,
     items: [],
     counter: 0,
-    updatedSearch: []
+    //error: null
 };
+
 
 function appReducer(state = initialState, action) {
     switch (action.type) {
@@ -23,15 +24,41 @@ function appReducer(state = initialState, action) {
             return Object.assign({},state, {counter: state.counter+1});
 
         case 'ADD_X':
-            return Object.assign({},state, {counter: action.payload});    
+            return Object.assign({},state, {counter: action.payload}); 
+            
+
+            /*
+        case 'FETCH_PRODUCTS_BEGIN':
+            //mark state as "loading" for spinner. + reset errors for fresh start
+            return{
+                ...state,
+                loading: true,
+                error: null
+            };
+        
+        case 'FETCH_PRODUCTS_SUCCESS':
+            //When loading done, set to "loading to false"
+            //replace items with the ones form server
+            return{
+                ...state,
+                loading: false,
+                items: action.payload.API
+            }
+
+        case 'FETCH_PRODUCTS_FAILURE':
+            return{
+                ...state,
+                loading: false,
+                error: action.payload.error,
+                items: []
+            }
+*/
 
     
 
         default:
-            return state 
+            return state; 
     }
-
-    return state;
 }
 
 export default appReducer;
