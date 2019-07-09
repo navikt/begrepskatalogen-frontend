@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import KontaktOss from './KontaktOss';
 import TermPage from './TermPage';
-import { fetchData, addOne, addX } from './redux/actions/AppActions';
 
 import { fetchData, addOne, addX, searchResult, updateSearchText } from './redux/actions/AppActions';
 

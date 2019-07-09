@@ -1,8 +1,8 @@
-const initialState={
-    query ="",
+export const initialState= {
+    query: " "
 };
 
-export default function searchReducer(state=initialState, action){
+function searchReducer(state=initialState, action){
     switch (action.type){
         case 'UPDATE_SEARCH':
             return payload;
@@ -26,6 +26,8 @@ export default function searchReducer(state=initialState, action){
             }
 
         default:
-            return search;
+            return state;
     }
 }
+
+export default searchReducer;
