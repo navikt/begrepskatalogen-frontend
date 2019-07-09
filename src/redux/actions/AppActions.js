@@ -68,12 +68,13 @@ export function addOne(){
     };
 }
 
+/* eksempel
 export function addX(addX){
     return{
         type: 'ADD_X',
         payload: addX
     }
-}
+}*/
 
 //tar opp listen med alle elementer, og kategori du filtrerer ved
 /*export const filterCategory = category => (dispatch)=> {
