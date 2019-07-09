@@ -28,7 +28,6 @@ export default function searchReducer(state=initialState, action){
                 sort: action.payload
             }
 
-
         default:
             return search;
     }

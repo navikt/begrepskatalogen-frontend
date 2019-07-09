@@ -40,8 +40,6 @@ const sortReducer = (state = initialState, action) => {
                 sortBy: action.selected
             };
 
-            
-        
         default:
             return state;
     }

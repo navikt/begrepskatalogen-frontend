@@ -13,7 +13,7 @@ import { fetchData, addOne, addX } from './redux/actions/AppActions';
 const mapStateToProps = (store) => ({
     fancy: store.fancy,
     loading: store.loading,
-    counter: store.counter,  
+    counter: store.counter, 
 });
 
 
@@ -31,9 +31,11 @@ class App extends Component{
     }
    
     render(){
+        console.log("payload", this.props.items)
         return (
             <div className="App">
                 { this.props.fancy && <div id="fancy" /> }
+
                 <Router>
                     <Header/>
             

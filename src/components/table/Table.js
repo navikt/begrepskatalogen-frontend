@@ -3,7 +3,7 @@ import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
-
+import {connect} from 'react-redux';
 
 const API = 'http://localhost:8080/api/issues';
 const DEFAULT_QUERY = 'redux';
@@ -55,7 +55,7 @@ class Table extends React.Component{
                     <div className="altavtabell">
                         
                         
-                        <table class="sturdy" className="begreper">
+                        <table className="begreper">
                             
 
                             <thead className="separator">
@@ -84,4 +84,11 @@ class Table extends React.Component{
     }
 }
 
-export default Table;
+const mapStateToProps = (state, props) => {
+    console.log(props);
+    return {
+        search: state.search,
+    }
+};
+
+export default connect(mapStateToProps)(Table);

@@ -18,7 +18,7 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { loading: true }); 
         case 'FETCH_DATA_COMPLETE':
             return Object.assign({}, state, { items: action.payload });
-
+            
         case 'ADD_ONE':
             return Object.assign({},state, {counter: state.counter+1});
 
