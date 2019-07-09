@@ -5,7 +5,6 @@ export const initialState = {
     loading: false,
     items: [],
     counter: 0,
-    searchText: '',
 };
 
 
@@ -13,10 +12,11 @@ function appReducer(state = initialState, action) {
     switch (action.type) {
     	case 'TOGGLE_FANCY': 
     		return Object.assign({}, state, { fancy: !state.fancy });
-
+        /*
         case 'search:updateSearch':
             console.log(action)
             return Object.assign({}, state, { search: action.search });
+        */
         case 'FETCH_DATA_BEGIN':
             return Object.assign({}, state, { loading: true }); 
         case 'FETCH_DATA_COMPLETE':

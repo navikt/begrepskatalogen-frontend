@@ -5,7 +5,6 @@ export const initialState = {
     order: 1*/
     sortBy: 'id',
     order: 'asc'
-
 };
 
 function sortReducer = (state = initialState, action) => {

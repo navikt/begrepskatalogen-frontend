@@ -1,11 +1,11 @@
 export const initialState= {
-    query: " "
+    search: '',
 };
 
 function searchReducer(state=initialState, action){
     switch (action.type){
         case 'UPDATE_SEARCH':
-            return payload;
+            return Object.assign({}, state, { search: action.search });
         
         case 'UPDATE_PAGE':
             return{
