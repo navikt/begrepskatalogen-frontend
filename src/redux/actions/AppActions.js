@@ -23,12 +23,13 @@ export function fetchData(){
     }
 }
 
-
+/* eksempel
 export function addOne(){
     return{
         type: 'ADD_ONE'  
     };
 }
+
 
 export function addX(addX){
     return{
@@ -36,3 +37,6 @@ export function addX(addX){
         payload: addX
     }
 }
+}*/
+
+

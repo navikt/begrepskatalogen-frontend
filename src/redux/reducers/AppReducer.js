@@ -1,8 +1,11 @@
+import { updateSearchText } from "../actions/AppActions";
+
 export const initialState = {
     fancy: false,
     loading: false,
     items: [],
     counter: 0,
+    searchText: '',
 };
 
 
@@ -10,7 +13,7 @@ function appReducer(state = initialState, action) {
     switch (action.type) {
     	case 'TOGGLE_FANCY': 
     		return Object.assign({}, state, { fancy: !state.fancy });
-            break;
+
         case 'search:updateSearch':
             console.log(action)
             return Object.assign({}, state, { search: action.search });

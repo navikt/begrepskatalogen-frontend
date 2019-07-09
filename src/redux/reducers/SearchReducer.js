@@ -1,8 +1,5 @@
-
 const initialState={
     query ="",
-    sort: "num",
-    page = 0
 };
 
 export default function searchReducer(state=initialState, action){
