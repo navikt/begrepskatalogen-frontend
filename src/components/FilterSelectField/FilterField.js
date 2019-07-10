@@ -14,7 +14,7 @@ function FilterField(){
             </div>
 
             <div className="filterselect">
-                <Select     
+                <Select label=""  
                     bredde="m"
                     >
                         <option value=''>Tema</option>

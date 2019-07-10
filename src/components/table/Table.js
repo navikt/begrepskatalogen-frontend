@@ -42,7 +42,6 @@ class Table extends React.Component{
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{oppdatert}</Normaltekst></td>
                 </tr>
-                
             );
         })
     }
@@ -55,11 +54,8 @@ class Table extends React.Component{
                             {"search prop table" + this.props.search}  
                             <FilterField/><SortField/>  
                     </div>
-                
                     <div className="altavtabell">
-                        
                         <table className="begreper">
-
                             <thead className="separator">
                                 
                             <tr>
@@ -68,11 +64,9 @@ class Table extends React.Component{
                                 <th><Systemtittel>Status</Systemtittel></th>
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
                                 <th><Systemtittel>Oppatert</Systemtittel></th>
-                
                             </tr>
                             
                             </thead>
-
                             <tbody>
                             {this.renderTableData()}
                             </tbody>
@@ -81,8 +75,7 @@ class Table extends React.Component{
                 </div>
                 <div>
             </div>
-            </div>
-            
+            </div>   
         );
     }
 }
