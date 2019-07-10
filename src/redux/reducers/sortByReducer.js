@@ -1,14 +1,13 @@
 //import { TERM, DEFINISJON, ASSIGNEE, OPPDATERT} from '../actions/types';
 
-const initialState = {
+export const initialState = {
     /*orderBy: "Term",
     order: 1*/
     sortBy: 'id',
     order: 'asc'
-
 };
 
-const sortReducer = (state = initialState, action) => {
+function sortReducer = (state = initialState, action) => {
     switch(action.type){
         /*case TERM:
             return{
@@ -40,9 +39,9 @@ const sortReducer = (state = initialState, action) => {
                 sortBy: action.selected
             };
 
-            
-        
         default:
             return state;
     }
 }
+
+export default sortByReducer;
