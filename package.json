@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rimraf .cache && parcel src/index.html",
-    "serve": "rimraf .cache && node devserver.js"
+    "serve": "rimraf .cache && node server/server-dev.js",
+    "build": "parcel build src/index.html",
+    "up": "docker-compose up -d --remove-orphans --build"
   },
   "repository": {
     "type": "git",

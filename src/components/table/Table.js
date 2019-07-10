@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import { fetchData } from '../../redux/actions/AppActions';
 
 
-const API = 'http://localhost:8080/api/issues';
+const API = '/api/issues';
 //const DEFAULT_QUERY = 'redux';
 
 class Table extends React.Component{
@@ -22,7 +22,7 @@ class Table extends React.Component{
         if(!this.props.items){
             return false;
         }
-        
+
         return this.props.items.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
@@ -42,13 +42,13 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            {"search prop table" + this.props.search} 
-                            <FilterField/><SortField/>  
+                            {"search prop table" + this.props.search}
+                            <FilterField/><SortField/>
                     </div>
                     <div className="altavtabell">
                         <table className="begreper">
                             <thead className="separator">
-                                
+
                             <tr>
                                 <th><Systemtittel>Term</Systemtittel></th>
                                 <th ><Systemtittel>Definisjon</Systemtittel></th>
@@ -56,7 +56,7 @@ class Table extends React.Component{
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
                                 <th><Systemtittel>Oppatert</Systemtittel></th>
                             </tr>
-                            
+
                             </thead>
                             <tbody>
                             {this.renderTableData()}
@@ -66,7 +66,7 @@ class Table extends React.Component{
                 </div>
                 <div>
             </div>
-            </div>   
+            </div>
         );
     }
 }
