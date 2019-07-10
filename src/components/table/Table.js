@@ -5,25 +5,57 @@ import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect} from 'react-redux';
 import { fetchData } from '../../redux/actions/AppActions';
-
-
-const API = 'http://localhost:8080/api/issues';
-//const DEFAULT_QUERY = 'redux';
+import Fuse from 'fuse.js';
 
 class Table extends React.Component{
 
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
-        this.state = {};
+        this.state = ({ list: [] });
+    }
+
+
+    resultTable() {
+        this.state.searchTable.push(this.props.items[0])
+        console.log("result table", this.state.searchTable)
+        for( var i = 0; i < this.props.items.length; i++) {
+            /*if( this.props.items[i].term == this.props.search) {
+                this.state.searchTable.push(items[i])
+            }*/
+            this.state.searchTable.push(this.props.items[i])
+        }
+    }
+
+    searchResult() {
+        var options = {
+            shouldSort: true,
+            findAllMatches: true,
+            threshold: 0,
+            //includeScore: true,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+                "term"
+            ]
+        };
+        var fuse = new Fuse(this.props.items, options);
+        const resultTable = fuse.search(this.props.search)
+        console.log("Fuse res", resultTable);
+        return resultTable;
     }
 
     renderTableData(){
+        const list = this.searchResult();
+        console.log("liste som skal rendres", this.state.list)
+        console.log("items listen", this.props.items)
         if(!this.props.items){
             return false;
         }
         
-        return this.props.items.map((item) => {
+        return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
