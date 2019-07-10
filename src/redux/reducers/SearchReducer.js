@@ -1,12 +1,12 @@
-const initialState={
-    query ="",
+export const initialState= {
+    search: '',
 };
 
-export default function searchReducer(state=initialState, action){
+function searchReducer(state=initialState, action){
     switch (action.type){
         case 'UPDATE_SEARCH':
-            return payload;
-        
+            return Object.assign({}, state, { search: action.search });
+        /*
         case 'UPDATE_PAGE':
             return{
                 ...state,
@@ -24,8 +24,10 @@ export default function searchReducer(state=initialState, action){
                 ...state,
                 sort: action.payload
             }
-
+        */
         default:
-            return search;
+            return state;
     }
 }
+
+export default searchReducer;

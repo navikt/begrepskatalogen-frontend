@@ -3,10 +3,12 @@ import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
+import {connect} from 'react-redux';
+import { fetchData } from '../../redux/actions/AppActions';
 
 
 const API = 'http://localhost:8080/api/issues';
-const DEFAULT_QUERY = 'redux';
+//const DEFAULT_QUERY = 'redux';
 
 class Table extends React.Component{
 
@@ -16,19 +18,12 @@ class Table extends React.Component{
         this.state = {};
     }
 
-    componentDidMount(){
-        fetch(API)
-        .then(res => res.json())
-        .then(data => this.setState({items: data}));
-    }
-
-
     renderTableData(){
-        if(!this.state.items){
+        if(!this.props.items){
             return false;
         }
         
-        return this.state.items.map((item) => {
+        return this.props.items.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
@@ -38,10 +33,8 @@ class Table extends React.Component{
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{oppdatert}</Normaltekst></td>
                 </tr>
-                
             );
         })
-        
     }
 
     render(){
@@ -49,15 +42,11 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            <FilterField/><SortField/>    
+                            {"search prop table" + this.props.search} 
+                            <FilterField/><SortField/>  
                     </div>
-                
                     <div className="altavtabell">
-                        
-                        
-                        <table class="sturdy" className="begreper">
-                            
-
+                        <table className="begreper">
                             <thead className="separator">
                                 
                             <tr>
@@ -66,22 +55,28 @@ class Table extends React.Component{
                                 <th><Systemtittel>Status</Systemtittel></th>
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
                                 <th><Systemtittel>Oppatert</Systemtittel></th>
-                
                             </tr>
                             
                             </thead>
-
                             <tbody>
                             {this.renderTableData()}
                             </tbody>
                         </table>
-
                     </div>
                 </div>
+                <div>
             </div>
-
+            </div>   
         );
     }
 }
 
-export default Table;
+const mapStateToProps = (state, props) => {
+    console.log("table props", props);
+    return {
+        search: state.search,
+        items: state.items
+    }
+};
+
+export default connect(mapStateToProps)(Table);
