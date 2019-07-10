@@ -14,6 +14,7 @@ const mapStateToProps = (store) => ({
     fancy: store.fancy,
     loading: store.loading,
     counter: store.counter, 
+    items: store.items
 });
 
 
@@ -40,7 +41,6 @@ class App extends Component{
 
                 <Router>
                     <Header/>
-            
                     <Route exact path = '/' component = {Home} />
                     <Route exact path='/kontaktoss' component = {KontaktOss}/>
                     <Route exact path = '/begrepsside' component = {TermPage}/>

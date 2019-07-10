@@ -6,7 +6,7 @@ function searchReducer(state=initialState, action){
     switch (action.type){
         case 'UPDATE_SEARCH':
             return Object.assign({}, state, { search: action.search });
-        
+        /*
         case 'UPDATE_PAGE':
             return{
                 ...state,
@@ -24,7 +24,7 @@ function searchReducer(state=initialState, action){
                 ...state,
                 sort: action.payload
             }
-
+        */
         default:
             return state;
     }

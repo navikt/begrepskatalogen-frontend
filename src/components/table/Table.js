@@ -4,9 +4,11 @@ import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect} from 'react-redux';
+import { fetchData } from '../../redux/actions/AppActions';
+
 
 const API = 'http://localhost:8080/api/issues';
-const DEFAULT_QUERY = 'redux';
+//const DEFAULT_QUERY = 'redux';
 
 class Table extends React.Component{
 
@@ -20,6 +22,8 @@ class Table extends React.Component{
         fetch(API)
         .then(res => res.json())
         .then(data => this.setState({items: data}));
+        
+       this.props.dispatch(fetchData);
     }
 
 
@@ -41,7 +45,6 @@ class Table extends React.Component{
                 
             );
         })
-        
     }
 
     render(){
@@ -49,14 +52,13 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            <FilterField/><SortField/>    
+                            {"search prop table" + this.props.search}  
+                            <FilterField/><SortField/>  
                     </div>
                 
                     <div className="altavtabell">
                         
-                        
                         <table className="begreper">
-                            
 
                             <thead className="separator">
                                 
@@ -75,19 +77,21 @@ class Table extends React.Component{
                             {this.renderTableData()}
                             </tbody>
                         </table>
-
                     </div>
                 </div>
+                <div>
             </div>
-
+            </div>
+            
         );
     }
 }
 
 const mapStateToProps = (state, props) => {
-    console.log(props);
+    console.log("table props", props);
     return {
         search: state.search,
+        items: state.items
     }
 };
 

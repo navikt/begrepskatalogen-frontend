@@ -7,10 +7,11 @@ import searchReducer from './reducers/SearchReducer';
 
 const logger = createLogger();
 const middleware = applyMiddleware(promise, thunk, logger);
-const reducers = combineReducers( {
+/*const reducers = combineReducers({
     searchReducer,
     appReducer
-})
+})*/
 
-const store = createStore(reducers, middleware);
+const store = createStore(appReducer, middleware);
+console.log("Store state", store.getState());
 export default store;

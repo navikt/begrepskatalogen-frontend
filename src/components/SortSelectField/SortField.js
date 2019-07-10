@@ -5,8 +5,7 @@ import './SortField.less'
 
 function SortField(){
     return(
-        <div class="wrapper">
-            
+        <div className="wrapper">
             <div className="sortertekst">
                 <Normaltekst >
                     Sorter etter: 

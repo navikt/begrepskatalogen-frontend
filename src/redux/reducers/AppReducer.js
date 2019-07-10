@@ -1,10 +1,10 @@
-import { updateSearchText } from "../actions/AppActions";
 
 export const initialState = {
     fancy: false,
     loading: false,
     items: [],
     counter: 0,
+    search: ''
 };
 
 
@@ -20,8 +20,11 @@ function appReducer(state = initialState, action) {
         case 'FETCH_DATA_BEGIN':
             return Object.assign({}, state, { loading: true }); 
         case 'FETCH_DATA_COMPLETE':
-            return Object.assign({}, state, { items: action.items });
-            
+            return Object.assign({}, state, { loading: false, items: action.items });
+        
+        case 'UPDATE_SEARCH':
+            return Object.assign({}, state, { search: action.search });
+        
         case 'ADD_ONE':
             return Object.assign({},state, {counter: state.counter+1});
 
