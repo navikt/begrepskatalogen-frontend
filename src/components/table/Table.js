@@ -15,17 +15,6 @@ class Table extends React.Component{
         this.state = ({ list: [] });
     }
 
-    resultTable() {
-        this.state.searchTable.push(this.props.items[0])
-        console.log("result table", this.state.searchTable)
-        for( var i = 0; i < this.props.items.length; i++) {
-            /*if( this.props.items[i].term == this.props.search) {
-                this.state.searchTable.push(items[i])
-            }*/
-            this.state.searchTable.push(this.props.items[i])
-        }
-    }
-
     searchResult() {
         var options = {
             shouldSort: true,
