@@ -4,8 +4,8 @@ import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect} from 'react-redux';
-import { fetchData } from '../../redux/actions/AppActions';
 import Fuse from 'fuse.js';
+
 
 class Table extends React.Component{
 
@@ -14,7 +14,6 @@ class Table extends React.Component{
         this.renderTableData = this.renderTableData.bind(this);
         this.state = ({ list: [] });
     }
-
 
     resultTable() {
         this.state.searchTable.push(this.props.items[0])
