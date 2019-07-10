@@ -40,6 +40,14 @@ const sortReducer = (state = initialState, action) => {
                 sortBy: action.selected
             };
 
+
+        //TODO: test ut denne delen. resten ligger i sortByReducer, sortaction og sortfield
+        case 'SET_SORT_PARAM':
+            return{
+                ...state,
+                sortParams: action.payload.data
+            };
+
             
         
         default:

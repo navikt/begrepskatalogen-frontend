@@ -17,9 +17,9 @@ function SortField(){
                 <Select     
                     bredde="m"
                     >
-                        <option value='Alfabetisk'>Alfabetisk</option>
-                        <option value='Dato'>Sist Oppdatert</option>
-                        <option value='Begrepseier'>Begrepseier</option>
+                        <option value='Alfabetisk' onSelect={() => setSortParams("Alfabetisk")}>Alfabetisk</option>
+                        <option value='Sist_Oppdatert' onSelect={() => setSortParams("Sist_Oppdatert")}>Sist Oppdatert</option>
+                        <option value='Begrepseier'onSelect={() => setSortParams("Begrepseier")}>Begrepseier</option>
                 </Select>
             </div>
         </div>
