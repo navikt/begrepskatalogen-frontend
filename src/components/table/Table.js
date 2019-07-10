@@ -18,21 +18,12 @@ class Table extends React.Component{
         this.state = {};
     }
 
-    componentDidMount(){
-        fetch(API)
-        .then(res => res.json())
-        .then(data => this.setState({items: data}));
-        
-       this.props.dispatch(fetchData);
-    }
-
-
     renderTableData(){
-        if(!this.state.items){
+        if(!this.props.items){
             return false;
         }
         
-        return this.state.items.map((item) => {
+        return this.props.items.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
@@ -51,7 +42,7 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            {"search prop table" + this.props.search}  
+                            {"search prop table" + this.props.search} 
                             <FilterField/><SortField/>  
                     </div>
                     <div className="altavtabell">

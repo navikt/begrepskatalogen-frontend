@@ -15,10 +15,12 @@ export function fetchData(){
 
         fetch(API)
         .then(function(response){
+            response.json()
+            .then((r) => 
             dispatch({
                 type: 'FETCH_DATA_COMPLETE',
-                items: response.json()
-            });
+                items: r
+            }));
         });
     }
 }
