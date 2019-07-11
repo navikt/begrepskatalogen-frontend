@@ -18,7 +18,7 @@ export class Home extends Component {
     toggleHidden(){
         this.props.toggleHiddenTable()
         this.setState({
-            isHidden: !this.state.isHidden
+            isHidden: false
         });
     }
 
@@ -36,7 +36,7 @@ export class Home extends Component {
                         <Ingress>
                             Viser XX godkjente begreper relevant til ditt søk.<br/>
                             Viser XX ikke-godkjente begreper. <button>Vil du skjule dem?</button> <br/>
-                            Eller vil du se <button /*onclick*/>alle begrepene i katalogen?</button>
+                            Eller vil du se <button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
                         </Ingress> 
                     </div>
                 }
