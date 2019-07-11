@@ -17,7 +17,7 @@ class SearchBar extends React.Component{
     onUpdateSearch (event){
         console.log("Event value", event.currentTarget.value);
         //updateSearch(event.currentTarget.value);
-        this.props.dispatch(updateSearch(event.currentTarget.value));
+        this.props.dispatch(updateSearch(event.target.value));
     }
 
     render(){
