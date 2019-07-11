@@ -26,6 +26,7 @@ class SearchBar extends React.Component{
                 <Input
                     label={' '} 
                     placeholder={"Søk etter en term"}
+                    type="search"
                     bredde={"XXL"} 
                     className="inputfelt" 
                     id="inputfelt1" 
