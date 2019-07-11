@@ -19,7 +19,7 @@ class Table extends React.Component{
         var options = {
             shouldSort: true,
             findAllMatches: true,
-            threshold: 0,
+            threshold: 0.2,
             //includeScore: true,
             location: 0,
             distance: 100,
@@ -34,22 +34,16 @@ class Table extends React.Component{
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search)
-        console.log("Fuse res", resultTable);
         return resultTable;
     }
 
     listToShow() {
-        //const searchList = this.searchResult()
-        const list = (this.props.search == "" ? this.props.items : this.searchResult())
-        console.log("liste å vise", list)
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
         return list;
     }
 
     renderTableData(){
         const list = this.listToShow()
-        //const list = this.searchResult();
-        console.log("liste som skal rendres", this.state.list)
-        console.log("items listen", this.props.items)
         if(!this.props.items){
             return false;
         }
@@ -106,7 +100,8 @@ const mapStateToProps = (state, props) => {
     console.log("table props", props);
     return {
         search: state.search,
-        items: state.items
+        items: state.items,
+        seeAllTerms: state.seeAllTerms
     }
 };
 
