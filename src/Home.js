@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Table from './components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
+import {connect} from 'react-redux';
 
 
 export class Home extends Component {
@@ -15,13 +16,12 @@ export class Home extends Component {
     toggleHidden(){
         this.setState({
             isHidden: !this.state.isHidden
-        })
+        });
     }
 
     render() {
         return (
             <div>
-
                 {this.state.isHidden ? 
                 <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller 
                     <button onClick = {this.toggleHidden.bind(this)}>
@@ -36,19 +36,22 @@ export class Home extends Component {
                         </div>
                     }
                 
-                {this.state.isHidden ?
+                {(this.state.isHidden && (this.props.search == ""))? 
                     <div className="beforeSearch">
                     <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise <br/>  alle begrepene i katalogen</Ingress> 
                     </div>
                     :
                     <Table/>
                 }
-                
-                
-
             </div>
         );
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        search: state.search,
+    }
+};
+
+export default connect(mapStateToProps)(Home);

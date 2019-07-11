@@ -26,7 +26,8 @@ class Table extends React.Component{
             maxPatternLength: 32,
             minMatchCharLength: 1,
             keys: [
-                "term"
+                "term",
+                "definisjon"
             ]
         };
         var fuse = new Fuse(this.props.items, options);
@@ -34,6 +35,8 @@ class Table extends React.Component{
         console.log("Fuse res", resultTable);
         return resultTable;
     }
+
+
 
     renderTableData(){
         const list = this.searchResult();

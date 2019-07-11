@@ -48,7 +48,6 @@ class App extends Component{
                         window.location.href = 'http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010'; return null;
                     }}/>
                     <Footer/>
-
                 </Router>
             </div>
         );
