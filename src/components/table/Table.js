@@ -12,7 +12,7 @@ class Table extends React.Component{
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
-        this.state = ({ list: [] });
+        this.state = ({});
     }
 
     searchResult() {
@@ -27,7 +27,9 @@ class Table extends React.Component{
             minMatchCharLength: 1,
             keys: [
                 "term",
-                "definisjon"
+                "definisjon",
+                "begrepseier",
+                "kilde",
             ]
         };
         var fuse = new Fuse(this.props.items, options);
@@ -36,10 +38,16 @@ class Table extends React.Component{
         return resultTable;
     }
 
-
+    listToShow() {
+        //const searchList = this.searchResult()
+        const list = (this.props.search == "" ? this.props.items : this.searchResult())
+        console.log("liste å vise", list)
+        return list;
+    }
 
     renderTableData(){
-        const list = this.searchResult();
+        const list = this.listToShow()
+        //const list = this.searchResult();
         console.log("liste som skal rendres", this.state.list)
         console.log("items listen", this.props.items)
         if(!this.props.items){
