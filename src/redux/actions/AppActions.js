@@ -7,7 +7,7 @@ export function toggleFancy() {
 }
 
 export function fetchData(){
-    const API = 'http://localhost:8080/api/issues';
+    const API = '/api/issues';
     return function(dispatch){
         dispatch({
             type: 'FETCH_DATA_BEGIN'
@@ -16,10 +16,10 @@ export function fetchData(){
         fetch(API)
         .then(function(response){
             response.json()
-            .then((r) => 
+            .then((items) =>
             dispatch({
                 type: 'FETCH_DATA_COMPLETE',
-                items: r
+                items: items
             }));
         });
     }

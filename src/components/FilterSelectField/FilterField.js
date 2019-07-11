@@ -17,10 +17,13 @@ function FilterField(){
                 <Select label=""  
                     bredde="m"
                     >
-                        <option value=''>Tema</option>
-                        <option value='Tema_1'>Tema 1</option>
-                        <option value='Tema_2'>Tema 2</option>
-                        <option value='Tema_3'>Tema 3</option>
+                        <option value='Begrepseier'>Begrepseier</option>
+                        <option value='Implisitt_Status'>Implisitt status</option>
+                        <option value='Fagområder'>Fagområder</option>
+                        <option value='Brukerrettede_begreper'>Brukerrettede begreper</option>
+                        <option value='Kildetype'>Kildetype</option>
+                        <option value='Ekstern_eierskap'>Ekstern eierskap</option>
+                        <option value='Offentlig_tilgjengelig'>Offentlig tilgjengelig</option>
                 </Select>
             </div>
         </div>

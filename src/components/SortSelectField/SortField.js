@@ -16,11 +16,9 @@ function SortField(){
                 <Select     
                     bredde="m"
                     >
-                        <option value=''>Eskil</option>
                         <option value='Alfabetisk'>Alfabetisk</option>
-                        <option value='Dato'>Dato</option>
-                        <option value='Kategori'>Kategori</option>
-                        <option value='Innhold'>Innhold</option>
+                        <option value='Dato'>Sist Oppdatert</option>
+                        <option value='Begrepseier'>Begrepseier</option>
                 </Select>
             </div>
         </div>

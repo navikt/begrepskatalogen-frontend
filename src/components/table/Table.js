@@ -67,13 +67,13 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            {"search prop table" + this.props.search} 
-                            <FilterField/><SortField/>  
+                            {"search prop table" + this.props.search}
+                            <FilterField/><SortField/>
                     </div>
                     <div className="altavtabell">
                         <table className="begreper">
                             <thead className="separator">
-                                
+
                             <tr>
                                 <th><Systemtittel>Term</Systemtittel></th>
                                 <th ><Systemtittel>Definisjon</Systemtittel></th>
@@ -81,7 +81,7 @@ class Table extends React.Component{
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
                                 <th><Systemtittel>Oppatert</Systemtittel></th>
                             </tr>
-                            
+
                             </thead>
                             <tbody>
                             {this.renderTableData()}
@@ -91,7 +91,7 @@ class Table extends React.Component{
                 </div>
                 <div>
             </div>
-            </div>   
+            </div>
         );
     }
 }
