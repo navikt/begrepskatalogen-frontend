@@ -3,9 +3,9 @@ import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
-import {connect} from 'react-redux';
+import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
-
+import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 
 class Table extends React.Component{
 
@@ -38,13 +38,12 @@ class Table extends React.Component{
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search)
-        console.log("score lit", resultTable)
         return resultTable;
         
     }
 
-    godkjenteBegreper() {
-        const searchList = this.searchResult();
+    godkjenteBegreper(list) {
+        const allTerms = list
         var options = {
             shouldSort: true, 
             findAllMatches: true,
@@ -56,21 +55,25 @@ class Table extends React.Component{
                 "status"
             ]
         }
-        var fuse = new Fuse(searchList, options);
+        var fuse = new Fuse(allTerms, options);
         const approvedList = fuse.search("Godkjent begrep");
+        this.props.dispatch(numOfApprovedTerms( approvedList.length ))
         return approvedList;
-        console.log("Godkjente begreper", approvedList)
     }
 
     listToShow() {
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.godkjenteBegreper())
+        if ( this.props.hideNotApproved) {
+            return this.godkjenteBegreper(this.searchResult())
+        }
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
         return list;
     }
 
     renderTableData(){
-        this.godkjenteBegreper()
         const list = this.listToShow()
-        //const list = this.props.items
+        const approvedList = this.godkjenteBegreper(list)
+        this.props.dispatch(numOfNotApprovedTerms( (list.length - approvedList.length) ));
+
         if(!this.props.items){
             return false;
         }
@@ -94,7 +97,6 @@ class Table extends React.Component{
             <div className="altaltalt">
                 <div className="altalt">
                     <div className="selectfields">
-                            {"search prop table" + this.props.search}
                             <FilterField/><SortField/>
                     </div>
                     <div className="altavtabell">
@@ -124,11 +126,11 @@ class Table extends React.Component{
 }
 
 const mapStateToProps = (state, props) => {
-    console.log("table props", props);
     return {
         search: state.search,
         items: state.items,
-        seeAllTerms: state.seeAllTerms
+        seeAllTerms: state.seeAllTerms,
+        hideNotApproved: state.hideNotApproved,
     }
 };
 

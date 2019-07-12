@@ -7,15 +7,7 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import KontaktOss from './KontaktOss';
 import TermPage from './TermPage';
-
 import { fetchData, addOne, addX, searchResult, updateSearchText } from './redux/actions/AppActions';
-
-const mapStateToProps = (store) => ({
-    fancy: store.fancy,
-    loading: store.loading,
-    counter: store.counter, 
-    items: store.items
-});
 
 
 class App extends Component{
@@ -33,8 +25,7 @@ class App extends Component{
         
     }
    
-    render(){
-        console.log("payload", this.props.items)
+    render(){ 
         return (
             <div className="App">
                 { this.props.fancy && <div id="fancy" /> }
@@ -53,5 +44,12 @@ class App extends Component{
         );
     }
 }
+
+const mapStateToProps = (store) => ({
+    fancy: store.fancy,
+    loading: store.loading,
+    counter: store.counter, 
+    items: store.items
+});
 
 export default connect(mapStateToProps)(App);

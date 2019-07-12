@@ -5,7 +5,10 @@ export const initialState = {
     items: [],
     counter: 0,
     search: '',
-    seeAllTerms: false
+    seeAllTerms: false,
+    approvedTerms: 0,
+    numNotApprovedTerms: 0,
+    hideNotApproved: false,
 };
 
 
@@ -26,8 +29,13 @@ function appReducer(state = initialState, action) {
         case 'UPDATE_SEARCH':
             return Object.assign({}, state, { search: action.search, seeAllTerms: false });
         case 'TOGGLE_HIDDEN_TABLE':
-            return Object.assign({}, state, { seeAllTerms: !state.seeAllTerms, search: '' });
-
+            return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false });
+        case 'NUM_APPROVED_TERMS':
+            return Object.assign({}, state, { approvedTerms: action.approvedTerms });
+        case 'NOT_APPROVED_TERMS':
+                return Object.assign({}, state, { hideNotApproved: true });
+        case 'NUM_NOT_APPROVED_TERMS':
+                return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
         case 'ADD_ONE':
             return Object.assign({},state, {counter: state.counter+1});
 
