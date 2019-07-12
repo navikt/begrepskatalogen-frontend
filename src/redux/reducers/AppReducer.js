@@ -27,7 +27,7 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { loading: false, items: action.items });
         
         case 'UPDATE_SEARCH':
-            return Object.assign({}, state, { search: action.search, seeAllTerms: false });
+            return Object.assign({}, state, { search: action.search, seeAllTerms: false, hideNotApproved:false });
         case 'TOGGLE_HIDDEN_TABLE':
             return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false });
         case 'NUM_APPROVED_TERMS':
