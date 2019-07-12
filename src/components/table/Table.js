@@ -20,21 +20,31 @@ class Table extends React.Component{
             shouldSort: true,
             findAllMatches: true,
             threshold: 0.2,
-            //includeScore: true,
+            //score: true,
             location: 0,
             distance: 100,
             maxPatternLength: 32,
             minMatchCharLength: 1,
-            keys: [
-                "term",
-                "definisjon",
+            keys: [ {
+                name: "term",
+                //weight: 0.9
+            }, { 
+                mame: "definisjon",
+                //weight: 0.8 
+            },
                 "begrepseier",
                 "kilde",
             ]
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search)
+        console.log("score lit", resultTable)
         return resultTable;
+        
+    }
+
+    godkjenteBegreper() {
+        const searchList = this.searchResult();
     }
 
     listToShow() {
@@ -43,7 +53,9 @@ class Table extends React.Component{
     }
 
     renderTableData(){
+        //this.searchResult()
         const list = this.listToShow()
+        //const list = this.props.items
         if(!this.props.items){
             return false;
         }
