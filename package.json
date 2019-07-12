@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rimraf .cache && parcel src/index.html",
-    "serve": "rimraf .cache && node devserver.js"
+    "serve": "rimraf .cache && node server/server-dev.js",
+    "build": "parcel build src/index.html",
+    "up": "docker-compose up -d --remove-orphans --build"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
+    "fuse.js": "^3.4.5",
     "less": "^3.9.0",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-core": "^4.0.9",

@@ -8,8 +8,11 @@ const options = {}; // See options section of api docs, for the possibilities
 const bundler = new Bundler(file, options);
 
 // Let express use the bundler middleware, this will let Parcel handle every request over your express server
-
 mockApi(app);
 app.use(bundler.middleware());
-// Listen on port 1234
-app.listen(8080);
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Listening to port ' + port);
+});
+

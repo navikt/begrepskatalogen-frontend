@@ -4,7 +4,8 @@ export const initialState = {
     loading: false,
     items: [],
     counter: 0,
-    search: ''
+    search: '',
+    seeAllTerms: false
 };
 
 
@@ -23,8 +24,10 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { loading: false, items: action.items });
         
         case 'UPDATE_SEARCH':
-            return Object.assign({}, state, { search: action.search });
-        
+            return Object.assign({}, state, { search: action.search, seeAllTerms: false });
+        case 'TOGGLE_HIDDEN_TABLE':
+            return Object.assign({}, state, { seeAllTerms: !state.seeAllTerms, search: '' });
+
         case 'ADD_ONE':
             return Object.assign({},state, {counter: state.counter+1});
 
