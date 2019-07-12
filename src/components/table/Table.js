@@ -45,15 +45,30 @@ class Table extends React.Component{
 
     godkjenteBegreper() {
         const searchList = this.searchResult();
+        var options = {
+            shouldSort: true, 
+            findAllMatches: true,
+            threshold:0, 
+            location: 0,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [ 
+                "status"
+            ]
+        }
+        var fuse = new Fuse(searchList, options);
+        const approvedList = fuse.search("Godkjent begrep");
+        return approvedList;
+        console.log("Godkjente begreper", approvedList)
     }
 
     listToShow() {
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.godkjenteBegreper())
         return list;
     }
 
     renderTableData(){
-        //this.searchResult()
+        this.godkjenteBegreper()
         const list = this.listToShow()
         //const list = this.props.items
         if(!this.props.items){
