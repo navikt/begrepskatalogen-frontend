@@ -5,6 +5,8 @@ import './Home.less';
 import {connect} from 'react-redux';
 import { toggleHiddenTable } from './redux/actions/AppActions';
 import { bindActionCreators } from '../../../Library/Caches/typescript/3.5/node_modules/redux';
+import { hideNonApprovedTerms } from './redux/actions/SearchAction';
+
 
 export class Home extends Component {
     constructor(){
@@ -26,18 +28,18 @@ export class Home extends Component {
         return (
             <div>
                 {this.state.isHidden ? 
-                    <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller 
+                    <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
-                            se alle begrepene
+                            se alle begrepene.
                         </button> 
                     </Ingress> 
                     : 
                     <div className="afterSearch">
                         <Ingress>
-                            Viser XX godkjente begreper relevant til ditt søk.<br/>
-                            Viser XX ikke-godkjente begreper. <button>Vil du skjule dem?</button> <br/>
-                            Eller vil du se <button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
-                        </Ingress> 
+                            Viser { this.props.approvedTerms } godkjente begreper relevant til ditt søk.<br/>
+                            Viser { this.props.numNotApprovedTerms } ikke-godkjente begreper.<button onClick={ this.props.hideNonApprovedTerms }>Vil du skjule dem?</button><br/>
+                            Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
+                        </Ingress>
                     </div>
                 }
                 {(this.state.isHidden && (this.props.search == ""))? 
@@ -55,11 +57,13 @@ export class Home extends Component {
 const mapStateToProps = (state) => {
     return {
         search: state.search,
+        approvedTerms: state.approvedTerms,
+        numNotApprovedTerms: state.numNotApprovedTerms,
     }
 };
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleHiddenTable: toggleHiddenTable }, dispatch);
+    return bindActionCreators({ toggleHiddenTable: toggleHiddenTable, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home);
