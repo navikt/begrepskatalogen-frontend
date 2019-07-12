@@ -1,11 +1,11 @@
 import { get } from 'lodash';
-import { types } from 'util';
 
 
-export function setSortParams(sortKey, sortType){
+export function setSortParams(sortKey, sortType="string"){
     return (dispatch, getState) =>{
         const { sortParams } = getState().app;
         const order =get(sortParams, "order");
+        
         dispatch({
             type: 'SET_SORT_PARAM',
             payload:{
@@ -19,11 +19,3 @@ export function setSortParams(sortKey, sortType){
     };
 }
 
-export function clearSortParams(){
-    return{
-        type: 'SET_SORT_PARAM',
-        payload: {
-            data: undefined
-        }
-    }
-}

@@ -7,7 +7,7 @@ export const initialState = {
     order: 'asc'
 };
 
-function sortReducer = (state = initialState, action) => {
+const sortReducer = (state = initialState, action) => {
     switch(action.type){
         /*case TERM:
             return{
