@@ -27,17 +27,17 @@ export class Home extends Component {
         return (
             <div>
                 {this.state.isHidden ? 
-                    <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller 
+                    <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
-                            se alle begrepene
+                            se alle begrepene.
                         </button> 
                     </Ingress> 
                     : 
                     <div className="afterSearch">
                         <Ingress>
-                            Viser {this.props.approvedTerms} godkjente begreper relevant til ditt søk.<br/>
-                            Viser { this.props.numNotApprovedTerms } ikke-godkjente begreper. <button onClick={ this.props.hideNonApprovedTerms }>Vil du skjule dem?</button> <br/>
-                            Eller vil du se <button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
+                            Viser { this.props.approvedTerms } godkjente begreper relevant til ditt søk.<br/>
+                            Viser { this.props.numNotApprovedTerms } ikke-godkjente begreper.<button onClick={ this.props.hideNonApprovedTerms }>Vil du skjule dem?</button> <br/>
+                            Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
                         </Ingress> 
                     </div>
                 }
