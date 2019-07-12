@@ -1,5 +1,4 @@
 
-
 export function toggleFancy() {
     return {
         type: 'TOGGLE_FANCY'
@@ -24,7 +23,6 @@ export function fetchData(){
         });
     }
 }
-
 
 export function toggleHiddenTable() {
     console.log("clicked on vis alle begrep");
