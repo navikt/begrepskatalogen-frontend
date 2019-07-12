@@ -4,26 +4,51 @@ import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect} from 'react-redux';
-import { fetchData } from '../../redux/actions/AppActions';
+import Fuse from 'fuse.js';
 
-
-const API = '/api/issues';
-//const DEFAULT_QUERY = 'redux';
 
 class Table extends React.Component{
 
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
-        this.state = {};
+        this.state = ({});
+    }
+
+    searchResult() {
+        var options = {
+            shouldSort: true,
+            findAllMatches: true,
+            threshold: 0.2,
+            //includeScore: true,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+                "term",
+                "definisjon",
+                "begrepseier",
+                "kilde",
+            ]
+        };
+        var fuse = new Fuse(this.props.items, options);
+        const resultTable = fuse.search(this.props.search)
+        return resultTable;
+    }
+
+    listToShow() {
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        return list;
     }
 
     renderTableData(){
+        const list = this.listToShow()
         if(!this.props.items){
             return false;
         }
-
-        return this.props.items.map((item) => {
+        
+        return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
@@ -75,7 +100,8 @@ const mapStateToProps = (state, props) => {
     console.log("table props", props);
     return {
         search: state.search,
-        items: state.items
+        items: state.items,
+        seeAllTerms: state.seeAllTerms
     }
 };
 

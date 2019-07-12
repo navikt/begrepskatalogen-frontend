@@ -25,3 +25,11 @@ export function fetchData(){
     }
 }
 
+
+export function toggleHiddenTable() {
+    console.log("clicked on vis alle begrep");
+    return {
+        type: 'TOGGLE_HIDDEN_TABLE',
+        seeAllTerms: true
+    };
+}
