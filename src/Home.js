@@ -7,6 +7,7 @@ import { toggleHiddenTable } from './redux/actions/AppActions';
 import { bindActionCreators } from '../../../Library/Caches/typescript/3.5/node_modules/redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
 
+
 export class Home extends Component {
     constructor(){
         super();
@@ -38,7 +39,6 @@ export class Home extends Component {
                             Viser { this.props.approvedTerms } godkjente begreper relevant til ditt søk.<br/>
                             Viser { this.props.numNotApprovedTerms } ikke-godkjente begreper.<button onClick={ this.props.hideNonApprovedTerms }>Vil du skjule dem?</button> <br/>
                             Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
-                        </Ingress> 
                     </div>
                 }
                 {(this.state.isHidden && (this.props.search == ""))? 

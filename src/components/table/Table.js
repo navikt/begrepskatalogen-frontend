@@ -39,7 +39,6 @@ class Table extends React.Component{
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search)
         return resultTable;
-        
     }
 
     godkjenteBegreper(list) {
