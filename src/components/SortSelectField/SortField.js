@@ -6,10 +6,7 @@ import { connect } from 'react-redux';
 import {sortAlphabetically} from '../../redux/actions/AppActions';
 
 const SortField=({
-    sortKey,
-    type,
-    sort,
-    onSort,
+    dispatch
 })=>(
     <div className="wrapper">
             <div className="sortertekst">
@@ -22,7 +19,7 @@ const SortField=({
                 <Select     
                     label = ""
                     bredde="m"
-                    onChange={(event)=>this.props.sortAlphabetically(event.target.value)} 
+                    onChange={(event)=> sortAlphabetically(event.target.value)(dispatch)} 
                     >
                         <option value=''>------</option>
                         <option value='Alfabetisk'>Alfabetisk</option>
@@ -34,11 +31,4 @@ const SortField=({
 
 );
 
-const mapStateToProps = state =>({
-    sort: state.category.sort
-})
-
-
-
-
-export default connect(mapStateToProps, {sortAlphabetically})(SortField);
+export default connect()(SortField);

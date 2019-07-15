@@ -45,22 +45,11 @@ export const sortCategories = (category, updated) =>(dispatch) =>{
     })
 }
 
-
-export const sortAlphabetically = (category, sort) => (dispatch) =>{
-    
-    if(sort!=''){
-        category.sort((a,b)=>(sort ==='Alfabetisk')?
-        (a.value > b.value? 1:-1)
-        : (a.value < b.value ? 1:-1))
-    } else{
-        category.sort((a,b) =>(a.id>b.id ? 1: -1));
-    }
-    
+export const sortAlphabetically = (sort) => (dispatch) =>{    
     return dispatch({
         type: 'ORDER_BY_ALPH',
         payload: {
-            sort: sort,
-            items: category
+            sort: sort
         }
     })
 }
