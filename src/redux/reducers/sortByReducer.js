@@ -7,7 +7,7 @@ export const initialState = {
     order: 'asc'
 };
 
-function sortReducer = (state = initialState, action) => {
+const sortReducer = (state = initialState, action) => {
     switch(action.type){
         /*case TERM:
             return{
@@ -38,6 +38,15 @@ function sortReducer = (state = initialState, action) => {
                 ...state,
                 sortBy: action.selected
             };
+
+
+        //TODO: test ut denne delen. resten ligger i sortByReducer, sortaction og sortfield
+        case 'SET_SORT_PARAM':
+            return{
+                ...state,
+                sortParams: action.payload.data
+            };
+
 
         default:
             return state;

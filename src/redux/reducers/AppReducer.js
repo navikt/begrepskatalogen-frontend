@@ -9,6 +9,8 @@ export const initialState = {
     approvedTerms: 0,
     numNotApprovedTerms: 0,
     hideNotApproved: false,
+    filteredItems:[],
+    updated: ""
 };
 
 
@@ -41,6 +43,13 @@ function appReducer(state = initialState, action) {
 
         case 'ADD_X':
             return Object.assign({},state, {counter: action.payload}); 
+
+        case 'SORT_BY':
+            return{
+                ...state,
+                filteredItems : action.payload.items,
+                updated: action.payload.updated
+            };
             
         default:
             return state; 
