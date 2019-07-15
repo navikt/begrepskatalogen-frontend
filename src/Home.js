@@ -4,7 +4,7 @@ import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
 import {connect} from 'react-redux';
 import { toggleHiddenTable } from './redux/actions/AppActions';
-import { bindActionCreators } from '../../../Library/Caches/typescript/3.5/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
 
 

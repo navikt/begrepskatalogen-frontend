@@ -31,3 +31,16 @@ export function toggleHiddenTable() {
         seeAllTerms: true
     };
 }
+
+//sort by category in progress
+
+export const sortCategories = (category, updated) =>(dispatch) =>{
+    return dispatch({
+        type: 'SORT_BY',
+        payload:{
+            updated :updated,
+            items: updated ===''? category:category.filter(a=>a.updated.indexOf(updated.valueOf()>=0))  //mulig denne valueOf må endres, avh hva dato måles på
+
+        }
+    })
+}
