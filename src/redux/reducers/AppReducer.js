@@ -50,6 +50,12 @@ function appReducer(state = initialState, action) {
                 filteredItems : action.payload.items,
                 updated: action.payload.updated
             };
+
+        case 'ORDER_BY_ALPH':
+            return{
+                ...state, filteredItems: action.payload.items,
+                sort: action.payload.sort
+            }
             
         default:
             return state; 
