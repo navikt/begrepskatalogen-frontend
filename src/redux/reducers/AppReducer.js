@@ -38,11 +38,7 @@ function appReducer(state = initialState, action) {
                 return Object.assign({}, state, { hideNotApproved: true });
         case 'NUM_NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
-        case 'ADD_ONE':
-            return Object.assign({},state, {counter: state.counter+1});
-
-        case 'ADD_X':
-            return Object.assign({},state, {counter: action.payload}); 
+         
 
         case 'SORT_BY':
             return{
