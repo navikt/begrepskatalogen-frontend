@@ -52,7 +52,12 @@ function appReducer(state = initialState, action) {
             };
 
         case 'ORDER_BY_ALPH':
-            return Object.assign({}, state, {sort:  action.payload.sort})
+            return Object.assign({}, state, {sort:  action.payload.sort});
+
+        case 'ORDER_BY_BEGREPSEIER':
+            return Object.assign({}, state, {sort: action.payload.sort});
+
+            
             // const items = state.items
 
             // if(sort!=''){

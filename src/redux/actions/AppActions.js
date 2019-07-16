@@ -45,7 +45,7 @@ export const sortCategories = (category, updated) =>(dispatch) =>{
     })
 }
 
-export const sortAlphabetically = (sort) => (dispatch) =>{    
+export const sortBy = (sort) => (dispatch) =>{    
     return dispatch({
         type: 'ORDER_BY_ALPH',
         payload: {
@@ -53,3 +53,5 @@ export const sortAlphabetically = (sort) => (dispatch) =>{
         }
     })
 }
+
+

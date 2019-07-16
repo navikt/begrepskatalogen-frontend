@@ -3,7 +3,7 @@ import { Select } from 'nav-frontend-skjema';
 import { Normaltekst } from 'nav-frontend-typografi';
 import './SortField.less';
 import { connect } from 'react-redux';
-import {sortAlphabetically} from '../../redux/actions/AppActions';
+import {sortBy} from '../../redux/actions/AppActions';
 
 const SortField=({
     dispatch
@@ -19,7 +19,7 @@ const SortField=({
                 <Select     
                     label = ""
                     bredde="m"
-                    onChange={(event)=> sortAlphabetically(event.target.value)(dispatch)} 
+                    onChange={(event)=> sortBy(event.target.value)(dispatch)} 
                     >
                         <option value=''>------</option>
                         <option value='Alfabetisk'>Alfabetisk</option>
