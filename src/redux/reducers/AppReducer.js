@@ -50,6 +50,22 @@ function appReducer(state = initialState, action) {
                 filteredItems : action.payload.items,
                 updated: action.payload.updated
             };
+
+        case 'ORDER_BY_ALPH':
+            return Object.assign({}, state, {sort:  action.payload.sort})
+            // const items = state.items
+
+            // if(sort!=''){
+            //     console.log(`sorting ${sort}`)
+            //     items.sort((a,b)=>(sort ==='Alfabetisk')?
+            //     (a.term > b.term? 1:-1)
+            //     : (a.term < b.term ? 1:-1))
+            // } else{
+            //     items.sort((a,b) =>(a.id>b.id ? 1: -1));
+            // }
+            // return {
+            //     ...state, items, sort
+            // }
             
         default:
             return state; 
