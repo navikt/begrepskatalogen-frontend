@@ -3,6 +3,7 @@ import { Flatknapp } from 'nav-frontend-knapper';
 import './Footer.less';
 import ScrollUpButton from 'react-scroll-up-button';
 import { Element } from 'nav-frontend-typografi';
+import {Link} from 'react-router-dom';
 
 class Footer extends React.Component {
     render() {
@@ -14,7 +15,7 @@ class Footer extends React.Component {
                 <div className="footerElements">
                     <ScrollUpButton><Element className="element">Til toppen</Element></ScrollUpButton>
                     <Element className="element">Søk i katalogen</Element>
-                    <Element className="element">Meld inn nytt begrep</Element>
+                    <Link to={'/meld-inn-nytt-begrep'}><Element className="element">Meld inn nytt begrep</Element></Link>
                 </div>
             </div>
 
