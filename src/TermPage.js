@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 export class TermPage extends React.Component{
 
+    constructor(props){
+        super(props);
+    }
+
     render(){
         return(
             <div className="gridContainer">
@@ -15,7 +19,7 @@ export class TermPage extends React.Component{
                     <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
 
-                <div  className= "status"><Normaltekst>Godkjent / Ikke godkjent begrep</Normaltekst></div>
+                <div  className= {"status" + (this.HERSKALDETSOMSKALBRUKESINN==='HVAENNDETSKALSTÅ' ? "Godkjent" : "Avvist")}><Normaltekst>Godkjent / Ikke godkjent begrep</Normaltekst></div>
 
                 <div className="venstreFeltAvSiden">
 
