@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from './composition/header/Header'
-
 
 function KontaktOss(){
     return (

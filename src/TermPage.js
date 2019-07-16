@@ -1,8 +1,6 @@
 import React from 'react';
 import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-frontend-typografi';
-
 import './TermPage.less';
-import Lukknapp  from 'nav-frontend-lukknapp';
 import { Link } from 'react-router-dom';
 
 export class TermPage extends React.Component{
@@ -12,13 +10,9 @@ export class TermPage extends React.Component{
             <div className="gridContainer">
           
                 <div className="begrepsHeader">
-                   
                     <Link className="tilbake" to ={'/'}><Element>⇦ Tilbake</Element></Link>
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
                     <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
-
-
-
                 </div>
 
                 <div  className= "status"><Normaltekst>Godkjent / Ikke godkjent begrep</Normaltekst></div>
@@ -35,10 +29,12 @@ export class TermPage extends React.Component{
                         <Ingress>Begrepsforklaring</Ingress>
                         <Normaltekst>Konkret forklaring på begrepet</Normaltekst>
                     </div>
+
                     <div className = "eksempler">
                         <Ingress>Eksempler</Ingress>
                         <Normaltekst>Konkrete eksempler</Normaltekst>
                     </div>
+
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
                         <Normaltekst>xxxx</Normaltekst>
@@ -70,11 +66,7 @@ export class TermPage extends React.Component{
                         <Normaltekst>Avdeling osv .. <br/> med mer</Normaltekst>
                     </div>
                     
-                </div>
-
-
-
-            
+                </div> 
             </div>
         );
     }
