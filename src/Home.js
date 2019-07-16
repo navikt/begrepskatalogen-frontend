@@ -27,7 +27,7 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                {this.state.isHidden ? 
+                {(this.state.isHidden && (this.props.search == "")) ? 
                     <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
                             se alle begrepene.
