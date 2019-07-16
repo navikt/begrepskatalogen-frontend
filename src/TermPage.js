@@ -2,10 +2,14 @@ import React from 'react';
 import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-frontend-typografi';
 import './TermPage.less';
 import { Link } from 'react-router-dom';
+import {connect} from  'react-redux';
 
 export class TermPage extends React.Component{
 
+    
+    
     render(){
+        
         return(
             <div className="gridContainer">
           
@@ -20,14 +24,17 @@ export class TermPage extends React.Component{
                 <div className="venstreFeltAvSiden">
 
                     <div className = "begrepsoverskrift">
-                        <Sidetittel>Begrep</Sidetittel>
+                    
+                        <Sidetittel>
+                            {this.props.items[0].term}
+                        </Sidetittel>
                         <br/>
-                        <Undertittel>Kort beskrivelse av begrep</Undertittel>
+                        <Undertittel>{this.props.items[0].key}</Undertittel>
                     </div>
 
                     <div className = "begrepsforklaring">
                         <Ingress>Begrepsforklaring</Ingress>
-                        <Normaltekst>Konkret forklaring på begrepet</Normaltekst>
+                        <Normaltekst>{this.props.items[0].definisjon}</Normaltekst>
                     </div>
 
                     <div className = "eksempler">
@@ -37,7 +44,7 @@ export class TermPage extends React.Component{
 
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
-                        <Normaltekst>xxxx</Normaltekst>
+                        <Normaltekst>{this.props.items[0].kilde}</Normaltekst>
                     </div>
 
                     <div className ="relasjoner">
@@ -46,8 +53,8 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="revidert">
-                        <Ingress>Revidert</Ingress>
-                        <p>xxx-xxxx-xxxxxx-o</p>
+                        <Ingress>Sist Revidert</Ingress>
+                        <p>{this.props.items[0].oppdatert}</p>
                     </div>
                 </div>
                 <div className = "hoyreFeltAvSiden">
@@ -63,7 +70,7 @@ export class TermPage extends React.Component{
 
                     <div className = "begrepseier">
                         <Ingress>Begrepseier</Ingress>
-                        <Normaltekst>Avdeling osv .. <br/> med mer</Normaltekst>
+                        <Normaltekst>{this.props.items[0].begrepseier}<br/> </Normaltekst>
                     </div>
                     
                 </div> 
@@ -72,4 +79,14 @@ export class TermPage extends React.Component{
     }
 }
 
-export default TermPage;
+const mapStateToProps = (state) => {
+    return {
+        search: state.search,
+        items: state.items,
+        seeAllTerms: state.seeAllTerms,
+        hideNotApproved: state.hideNotApproved,
+        sort: state.sort
+    }
+};
+
+export default connect(mapStateToProps)(TermPage);
