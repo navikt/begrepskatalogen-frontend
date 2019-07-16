@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const searchResultFile = path.join(__dirname, "..",'tmp/result.json');
-const outputFile = path.join(__dirname,'..', 'test-data/jira.json');
+const outputFile = path.join(__dirname,'..', 'server/mock/jira.json');
 const firsts = [
   'Dolly',
   'Donald',
