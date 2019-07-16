@@ -13,7 +13,7 @@ FROM navikt/node-express:latest
 WORKDIR /app
 
 COPY --from=builder /app/server /app
-COPY --from=builder /app/dist   /app/dist
+COPY --from=builder /app/dist   /dist
 ENV PORT=9090
 EXPOSE 9090
 
