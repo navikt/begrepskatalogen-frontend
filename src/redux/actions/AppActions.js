@@ -44,3 +44,14 @@ export const sortCategories = (category, updated) =>(dispatch) =>{
         }
     })
 }
+
+export const sortBy = (sort) => (dispatch) =>{    
+    return dispatch({
+        type: 'ORDER_BY_ALPH',
+        payload: {
+            sort: sort
+        }
+    })
+}
+
+

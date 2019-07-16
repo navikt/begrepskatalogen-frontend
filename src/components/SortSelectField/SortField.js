@@ -1,13 +1,12 @@
 import React from 'react';
 import { Select } from 'nav-frontend-skjema';
 import { Normaltekst } from 'nav-frontend-typografi';
-import './SortField.less'
+import './SortField.less';
+import { connect } from 'react-redux';
+import {sortBy} from '../../redux/actions/AppActions';
 
 const SortField=({
-    sortKey,
-    type,
-    sort,
-    onSort,
+    dispatch
 })=>(
     <div className="wrapper">
             <div className="sortertekst">
@@ -15,14 +14,14 @@ const SortField=({
                     Sorter etter: 
                 </Normaltekst>
             </div>
-
+ 
             <div className="sorterselect">
                 <Select     
                     label = ""
                     bredde="m"
-                    onChange={() => onSort(sortKey, type)}
-                    dir={(sort && sort.key === sortKey && sort.order) || undefined}
+                    onChange={(event)=> sortBy(event.target.value)(dispatch)} 
                     >
+                        <option value=''>------</option>
                         <option value='Alfabetisk'>Alfabetisk</option>
                         <option value='Sist_Oppdatert'>Sist Oppdatert</option>
                         <option value='Begrepseier'>Begrepseier</option>
@@ -32,7 +31,4 @@ const SortField=({
 
 );
 
-
-
-
-export default SortField;
+export default connect()(SortField);

@@ -76,6 +76,36 @@ class Table extends React.Component{
         if(!this.props.items){
             return false;
         }
+
+        const { sort } = this.props
+        if(sort){
+            console.log(`sorting ${sort}`)
+
+            if (sort ==='Alfabetisk'){
+                list.sort((a,b)=>(sort ==='Alfabetisk')?
+                (a.term > b.term? 1:-1)
+                : (a.term < b.term ? 1:-1))
+            }
+            if(sort === 'Begrepseier'){
+                list.sort((a,b)=>(sort ==='Begrepseier')?
+                (a.assignee > b.assignee? 1:-1)
+                : (a.assignee < b.assignee ? 1:-1))
+            }
+            if(sort === 'Sist_Oppdatert'){
+                list.sort((a,b)=>(sort ==='Sist_Oppdatert')?
+                (a.oppdatert < b.oppdatert? 1:-1)
+                : (a.oppdatert > b.oppdatert ? 1:-1))
+            }
+           
+        }
+        
+
+        
+
+
+        //  else{
+        //     list.sort((a,b) =>(a.id>b.id ? 1: -1));
+        // }
         
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
@@ -130,6 +160,7 @@ const mapStateToProps = (state, props) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
+        sort: state.sort
     }
 };
 
