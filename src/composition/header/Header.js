@@ -34,11 +34,7 @@ class Header extends Component {
                     <Navigation/>
                     <SearchBar/>
                 </div>
-
-
-                
             </div>
-
         );
     }
 }
