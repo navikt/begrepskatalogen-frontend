@@ -7,7 +7,6 @@ import { toggleSeeAllTerms } from './redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
 
-
 export class Home extends Component {
     constructor(){
         super();
