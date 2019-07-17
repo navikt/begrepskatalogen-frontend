@@ -18,7 +18,7 @@ export function fetchData(){
     }
 }
 
-export function toggleHiddenTable() {
+export function toggleSeeAllTerms() {
     return {
         type: 'TOGGLE_SEE_ALL_TERMS',
         seeAllTerms: true

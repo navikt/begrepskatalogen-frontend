@@ -3,7 +3,7 @@ import Table from './components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
 import { connect } from 'react-redux';
-import { toggleHiddenTable } from './redux/actions/AppActions';
+import { toggleSeeAllTerms } from './redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
 
@@ -17,7 +17,7 @@ export class Home extends Component {
     }
     
     toggleHidden(){
-        this.props.toggleHiddenTable()
+        this.props.toggleSeeAllTerms()
         this.setState({
             isHidden: false
         });
@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 };
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleHiddenTable: toggleHiddenTable, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
+    return bindActionCreators({ toggleSeeAllTerms: toggleSeeAllTerms, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home);
