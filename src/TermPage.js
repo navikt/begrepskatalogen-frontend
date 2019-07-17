@@ -10,6 +10,11 @@ export class TermPage extends React.Component{
         super(props);
     }
 
+
+    isGodkjent = () => {
+        return (this.props.termKey.status === 'Godkjent begrep');
+    }
+
     
     
     render(){
@@ -23,8 +28,9 @@ export class TermPage extends React.Component{
                     <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
 
-                <div  className= {"status" + (this.HERSKALDETSOMSKALBRUKESINN==='Godkjent begrep' ? "Godkjent" : "Avvist")}><Normaltekst>{this.props.termKey.status}</Normaltekst></div>
-
+                <div className = "status">
+                <div className = {this.isGodkjent() ? "statusGodkjent" : "statusAvvist"}><Normaltekst> {console.log(this.isGodkjent())}{this.props.termKey.status}</Normaltekst></div>
+                </div>
                 <div className="venstreFeltAvSiden">
 
                     <div className = "begrepsoverskrift">
