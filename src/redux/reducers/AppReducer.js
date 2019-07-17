@@ -11,7 +11,7 @@ export const initialState = {
     hideNotApproved: false,
     filteredItems:[],
     updated: "",
-    termKey: ""
+    termKey: []
 };
 
 

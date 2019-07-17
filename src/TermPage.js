@@ -23,58 +23,58 @@ export class TermPage extends React.Component{
                     <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
 
-                <div  className= {"status" + (this.HERSKALDETSOMSKALBRUKESINN==='HVAENNDETSKALSTÅ' ? "Godkjent" : "Avvist")}><Normaltekst>Godkjent / Ikke godkjent begrep</Normaltekst></div>
+                <div  className= {"status" + (this.HERSKALDETSOMSKALBRUKESINN==='Godkjent begrep' ? "Godkjent" : "Avvist")}><Normaltekst>{this.props.termKey.status}</Normaltekst></div>
 
                 <div className="venstreFeltAvSiden">
 
                     <div className = "begrepsoverskrift">
                     
                         <Sidetittel>
-                            {this.props.items[0].term}
+                        {this.props.termKey.term}
                         </Sidetittel>
                         <br/>
-                        <Undertittel>{this.props.termKey}</Undertittel>
+                        <Undertittel>{this.props.termKey.key}</Undertittel>
                     </div>
 
                     <div className = "begrepsforklaring">
                         <Ingress>Begrepsforklaring</Ingress>
-                        <Normaltekst>{this.props.items[0].definisjon}</Normaltekst>
+                        <Normaltekst>{this.props.termKey.definisjon}</Normaltekst>
                     </div>
 
                     <div className = "eksempler">
-                        <Ingress>Eksempler</Ingress>
-                        <Normaltekst>Konkrete eksempler</Normaltekst>
+                        <Ingress>PLACEHOLDER</Ingress>
+                        <Normaltekst>PLACEHOLDER PLACEHOLDER</Normaltekst>
                     </div>
 
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
-                        <Normaltekst>{this.props.items[0].kilde}</Normaltekst>
+                        <Normaltekst>{this.props.termKey.kilde}</Normaltekst>
                     </div>
 
                     <div className ="relasjoner">
                         <Ingress>Relasjon til andre begreper (Relasjonstre?)</Ingress>
-                        <p>xxxxx . xxxxx</p>
+                        <p>PLACEHOLDER . PLACEHOLDER</p>
                     </div>
 
                     <div className="revidert">
                         <Ingress>Sist Revidert</Ingress>
-                        <p>{this.props.items[0].oppdatert}</p>
+                        <p>{this.props.termKey.oppdatert}</p>
                     </div>
                 </div>
                 <div className = "hoyreFeltAvSiden">
                     <div className="beskrivelsestype">
-                        <Ingress>Beskrivelsestype</Ingress>
-                        <Normaltekst>Faglig definisjon</Normaltekst>
+                        <Ingress>Skrevet av</Ingress>
+                        <Normaltekst>{this.props.termKey.assignee}</Normaltekst>
                     </div>
 
                     <div className = "fagomraade">
                         <Ingress>Fagområde</Ingress>
-                        <Normaltekst>xxxxcccxcxcxxxxx</Normaltekst>
+                        <Normaltekst>PLACEHOLDER</Normaltekst>
                     </div>
 
                     <div className = "begrepseier">
                         <Ingress>Begrepseier</Ingress>
-                        <Normaltekst>{this.props.items[0].begrepseier}<br/> </Normaltekst>
+                        <Normaltekst>{this.props.termKey.begrepseier}<br/> </Normaltekst>
                     </div>
                     
                 </div> 
@@ -85,12 +85,7 @@ export class TermPage extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        search: state.search,
-        items: state.items,
-        seeAllTerms: state.seeAllTerms,
-        hideNotApproved: state.hideNotApproved,
-        sort: state.sort,
-        termKey: state.termKey,
+        termKey: state.termKey
     }
 };
 

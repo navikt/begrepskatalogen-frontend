@@ -57,8 +57,10 @@ export const sortBy = (sort) => (dispatch) =>{
 export const termKey = (newKey) => {
     return {
         type: 'TERM_KEY',
-        termKey: newKey
+        termKey: newKey, 
+    
     }
 }
+
 
 

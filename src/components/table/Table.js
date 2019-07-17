@@ -100,6 +100,12 @@ class Table extends React.Component{
             }
            
         }
+
+        const makeArray = (e) => {
+            let items = [e.key, e.term, e.assignee, e.definisjon, e.oppdatert, e.status];
+            console.log(items);
+            //return [key, term, assignee, definisjon, oppdatert, status];
+        }
         
         const handleClick = (e) => {
             this.props.dispatch(termKey(e));
@@ -116,7 +122,7 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
-                    <td><Link onClick={() => handleClick(key)} to={"/begrepsside"}>{term}</Link></td>
+                    <td><Link onClick={() => handleClick(item) }to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
