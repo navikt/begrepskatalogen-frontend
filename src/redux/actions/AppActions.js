@@ -1,4 +1,3 @@
-
 export function toggleFancy() {
     return {
         type: 'TOGGLE_FANCY'
@@ -40,7 +39,6 @@ export const sortCategories = (category, updated) =>(dispatch) =>{
         payload:{
             updated :updated,
             items: updated ===''? category:category.filter(a=>a.updated.indexOf(updated.valueOf()>=0))  //mulig denne valueOf må endres, avh hva dato måles på
-
         }
     })
 }
