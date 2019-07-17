@@ -20,9 +20,7 @@ class App extends Component{
     componentDidMount(){
         console.log("funker");
         this.props.dispatch(fetchData());
-        //this.props.dispatch(addOne());
-        //this.props.dispatch(addX(5)); kommenterer ut ennsålenge
-        //legg til noe text
+        
     }
    
     render(){ 
