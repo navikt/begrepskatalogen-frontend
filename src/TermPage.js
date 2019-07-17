@@ -3,24 +3,34 @@ import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-fron
 import './TermPage.less';
 import { Link } from 'react-router-dom';
 import {connect} from  'react-redux';
+import {AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
 
 export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
+
+      
     }
 
     isGodkjent = () => {
         if( this.props.termKey.status === 'Godkjent begrep') {
-            return 'statusGodkjent';
+            return <AlertStripeSuksess size="25">Godkjent begrep</AlertStripeSuksess>;
         }
         else if(this.props.termKey.status === 'Utkast') {
-            return 'statusUtkast';
+            return <AlertStripeAdvarsel size="25" >Utkast</AlertStripeAdvarsel>;
         }
         else {
-            return 'statusAvvist';
+            return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
         }
     }
+
+    formatDate=(string)=> {
+        var options = { year: 'numeric', month: 'long', day: 'numeric'};
+        return new Date(string).toLocaleDateString([], options);
+    }
+
+    
     
     render(){
         
@@ -33,9 +43,9 @@ export class TermPage extends React.Component{
                     <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
 
-                <div className="status">
-                <div className={this.isGodkjent()}><Normaltekst> {console.log(this.isGodkjent())}{this.props.termKey.status}</Normaltekst></div>
-                </div>
+
+                <div className="status"> {this.isGodkjent()}</div>
+
                 <div className="venstreFeltAvSiden">
                     <div className="begrepsoverskrift">
                         <Sidetittel>
@@ -67,7 +77,7 @@ export class TermPage extends React.Component{
 
                     <div className="revidert">
                         <Ingress>Sist Revidert</Ingress>
-                        <p>{this.props.termKey.oppdatert}</p>
+                        <p>{this.formatDate(this.props.termKey.oppdatert)}</p>
                     </div>
                 </div>
                 <div className="hoyreFeltAvSiden">
