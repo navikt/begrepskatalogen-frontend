@@ -6,6 +6,8 @@ import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
+import { termKey } from '../../redux/actions/AppActions';
+import { Link } from 'react-router-dom';
 
 class Table extends React.Component{
 
@@ -99,7 +101,10 @@ class Table extends React.Component{
            
         }
         
-
+        const handleClick = (e) => {
+            this.props.dispatch(termKey(e));
+            console.log("klikk", e);
+        }
         
 
 
@@ -111,7 +116,7 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key= {key} className="definisjon">
-                    <td><Normaltekst>{term}</Normaltekst></td>
+                    <td><Link onClick={() => handleClick(key)} to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
