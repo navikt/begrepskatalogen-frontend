@@ -10,12 +10,9 @@ export class TermPage extends React.Component{
         super(props);
     }
 
-
     isGodkjent = () => {
         return (this.props.termKey.status === 'Godkjent begrep');
     }
-
-    
     
     render(){
         
@@ -23,18 +20,16 @@ export class TermPage extends React.Component{
             <div className="gridContainer">
           
                 <div className="begrepsHeader">
-                    <Link className="tilbake" to ={'/'}><Element>⇦ Tilbake</Element></Link>
+                    <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
-                    <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
+                    <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
 
-                <div className = "status">
-                <div className = {this.isGodkjent() ? "statusGodkjent" : "statusAvvist"}><Normaltekst> {console.log(this.isGodkjent())}{this.props.termKey.status}</Normaltekst></div>
+                <div className="status">
+                <div className={this.isGodkjent() ? "statusGodkjent" : "statusAvvist"}><Normaltekst> {console.log(this.isGodkjent())}{this.props.termKey.status}</Normaltekst></div>
                 </div>
                 <div className="venstreFeltAvSiden">
-
-                    <div className = "begrepsoverskrift">
-                    
+                    <div className="begrepsoverskrift">
                         <Sidetittel>
                         {this.props.termKey.term}
                         </Sidetittel>
@@ -42,12 +37,12 @@ export class TermPage extends React.Component{
                         <Undertittel>{this.props.termKey.key}</Undertittel>
                     </div>
 
-                    <div className = "begrepsforklaring">
+                    <div className="begrepsforklaring">
                         <Ingress>Begrepsforklaring</Ingress>
                         <Normaltekst>{this.props.termKey.definisjon}</Normaltekst>
                     </div>
 
-                    <div className = "eksempler">
+                    <div className="eksempler">
                         <Ingress>PLACEHOLDER</Ingress>
                         <Normaltekst>PLACEHOLDER PLACEHOLDER</Normaltekst>
                     </div>
@@ -57,7 +52,7 @@ export class TermPage extends React.Component{
                         <Normaltekst>{this.props.termKey.kilde}</Normaltekst>
                     </div>
 
-                    <div className ="relasjoner">
+                    <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper (Relasjonstre?)</Ingress>
                         <p>PLACEHOLDER . PLACEHOLDER</p>
                     </div>
@@ -67,22 +62,21 @@ export class TermPage extends React.Component{
                         <p>{this.props.termKey.oppdatert}</p>
                     </div>
                 </div>
-                <div className = "hoyreFeltAvSiden">
+                <div className="hoyreFeltAvSiden">
                     <div className="beskrivelsestype">
                         <Ingress>Skrevet av</Ingress>
                         <Normaltekst>{this.props.termKey.assignee}</Normaltekst>
                     </div>
 
-                    <div className = "fagomraade">
+                    <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
                         <Normaltekst>PLACEHOLDER</Normaltekst>
                     </div>
 
-                    <div className = "begrepseier">
+                    <div className="begrepseier">
                         <Ingress>Begrepseier</Ingress>
                         <Normaltekst>{this.props.termKey.begrepseier}<br/> </Normaltekst>
                     </div>
-                    
                 </div> 
             </div>
         );
