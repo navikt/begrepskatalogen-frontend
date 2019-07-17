@@ -24,14 +24,21 @@
 .termKolonne {
     color: @navBla;
 }
-
+/*
+.status {
+    padding-left: 0.7rem;
+}
+*/
 //LES ESKIL: DENNE DELEN SOM PER NÅ GJØR AT LAYOUTEN IKKE SER MONGO UT
 table {
     table-layout: fixed;
 }
-th,
-td {
+th, td {
     width: 20rem;  
+}
+
+.typo-normal {
+    margin: 1rem;
 }
 
 .separator{
@@ -49,16 +56,17 @@ td {
 
 .selectfields{
     position: relative;
+    top: 0.2rem;
+    padding-left: 1rem; //posisjon fra venstre på selectfields
+}
+
+.sorterselect, .filterselect {
+    margin-left: 1rem;
     top: 1rem;
-    padding-left: 3.4rem; //posisjon fra venstre på selectfields
 }
 
 .altavtabell{
     position: relative;
     top: 6rem;
 }
-/*
-.altavtabell td:nth-child(2){
-    //border: solid 1px red;
-}
-*/
+
