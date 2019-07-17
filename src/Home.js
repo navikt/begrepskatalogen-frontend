@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Table from './components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { toggleHiddenTable } from './redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
@@ -26,7 +26,7 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                {(this.state.isHidden && (this.props.search == "")) ? 
+                { (this.state.isHidden && (this.props.search == "")) ? 
                     <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
                             se alle begrepene.
@@ -43,7 +43,7 @@ export class Home extends Component {
                 }
                 {(this.state.isHidden && (this.props.search == ""))? 
                     <div className="beforeSearch">
-                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise <br/>  alle begrepene i katalogen</Ingress> 
+                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
                     </div>
                     :
                     <Table/>

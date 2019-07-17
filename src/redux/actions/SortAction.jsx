@@ -1,6 +1,5 @@
 import { get } from 'lodash';
 
-
 export function setSortParams(sortKey, sortType="string"){
     return (dispatch, getState) =>{
         const { sortParams } = getState().app;
