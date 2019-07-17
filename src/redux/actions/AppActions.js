@@ -20,7 +20,7 @@ export function fetchData(){
 
 export function toggleHiddenTable() {
     return {
-        type: 'TOGGLE_HIDDEN_TABLE',
+        type: 'TOGGLE_SEE_ALL_TERMS',
         seeAllTerms: true
     };
 }
