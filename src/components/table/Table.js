@@ -112,7 +112,10 @@ class Table extends React.Component{
             console.log("klikk", e);
         }
         
-
+        const formatDate=(string)=> {
+            var options = { year: 'numeric', month: 'long', day: 'numeric'};
+            return new Date(string).toLocaleDateString([], options);
+        }
         
 
 
@@ -128,7 +131,7 @@ class Table extends React.Component{
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
-                    <td><Normaltekst>{oppdatert}</Normaltekst></td>
+                    <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
             );
         })

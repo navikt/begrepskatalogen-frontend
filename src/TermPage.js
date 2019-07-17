@@ -9,6 +9,8 @@ export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
+
+      
     }
 
     isGodkjent = () => {
@@ -22,6 +24,13 @@ export class TermPage extends React.Component{
             return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
         }
     }
+
+    formatDate=(string)=> {
+        var options = { year: 'numeric', month: 'long', day: 'numeric'};
+        return new Date(string).toLocaleDateString([], options);
+    }
+
+    
     
     render(){
         
@@ -68,7 +77,7 @@ export class TermPage extends React.Component{
 
                     <div className="revidert">
                         <Ingress>Sist Revidert</Ingress>
-                        <p>{this.props.termKey.oppdatert}</p>
+                        <p>{this.formatDate(this.props.termKey.oppdatert)}</p>
                     </div>
                 </div>
                 <div className="hoyreFeltAvSiden">
