@@ -112,10 +112,7 @@ class Table extends React.Component{
             console.log("klikk", e);
         }
         
-        const handleClick = (e) => {
-            this.props.dispatch(termKey(e));
-            console.log("klikk", e);
-        }
+
         
 
 
