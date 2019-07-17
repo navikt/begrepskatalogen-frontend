@@ -101,11 +101,6 @@ class Table extends React.Component{
            
         }
 
-        const makeArray = (e) => {
-            let items = [e.key, e.term, e.assignee, e.definisjon, e.oppdatert, e.status];
-            console.log(items);
-            //return [key, term, assignee, definisjon, oppdatert, status];
-        }
         
         const handleClick = (e) => {
             this.props.dispatch(termKey(e));
