@@ -10,7 +10,8 @@ export const initialState = {
     numNotApprovedTerms: 0,
     hideNotApproved: false,
     filteredItems:[],
-    updated: ""
+    updated: "",
+    termKey: ""
 };
 
 
@@ -56,7 +57,8 @@ function appReducer(state = initialState, action) {
 
         case 'ORDER_BY_BEGREPSEIER':
             return Object.assign({}, state, {sort: action.payload.sort});
-
+        case 'TERM_KEY':
+            return Object.assign({}, state, { termKey: action.termKey });
             
             // const items = state.items
 

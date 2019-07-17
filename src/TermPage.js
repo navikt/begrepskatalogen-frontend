@@ -29,7 +29,7 @@ export class TermPage extends React.Component{
                             {this.props.items[0].term}
                         </Sidetittel>
                         <br/>
-                        <Undertittel>{this.props.items[0].key}</Undertittel>
+                        <Undertittel>{this.props.termKey}</Undertittel>
                     </div>
 
                     <div className = "begrepsforklaring">
@@ -85,7 +85,8 @@ const mapStateToProps = (state) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
-        sort: state.sort
+        sort: state.sort,
+        termKey: state.termKey,
     }
 };
 
