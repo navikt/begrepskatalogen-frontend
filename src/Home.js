@@ -16,7 +16,6 @@ export class Home extends Component {
         }
     }
     
-    
     toggleHidden(){
         this.props.toggleHiddenTable()
         this.setState({
