@@ -25,9 +25,9 @@ export class TermPage extends React.Component{
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
                     <Link className="linker" to ={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
-
+                <div className = "status">
                 <div className = {this.isGodkjent() ? "statusGodkjent" : "statusAvvist"}><Normaltekst> {console.log(this.isGodkjent())}{this.props.termKey.status}</Normaltekst></div>
-
+                </div>
                 <div className="venstreFeltAvSiden">
 
                     <div className = "begrepsoverskrift">
