@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-//import FilterField from '../FilterSelectField/FilterField';
+import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
@@ -133,33 +133,34 @@ class Table extends React.Component{
             <div className="altaltalt">
                 
                 <div className="altalt">
-                    
                     <div className="selectfields">
                         <SortField/>
                     </div>
-                        <div className="altavtabell">
-                            <table className="begreper">
+                    <div className="altavtabell">
+                        <table className="begreper">
+                            <colgroup>
                                 <col width="250"/>
                                 <col width="500"/>
                                 <col width="150"/>
                                 <col width="180"/>
                                 <col width="250"/>
-                                <thead className="separator">
+                            </colgroup>
+                            <thead className="separator">
 
-                                <tr>
-                                    <th><Systemtittel>Term</Systemtittel></th>
-                                    <th ><Systemtittel>Definisjon</Systemtittel></th>
-                                    <th><Systemtittel>Status</Systemtittel></th>
-                                    <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                    <th><Systemtittel>Oppatert</Systemtittel></th>   
-                                </tr>
+                            <tr>
+                                <th><Systemtittel>Term</Systemtittel></th>
+                                <th ><Systemtittel>Definisjon</Systemtittel></th>
+                                <th><Systemtittel>Status</Systemtittel></th>
+                                <th><Systemtittel>Begrepseier</Systemtittel></th>
+                                <th><Systemtittel>Oppatert</Systemtittel></th>   
+                            </tr>
 
-                                </thead>
-                                <tbody>
-                                {this.renderTableData()}
-                                </tbody>
-                            </table>
-                        </div>
+                            </thead>
+                            <tbody>
+                            {this.renderTableData()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         );
