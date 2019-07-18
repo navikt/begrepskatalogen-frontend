@@ -9,9 +9,6 @@ import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/S
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
-
-
-
 class Table extends React.Component{
 
     constructor(props){
@@ -103,12 +100,6 @@ class Table extends React.Component{
             }
            
         }
-
-        const makeArray = (e) => {
-            let items = [e.key, e.term, e.assignee, e.definisjon, e.oppdatert, e.status];
-            console.log(items);
-            //return [key, term, assignee, definisjon, oppdatert, status];
-        }
         
         const handleClick = (e) => {
             this.props.dispatch(termKey(e));
@@ -119,13 +110,7 @@ class Table extends React.Component{
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
         }
-        
-
-
-        //  else{
-        //     list.sort((a,b) =>(a.id>b.id ? 1: -1));
-        // }
-        
+    
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
@@ -147,15 +132,14 @@ class Table extends React.Component{
                 <div className="altalt">
                     
                     <div className="selectfields">
-                        <SortField/>
+                            <FilterField/><SortField/>
                     </div>
-                        <body className="altavtabell">
-                        
+                        <div className="altavtabell">
                             <table className="begreper">
                                 <col width="250"/>
                                 <col width="500"/>
-                                <col width="200"/>
-                                <col width="250"/>
+                                <col width="150"/>
+                                <col width="180"/>
                                 <col width="250"/>
                                 <thead className="separator">
 
@@ -164,8 +148,7 @@ class Table extends React.Component{
                                     <th ><Systemtittel>Definisjon</Systemtittel></th>
                                     <th><Systemtittel>Status</Systemtittel></th>
                                     <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                    <th><Systemtittel>Oppatert</Systemtittel></th>
-                                    
+                                    <th><Systemtittel>Oppatert</Systemtittel></th>   
                                 </tr>
 
                                 </thead>
@@ -173,10 +156,8 @@ class Table extends React.Component{
                                 {this.renderTableData()}
                                 </tbody>
                             </table>
-                        </body>
+                        </div>
                 </div>
-                <div>
-            </div>
             </div>
         );
     }
