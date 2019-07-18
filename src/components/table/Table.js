@@ -1,13 +1,16 @@
 import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-import FilterField from '../FilterSelectField/FilterField';
+//import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
+
+
+
 
 class Table extends React.Component{
 
@@ -140,11 +143,14 @@ class Table extends React.Component{
     render(){
         return (
             <div className="altaltalt">
+                
                 <div className="altalt">
+                    
                     <div className="selectfields">
-                            <FilterField/><SortField/>
+                        <SortField/>
                     </div>
                         <body className="altavtabell">
+                        
                             <table className="begreper">
                                 <col width="250"/>
                                 <col width="500"/>
@@ -159,6 +165,7 @@ class Table extends React.Component{
                                     <th><Systemtittel>Status</Systemtittel></th>
                                     <th><Systemtittel>Begrepseier</Systemtittel></th>
                                     <th><Systemtittel>Oppatert</Systemtittel></th>
+                                    
                                 </tr>
 
                                 </thead>
