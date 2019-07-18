@@ -10,9 +10,8 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                <NavLink to={"/"}>
                     <div className="headerLogo">
-                    <a className="headerLogo__logosvg" >
+                    <NavLink to={"/"} className="headerLogo__logosvg">
                         <svg xmlns="http://www.w3.org/2000/svg" className="navLogo" width="90" viewBox="0 0 269 169">
                             <defs>
                                 <path id="a" d="M22.407 43.417V.687H.564v42.73h21.843z"></path>
@@ -26,9 +25,8 @@ class Header extends Component {
                             </g>
                         </svg>
                         <Systemtittel className="headerLogo__title">Begrepskatalogen</Systemtittel>
-                    </a>
+                    </NavLink>
                     </div>
-                </NavLink>
 
                 <div className="navigation">
                     <Navigation/>
