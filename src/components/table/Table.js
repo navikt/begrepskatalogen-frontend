@@ -110,7 +110,7 @@ class Table extends React.Component{
             console.log("klikk", e);
         }
         
-        const formatDate=(string)=> {
+        const formatDate = (string) => {
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
         }
@@ -118,8 +118,8 @@ class Table extends React.Component{
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
-                <tr key= {key} className="definisjon">
-                    <td><Link className="termKolonne" onClick={() => handleClick(item) }to={"/begrepsside"}>{term}</Link></td>
+                <tr key={key} className="definisjon">
+                    <td><Link className="termKolonne" onClick={() => handleClick(item)}to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst className="status">{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
@@ -131,38 +131,38 @@ class Table extends React.Component{
 
     render(){
         return (
-            <div class="altavBody">
-            <div className="altalt">
-                <div className="selectfields">
-                    <SortField/>
-                </div>
-                <div className="altavtabell">
-                    <FilterSection/>
-                    <table className="begreper">
-                        <colgroup>
-                            <col width="250"/>
-                            <col width="500"/>
-                            <col width="150"/>
-                            <col width="180"/>
-                            <col width="250"/>
-                        </colgroup>
-                        <thead className="separator">
+            <div className="altavBody">
+                <div className="altalt">
+                    <div className="selectfields">
+                        <SortField/>
+                    </div>
+                    <div className="altavtabell">
+                        <FilterSection/>
+                        <table className="begreper">
+                            <colgroup>
+                                <col width="250"/>
+                                <col width="500"/>
+                                <col width="150"/>
+                                <col width="180"/>
+                                <col width="250"/>
+                            </colgroup>
+                            <thead className="separator">
 
-                        <tr>
-                            <th><Systemtittel>Term</Systemtittel></th>
-                            <th ><Systemtittel>Definisjon</Systemtittel></th>
-                            <th><Systemtittel>Status</Systemtittel></th>
-                            <th><Systemtittel>Begrepseier</Systemtittel></th>
-                            <th><Systemtittel>Oppatert</Systemtittel></th>   
-                        </tr>
+                            <tr>
+                                <th><Systemtittel>Term</Systemtittel></th>
+                                <th ><Systemtittel>Definisjon</Systemtittel></th>
+                                <th><Systemtittel>Status</Systemtittel></th>
+                                <th><Systemtittel>Begrepseier</Systemtittel></th>
+                                <th><Systemtittel>Oppatert</Systemtittel></th>   
+                            </tr>
 
-                        </thead>
-                        <tbody>
-                        {this.renderTableData()}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {this.renderTableData()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }
