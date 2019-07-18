@@ -2,6 +2,7 @@ import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
 import FilterField from '../FilterSelectField/FilterField';
+import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
@@ -137,6 +138,7 @@ class Table extends React.Component{
                         <SortField/>
                     </div>
                     <div className="altavtabell">
+                        <FilterSection/>
                         <table className="begreper">
                             <colgroup>
                                 <col width="250"/>

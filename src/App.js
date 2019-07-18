@@ -27,13 +27,15 @@ class App extends Component{
             <div className="App">
                 <Router>
                     <Header/>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/kontaktoss' component={KontaktOss}/>
-                    <Route exact path ='/begrepsside' component={TermPage}/>
-                    <Route exact path='/søketabell' component={Table}/>
-                    <Route exact path='/meld-inn-nytt-begrep' component={() => {
-                        window.location.href = 'http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010'; return null;
-                    }}/>
+                    <div className="body">
+                        <Route exact path='/' component={Home}/>
+                        <Route exact path='/kontaktoss' component={KontaktOss}/>
+                        <Route exact path ='/begrepsside' component={TermPage}/>
+                        <Route exact path='/søketabell' component={Table}/>
+                        <Route exact path='/meld-inn-nytt-begrep' component={() => {
+                            window.location.href = 'http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010'; return null;
+                        }}/>
+                    </div>
                     <Footer/>
                 </Router>
             </div>
