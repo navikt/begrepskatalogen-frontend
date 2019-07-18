@@ -2,9 +2,26 @@ import React from 'react';
 import { Checkbox} from 'nav-frontend-skjema';
 import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
+import { connect } from 'react-redux';
+import Fuse from 'fuse.js';
 
 
 class FilterSection extends React.Component{
+
+    constructor(props){
+        super(props);
+    }
+
+    filterResult(){
+        var options={keys:[{
+            name: "status"
+            }]
+        }
+        var fuse = new Fuse(this.props.items, options);
+        const filterStatus = fuse.search(this.props.alternatives)
+        return filterStatus;
+    }
+
     render(){
         return(
             <div className="filterwrapper">
@@ -70,4 +87,10 @@ class FilterSection extends React.Component{
     }
 }
 
-export default FilterSection;
+const mapStateToProps = (state) =>{
+    return{
+        filterStatus: state.filterStatus
+    }
+}
+
+export default connect(mapStateToProps)(FilterSection);

@@ -18,7 +18,6 @@ class Table extends React.Component{
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
-        this.state = ({});
     }
 
     searchResult() {
