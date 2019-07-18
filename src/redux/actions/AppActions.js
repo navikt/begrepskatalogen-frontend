@@ -52,5 +52,12 @@ export const termKey = (newKey) => {
     };
 }
 
+export const filterStatus = (filterStatus) =>{
+    return{
+        type: 'FILTER_STATUS',
+        filterStatus: filterStatus,
+    }
+}
+
 
 

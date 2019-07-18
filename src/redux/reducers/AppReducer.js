@@ -8,7 +8,8 @@ export const initialState = {
     hideNotApproved: false,
     filteredItems:[],
     updated: "",
-    termKey: []
+    termKey: [],
+    filterStatus: [],
 };
 
 function appReducer(state = initialState, action) {
@@ -39,6 +40,10 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.termKey });
+
+        case 'FILTER_STATUS':
+            return Object.assign({}, state, {filterStatus: action.filterStatus})
+
         default:
             return state; 
     }
