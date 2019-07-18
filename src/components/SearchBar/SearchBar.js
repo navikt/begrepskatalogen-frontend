@@ -1,22 +1,17 @@
 import React from 'react';
 import { Input } from 'nav-frontend-skjema';
 import './SearchBar.less';
-
-//import { Field, reduxForm } from "redux-form";
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { updateSearch } from '../../redux/actions/SearchAction';
-
 
 class SearchBar extends React.Component{
 
     constructor(props){
-    super(props);
-    this.onUpdateSearch = this.onUpdateSearch.bind(this);
+        super(props);
+        this.onUpdateSearch = this.onUpdateSearch.bind(this);
     }
 
     onUpdateSearch (event){
-        console.log("Event value", event.currentTarget.value);
-        //updateSearch(event.currentTarget.value);
         this.props.dispatch(updateSearch(event.target.value));
     }
 
@@ -44,21 +39,10 @@ class SearchBar extends React.Component{
     }
 }
 
-/** handleSubmit = event =>{
-    event.preventDefault();
-    this.props.search();
-    this.props.page();
-}*/
-
-const mapStateToProps = (state, props) => {
-    console.log(props);
+const mapStateToProps = (state) => {
     return {
         search: state.search,
     }
 };
-
-const mapActionsToProps = {
-    onUpdateSearch: updateSearch
-}
 
 export default connect(mapStateToProps)(SearchBar);

@@ -1,8 +1,3 @@
-export function toggleFancy() {
-    return {
-        type: 'TOGGLE_FANCY'
-    };
-}
 
 export function fetchData(){
     const API = '/api/issues';
@@ -23,24 +18,22 @@ export function fetchData(){
     }
 }
 
-export function toggleHiddenTable() {
-    console.log("clicked on vis alle begrep");
+export function toggleSeeAllTerms() {
     return {
-        type: 'TOGGLE_HIDDEN_TABLE',
+        type: 'TOGGLE_SEE_ALL_TERMS',
         seeAllTerms: true
     };
 }
 
 //sort by category in progress
-
 export const sortCategories = (category, updated) =>(dispatch) =>{
     return dispatch({
         type: 'SORT_BY',
-        payload:{
-            updated :updated,
-            items: updated ===''? category:category.filter(a=>a.updated.indexOf(updated.valueOf()>=0))  //mulig denne valueOf må endres, avh hva dato måles på
+        payload: {
+            updated: updated,
+            items: updated === '' ? category: category.filter(a => a.updated.indexOf(updated.valueOf() >= 0))  //mulig denne valueOf må endres, avh hva dato måles på
         }
-    })
+    });
 }
 
 export const sortBy = (sort) => (dispatch) =>{    
@@ -49,15 +42,14 @@ export const sortBy = (sort) => (dispatch) =>{
         payload: {
             sort: sort
         }
-    })
+    });
 }
 
 export const termKey = (newKey) => {
     return {
         type: 'TERM_KEY',
         termKey: newKey, 
-    
-    }
+    };
 }
 
 

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Table from './components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
-import {connect} from 'react-redux';
-import { toggleHiddenTable } from './redux/actions/AppActions';
+import { connect } from 'react-redux';
+import { toggleSeeAllTerms } from './redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 import { hideNonApprovedTerms } from './redux/actions/SearchAction';
-
 
 export class Home extends Component {
     constructor(){
@@ -17,7 +16,7 @@ export class Home extends Component {
     }
     
     toggleHidden(){
-        this.props.toggleHiddenTable()
+        this.props.toggleSeeAllTerms()
         this.setState({
             isHidden: false
         });
@@ -26,7 +25,7 @@ export class Home extends Component {
     render() {
         return (
             <div>
-                {(this.state.isHidden && (this.props.search == "")) ? 
+                { (this.state.isHidden && (this.props.search == "")) ? 
                     <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
                             se alle begrepene.
@@ -43,7 +42,7 @@ export class Home extends Component {
                 }
                 {(this.state.isHidden && (this.props.search == ""))? 
                     <div className="beforeSearch">
-                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise <br/>  alle begrepene i katalogen</Ingress> 
+                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
                     </div>
                     :
                     <Table/>
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 };
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleHiddenTable: toggleHiddenTable, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
+    return bindActionCreators({ toggleSeeAllTerms: toggleSeeAllTerms, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home);

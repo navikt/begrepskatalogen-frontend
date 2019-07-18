@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './composition/header/Header';
 import './App.less';
 import Footer from './components/footer/Footer';
@@ -8,7 +8,7 @@ import Home from './Home';
 import KontaktOss from './KontaktOss';
 import TermPage from './TermPage';
 import Table from './components/table/Table';
-import { fetchData, addOne, addX, searchResult, updateSearchText } from './redux/actions/AppActions';
+import { fetchData } from './redux/actions/AppActions';
 
 
 class App extends Component{
@@ -20,17 +20,14 @@ class App extends Component{
     componentDidMount(){
         console.log("funker");
         this.props.dispatch(fetchData());
-        
     }
    
     render(){ 
         return (
             <div className="App">
-                { this.props.fancy && <div id="fancy" /> }
-
                 <Router>
                     <Header/>
-                    <Route exact path='/' component={Home} />
+                    <Route exact path='/' component={Home}/>
                     <Route exact path='/kontaktoss' component={KontaktOss}/>
                     <Route exact path ='/begrepsside' component={TermPage}/>
                     <Route exact path='/søketabell' component={Table}/>
@@ -45,7 +42,6 @@ class App extends Component{
 }
 
 const mapStateToProps = (store) => ({
-    fancy: store.fancy,
     loading: store.loading,
     counter: store.counter, 
     items: store.items

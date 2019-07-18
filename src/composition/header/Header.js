@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Systemtittel } from 'nav-frontend-typografi';
-import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Navigation from '../../components/navigation/Navigation';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './Header.less'
