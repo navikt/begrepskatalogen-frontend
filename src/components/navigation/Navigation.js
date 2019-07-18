@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Element } from 'nav-frontend-typografi';
 import 'nav-frontend-lenker-style';
 import './Navigation.less';
 import './HeaderButtons.less';
-
 
 class Navigation extends React.Component{
     
@@ -36,4 +34,4 @@ class Navigation extends React.Component{
     }
 }
 
-export default connect()(Navigation);
+export default Navigation;

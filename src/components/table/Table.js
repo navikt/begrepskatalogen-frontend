@@ -129,7 +129,7 @@ class Table extends React.Component{
                 <tr key= {key} className="definisjon">
                     <td><Link className="termKolonne" onClick={() => handleClick(item) }to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
-                    <td><Normaltekst>{status}</Normaltekst></td>
+                    <td><Normaltekst className="status">{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
@@ -144,24 +144,29 @@ class Table extends React.Component{
                     <div className="selectfields">
                             <FilterField/><SortField/>
                     </div>
-                    <div className="altavtabell">
-                        <table className="begreper">
-                            <thead className="separator">
+                        <body className="altavtabell">
+                            <table className="begreper">
+                                <col width="250"/>
+                                <col width="500"/>
+                                <col width="200"/>
+                                <col width="250"/>
+                                <col width="250"/>
+                                <thead className="separator">
 
-                            <tr>
-                                <th><Systemtittel>Term</Systemtittel></th>
-                                <th ><Systemtittel>Definisjon</Systemtittel></th>
-                                <th><Systemtittel>Status</Systemtittel></th>
-                                <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                <th><Systemtittel>Oppatert</Systemtittel></th>
-                            </tr>
+                                <tr>
+                                    <th><Systemtittel>Term</Systemtittel></th>
+                                    <th ><Systemtittel>Definisjon</Systemtittel></th>
+                                    <th><Systemtittel>Status</Systemtittel></th>
+                                    <th><Systemtittel>Begrepseier</Systemtittel></th>
+                                    <th><Systemtittel>Oppatert</Systemtittel></th>
+                                </tr>
 
-                            </thead>
-                            <tbody>
-                            {this.renderTableData()}
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                {this.renderTableData()}
+                                </tbody>
+                            </table>
+                        </body>
                 </div>
                 <div>
             </div>

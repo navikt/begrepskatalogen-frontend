@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.less';
 import ScrollUpButton from 'react-scroll-up-button';
 import { Element } from 'nav-frontend-typografi';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
     

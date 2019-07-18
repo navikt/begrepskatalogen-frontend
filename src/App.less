@@ -1,27 +1,2 @@
 @import '~nav-frontend-core';
 
-/* 
-	FJERN DETTE :)
-*/
-#fancy {
-	display:flex;
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	bottom:0px;
-	align-items:center;
-	justify-content:center;
-	pointer-events:none;
-
-	&:after {
-		content:'FANCY';
-		font-size:10rem;
-		animation: spin 4s linear infinite;
-		background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-	    -webkit-background-clip: text;
-	    -webkit-text-fill-color: transparent;
-	}
-}
-
-@keyframes spin { 100% { transform:rotate(360deg); } }

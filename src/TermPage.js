@@ -18,7 +18,7 @@ export class TermPage extends React.Component{
             return <AlertStripeSuksess size="25">Godkjent begrep</AlertStripeSuksess>;
         }
         else if(this.props.termKey.status === 'Utkast') {
-            return <AlertStripeAdvarsel size="25" >Utkast</AlertStripeAdvarsel>;
+            return <AlertStripeAdvarsel size="25">Utkast</AlertStripeAdvarsel>;
         }
         else {
             return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
@@ -33,7 +33,6 @@ export class TermPage extends React.Component{
     
     
     render(){
-        
         return(
             <div className="gridContainer">
           
@@ -42,10 +41,7 @@ export class TermPage extends React.Component{
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
                     <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
-
-
                 <div className="status"> {this.isGodkjent()}</div>
-
                 <div className="venstreFeltAvSiden">
                     <div className="begrepsoverskrift">
                         <Sidetittel>
@@ -93,7 +89,7 @@ export class TermPage extends React.Component{
 
                     <div className="begrepseier">
                         <Ingress>Begrepseier</Ingress>
-                        <Normaltekst>{this.props.termKey.begrepseier}<br/> </Normaltekst>
+                        <Normaltekst>{this.props.termKey.begrepseier}<br/></Normaltekst>
                     </div>
                 </div> 
             </div>
