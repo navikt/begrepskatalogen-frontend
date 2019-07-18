@@ -131,38 +131,35 @@ class Table extends React.Component{
 
     render(){
         return (
-            <div className="altaltalt">
-                
-                <div className="altalt">
-                    <div className="selectfields">
-                        <SortField/>
-                    </div>
-                    <div className="altavtabell">
-                        <FilterSection/>
-                        <table className="begreper">
-                            <colgroup>
-                                <col width="250"/>
-                                <col width="500"/>
-                                <col width="150"/>
-                                <col width="180"/>
-                                <col width="250"/>
-                            </colgroup>
-                            <thead className="separator">
+            <div className="altalt">
+                <div className="selectfields">
+                    <SortField/>
+                </div>
+                <div className="altavtabell">
+                    <FilterSection/>
+                    <table className="begreper">
+                        <colgroup>
+                            <col width="250"/>
+                            <col width="500"/>
+                            <col width="150"/>
+                            <col width="180"/>
+                            <col width="250"/>
+                        </colgroup>
+                        <thead className="separator">
 
-                            <tr>
-                                <th><Systemtittel>Term</Systemtittel></th>
-                                <th ><Systemtittel>Definisjon</Systemtittel></th>
-                                <th><Systemtittel>Status</Systemtittel></th>
-                                <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                <th><Systemtittel>Oppatert</Systemtittel></th>   
-                            </tr>
+                        <tr>
+                            <th><Systemtittel>Term</Systemtittel></th>
+                            <th ><Systemtittel>Definisjon</Systemtittel></th>
+                            <th><Systemtittel>Status</Systemtittel></th>
+                            <th><Systemtittel>Begrepseier</Systemtittel></th>
+                            <th><Systemtittel>Oppatert</Systemtittel></th>   
+                        </tr>
 
-                            </thead>
-                            <tbody>
-                            {this.renderTableData()}
-                            </tbody>
-                        </table>
-                    </div>
+                        </thead>
+                        <tbody>
+                        {this.renderTableData()}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );
