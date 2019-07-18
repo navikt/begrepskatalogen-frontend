@@ -100,25 +100,11 @@ class Table extends React.Component{
             }
            
         }
-
-        const makeArray = (e) => {
-            let items = [e.key, e.term, e.assignee, e.definisjon, e.oppdatert, e.status];
-            console.log(items);
-            //return [key, term, assignee, definisjon, oppdatert, status];
-        }
         
         const handleClick = (e) => {
             this.props.dispatch(termKey(e));
             console.log("klikk", e);
         }
-        
-
-        
-
-
-        //  else{
-        //     list.sort((a,b) =>(a.id>b.id ? 1: -1));
-        // }
         
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
@@ -165,8 +151,6 @@ class Table extends React.Component{
                             </table>
                         </body>
                 </div>
-                <div>
-            </div>
             </div>
         );
     }
