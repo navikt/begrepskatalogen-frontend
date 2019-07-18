@@ -1,11 +1,12 @@
 import React from 'react';
 import { Checkbox} from 'nav-frontend-skjema';
+import './FilterSection.less';
 import { Normaltekst } from 'nav-frontend-typografi';
 
 
 function FilterSection(){
     return(
-        <div className="wrapper">
+        <div className="filterwrapper">
             
             <div>
                 <Normaltekst>Implisitt status</Normaltekst>
@@ -17,16 +18,6 @@ function FilterSection(){
                 <Checkbox label={"Avviste"}/>
             </div>
 
-            <div>
-                <Normaltekst>Begrepseier</Normaltekst>
-            </div>
-
-            <div>
-                <Checkbox label={"Begrepsier1'"}/>
-                <Checkbox label={"Begrepsier2'"}/>
-                <Checkbox label={"Begrepsier3'"}/>
-            </div>
-            
             <div>
                 <Normaltekst>Fagområder</Normaltekst>
             </div>
@@ -67,6 +58,15 @@ function FilterSection(){
                 <Checkbox label={"Nei"}/>
             </div>
 
+            <div>
+                <Normaltekst>Begrepseier</Normaltekst>
+            </div>
+
+            <div>
+                <Checkbox label={"Begrepsier1'"}/>
+                <Checkbox label={"Begrepsier2'"}/>
+                <Checkbox label={"Begrepsier3'"}/>
+            </div>
 
 
         </div>

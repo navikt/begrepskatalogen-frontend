@@ -8,7 +8,8 @@ import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-//import FilterSection from '../FilterSection/FilterSection';
+
+
 
 
 class Table extends React.Component{
@@ -144,10 +145,12 @@ class Table extends React.Component{
             <div className="altaltalt">
                 
                 <div className="altalt">
+                    
                     <div className="selectfields">
-                            <SortField/>
+                        <SortField/>
                     </div>
                         <body className="altavtabell">
+                        
                             <table className="begreper">
                                 <col width="250"/>
                                 <col width="500"/>
@@ -162,6 +165,7 @@ class Table extends React.Component{
                                     <th><Systemtittel>Status</Systemtittel></th>
                                     <th><Systemtittel>Begrepseier</Systemtittel></th>
                                     <th><Systemtittel>Oppatert</Systemtittel></th>
+                                    
                                 </tr>
 
                                 </thead>
