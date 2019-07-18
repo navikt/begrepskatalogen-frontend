@@ -2,15 +2,13 @@ import React from 'react';
 import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-frontend-typografi';
 import './TermPage.less';
 import { Link } from 'react-router-dom';
-import {connect} from  'react-redux';
-import {AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
+import { connect } from  'react-redux';
+import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
 
 export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
-
-      
     }
 
     isGodkjent = () => {
@@ -18,7 +16,7 @@ export class TermPage extends React.Component{
             return <AlertStripeSuksess size="25">Godkjent begrep</AlertStripeSuksess>;
         }
         else if(this.props.termKey.status === 'Utkast') {
-            return <AlertStripeAdvarsel size="25">Utkast</AlertStripeAdvarsel>;
+            return <AlertStripeAdvarsel className="utkastBegrep" size="25">Utkast</AlertStripeAdvarsel>;
         }
         else {
             return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
@@ -30,8 +28,6 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
-    
-    
     render(){
         return(
             <div className="gridContainer">
@@ -41,7 +37,7 @@ export class TermPage extends React.Component{
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
                     <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
                 </div>
-                <div className="status"> {this.isGodkjent()}</div>
+                <div className="status">{this.isGodkjent()}</div>
                 <div className="venstreFeltAvSiden">
                     <div className="begrepsoverskrift">
                         <Sidetittel>
