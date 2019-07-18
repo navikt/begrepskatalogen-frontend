@@ -131,7 +131,7 @@ class Table extends React.Component{
 
     render(){
         return (
-            <div class="altaltalt">
+            <div class="altavBody">
             <div className="altalt">
                 <div className="selectfields">
                     <SortField/>
