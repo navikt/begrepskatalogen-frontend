@@ -127,7 +127,7 @@ class Table extends React.Component{
                     <div className="selectfields">
                             <FilterField/><SortField/>
                     </div>
-                        <body className="altavtabell">
+                        <div className="altavtabell">
                             <table className="begreper">
                                 <col width="250"/>
                                 <col width="500"/>
@@ -149,7 +149,7 @@ class Table extends React.Component{
                                 {this.renderTableData()}
                                 </tbody>
                             </table>
-                        </body>
+                        </div>
                 </div>
             </div>
         );
