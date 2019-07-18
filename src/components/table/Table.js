@@ -138,11 +138,13 @@ class Table extends React.Component{
                     </div>
                     <div className="altavtabell">
                         <table className="begreper">
-                            <col width="250"/>
-                            <col width="500"/>
-                            <col width="150"/>
-                            <col width="180"/>
-                            <col width="250"/>
+                            <colgroup>
+                                <col width="250"/>
+                                <col width="500"/>
+                                <col width="150"/>
+                                <col width="180"/>
+                                <col width="250"/>
+                            </colgroup>
                             <thead className="separator">
 
                             <tr>
