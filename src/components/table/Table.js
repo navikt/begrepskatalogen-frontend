@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-import FilterField from '../FilterSelectField/FilterField';
+//import FilterField from '../FilterSelectField/FilterField';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
@@ -106,6 +106,11 @@ class Table extends React.Component{
             console.log("klikk", e);
         }
         
+        const formatDate=(string)=> {
+            var options = { year: 'numeric', month: 'long', day: 'numeric'};
+            return new Date(string).toLocaleDateString([], options);
+        }
+    
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
@@ -114,7 +119,7 @@ class Table extends React.Component{
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst className="status">{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
-                    <td><Normaltekst>{oppdatert}</Normaltekst></td>
+                    <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
             );
         })
@@ -123,7 +128,9 @@ class Table extends React.Component{
     render(){
         return (
             <div className="altaltalt">
+                
                 <div className="altalt">
+                    
                     <div className="selectfields">
                             <FilterField/><SortField/>
                     </div>
@@ -141,7 +148,7 @@ class Table extends React.Component{
                                     <th ><Systemtittel>Definisjon</Systemtittel></th>
                                     <th><Systemtittel>Status</Systemtittel></th>
                                     <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                    <th><Systemtittel>Oppatert</Systemtittel></th>
+                                    <th><Systemtittel>Oppatert</Systemtittel></th>   
                                 </tr>
 
                                 </thead>
