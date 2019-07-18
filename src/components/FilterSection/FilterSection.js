@@ -8,7 +8,7 @@ function FilterSection(){
     return(
         <div className="filterwrapper">
             
-            <div>
+            <div className="overskrift">
                 <Normaltekst>Implisitt status</Normaltekst>
             </div>
 
@@ -18,7 +18,7 @@ function FilterSection(){
                 <Checkbox label={"Avviste"}/>
             </div>
 
-            <div>
+            <div className="overskrift">
                 <Normaltekst>Fagområder</Normaltekst>
             </div>
 
@@ -28,7 +28,7 @@ function FilterSection(){
                 <Checkbox label={"Fagområde3'"}/>
             </div>
 
-            <div>
+            <div className="overskrift">
                 <Normaltekst>Kildetype</Normaltekst>
             </div>
 
@@ -39,7 +39,7 @@ function FilterSection(){
             </div>
 
 
-            <div>
+            <div className="overskrift">
                 <Normaltekst>Ekstern eierskap?</Normaltekst>
             </div>
 
@@ -49,7 +49,7 @@ function FilterSection(){
             </div>
 
 
-            <div>
+            <div className="overskrift">
                 <Normaltekst>Offentlig Status</Normaltekst>
             </div>
 
@@ -58,15 +58,6 @@ function FilterSection(){
                 <Checkbox label={"Nei"}/>
             </div>
 
-            <div>
-                <Normaltekst>Begrepseier</Normaltekst>
-            </div>
-
-            <div>
-                <Checkbox label={"Begrepsier1'"}/>
-                <Checkbox label={"Begrepsier2'"}/>
-                <Checkbox label={"Begrepsier3'"}/>
-            </div>
 
 
         </div>
