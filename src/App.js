@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './composition/header/Header';
 import './App.less';
-import Footer from './components/footer/Footer';
+import Footer from './composition/footer/Footer';
 import { connect } from 'react-redux';
 import Home from './Home';
 import KontaktOss from './KontaktOss';
