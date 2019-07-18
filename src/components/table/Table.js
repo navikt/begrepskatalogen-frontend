@@ -9,6 +9,9 @@ import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/S
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
+
+
+
 class Table extends React.Component{
 
     constructor(props){
@@ -131,7 +134,7 @@ class Table extends React.Component{
                 
                 <div className="altalt">
                     <div className="selectfields">
-                            <FilterField/><SortField/>
+                        <SortField/>
                     </div>
                     <div className="altavtabell">
                         <table className="begreper">
