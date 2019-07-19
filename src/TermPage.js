@@ -30,11 +30,35 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
+    hasInwardIssue = () =>{
+        const x = this.props.termKey.relasjoner.length;
+        for (var i = 0 ; i < x; i++){
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwwardIssue")){
+                return true;
+            }
+        }
+
+
+    }
+
+    relationFinder = () =>{
+        const x = this.props.termKey.relasjoner.length !== null ? this.props.termKey.relasjoner.length : "";
+        var relasjoner = "";
+        if (x <= 0){
+            return "Ingen relaterte begreper";
+        }
+        for( var i = 0; i < x; i++ ){
+            relasjoner = relasjoner.concat(this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary);
+        }
+        return relasjoner;
+    }
+//{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
     
     
     render(){
         return(
             <div className="gridContainer">
+                
           
                 <div className="begrepsHeader">
                     <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
@@ -67,8 +91,8 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="relasjoner">
-                        <Ingress>Relasjon til andre begreper (Relasjonstre?)</Ingress>
-                        <p>PLACEHOLDER . PLACEHOLDER</p>
+                        <Ingress>Relasjon til andre begreper</Ingress>
+                        <p>{this.relationFinder()} {this.hasInwardIssue()}</p>
                     </div>
 
                     <div className="revidert">
