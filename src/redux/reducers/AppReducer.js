@@ -10,6 +10,10 @@ export const initialState = {
     updated: "",
     termKey: [],
     hideNotApproved: false,
+    //start utkastdel
+    utkastTerms: 0,
+    hideNotUtkast: false,
+    //slutt utkastdel
 };
 
 function appReducer(state = initialState, action) {
@@ -40,6 +44,14 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.termKey });
+
+        //start utkastdel
+        case 'NUM_UTKAST_TERMS':
+            return Object.assign({}, state, { utkastTerms: action.utkastTerms });
+        
+        case 'NOT_UTKAST_TERMS':
+            return Object.assign({}, state, { hideNotUtkast: !state.hideNotUtkast });
+        //slutt utkastdel
 
 
         default:
