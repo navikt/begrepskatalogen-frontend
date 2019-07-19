@@ -14,6 +14,10 @@ export const initialState = {
     utkastTerms: 0,
     hideNotUtkast: false,
     //slutt utkastdel
+    //start avvistdel
+    avvistTerms: 0,
+    hideNotAvvist: false,
+    //slutt avvustdel
 };
 
 function appReducer(state = initialState, action) {
@@ -52,6 +56,15 @@ function appReducer(state = initialState, action) {
         case 'NOT_UTKAST_TERMS':
             return Object.assign({}, state, { hideNotUtkast: !state.hideNotUtkast });
         //slutt utkastdel
+
+        //start avvistdel
+        case 'NUM_AVVIST_TERMS':
+            return Object.assign({}, state, { avvistTerms: action.avvistTerms });
+        
+        case 'NOT_AVVIST_TERMS':
+            return Object.assign({}, state, { hideNotAvvist: !state.hideNotAvvist });
+        //slutt avvustdel
+
 
 
         default:

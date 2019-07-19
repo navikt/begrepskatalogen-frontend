@@ -6,7 +6,7 @@ import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
-import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms } from '../../redux/actions/SearchAction';
+import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
@@ -83,6 +83,24 @@ class Table extends React.Component{
     }
     //slutt utkastdel
 
+    //start avvistdel
+    avvistBegreper(list){
+        const allTerms = list
+        var options={
+            shouldSort: true,
+            findAllMatches: true,
+            threshold: 0,
+            keys:[
+                "status"
+            ]
+        }
+        var fuse = new Fuse(allTerms, options);
+        const avvistList = fuse.search("Avvist");
+        this.props.dispatch(numOfAvvistTerms(avvistList.length))
+        return avvistList;
+    }
+    //slutt avvistdel
+
     
 
     listToShow() {
@@ -94,6 +112,12 @@ class Table extends React.Component{
             return this.utkastBegreper(this.searchResult())
         }
         //slutt utkastdel
+
+        //start avvistdel
+        if(this.props.hideNotAvvist){
+            return this.avvistBegreper(this.searchResult())
+        }
+        //slutt avvistdel
 
         const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
         return list;
@@ -202,8 +226,12 @@ const mapStateToProps = (state, props) => {
         hideNotApproved: state.hideNotApproved,
         sort: state.sort,
         //start utkastdel
-        hideNotUtkast: state.hideNotUtkast
+        hideNotUtkast: state.hideNotUtkast,
         //slutt utkastdel
+        
+        //start avvistdel
+        hideNotAvvist: state.hideNotAvvist
+        //slutt avvistdel
     }
 };
 
