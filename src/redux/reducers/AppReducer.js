@@ -9,7 +9,6 @@ export const initialState = {
     filteredItems:[],
     updated: "",
     termKey: [],
-    filterStatus: [],
     hideNotApproved: false,
 };
 
@@ -42,8 +41,6 @@ function appReducer(state = initialState, action) {
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.termKey });
 
-        case 'FILTER_STATUS':
-            return Object.assign({}, state, {filterStatus: action.filterStatus})
 
         default:
             return state; 
