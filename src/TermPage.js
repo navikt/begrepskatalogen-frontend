@@ -28,8 +28,6 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
-<<<<<<< HEAD
-=======
     hasInwardIssue = () =>{
         const x = this.props.termKey.relasjoner.length;
         for (var i = 0 ; i < x; i++){
@@ -82,7 +80,6 @@ export class TermPage extends React.Component{
 //{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
     
     
->>>>>>> 0ed6163aa08766b4c5a42e3dfc16df705ed79ae7
     render(){
         return(
             <div className="gridContainer">
