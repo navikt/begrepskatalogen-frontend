@@ -39,21 +39,19 @@ export class TermPage extends React.Component{
             return false;
             
         }
+    }
 
-
+    hasOutwardIssue = () => {
+        const x = this.props.termKey.relasjoner.length;
+        for(var i = 0; i < x; i++){
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
+                return true;
+            }
+            return false;
+        }
     }
 
     inwardRelationFinder = () =>{
-     /*   const x = this.props.termKey.relasjoner.length !== null ? this.props.termKey.relasjoner.length : "";
-        var relasjoner = "";
-        if (x <= 0){
-            return "Ingen relaterte begreper";
-        }
-        for( var i = 0; i < x; i++ ){
-            relasjoner = relasjoner.concat(this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary);
-        }
-        return relasjoner;*/
-
         if(this.hasInwardIssue()){
             var relasjoner = "";
             const x = this.props.termKey.relasjoner.length;
@@ -62,9 +60,24 @@ export class TermPage extends React.Component{
             }
             return relasjoner;
 
-        }else{
-            return "Ingen 'Inward' relasjoner";
         }
+        return "Ingen 'Inward' relasjoner";
+    }
+
+    outwardRelationFinder=()=>{
+        if(this.hasOutwardIssue()){
+            var relasjoner = "";
+            const x = this.props.termKey.relasjoner.length;
+            for(var i = 0; i < x; i++){
+                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary )
+            }
+            return relasjoner;
+        }
+        return "Ingen 'outward relasjoner";
+    }
+
+    relationFinder = () => {
+
     }
 //{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
     
@@ -106,7 +119,7 @@ export class TermPage extends React.Component{
 
                     <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper</Ingress>
-                        <p>{this.inwardRelationFinder()}</p>
+                        <p>{this.inwardRelationFinder()}<br/>{this.outwardRelationFinder()}</p>
                     </div>
 
                     <div className="revidert">
