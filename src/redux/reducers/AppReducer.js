@@ -35,6 +35,8 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.termKey });
+
+
         default:
             return state; 
     }

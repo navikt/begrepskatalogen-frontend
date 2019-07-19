@@ -15,7 +15,6 @@ class Table extends React.Component{
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
-        this.state = ({});
     }
 
     searchResult() {
@@ -113,7 +112,7 @@ class Table extends React.Component{
         }
     
         return list.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status, relasjoner} = item
+            const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
                     <td><Link className="termKolonne" onClick={() => handleClick(item)}to={"/begrepsside"}>{term}</Link></td>

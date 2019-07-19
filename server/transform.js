@@ -1,6 +1,8 @@
 module.exports = function transform(jiraData, existingData) {
+  
   const transformedData = existingData || [];
   jiraData.issues.forEach(issue => {
+    
     transformedData.push({
       key: issue.key,
       term: issue.fields.summary,
