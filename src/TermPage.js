@@ -28,20 +28,19 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
-    hasInwardIssue = () =>{
-        const x = this.props.termKey.relasjoner.length;
+    hasInwardIssue = (x) =>{
+        console.log("hasinwardissue", x)
         for (var i = 0 ; i < x; i++){
             if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
                 return true;
             }
             return false;
-            
         }
     }
 
-    hasOutwardIssue = () => {
-        const x = this.props.termKey.relasjoner.length;
+    hasOutwardIssue = (x) => {
         for(var i = 0; i < x; i++){
+            console.log("out lengde", x)
             if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
                 return true;
             }
@@ -49,52 +48,52 @@ export class TermPage extends React.Component{
         }
     }
 
-    inwardRelationFinder = () =>{
-        if(this.hasInwardIssue()){
+    inwardRelationFinder = (length) => {
+        if(this.hasInwardIssue(length)){
             var relasjoner = "";
-            const x = this.props.termKey.relasjoner.length;
-            for (var i = 0; i < x; i++){
-                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary )
+            for (var i = 0; i < length; i++){
+                relasjoner += (" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary )
+                //relasjoner += <br/>;
             }
             return relasjoner;
-
         }
-        return "Ingen 'Inward' relasjoner";
     }
 
-    outwardRelationFinder=()=>{
-        if(this.hasOutwardIssue()){
-            var relasjoner = "";
-            const x = this.props.termKey.relasjoner.length;
-            for(var i = 0; i < x; i++){
-                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary )
+    outwardRelationFinder = (length) => {
+        console.log("lengde", length)
+        if(this.hasOutwardIssue(length)){
+            var relasjoner = " ";
+            for(var i = 0; i < length; i++ ) {
+                relasjoner += (" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary )
+                //relasjoner += <br/>;
             }
             return relasjoner;
         }
-        return "Ingen 'outward relasjoner";
     }
 
     relationFinder = () => {
-
+        const length = this.props.termKey.relasjoner.length;
+        if( length == 0 ) {
+            return "Ingen relasjoner funnet.";
+        }
+        console.log("out", this.outwardRelationFinder(length));
+        console.log("in", this.inwardRelationFinder(length));
+        return <p>{this.outwardRelationFinder(length)}<br></br>{this.inwardRelationFinder(length)}</p>
     }
-//{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
-    
     
     render(){
         return(
             <div className="gridContainer">
-                
-          
                 <div className="begrepsHeader">
                     <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
-                    <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
+                    <Link className="linker" to={'/'}><Element>Gi innspill til begrepet</Element></Link>
                 </div>
                 <div className="status">{this.isGodkjent()}</div>
                 <div className="venstreFeltAvSiden">
                     <div className="begrepsoverskrift">
                         <Sidetittel>
-                        {this.props.termKey.term}
+                            {this.props.termKey.term}
                         </Sidetittel>
                         <br/>
                         <Undertittel>{this.props.termKey.key}</Undertittel>
@@ -117,7 +116,7 @@ export class TermPage extends React.Component{
 
                     <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper</Ingress>
-                        <p>{this.inwardRelationFinder()}<br/>{this.outwardRelationFinder()}</p>
+                        {this.relationFinder()}
                     </div>
 
                     <div className="revidert">
