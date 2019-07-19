@@ -9,7 +9,7 @@ export const updateSearch = (newSearch) => {
 export function hideNonApprovedTerms() {
     return {
         type: 'NOT_APPROVED_TERMS',
-        hideNotApproved: true
+        //hideNotApproved: true
     }
 }
 
