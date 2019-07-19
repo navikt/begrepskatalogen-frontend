@@ -53,7 +53,7 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="eksempler">
-                        <Ingress>PLACEHOLDER</Ingress>
+                        <Ingress>Eksempler</Ingress>
                         <Normaltekst>PLACEHOLDER PLACEHOLDER</Normaltekst>
                     </div>
 
