@@ -26,3 +26,19 @@ export const numOfNotApprovedTerms = ( newNum ) => {
         numNotApprovedTerms: newNum
     }
 };
+
+//start utkastdel
+export const numOfUtkastTerms = (newNum) =>{
+    return{
+        type: 'NUM_UTKAST_TERMS',
+        utkastTerms: newNum
+    }
+};
+
+export function hideNonUtkastTerms(){
+    return{
+        type: 'NOT_UTKAST_TERMS',
+    }
+};
+
+//slutt utkastdel

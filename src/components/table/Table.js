@@ -6,7 +6,7 @@ import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
-import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
+import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
@@ -65,10 +65,36 @@ class Table extends React.Component{
         return approvedList;
     }
 
+    //start utkastdel
+    utkastBegreper(list){
+        const allTerms = list
+        var options={
+            shouldSort: true,
+            findAllMatches: true,
+            threshold: 0,
+            keys:[
+                "status"
+            ]
+        }
+        var fuse = new Fuse(allTerms, options);
+        const utkastList = fuse.search("Utkast");
+        this.props.dispatch(numOfUtkastTerms(utkastList.length))
+        return utkastList;
+    }
+    //slutt utkastdel
+
+    
+
     listToShow() {
         if ( this.props.hideNotApproved) {
             return this.godkjenteBegreper(this.searchResult())
         }
+        //start utkastdel
+        if( this.props.hideNotUtkast){
+            return this.utkastBegreper(this.searchResult())
+        }
+        //slutt utkastdel
+
         const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
         return list;
     }
@@ -174,7 +200,10 @@ const mapStateToProps = (state, props) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
-        sort: state.sort
+        sort: state.sort,
+        //start utkastdel
+        hideNotUtkast: state.hideNotUtkast
+        //slutt utkastdel
     }
 };
 
