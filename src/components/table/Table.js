@@ -10,9 +10,6 @@ import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/S
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
-
-
-
 class Table extends React.Component{
 
     constructor(props){
@@ -116,7 +113,7 @@ class Table extends React.Component{
         }
     
         return list.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status} = item
+            const {key,term,assignee,definisjon,oppdatert,status, relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
                     <td><Link className="termKolonne" onClick={() => handleClick(item)}to={"/begrepsside"}>{term}</Link></td>
@@ -130,6 +127,7 @@ class Table extends React.Component{
     }
 
     render(){
+        console.log("relasjoner", this.props.items[1].relasjoner[0].type.inward)
         return (
             <div className="altavBody">
                 <div className="altalt">
