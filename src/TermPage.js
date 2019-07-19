@@ -33,16 +33,18 @@ export class TermPage extends React.Component{
     hasInwardIssue = () =>{
         const x = this.props.termKey.relasjoner.length;
         for (var i = 0 ; i < x; i++){
-            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwwardIssue")){
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
                 return true;
             }
+            return false;
+            
         }
 
 
     }
 
-    relationFinder = () =>{
-        const x = this.props.termKey.relasjoner.length !== null ? this.props.termKey.relasjoner.length : "";
+    inwardRelationFinder = () =>{
+     /*   const x = this.props.termKey.relasjoner.length !== null ? this.props.termKey.relasjoner.length : "";
         var relasjoner = "";
         if (x <= 0){
             return "Ingen relaterte begreper";
@@ -50,7 +52,19 @@ export class TermPage extends React.Component{
         for( var i = 0; i < x; i++ ){
             relasjoner = relasjoner.concat(this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary);
         }
-        return relasjoner;
+        return relasjoner;*/
+
+        if(this.hasInwardIssue()){
+            var relasjoner = "";
+            const x = this.props.termKey.relasjoner.length;
+            for (var i = 0; i < x; i++){
+                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary )
+            }
+            return relasjoner;
+
+        }else{
+            return "Ingen 'Inward' relasjoner";
+        }
     }
 //{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
     
@@ -92,7 +106,7 @@ export class TermPage extends React.Component{
 
                     <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper</Ingress>
-                        <p>{this.relationFinder()} {this.hasInwardIssue()}</p>
+                        <p>{this.inwardRelationFinder()}</p>
                     </div>
 
                     <div className="revidert">
