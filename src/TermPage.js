@@ -30,11 +30,62 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
+    hasInwardIssue = () =>{
+        const x = this.props.termKey.relasjoner.length;
+        for (var i = 0 ; i < x; i++){
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
+                return true;
+            }
+            return false;
+            
+        }
+    }
+
+    hasOutwardIssue = () => {
+        const x = this.props.termKey.relasjoner.length;
+        for(var i = 0; i < x; i++){
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
+                return true;
+            }
+            return false;
+        }
+    }
+
+    inwardRelationFinder = () =>{
+        if(this.hasInwardIssue()){
+            var relasjoner = "";
+            const x = this.props.termKey.relasjoner.length;
+            for (var i = 0; i < x; i++){
+                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary )
+            }
+            return relasjoner;
+
+        }
+        return "Ingen 'Inward' relasjoner";
+    }
+
+    outwardRelationFinder=()=>{
+        if(this.hasOutwardIssue()){
+            var relasjoner = "";
+            const x = this.props.termKey.relasjoner.length;
+            for(var i = 0; i < x; i++){
+                relasjoner = relasjoner.concat(" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary )
+            }
+            return relasjoner;
+        }
+        return "Ingen 'outward relasjoner";
+    }
+
+    relationFinder = () => {
+
+    }
+//{this.props.termKey.relasjoner[0].inwardIssue.fields.summary}
     
     
     render(){
         return(
             <div className="gridContainer">
+                
           
                 <div className="begrepsHeader">
                     <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
@@ -67,8 +118,8 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="relasjoner">
-                        <Ingress>Relasjon til andre begreper (Relasjonstre?)</Ingress>
-                        <p>PLACEHOLDER . PLACEHOLDER</p>
+                        <Ingress>Relasjon til andre begreper</Ingress>
+                        <p>{this.inwardRelationFinder()}<br/>{this.outwardRelationFinder()}</p>
                     </div>
 
                     <div className="revidert">

@@ -141,7 +141,7 @@ class Table extends React.Component{
         }
     
         return list.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status} = item
+            const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key= {key} className="definisjon">
                     <td><Link className="termKolonne" onClick={() => handleClick(item) }to={"/begrepsside"}>{term}</Link></td>
