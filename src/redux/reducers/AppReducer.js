@@ -10,6 +10,7 @@ export const initialState = {
     updated: "",
     termKey: [],
     filterStatus: [],
+    hideNotApproved: false,
 };
 
 function appReducer(state = initialState, action) {
@@ -25,7 +26,7 @@ function appReducer(state = initialState, action) {
         case 'NUM_APPROVED_TERMS':
             return Object.assign({}, state, { approvedTerms: action.approvedTerms });
         case 'NOT_APPROVED_TERMS':
-                return Object.assign({}, state, { hideNotApproved: true });
+                return Object.assign({}, state, { hideNotApproved: !state.hideNotApproved });
         case 'NUM_NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
         case 'SORT_BY':

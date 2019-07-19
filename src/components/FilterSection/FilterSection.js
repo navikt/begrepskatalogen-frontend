@@ -4,6 +4,8 @@ import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import Fuse from 'fuse.js';
+import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
+import { bindActionCreators } from '../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux';
 
 
 class FilterSection extends React.Component{
@@ -35,7 +37,7 @@ class FilterSection extends React.Component{
                 </div>
 
                 <div className="filtercheckbox">
-                    <Checkbox label={"Godkjente"}/>
+                    <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
                     <Checkbox label={"Utkast"}/>
                     <Checkbox label={"Avviste"}/>
                 </div>
@@ -89,8 +91,15 @@ class FilterSection extends React.Component{
 
 const mapStateToProps = (state) =>{
     return{
-        filterStatus: state.filterStatus
+        filterStatus: state.filterStatus,
+        
+        approvedTerms: state.approvedTerms,
+        numNotApprovedTerms: state.numNotApprovedTerms
     }
 }
 
-export default connect(mapStateToProps)(FilterSection);
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({hideNonApprovedTerms: hideNonApprovedTerms}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(FilterSection);
