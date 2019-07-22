@@ -36,13 +36,13 @@ export class TermPage extends React.Component{
         var relasjoner = "";
         for(var i = 0; i < length; i++) {
             if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
-                relasjoner += (" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary );
+                return <React.Fragment><Normaltekst>{this.props.termKey.relasjoner[i].type.outward}</Normaltekst><Link>{this.props.termKey.relasjoner[i].outwardIssue.fields.summary}</Link></React.Fragment>
             }
-            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
-                relasjoner += (" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary );
+            else {
+                return <React.Fragment><Normaltekst>{this.props.termKey.relasjoner[i].type.inward}</Normaltekst><Link>{this.props.termKey.relasjoner[i].inwardIssue.fields.summary}</Link></React.Fragment>
             }
         }
-        return <Normaltekst>{relasjoner}</Normaltekst>
+        //return <Normaltekst>{relasjoner}</Normaltekst><button>heiii</button>
     }
     
     render(){
