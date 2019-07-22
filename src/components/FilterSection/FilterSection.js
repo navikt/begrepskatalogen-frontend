@@ -3,7 +3,7 @@ import { Checkbox} from 'nav-frontend-skjema';
 import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
-import { hideNonApprovedTerms, hideNonUtkastTerms } from '../../redux/actions/SearchAction';
+import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 
 
@@ -24,7 +24,7 @@ class FilterSection extends React.Component{
                 <div className="filtercheckbox">
                     <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
                     <Checkbox onClick={this.props.hideNonUtkastTerms} label={"Utkast"}/>
-                    <Checkbox label={"Avviste"}/>
+                    <Checkbox onClick={this.props.hideNonAvvistTerms} label={"Avviste"}/>
                 </div>
 
                 <div className="katergorioverskrift">
@@ -90,6 +90,11 @@ function matchDispatchToProps(dispatch){
         //start utkastdel
         hideNonUtkastTerms: hideNonUtkastTerms,
         //slutt utkastdel
+
+        //start avvistdel
+        hideNonAvvistTerms: hideNonAvvistTerms,
+        //slutt avvistdel
+
     }, dispatch);
 }
 
