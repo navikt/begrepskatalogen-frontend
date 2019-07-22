@@ -22,7 +22,7 @@ class App extends Component{
         this.props.dispatch(fetchData());
     }
    
-    render(){ 
+    render() { 
         return (
             <div className="App">
                 <Router>

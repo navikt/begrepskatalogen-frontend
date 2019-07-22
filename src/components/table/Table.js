@@ -1,7 +1,6 @@
 import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-import FilterField from '../FilterSelectField/FilterField';
 import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
@@ -38,7 +37,7 @@ class Table extends React.Component{
             ]
         };
         var fuse = new Fuse(this.props.items, options);
-        const resultTable = fuse.search(this.props.search)
+        const resultTable = fuse.search(this.props.search);
         return resultTable;
     }
 
@@ -57,8 +56,7 @@ class Table extends React.Component{
         }
         var fuse = new Fuse(allTerms, options);
         const approvedList = fuse.search("Godkjent begrep");
-        this.props.dispatch(numOfApprovedTerms( approvedList.length ))
-        console.log("approved", approvedList.length)
+        this.props.dispatch(numOfApprovedTerms( approvedList.length ));
         return approvedList;
     }
 
@@ -117,7 +115,6 @@ class Table extends React.Component{
         //slutt avvistdel
 
         const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
-        console.log("listshow", list)
         return list;
     }
 
@@ -150,7 +147,6 @@ class Table extends React.Component{
                 (a.oppdatert < b.oppdatert? 1:-1)
                 : (a.oppdatert > b.oppdatert ? 1:-1))
             }
-           
         }
         
         const handleClick = (e) => {
@@ -177,8 +173,7 @@ class Table extends React.Component{
         })
     }
 
-    render(){
-        console.log("relasjoner", this.props.items[1].relasjoner[0].type.inward)
+    render() {
         return (
             <div className="altavBody">
                 <div className="altalt">
@@ -207,7 +202,7 @@ class Table extends React.Component{
 
                             </thead>
                             <tbody>
-                            {this.renderTableData()}
+                                {this.renderTableData()}
                             </tbody>
                         </table>
                     </div>
