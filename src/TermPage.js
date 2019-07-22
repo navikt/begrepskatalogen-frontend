@@ -31,7 +31,7 @@ export class TermPage extends React.Component{
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
         if( length == 0 ) {
-            return "Ingen relasjoner funnet.";
+            return <Normaltekst>"Ingen relasjoner funnet."</Normaltekst>;
         }
         var relasjoner = "";
         for(var i = 0; i < length; i++) {
