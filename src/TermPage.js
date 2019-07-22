@@ -4,6 +4,8 @@ import './TermPage.less';
 import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
 import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
+import Fuse from 'fuse.js';
+import { termKey } from './redux/actions/AppActions';
 
 export class TermPage extends React.Component{
 
@@ -28,6 +30,21 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
+    findTerm = (termName) =>{
+        var options = {
+            threshold: 0,
+            shouldSort: true,
+            keys: ["term"
+                ]
+        }
+        console.log("terkey", this.props.items);
+        var fuse = new Fuse(this.props.items, options);
+        console.log("finn", termName);
+        const res = fuse.search(termName);
+        console.log("finn", res);
+        this.props.dispatch(termKey(res));
+        }
+
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
         if( length == 0 ) {
@@ -39,13 +56,13 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.inward}</Normaltekst>
-                            <Link to={'/begrepsside'}>{rel.inwardIssue.fields.summary}</Link>
-                            {console.log("sum", rel.inwardIssue.key)}
+                            <Link to={'/begrepsside'} onClick={() => this.findTerm(rel.inwardIssue.fields.summary)}>{rel.inwardIssue.fields.summary}</Link>
+                            {console.log("sum", rel.inwardIssue.fields.summary)}
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
-                            <Link to={'/begrepsside'}>{rel.outwardIssue.fields.summary}</Link>
+                            <Link to={'/begrepsside'} onClick={() => this.findTerm(rel.outwardIssue.fields.summary)}>{rel.outwardIssue.fields.summary}</Link>
                         </React.Fragment>
                 ))}
             </div>
@@ -119,7 +136,8 @@ export class TermPage extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        termKey: state.termKey
+        termKey: state.termKey,
+        items: state.items
     }
 };
 
