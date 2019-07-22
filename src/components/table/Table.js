@@ -107,17 +107,17 @@ class Table extends React.Component{
         }
         //start utkastdel
         if( this.props.hideNotUtkast){
-            return this.utkastBegreper(this.searchResult())
+            return this.utkastBegreper(this.props.items);
         }
         //slutt utkastdel
 
         //start avvistdel
         if(this.props.hideNotAvvist){
-            return this.avvistBegreper(this.searchResult())
+            return this.avvistBegreper(this.props.items);
         }
         //slutt avvistdel
 
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult());
         console.log("listshow", list)
         return list;
     }
