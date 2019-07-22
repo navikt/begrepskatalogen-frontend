@@ -15,14 +15,7 @@ module.exports = function transform(jiraData, existingData) {
       begrepseier: issue.fields.customfield_12712 !== null ? issue.fields.customfield_12712.value : '',
       kilde: issue.fields.customfield_12811 !== null ? issue.fields.customfield_12811 : '',
       komponenter: issue.fields.components.name !== null ? issue.fields.components.name : '',
-      relasjoner: issue.fields.issuelinks,
-
-      //relationInwardWords: issue.fields.issuelinks !== [] ? issue.fields.issuelinks[0].type.inward : null,
-
-      //relationOutwardWords: issue.fields.issuelinks.type.outward,
-      //relationBegrepInward: issue.fields.issuelinks[0].inwardIssue.fields.summary,
-      //relationBegrepOutward: issue.fields.issuelinks.outwardIssue.fields.summary,
-      
+      relasjoner: issue.fields.issuelinks
     });
   });
   return transformedData;
