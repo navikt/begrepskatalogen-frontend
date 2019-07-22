@@ -28,57 +28,22 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
-    hasInwardIssue = (x) =>{
-        console.log("hasinwardissue", x)
-        for (var i = 0 ; i < x; i++){
-            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
-                return true;
-            }
-            return false;
-        }
-    }
-
-    hasOutwardIssue = (x) => {
-        for(var i = 0; i < x; i++){
-            console.log("out lengde", x)
-            if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
-                return true;
-            }
-            return false;
-        }
-    }
-
-    inwardRelationFinder = (length) => {
-        if(this.hasInwardIssue(length)){
-            var relasjoner = "";
-            for (var i = 0; i < length; i++){
-                relasjoner += (" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary )
-                //relasjoner += <br/>;
-            }
-            return relasjoner;
-        }
-    }
-
-    outwardRelationFinder = (length) => {
-        console.log("lengde", length)
-        if(this.hasOutwardIssue(length)){
-            var relasjoner = " ";
-            for(var i = 0; i < length; i++ ) {
-                relasjoner += (" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary )
-                //relasjoner += <br/>;
-            }
-            return relasjoner;
-        }
-    }
-
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
         if( length == 0 ) {
             return "Ingen relasjoner funnet.";
         }
-        console.log("out", this.outwardRelationFinder(length));
-        console.log("in", this.inwardRelationFinder(length));
-        return <p>{this.outwardRelationFinder(length)}<br></br>{this.inwardRelationFinder(length)}</p>
+        var relasjoner = "";
+        for(var i = 0; i < length; i++) {
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
+                relasjoner += (" " + this.props.termKey.relasjoner[i].type.outward + " " + this.props.termKey.relasjoner[i].outwardIssue.fields.summary );
+            }
+            if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
+                relasjoner += (" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary );
+            }
+
+        }
+        return <Normaltekst>{relasjoner}</Normaltekst>
     }
     
     render(){
