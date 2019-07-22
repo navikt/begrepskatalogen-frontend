@@ -40,13 +40,11 @@ export class TermPage extends React.Component{
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.inward}</Normaltekst>
                             <button>{rel.inwardIssue.fields.summary}</button>
-                            <br/>
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
                             <button>{rel.outwardIssue.fields.summary}</button>
-                            <br/>
                         </React.Fragment>
                 ))}
             </div>
