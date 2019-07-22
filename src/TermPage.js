@@ -31,18 +31,27 @@ export class TermPage extends React.Component{
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
         if( length == 0 ) {
-            return <Normaltekst>"Ingen relasjoner funnet."</Normaltekst>;
+            return <Normaltekst>Ingen relasjoner funnet.</Normaltekst>;
         }
-        var relasjoner = "";
-        for(var i = 0; i < length; i++) {
-            if(this.props.termKey.relasjoner[i].hasOwnProperty("outwardIssue")){
-                return <React.Fragment><Normaltekst>{this.props.termKey.relasjoner[i].type.outward}</Normaltekst><Link>{this.props.termKey.relasjoner[i].outwardIssue.fields.summary}</Link></React.Fragment>
-            }
-            else {
-                return <React.Fragment><Normaltekst>{this.props.termKey.relasjoner[i].type.inward}</Normaltekst><Link>{this.props.termKey.relasjoner[i].inwardIssue.fields.summary}</Link></React.Fragment>
-            }
-        }
-        //return <Normaltekst>{relasjoner}</Normaltekst><button>heiii</button>
+        return (
+            <div className="relasjonListe">
+                {this.props.termKey.relasjoner.map( rel => (
+                    rel.hasOwnProperty("inwardIssue") ?
+                        <React.Fragment key={rel.id}>
+                            <Normaltekst>{rel.type.inward}</Normaltekst>
+                            <button>{rel.inwardIssue.fields.summary}</button>
+                            <br/>
+                        </React.Fragment>
+                        :
+                        <React.Fragment key={rel.id}>
+                            <Normaltekst>{rel.type.outward}</Normaltekst>
+                            <button>{rel.outwardIssue.fields.summary}</button>
+                            <br/>
+                        </React.Fragment>
+                ))}
+            </div>
+        );
+
     }
     
     render(){
