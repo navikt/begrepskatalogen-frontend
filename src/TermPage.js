@@ -41,7 +41,6 @@ export class TermPage extends React.Component{
             if(this.props.termKey.relasjoner[i].hasOwnProperty("inwardIssue")){
                 relasjoner += (" " + this.props.termKey.relasjoner[i].type.inward + " " + this.props.termKey.relasjoner[i].inwardIssue.fields.summary );
             }
-
         }
         return <Normaltekst>{relasjoner}</Normaltekst>
     }
