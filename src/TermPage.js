@@ -39,14 +39,13 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.inward}</Normaltekst>
-                            <button>{rel.inwardIssue.fields.summary}</button>
-                            <br/>
+                            <Link to={'/begrepsside'}>{rel.inwardIssue.fields.summary}</Link>
+                            {console.log("sum", rel.inwardIssue.key)}
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
-                            <button>{rel.outwardIssue.fields.summary}</button>
-                            <br/>
+                            <Link to={'/begrepsside'}>{rel.outwardIssue.fields.summary}</Link>
                         </React.Fragment>
                 ))}
             </div>
