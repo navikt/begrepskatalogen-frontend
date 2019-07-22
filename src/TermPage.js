@@ -42,7 +42,6 @@ export class TermPage extends React.Component{
         console.log("finn", termName);
         const res = fuse.search(termName);
         console.log("finn", res);
-        this.props.dispatch(termKey(res));
         }
 
     relationFinder = () => {
