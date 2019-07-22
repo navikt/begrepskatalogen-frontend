@@ -59,20 +59,23 @@ class Table extends React.Component{
         var fuse = new Fuse(allTerms, options);
         const approvedList = fuse.search("Godkjent begrep");
         this.props.dispatch(numOfApprovedTerms( approvedList.length ))
+        console.log("approved", approvedList.length)
         return approvedList;
     }
 
     listToShow() {
         if ( this.props.hideNotApproved) {
-            return this.godkjenteBegreper(this.searchResult())
+            return this.godkjenteBegreper(this.props.items);
         }
         const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        console.log("listshow", list)
         return list;
     }
 
     renderTableData(){
         const list = this.listToShow()
         const approvedList = this.godkjenteBegreper(list)
+        console.log("rendertable", list, approvedList)
         this.props.dispatch(numOfNotApprovedTerms( (list.length - approvedList.length) ));
 
         if(!this.props.items){
