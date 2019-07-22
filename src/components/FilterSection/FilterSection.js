@@ -5,24 +5,11 @@ import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import Fuse from 'fuse.js';
 import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
+import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 
 
 class FilterSection extends React.Component{
-
-    constructor(props){
-        super(props);
-    }
-
-    filterResult(){
-        var options={keys:[{
-            name: "status"
-            }]
-        }
-        var fuse = new Fuse(this.props.items, options);
-        const filterStatus = fuse.search(this.props.alternatives)
-        return filterStatus;
-    }
 
     render(){
         return(
@@ -38,8 +25,8 @@ class FilterSection extends React.Component{
 
                 <div className="filtercheckbox">
                     <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
-                    <Checkbox label={"Utkast"}/>
-                    <Checkbox label={"Avviste"}/>
+                    <Checkbox onClick={this.props.hideNonUtkastTerms} label={"Utkast"}/>
+                    <Checkbox onClick={this.props.hideNonAvvistTerms} label={"Avviste"}/>
                 </div>
 
                 <div className="katergorioverskrift">
@@ -94,12 +81,23 @@ const mapStateToProps = (state) =>{
         filterStatus: state.filterStatus,
         
         approvedTerms: state.approvedTerms,
-        numNotApprovedTerms: state.numNotApprovedTerms
+        numNotApprovedTerms: state.numNotApprovedTerms,
+        
     }
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({hideNonApprovedTerms: hideNonApprovedTerms}, dispatch);
+    return bindActionCreators({
+        hideNonApprovedTerms: hideNonApprovedTerms,
+        //start utkastdel
+        hideNonUtkastTerms: hideNonUtkastTerms,
+        //slutt utkastdel
+
+        //start avvistdel
+        hideNonAvvistTerms: hideNonAvvistTerms,
+        //slutt avvistdel
+
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(FilterSection);

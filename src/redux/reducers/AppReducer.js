@@ -5,6 +5,14 @@ export const initialState = {
     filteredItems:[],
     updated: "",
     hideNotApproved: false,
+    //start utkastdel
+    utkastTerms: 0,
+    hideNotUtkast: false,
+    //slutt utkastdel
+    //start avvistdel
+    avvistTerms: 0,
+    hideNotAvvist: false,
+    //slutt avvustdel
 };
 
 function appReducer(state = initialState, action) {
@@ -35,6 +43,23 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.termKey });
+
+        //start utkastdel
+        case 'NUM_UTKAST_TERMS':
+            return Object.assign({}, state, { utkastTerms: action.utkastTerms });
+        
+        case 'NOT_UTKAST_TERMS':
+            return Object.assign({}, state, { hideNotUtkast: !state.hideNotUtkast });
+        //slutt utkastdel
+
+        //start avvistdel
+        case 'NUM_AVVIST_TERMS':
+            return Object.assign({}, state, { avvistTerms: action.avvistTerms });
+        
+        case 'NOT_AVVIST_TERMS':
+            return Object.assign({}, state, { hideNotAvvist: !state.hideNotAvvist });
+        //slutt avvustdel
+
 
 
         default:
