@@ -4,7 +4,6 @@ import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import Fuse from 'fuse.js';
-import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
 import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 
