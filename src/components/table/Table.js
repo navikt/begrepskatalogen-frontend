@@ -10,9 +10,6 @@ import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvis
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
-
-
-
 class Table extends React.Component{
 
     constructor(props){
@@ -62,6 +59,7 @@ class Table extends React.Component{
         var fuse = new Fuse(allTerms, options);
         const approvedList = fuse.search("Godkjent begrep");
         this.props.dispatch(numOfApprovedTerms( approvedList.length ))
+        console.log("approved", approvedList.length)
         return approvedList;
     }
 
@@ -105,7 +103,7 @@ class Table extends React.Component{
 
     listToShow() {
         if ( this.props.hideNotApproved) {
-            return this.godkjenteBegreper(this.searchResult())
+            return this.godkjenteBegreper(this.props.items);
         }
         //start utkastdel
         if( this.props.hideNotUtkast){
@@ -120,12 +118,14 @@ class Table extends React.Component{
         //slutt avvistdel
 
         const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        console.log("listshow", list)
         return list;
     }
 
     renderTableData(){
         const list = this.listToShow()
         const approvedList = this.godkjenteBegreper(list)
+        console.log("rendertable", list, approvedList)
         this.props.dispatch(numOfNotApprovedTerms( (list.length - approvedList.length) ));
 
         if(!this.props.items){
@@ -159,7 +159,7 @@ class Table extends React.Component{
             console.log("klikk", e);
         }
         
-        const formatDate=(string)=> {
+        const formatDate = (string) => {
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
         }
@@ -167,8 +167,8 @@ class Table extends React.Component{
         return list.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
-                <tr key= {key} className="definisjon">
-                    <td><Link className="termKolonne" onClick={() => handleClick(item) }to={"/begrepsside"}>{term}</Link></td>
+                <tr key={key} className="definisjon">
+                    <td><Link className="termKolonne" onClick={() => handleClick(item)}to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst >{definisjon}</Normaltekst></td>
                     <td><Normaltekst className="status">{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
@@ -179,9 +179,9 @@ class Table extends React.Component{
     }
 
     render(){
+        console.log("relasjoner", this.props.items[1].relasjoner[0].type.inward)
         return (
-            <div className="altaltalt">
-                
+            <div className="altavBody">
                 <div className="altalt">
                     <div className="selectfields">
                         <SortField/>

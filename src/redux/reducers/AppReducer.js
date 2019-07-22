@@ -2,13 +2,8 @@ export const initialState = {
     loading: false,
     items: [],
     search: '',
-    seeAllTerms: false,
-    approvedTerms: 0,
-    numNotApprovedTerms: 0,
-    hideNotApproved: false,
     filteredItems:[],
     updated: "",
-    termKey: [],
     hideNotApproved: false,
     //start utkastdel
     utkastTerms: 0,
