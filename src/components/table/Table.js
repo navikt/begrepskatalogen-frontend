@@ -117,7 +117,7 @@ class Table extends React.Component{
         }
         //slutt avvistdel
 
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult());
+        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
         console.log("listshow", list)
         return list;
     }
