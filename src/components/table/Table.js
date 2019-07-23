@@ -14,6 +14,7 @@ class Table extends React.Component{
     constructor(props){
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
+        this.state = {listToShow: []};
     }
 
     searchResult() {
@@ -38,6 +39,7 @@ class Table extends React.Component{
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search);
+        console.log("restable", resultTable);
         return resultTable;
     }
 
@@ -98,9 +100,9 @@ class Table extends React.Component{
 
     
 
-    listToShow() {
-        if ( this.props.hideNotApproved) {
-            return this.godkjenteBegreper(this.props.items);
+    listToShow(list) {
+        if ( this.props.hideNotApproved ) {
+            return this.godkjenteBegreper(list);
         }
         //start utkastdel
         if( this.props.hideNotUtkast){
@@ -114,15 +116,16 @@ class Table extends React.Component{
         }
         //slutt avvistdel
 
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
+        //const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         return list;
     }
 
     renderTableData(){
-        const list = this.listToShow()
-        const approvedList = this.godkjenteBegreper(list)
-        console.log("rendertable", list, approvedList)
-        this.props.dispatch(numOfNotApprovedTerms( (list.length - approvedList.length) ));
+        const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
+        const resList = this.listToShow(list)
+        const approvedList = this.godkjenteBegreper(resList)
+        console.log("rendertable", resList, approvedList)
+        this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
 
         if(!this.props.items){
             return false;
