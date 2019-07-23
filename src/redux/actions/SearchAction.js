@@ -2,7 +2,9 @@
 export const updateSearch = (newSearch) => {
     return {
         type: 'UPDATE_SEARCH',
-        search: newSearch
+        payload: {
+            search: newSearch
+        }
     }
 };
 

@@ -21,7 +21,7 @@ function appReducer(state = initialState, action) {
         case 'FETCH_DATA_COMPLETE':
             return Object.assign({}, state, { loading: false, items: action.items });
         case 'UPDATE_SEARCH':
-            return Object.assign({}, state, { search: action.search, seeAllTerms: false, hideNotApproved: false });
+            return Object.assign({}, state, { search: action.payload.search, seeAllTerms: false, hideNotApproved: false });
         case 'TOGGLE_SEE_ALL_TERMS':
             return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false });
         case 'NUM_APPROVED_TERMS':
@@ -41,7 +41,7 @@ function appReducer(state = initialState, action) {
         case 'ORDER_BY_BEGREPSEIER':
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
-            return Object.assign({}, state, { termKey: action.termKey });
+            return Object.assign({}, state, { termKey: action.payload.termKey });
 
         //start utkastdel
         case 'NUM_UTKAST_TERMS':
