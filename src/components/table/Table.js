@@ -8,7 +8,7 @@ import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-
+import ListToShow from '../ResultList';
 class Table extends React.Component{
 
     constructor(props){
@@ -123,6 +123,7 @@ class Table extends React.Component{
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
 
+        ListToShow
         if(!this.props.items){
             return false;
         }

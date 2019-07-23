@@ -1,10 +1,9 @@
-import React from 'react';
 import Fuse from 'fuse.js';
-import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../../redux/actions/SearchAction';
-import { termKey } from '../../redux/actions/AppActions';
+import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../redux/actions/AppActions';
+//import { termKey } from '../../redux/actions/AppActions';
 import {connect } from 'react-redux';
 
-function listToShow() {
+function ListToShow() {
     function searchResult() {
         var options = {
             shouldSort: true,
@@ -88,23 +87,45 @@ function listToShow() {
 
     function ToShow(list) {
         if ( this.props.hideNotApproved ) {
-            return this.godkjenteBegreper(list);
+            return godkjenteBegreper(list);
         }
         //start utkastdel
         if( this.props.hideNotUtkast){
-            return this.utkastBegreper(this.props.items);
+            return utkastBegreper(this.props.items);
         }
         //slutt utkastdel
 
         //start avvistdel
         if(this.props.hideNotAvvist){
-            return this.avvistBegreper(this.props.items);
+            return avvistBegreper(this.props.items);
         }
         //slutt avvistdel
 
         //const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         return list;
     }
+    const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : searchResult())
+    const resList = ToShow(list);
+    const approvedList = godkjenteBegreper(resList);
+    this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
+    console.log("resulttablelist", resList);
 }
 
-export default listToShow;
+const mapStateToProps = (state, props) => {
+    return {
+        search: state.search,
+        items: state.items,
+        seeAllTerms: state.seeAllTerms,
+        hideNotApproved: state.hideNotApproved,
+        sort: state.sort,
+        //start utkastdel
+        hideNotUtkast: state.hideNotUtkast,
+        //slutt utkastdel
+        
+        //start avvistdel
+        hideNotAvvist: state.hideNotAvvist
+        //slutt avvistdel
+    }
+}
+
+export default connect(mapStateToProps)(ListToShow);

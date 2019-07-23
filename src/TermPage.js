@@ -73,7 +73,7 @@ export class TermPage extends React.Component{
         return(
             <div className="gridContainer">
                 <div className="begrepsHeader">
-                    <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
+                    <Link className="tilbake" to={'/'}><Element>⇦ Tilbake</Element></Link>
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
                     <Link className="linker" to={'/'}><Element>Gi innspill til begrepet</Element></Link>
                 </div>
