@@ -99,6 +99,30 @@ class Table extends React.Component{
     }
     //slutt avvistdel
 
+    //start statelist
+    filtrerteBegreper(list){
+        const allTerms = list
+        var options={
+            shouldSort: true,
+            findAllMatches: true,
+            threshold: 0,
+            keys:[
+                "status"
+            ]
+        }
+        var fuse = new Fuse(allTerms, options);
+        const resultList = [];
+        
+        
+            resultList.push(fuse.search("Avvist"));
+            resultList.push(fuse.search("Godkjent begrep"))
+        
+
+        return resultList;
+    }
+    
+    //slutt statelist
+
     
 
     listToShow() {
@@ -230,8 +254,13 @@ const mapStateToProps = (state, props) => {
         //slutt utkastdel
         
         //start avvistdel
-        hideNotAvvist: state.hideNotAvvist
+        hideNotAvvist: state.hideNotAvvist,
         //slutt avvistdel
+
+        //start statelist
+        initialBlankList: state.initialBlankList
+        //slutt statelist
+
     }
 };
 
