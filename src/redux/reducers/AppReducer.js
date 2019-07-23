@@ -3,7 +3,6 @@ export const initialState = {
     items: [],
     search: '',
     filteredItems:[],
-    updated: "",
     hideNotApproved: false,
     //start utkastdel
     utkastTerms: 0,
@@ -22,15 +21,15 @@ function appReducer(state = initialState, action) {
         case 'FETCH_DATA_COMPLETE':
             return Object.assign({}, state, { loading: false, items: action.items });
         case 'UPDATE_SEARCH':
-            return Object.assign({}, state, { search: action.search, seeAllTerms: false, hideNotApproved:false });
+            return Object.assign({}, state, { search: action.search, seeAllTerms: false, hideNotApproved: false });
         case 'TOGGLE_SEE_ALL_TERMS':
             return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false });
         case 'NUM_APPROVED_TERMS':
-            return Object.assign({}, state, { approvedTerms: action.approvedTerms });
+            return Object.assign({}, state, { approvedTerms: action.payload.approvedTerms });
         case 'NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { hideNotApproved: !state.hideNotApproved });
         case 'NUM_NOT_APPROVED_TERMS':
-                return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
+                return Object.assign({}, state, { numNotApprovedTerms: action.payload.numNotApprovedTerms });
         case 'SORT_BY':
             return{
                 ...state,
