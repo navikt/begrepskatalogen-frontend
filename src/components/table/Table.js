@@ -98,8 +98,6 @@ class Table extends React.Component{
     }
     //slutt avvistdel
 
-    
-
     listToShow(list) {
         if ( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
@@ -122,9 +120,8 @@ class Table extends React.Component{
 
     renderTableData(){
         const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
-        const resList = this.listToShow(list)
-        const approvedList = this.godkjenteBegreper(resList)
-        console.log("rendertable", resList, approvedList)
+        const resList = this.listToShow(list);
+        const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
 
         if(!this.props.items){
