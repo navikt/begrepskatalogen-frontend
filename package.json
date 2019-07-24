@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "start": "rimraf .cache && parcel src/index.html",
     "serve": "rimraf .cache && node server/server-dev.js",
     "build": "parcel build src/index.html",
@@ -61,5 +61,8 @@
     "redux-promise-middleware": "^6.1.1",
     "redux-thunk": "^2.3.0",
     "store": "^2.0.12"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }
