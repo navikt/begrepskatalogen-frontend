@@ -2,7 +2,9 @@
 export const updateSearch = (newSearch) => {
     return {
         type: 'UPDATE_SEARCH',
-        search: newSearch
+        payload: {
+            search: newSearch
+        }
     }
 };
 
@@ -14,16 +16,20 @@ export function hideNonApprovedTerms() {
 }
 
 export const numOfApprovedTerms = ( newNum ) => {
-    return{
+    return {
         type: 'NUM_APPROVED_TERMS',
-        approvedTerms: newNum
+        payload: {
+            approvedTerms: newNum
+        }
     }
 };
 
 export const numOfNotApprovedTerms = ( newNum ) => {
-    return{
+    return {
         type: 'NUM_NOT_APPROVED_TERMS',
-        numNotApprovedTerms: newNum
+        payload: {
+            numNotApprovedTerms: newNum
+        }
     }
 };
 
@@ -56,3 +62,13 @@ export function hideNonAvvistTerms(){
     }
 };
 //slutt avvistdel
+
+
+//start statelist
+export const selectFilter = (elements) =>{
+    return{
+        type: 'SELECT_FILTER',
+        initialBlankList: elements
+    }
+}
+//slutt statelist

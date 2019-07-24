@@ -7,7 +7,7 @@ import './HeaderButtons.less';
 
 class Navigation extends React.Component{
     
-    render(){
+    render() {
         return (
             <div>
                 <nav className="navStyle">
