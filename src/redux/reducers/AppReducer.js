@@ -34,7 +34,7 @@ function appReducer(state = initialState, action) {
         case 'NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { hideNotApproved: !state.hideNotApproved });
         case 'NUM_NOT_APPROVED_TERMS':
-                return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
+                return Object.assign({}, state, { numNotApprovedTerms: action.payload.numNotApprovedTerms });
         
         case 'ORDER_BY_ALPH':
             return Object.assign({}, state, { sort:  action.payload.sort});
