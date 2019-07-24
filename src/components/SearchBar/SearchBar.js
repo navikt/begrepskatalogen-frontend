@@ -6,16 +6,16 @@ import { updateSearch } from '../../redux/actions/SearchAction';
 
 class SearchBar extends React.Component{
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
     }
 
-    onUpdateSearch (event){
+    onUpdateSearch(event) {
         this.props.dispatch(updateSearch(event.target.value));
     }
 
-    render(){
+    render() {
         return(
             <div className="inputwrapper" >
                 <Input

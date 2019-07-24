@@ -1,7 +1,6 @@
 import React from 'react';
 import './Table.less';
 import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-import FilterField from '../FilterSelectField/FilterField';
 import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
@@ -9,7 +8,7 @@ import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-
+import ListToShow from '../ResultList';
 class Table extends React.Component{
 
     constructor(props){
@@ -23,7 +22,6 @@ class Table extends React.Component{
             findAllMatches: true,
             threshold: 0.2,
             //score: true,
-            location: 0,
             distance: 100,
             maxPatternLength: 32,
             minMatchCharLength: 1,
@@ -39,7 +37,8 @@ class Table extends React.Component{
             ]
         };
         var fuse = new Fuse(this.props.items, options);
-        const resultTable = fuse.search(this.props.search)
+        const resultTable = fuse.search(this.props.search);
+        console.log("restable", resultTable);
         return resultTable;
     }
 
@@ -58,8 +57,7 @@ class Table extends React.Component{
         }
         var fuse = new Fuse(allTerms, options);
         const approvedList = fuse.search("Godkjent begrep");
-        this.props.dispatch(numOfApprovedTerms( approvedList.length ))
-        console.log("approved", approvedList.length)
+        this.props.dispatch(numOfApprovedTerms( approvedList.length ));
         return approvedList;
     }
 
@@ -99,11 +97,9 @@ class Table extends React.Component{
     }
     //slutt avvistdel
 
-    
-
-    listToShow() {
-        if ( this.props.hideNotApproved) {
-            return this.godkjenteBegreper(this.props.items);
+    listToShow(list) {
+        if ( this.props.hideNotApproved ) {
+            return this.godkjenteBegreper(list);
         }
         //start utkastdel
         if( this.props.hideNotUtkast){
@@ -117,17 +113,17 @@ class Table extends React.Component{
         }
         //slutt avvistdel
 
-        const list = ((this.props.search == "" || this.props.seeAllTerms )? this.props.items : this.searchResult())
-        console.log("listshow", list)
+        //const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         return list;
     }
 
     renderTableData(){
-        const list = this.listToShow()
-        const approvedList = this.godkjenteBegreper(list)
-        console.log("rendertable", list, approvedList)
-        this.props.dispatch(numOfNotApprovedTerms( (list.length - approvedList.length) ));
+        const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
+        const resList = this.listToShow(list);
+        const approvedList = this.godkjenteBegreper(resList);
+        this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
 
+        ListToShow
         if(!this.props.items){
             return false;
         }
@@ -151,7 +147,6 @@ class Table extends React.Component{
                 (a.oppdatert < b.oppdatert? 1:-1)
                 : (a.oppdatert > b.oppdatert ? 1:-1))
             }
-           
         }
         
         const handleClick = (e) => {
@@ -164,12 +159,12 @@ class Table extends React.Component{
             return new Date(string).toLocaleDateString([], options);
         }
     
-        return list.map((item) => {
+        return resList.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
-                    <td><Link className="termKolonne" onClick={() => handleClick(item)}to={"/begrepsside"}>{term}</Link></td>
-                    <td><Normaltekst >{definisjon}</Normaltekst></td>
+                    <td><Link className="termKolonne" onClick={() => handleClick(item)} to={"/begrepsside"}>{term}</Link></td>
+                    <td><Normaltekst>{definisjon}</Normaltekst></td>
                     <td><Normaltekst className="status">{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
@@ -178,8 +173,7 @@ class Table extends React.Component{
         })
     }
 
-    render(){
-        console.log("relasjoner", this.props.items[1].relasjoner[0].type.inward)
+    render() {
         return (
             <div className="altavBody">
                 <div className="altalt">
@@ -208,7 +202,7 @@ class Table extends React.Component{
 
                             </thead>
                             <tbody>
-                            {this.renderTableData()}
+                                {this.renderTableData()}
                             </tbody>
                         </table>
                     </div>
