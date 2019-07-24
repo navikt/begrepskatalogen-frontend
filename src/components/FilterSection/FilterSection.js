@@ -8,6 +8,23 @@ import { bindActionCreators } from 'redux';
 
 class FilterSection extends React.Component{
 
+    constructor(props) {
+        super(props);
+    }
+
+    findDistinctStatuses() {
+        const statuses = [...new Set(this.props.items.map( x => x.status))];
+        return statuses.map((status) => {
+            return (
+                <Checkbox key={status} label={status.toString()}/>
+            );
+        });
+    }
+
+    findDistinctFagområder() {
+
+    }
+
     render(){
         return(
             <div className="filterwrapper">
@@ -19,15 +36,8 @@ class FilterSection extends React.Component{
                 <div className="katergorioverskrift">
                     <Undertittel>Implisitt status</Undertittel>
                 </div>
-
                 <div className="filtercheckbox">
-                    <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
-                    <Checkbox onClick={this.props.hideNonUtkastTerms} label={"Utkast"}/>
-                    <Checkbox onClick={this.props.hideNonAvvistTerms} label={"Avviste"}/>
-                    <Checkbox label={"Revisjon"}/>
-                    <Checkbox label={"Utgått"}/>
-                    <Checkbox   onClick={this.props.selectFilter}  label={"Gokjent og utkast"}/>
-
+                    {this.findDistinctStatuses()}
                 </div>
 
                 <div className="katergorioverskrift">
