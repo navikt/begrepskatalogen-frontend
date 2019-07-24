@@ -24,9 +24,9 @@ class FilterSection extends React.Component{
                     <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
                     <Checkbox onClick={this.props.hideNonUtkastTerms} label={"Utkast"}/>
                     <Checkbox onClick={this.props.hideNonAvvistTerms} label={"Avviste"}/>
-                    <Checkbox  label={"Revisjon"}/>
-                    <Checkbox  label={"Utgått"}/>
-                    <Checkbox onClick={this.props.selectFilter} label={"Gokjent og utkast"}/>
+                    <Checkbox label={"Revisjon"}/>
+                    <Checkbox label={"Utgått"}/>
+                    <Checkbox   onClick={this.props.selectFilter}  label={"Gokjent og utkast"}/>
 
                 </div>
 
@@ -80,7 +80,7 @@ class FilterSection extends React.Component{
 const mapStateToProps = (state) =>{
     return{
         filterStatus: state.filterStatus,
-        
+        items: state.items,
         approvedTerms: state.approvedTerms,
         numNotApprovedTerms: state.numNotApprovedTerms,
         
