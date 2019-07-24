@@ -62,3 +62,13 @@ export function hideNonAvvistTerms(){
     }
 };
 //slutt avvistdel
+
+
+//start statelist
+export const selectFilter = (elements) =>{
+    return{
+        type: 'SELECT_FILTER',
+        initialBlankList: elements
+    }
+}
+//slutt statelist

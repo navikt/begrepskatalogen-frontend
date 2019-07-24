@@ -11,7 +11,11 @@ export const initialState = {
     //start avvistdel
     avvistTerms: 0,
     hideNotAvvist: false,
-    //slutt avvustdel,
+    //slutt avvustdel
+
+    //start statelist
+    initialBlankList: [],
+    //slutt statelist
     isHiddenTable: true
 };
 
@@ -30,13 +34,8 @@ function appReducer(state = initialState, action) {
         case 'NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { hideNotApproved: !state.hideNotApproved });
         case 'NUM_NOT_APPROVED_TERMS':
-                return Object.assign({}, state, { numNotApprovedTerms: action.payload.numNotApprovedTerms });
-        case 'SORT_BY':
-            return{
-                ...state,
-                filteredItems : action.payload.items,
-                updated: action.payload.updated
-            };
+                return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
+        
         case 'ORDER_BY_ALPH':
             return Object.assign({}, state, { sort:  action.payload.sort});
         case 'ORDER_BY_BEGREPSEIER':
@@ -60,6 +59,12 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { hideNotAvvist: !state.hideNotAvvist });
         //slutt avvustdel
 
+
+
+        //start statelist
+        case 'SELECT_FILTER':
+            return Object.assign({}, state, {initialBlankList: action.initialBlankList})
+        //slutt statelist
 
 
         default:
