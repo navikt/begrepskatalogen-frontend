@@ -10,13 +10,38 @@ class FilterSection extends React.Component{
 
     constructor(props) {
         super(props);
+        this.state = {filterList: []}
+        this.handleClick.bind(this);
+    }
+    handleClick(e) {
+        console.log(e.value, e.checked);
+        if(e.checked) {
+            this.setState({
+                filterList: [...this.state.filterList, e.value]
+            });
+        }
+        else {
+            this.setState({
+                filterList: this.state.filterList.filter(function(status) {
+                    return status !== e.value
+                })
+            });
+        }  
+        
     }
 
+    filterStatus() {
+        if(this.filterList != []) {
+            const result = this.props.items.filter(({status}) => this.state.filterList.includes(status));
+            return result;
+        }
+        
+    }
     findDistinctStatuses() {
         const statuses = [...new Set(this.props.items.map( x => x.status))];
         return statuses.map((status) => {
             return (
-                <Checkbox key={status} label={status.toString()}/>
+                <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick(e.target)}/>
             );
         });
     }
@@ -37,7 +62,7 @@ class FilterSection extends React.Component{
                     <Undertittel>Implisitt status</Undertittel>
                 </div>
                 <div className="filtercheckbox">
-                    {this.findDistinctStatuses()}
+                    {this.findDistinctStatuses()}{console.log(this.state.filterList)}
                 </div>
 
                 <div className="katergorioverskrift">
@@ -107,7 +132,6 @@ function matchDispatchToProps(dispatch){
         //start avvistdel
         hideNonAvvistTerms: hideNonAvvistTerms,
         //slutt avvistdel
-
 
         //start statelist
         selectFilter: selectFilter

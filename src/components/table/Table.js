@@ -117,13 +117,23 @@ class Table extends React.Component{
         return list;
     }
 
+    filterStatus() {
+        const filt = ["Avvist"];
+        if(filt != []) {
+            const result = this.props.items.filter(({status}) => filt.includes(status));
+            console.log("filterrrrr liste", result);
+            }
+            
+    }
+
     renderTableData(){
         const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
 
-        ListToShow
+        this.filterStatus();
+      
         if(!this.props.items){
             return false;
         }
