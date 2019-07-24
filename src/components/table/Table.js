@@ -99,6 +99,20 @@ class Table extends React.Component{
     }
     //slutt avvistdel
 
+    //start jqueryfilter function
+    isStatus(object){
+        return object !== undefined && typeof(object) ==='string' && !isNaN(object);
+    }
+    filterByStatus(item){
+        if(this.isStatus(item.status) && item.status !== 0){
+            return true;
+        }
+        return false;
+    }
+    
+
+    //slutt jqueryfilter function
+
     //start statelist
     filtrerteBegreper(list){
         const allTerms = list
@@ -123,7 +137,9 @@ class Table extends React.Component{
     
     //slutt statelist
 
+
     
+
 
     listToShow() {
         if ( this.props.hideNotApproved) {
@@ -254,13 +270,8 @@ const mapStateToProps = (state, props) => {
         //slutt utkastdel
         
         //start avvistdel
-        hideNotAvvist: state.hideNotAvvist,
+        hideNotAvvist: state.hideNotAvvist
         //slutt avvistdel
-
-        //start statelist
-        initialBlankList: state.initialBlankList
-        //slutt statelist
-
     }
 };
 

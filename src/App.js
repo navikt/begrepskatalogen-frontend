@@ -17,12 +17,11 @@ class App extends Component{
         super(props);
     }
 
-    componentDidMount(){
-        console.log("funker");
+    componentDidMount() {
         this.props.dispatch(fetchData());
     }
    
-    render(){ 
+    render() { 
         return (
             <div className="App">
                 <Router>

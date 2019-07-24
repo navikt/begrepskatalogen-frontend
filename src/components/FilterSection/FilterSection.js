@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 
-
 class FilterSection extends React.Component{
 
     render(){
