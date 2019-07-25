@@ -5,7 +5,7 @@ import FilterSection from '../FilterSection/FilterSection';
 import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
-import { numOfApprovedTerms, numOfNotApprovedTerms, numOfUtkastTerms, numOfAvvistTerms } from '../../redux/actions/SearchAction';
+import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 import { termKey } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 import ListToShow from '../ResultList';
@@ -61,60 +61,19 @@ class Table extends React.Component{
         return approvedList;
     }
 
-    //start utkastdel
-    utkastBegreper(list){
-        const allTerms = list
-        var options={
-            shouldSort: true,
-            findAllMatches: true,
-            threshold: 0,
-            keys:[
-                "status"
-            ]
-        }
-        var fuse = new Fuse(allTerms, options);
-        const utkastList = fuse.search("Utkast");
-        this.props.dispatch(numOfUtkastTerms(utkastList.length))
-        return utkastList;
-    }
-    //slutt utkastdel
-
-    //start avvistdel
-    avvistBegreper(list){
-        const allTerms = list
-        var options={
-            shouldSort: true,
-            findAllMatches: true,
-            threshold: 0,
-            keys:[
-                "status"
-            ]
-        }
-        var fuse = new Fuse(allTerms, options);
-        const avvistList = fuse.search("Avvist");
-        this.props.dispatch(numOfAvvistTerms(avvistList.length))
-        return avvistList;
-    }
-    //slutt avvistdel
-
     listToShow(list) {
-        if ( this.props.hideNotApproved ) {
+        if( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
-        //start utkastdel
-        if( this.props.hideNotUtkast){
-            return this.utkastBegreper(this.searchResult())
+        if(this.props.filterList.length != 0) {
+            return this.filterStatus(list);
         }
-        //slutt utkastdel
-
-        //start avvistdel
-        if(this.props.hideNotAvvist){
-            return this.avvistBegreper(this.searchResult())
-        }
-        //slutt avvistdel
-
-        //const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         return list;
+    }
+
+    filterStatus(list) {
+        const result = list.filter(({status}) => this.props.filterList.includes(status));
+        return result;
     }
 
     renderTableData(){
@@ -122,8 +81,7 @@ class Table extends React.Component{
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
-
-        ListToShow
+      
         if(!this.props.items){
             return false;
         }
@@ -218,14 +176,8 @@ const mapStateToProps = (state, props) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
+        filterList: state.filterList,
         sort: state.sort,
-        //start utkastdel
-        hideNotUtkast: state.hideNotUtkast,
-        //slutt utkastdel
-        
-        //start avvistdel
-        hideNotAvvist: state.hideNotAvvist
-        //slutt avvistdel
     }
 };
 

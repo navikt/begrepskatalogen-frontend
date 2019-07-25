@@ -56,6 +56,23 @@ export const termKey = (newKey) => {
     };
 }
 
+export const addFilter = (newFilter) => {
+    return {
+        type: 'ADD_FILTER',
+        payload: {
+            newFilter: newFilter
+        }
+    }
+}
+
+export const removeFilter = (oldFilter) => {
+    return {
+        type: 'REMOVE_FILTER',
+        payload: {
+            oldFilter: oldFilter
+        }
+    }
+}
 
 
 
