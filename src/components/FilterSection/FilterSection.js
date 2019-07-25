@@ -5,38 +5,40 @@ import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
+import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
 class FilterSection extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {filterList: []}
+        //this.state = {filterList: []}
         this.handleClick.bind(this);
     }
     handleClick(e) {
         console.log(e.value, e.checked);
         if(e.checked) {
-            this.setState({
+            /*this.setState({
                 filterList: [...this.state.filterList, e.value]
-            });
+            });*/
+            this.props.addFilter(e.value);
         }
         else {
-            this.setState({
+           /* this.setState({
                 filterList: this.state.filterList.filter(function(status) {
                     return status !== e.value
                 })
-            });
+            });*/
+            this.props.removeFilter(e.value);
         }  
-        
     }
-
+    /*
     filterStatus() {
         if(this.filterList != []) {
             const result = this.props.items.filter(({status}) => this.state.filterList.includes(status));
             return result;
         }
         
-    }
+    }*/
     findDistinctStatuses() {
         const statuses = [...new Set(this.props.items.map( x => x.status))];
         return statuses.map((status) => {
@@ -62,7 +64,7 @@ class FilterSection extends React.Component{
                     <Undertittel>Implisitt status</Undertittel>
                 </div>
                 <div className="filtercheckbox">
-                    {this.findDistinctStatuses()}{console.log(this.state.filterList)}
+                    {this.findDistinctStatuses()}
                 </div>
 
                 <div className="katergorioverskrift">
@@ -124,6 +126,8 @@ const mapStateToProps = (state) =>{
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
+        addFilter: addFilter,
+        removeFilter: removeFilter,
         hideNonApprovedTerms: hideNonApprovedTerms,
         //start utkastdel
         hideNonUtkastTerms: hideNonUtkastTerms,
