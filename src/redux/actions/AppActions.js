@@ -57,7 +57,6 @@ export const termKey = (newKey) => {
 }
 
 export const addFilter = (newFilter) => {
-    console.log("add filter");
     return {
         type: 'ADD_FILTER',
         payload: {
@@ -67,7 +66,6 @@ export const addFilter = (newFilter) => {
 }
 
 export const removeFilter = (oldFilter) => {
-    console.log("remove filter");
     return {
         type: 'REMOVE_FILTER',
         payload: {
