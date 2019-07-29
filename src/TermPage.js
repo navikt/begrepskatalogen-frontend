@@ -32,7 +32,7 @@ export class TermPage extends React.Component{
 
     findTerm = (termName) => {
         var found = this.props.items.filter(function(item) {
-            return item.term == termName;
+            return item.key == termName;
         });
         this.props.termKeyFinder(found[0]);
     }
@@ -49,11 +49,11 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.inward}</Normaltekst>
-                            <button onClick={() => this.findTerm(rel.inwardIssue.fields.summary)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
+                            <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
-                            <button onClick={() => this.findTerm(rel.outwardIssue.fields.summary)}>{rel.outwardIssue.fields.summary}</button>
+                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button>
                         </React.Fragment>
                 ))}
             </div>
