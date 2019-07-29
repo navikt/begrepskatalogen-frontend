@@ -47,15 +47,32 @@ export const sortBy = (sort) => (dispatch) =>{
     });
 }
 
-export const termKey = (newKey) => {
-    return {
+export const termKeyFinder = (newKey) => {
+    return ({
         type: 'TERM_KEY',
         payload: {
             termKey: newKey
         }
-    };
+    });
 }
 
+export const addFilter = (newFilter) => {
+    return {
+        type: 'ADD_FILTER',
+        payload: {
+            newFilter: newFilter
+        }
+    }
+}
+
+export const removeFilter = (oldFilter) => {
+    return {
+        type: 'REMOVE_FILTER',
+        payload: {
+            oldFilter: oldFilter
+        }
+    }
+}
 
 
 

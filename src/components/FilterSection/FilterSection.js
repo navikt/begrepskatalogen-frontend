@@ -5,8 +5,60 @@ import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
+import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
 class FilterSection extends React.Component{
+
+    constructor(props) {
+        super(props);
+        //this.state = {filterList: []}
+        this.handleClick.bind(this);
+        this.state = {statuses: []}
+    }
+
+    componentWillMount() {
+        //const statuses = [...new Set(this.props.items.map( x => x.status))];
+        this.setState({
+            statuses: [...new Set(this.props.items.map( x => x.status))]
+        });
+    }
+    handleClick(e) {
+        console.log(e.value, e.checked);
+        if(e.checked) {
+            /*this.setState({
+                filterList: [...this.state.filterList, e.value]
+            });*/
+            this.props.addFilter(e.value);
+        }
+        else {
+           /* this.setState({
+                filterList: this.state.filterList.filter(function(status) {
+                    return status !== e.value
+                })
+            });*/
+            this.props.removeFilter(e.value);
+        }  
+    }
+    /*
+    filterStatus() {
+        if(this.filterList != []) {
+            const result = this.props.items.filter(({status}) => this.state.filterList.includes(status));
+            return result;
+        }
+        
+    }*/
+    findDistinctStatuses() {
+        //const statuses = [...new Set(this.props.items.map( x => x.status))];
+        return this.state.statuses.map((status) => {
+            return (
+                <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick(e.target)}/>
+            );
+        });
+    }
+
+    findDistinctFagområder() {
+
+    }
 
     render(){
         return(
@@ -19,15 +71,8 @@ class FilterSection extends React.Component{
                 <div className="katergorioverskrift">
                     <Undertittel>Implisitt status</Undertittel>
                 </div>
-
                 <div className="filtercheckbox">
-                    <Checkbox onClick={this.props.hideNonApprovedTerms} label={"Godkjente"}/>
-                    <Checkbox onClick={this.props.hideNonUtkastTerms} label={"Utkast"}/>
-                    <Checkbox onClick={this.props.hideNonAvvistTerms} label={"Avviste"}/>
-                    <Checkbox  label={"Revisjon"}/>
-                    <Checkbox  label={"Utgått"}/>
-                    <Checkbox onClick={this.props.selectFilter} label={"Gokjent og utkast"}/>
-
+                    {this.findDistinctStatuses()}
                 </div>
 
                 <div className="katergorioverskrift">
@@ -80,7 +125,7 @@ class FilterSection extends React.Component{
 const mapStateToProps = (state) =>{
     return{
         filterStatus: state.filterStatus,
-        
+        items: state.items,
         approvedTerms: state.approvedTerms,
         numNotApprovedTerms: state.numNotApprovedTerms,
         
@@ -89,6 +134,8 @@ const mapStateToProps = (state) =>{
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
+        addFilter: addFilter,
+        removeFilter: removeFilter,
         hideNonApprovedTerms: hideNonApprovedTerms,
         //start utkastdel
         hideNonUtkastTerms: hideNonUtkastTerms,
@@ -97,7 +144,6 @@ function matchDispatchToProps(dispatch){
         //start avvistdel
         hideNonAvvistTerms: hideNonAvvistTerms,
         //slutt avvistdel
-
 
         //start statelist
         selectFilter: selectFilter

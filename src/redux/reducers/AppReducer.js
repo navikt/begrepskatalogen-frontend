@@ -4,18 +4,7 @@ export const initialState = {
     search: '',
     filteredItems:[],
     hideNotApproved: false,
-    //start utkastdel
-    utkastTerms: 0,
-    hideNotUtkast: false,
-    //slutt utkastdel
-    //start avvistdel
-    avvistTerms: 0,
-    hideNotAvvist: false,
-    //slutt avvustdel
-
-    //start statelist
-    initialBlankList: [],
-    //slutt statelist
+    filterList: [],
     isHiddenTable: true
 };
 
@@ -34,39 +23,25 @@ function appReducer(state = initialState, action) {
         case 'NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { hideNotApproved: !state.hideNotApproved });
         case 'NUM_NOT_APPROVED_TERMS':
-                return Object.assign({}, state, { numNotApprovedTerms: action.numNotApprovedTerms });
-        
+                return Object.assign({}, state, { numNotApprovedTerms: action.payload.numNotApprovedTerms });
+        case 'ADD_FILTER':
+            return {
+                ...state,
+                filterList: [...state.filterList, action.payload.newFilter]
+            }
+        case 'REMOVE_FILTER':
+            return {
+                ...state,
+                filterList: state.filterList.filter(function(status) {
+                    return status !== action.payload.oldFilter
+                })
+            }
         case 'ORDER_BY_ALPH':
             return Object.assign({}, state, { sort:  action.payload.sort});
         case 'ORDER_BY_BEGREPSEIER':
             return Object.assign({}, state, { sort: action.payload.sort});
         case 'TERM_KEY':
             return Object.assign({}, state, { termKey: action.payload.termKey });
-
-        //start utkastdel
-        case 'NUM_UTKAST_TERMS':
-            return Object.assign({}, state, { utkastTerms: action.utkastTerms });
-        
-        case 'NOT_UTKAST_TERMS':
-            return Object.assign({}, state, { hideNotUtkast: !state.hideNotUtkast });
-        //slutt utkastdel
-
-        //start avvistdel
-        case 'NUM_AVVIST_TERMS':
-            return Object.assign({}, state, { avvistTerms: action.avvistTerms });
-        
-        case 'NOT_AVVIST_TERMS':
-            return Object.assign({}, state, { hideNotAvvist: !state.hideNotAvvist });
-        //slutt avvustdel
-
-
-
-        //start statelist
-        case 'SELECT_FILTER':
-            return Object.assign({}, state, {initialBlankList: action.initialBlankList})
-        //slutt statelist
-
-
         default:
             return state; 
     }
