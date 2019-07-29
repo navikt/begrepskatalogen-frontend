@@ -39,7 +39,6 @@ export class TermPage extends React.Component{
 
 
     relationFinder = () => {
-        console.log("heeer");
         const length = this.props.termKey.relasjoner.length;
         if( length == 0 ) {
             return <Normaltekst>Ingen relasjoner funnet.</Normaltekst>;
@@ -50,9 +49,7 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.inward}</Normaltekst>
-                            <button onClick={() => this.findTerm(rel.inwardIssue.fields.summary)}>{rel.inwardIssue.fields.summary}</button>
-                            {console.log("sum", rel.inwardIssue.fields.summary)}
-                        </React.Fragment>
+                            <button onClick={() => this.findTerm(rel.inwardIssue.fields.summary)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
