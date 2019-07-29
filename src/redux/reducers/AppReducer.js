@@ -5,6 +5,10 @@ export const initialState = {
     filteredItems:[],
     hideNotApproved: false,
     filterList: [],
+<<<<<<< HEAD
+=======
+    isHiddenTable: true
+>>>>>>> 7b552570d78be7f29adb13f5295641c0af6ee735
 };
 
 function appReducer(state = initialState, action) {

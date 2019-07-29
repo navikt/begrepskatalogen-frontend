@@ -13,6 +13,14 @@ class FilterSection extends React.Component{
         super(props);
         //this.state = {filterList: []}
         this.handleClick.bind(this);
+        this.state = {statuses: []}
+    }
+
+    componentWillMount() {
+        //const statuses = [...new Set(this.props.items.map( x => x.status))];
+        this.setState({
+            statuses: [...new Set(this.props.items.map( x => x.status))]
+        });
     }
     handleClick(e) {
         console.log(e.value, e.checked);
@@ -40,8 +48,8 @@ class FilterSection extends React.Component{
         
     }*/
     findDistinctStatuses() {
-        const statuses = [...new Set(this.props.items.map( x => x.status))];
-        return statuses.map((status) => {
+        //const statuses = [...new Set(this.props.items.map( x => x.status))];
+        return this.state.statuses.map((status) => {
             return (
                 <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick(e.target)}/>
             );

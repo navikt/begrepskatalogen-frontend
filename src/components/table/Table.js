@@ -6,9 +6,9 @@ import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
-import { termKey } from '../../redux/actions/AppActions';
+import { termKeyFinder } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-import ListToShow from '../ResultList';
+
 class Table extends React.Component{
 
     constructor(props){
@@ -108,7 +108,7 @@ class Table extends React.Component{
         }
         
         const handleClick = (e) => {
-            this.props.dispatch(termKey(e));
+            this.props.dispatch(termKeyFinder(e));
             console.log("klikk", e);
         }
         
