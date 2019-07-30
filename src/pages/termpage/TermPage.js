@@ -36,14 +36,11 @@ export class TermPage extends React.Component{
             return item.key == termName;
         });
         if(found[0] == undefined) {
-            //alert("finnes ikke")
             this.setState({isFound: false})
-            console.log(this.state.isFound)
         }
         else {
             this.props.termKeyFinder(found[0]);
             this.setState({isFound: true})
-            //this.termNotFound(false)
         }
     }
 
@@ -109,7 +106,7 @@ export class TermPage extends React.Component{
 
                     <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper</Ingress>
-                        {this.relationFinder()} {this.state.isFound ? "" : <AlertStripeFeil>Begrepet finnes ikke.</AlertStripeFeil>}
+                        {this.relationFinder()}{this.state.isFound ? "" : <AlertStripeFeil>Begrepet finnes ikke.</AlertStripeFeil>}
                     </div>
 
                     <div className="revidert">
