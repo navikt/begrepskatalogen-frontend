@@ -17,7 +17,7 @@ class SearchBar extends React.Component{
 
     render() {
         return(
-            <div className="inputwrapper" >
+            <div className="inputwrapper">
                 <Input
                     label={' '} 
                     placeholder={"Søk etter en term"}

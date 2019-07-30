@@ -8,7 +8,7 @@ import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 import { termKeyFinder } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-import ListToShow from '../ResultList';
+
 class Table extends React.Component{
 
     constructor(props){
@@ -109,7 +109,10 @@ class Table extends React.Component{
         
         const handleClick = (e) => {
             this.props.dispatch(termKeyFinder(e));
+<<<<<<< HEAD
             console.log("klikk", e);
+=======
+>>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57
         }
         
         const formatDate = (string) => {
@@ -121,9 +124,9 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
-                    <td><Link className="termKolonne" onClick={() => handleClick(item)} to={"/begrepsside"}>{term}</Link></td>
+                    <td><Link className="term_col" onClick={() => handleClick(item)} to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
-                    <td><Normaltekst className="status">{status}</Normaltekst></td>
+                    <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
@@ -133,14 +136,14 @@ class Table extends React.Component{
 
     render() {
         return (
-            <div className="altavBody">
-                <div className="altalt">
+
+                <div className="table_content">
                     <div className="selectfields">
                         <SortField/>
                     </div>
-                    <div className="altavtabell">
+                    <div className="table">
                         <FilterSection/>
-                        <table className="begreper">
+                        <table className="terms">
                             <colgroup>
                                 <col width="250"/>
                                 <col width="500"/>
@@ -165,12 +168,12 @@ class Table extends React.Component{
                         </table>
                     </div>
                 </div>
-            </div>
+
         );
     }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
     return {
         search: state.search,
         items: state.items,

@@ -3,9 +3,15 @@ import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-fron
 import './TermPage.less';
 import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
+<<<<<<< HEAD:src/TermPage.js
 import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
 import { bindActionCreators } from 'redux';
 import { termKeyFinder } from './redux/actions/AppActions';
+=======
+import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel} from 'nav-frontend-alertstriper';
+import { bindActionCreators } from 'redux';
+import { termKeyFinder } from '../../redux/actions/AppActions';
+>>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57:src/pages/termpage/TermPage.js
 
 export class TermPage extends React.Component{
 
@@ -32,33 +38,51 @@ export class TermPage extends React.Component{
 
     findTerm = (termName) => {
         var found = this.props.items.filter(function(item) {
+<<<<<<< HEAD:src/TermPage.js
             return item.term == termName;
         });
         this.props.termKeyFinder(found[0]);
     }
 
+=======
+            return item.key == termName;
+        });
+        this.props.termKeyFinder(found[0]);
+    }
+>>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57:src/pages/termpage/TermPage.js
 
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
+        
         if( length == 0 ) {
             return <Normaltekst>Ingen relasjoner funnet.</Normaltekst>;
         }
+        
         return (
             <div className="relasjonListe">
                 {this.props.termKey.relasjoner.map( rel => (
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
+<<<<<<< HEAD:src/TermPage.js
                             <Normaltekst>{rel.type.inward}</Normaltekst>
                             <button onClick={() => this.findTerm(rel.inwardIssue.fields.summary)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst>{rel.type.outward}</Normaltekst>
                             <button onClick={() => this.findTerm(rel.outwardIssue.fields.summary)}>{rel.outwardIssue.fields.summary}</button>
+=======
+                            <Normaltekst className="capitalize">{rel.type.inward}
+                                <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                        
+                        </React.Fragment>
+                        :
+                        <React.Fragment key={rel.id}>
+                            <Normaltekst className="capitalize">{rel.type.outward}
+                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>
+>>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57:src/pages/termpage/TermPage.js
                         </React.Fragment>
                 ))}
             </div>
         );
-
     }
     
     render(){
@@ -91,7 +115,9 @@ export class TermPage extends React.Component{
 
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
-                        <Normaltekst>{this.props.termKey.kilde}</Normaltekst>
+                        <Normaltekst>
+                            {this.props.termKey.kilde != "" ? this.props.termKey.kilde : "Ingen funnet."}
+                        </Normaltekst>
                     </div>
 
                     <div className="relasjoner">
@@ -101,9 +127,10 @@ export class TermPage extends React.Component{
 
                     <div className="revidert">
                         <Ingress>Sist Revidert</Ingress>
-                        <p>{this.formatDate(this.props.termKey.oppdatert)}</p>
+                        <Normaltekst>{this.formatDate(this.props.termKey.oppdatert)}</Normaltekst>
                     </div>
                 </div>
+                
                 <div className="hoyreFeltAvSiden">
                     <div className="beskrivelsestype">
                         <Ingress>Skrevet av</Ingress>
@@ -112,7 +139,9 @@ export class TermPage extends React.Component{
 
                     <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
-                        <Normaltekst>PLACEHOLDER</Normaltekst>
+                        <Normaltekst>
+                            {this.props.termKey.fagomrade != "" ? this.props.termKey.fagomrade : "Ingen funnet."}
+                        </Normaltekst>
                     </div>
 
                     <div className="begrepseier">
