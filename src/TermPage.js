@@ -112,7 +112,7 @@ export class TermPage extends React.Component{
 
                     <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
-                        <Normaltekst>PLACEHOLDER</Normaltekst>
+                        <Normaltekst>{this.props.termKey.fagomrade}</Normaltekst>
                     </div>
 
                     <div className="begrepseier">
