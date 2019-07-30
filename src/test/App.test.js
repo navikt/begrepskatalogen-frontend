@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+describe('numberaddingpart', function(){
+    it('addnumbers should be above 5', function(){
+        let result = app.addNumbers(5,5);
+        assert.isAbove(addNumberResult, 5);
+    });
 
-it('renders without crashing', ()=> {
-    const div = document.createElement('div');
-    ReactDOM.render(<App/>, div);
-    ReactDOM.unmountComponentAtNode(div);
 })

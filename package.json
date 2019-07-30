@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha || true",
+    "test": "mocha 'src/test/**/*.js' || true",
     "start": "rimraf .cache && parcel src/index.html",
     "serve": "rimraf .cache && node server/server-dev.js",
     "build": "parcel build src/index.html",
