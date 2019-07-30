@@ -109,10 +109,6 @@ class Table extends React.Component{
         
         const handleClick = (e) => {
             this.props.dispatch(termKeyFinder(e));
-<<<<<<< HEAD
-            console.log("klikk", e);
-=======
->>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57
         }
         
         const formatDate = (string) => {
