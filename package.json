@@ -63,6 +63,7 @@
     "store": "^2.0.12"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.2.0"
   }
 }
