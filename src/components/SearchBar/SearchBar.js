@@ -1,7 +1,7 @@
-import React from './node_modules/react';
-import { Input } from './node_modules/nav-frontend-skjema';
+import React from 'react';
+import { Input } from 'nav-frontend-skjema';
 import './SearchBar.less';
-import { connect } from './node_modules/react-redux';
+import { connect } from 'react-redux';
 import { updateSearch } from '../../redux/actions/SearchAction';
 
 class SearchBar extends React.Component{
