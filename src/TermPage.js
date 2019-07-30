@@ -48,12 +48,13 @@ export class TermPage extends React.Component{
                 {this.props.termKey.relasjoner.map( rel => (
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
-                            <Normaltekst>{rel.type.inward}</Normaltekst>
-                            <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
+                            <Normaltekst>{rel.type.inward}
+                                <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                        
+                        </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
-                            <Normaltekst>{rel.type.outward}</Normaltekst>
-                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button>
+                            <Normaltekst>{rel.type.outward}
+                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>
                         </React.Fragment>
                 ))}
             </div>
@@ -101,7 +102,7 @@ export class TermPage extends React.Component{
 
                     <div className="revidert">
                         <Ingress>Sist Revidert</Ingress>
-                        <p>{this.formatDate(this.props.termKey.oppdatert)}</p>
+                        <Normaltekst>{this.formatDate(this.props.termKey.oppdatert)}</Normaltekst>
                     </div>
                 </div>
                 <div className="hoyreFeltAvSiden">
