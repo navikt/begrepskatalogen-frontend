@@ -120,9 +120,9 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
-                    <td><Link className="termKolonne" onClick={() => handleClick(item)} to={"/begrepsside"}>{term}</Link></td>
+                    <td><Link className="term_col" onClick={() => handleClick(item)} to={"/begrepsside"}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
-                    <td><Normaltekst className="status">{status}</Normaltekst></td>
+                    <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
@@ -132,14 +132,14 @@ class Table extends React.Component{
 
     render() {
         return (
-            <div className="altavBody">
-                <div className="altalt">
+
+                <div className="table_content">
                     <div className="selectfields">
                         <SortField/>
                     </div>
-                    <div className="altavtabell">
+                    <div className="table">
                         <FilterSection/>
-                        <table className="begreper">
+                        <table className="terms">
                             <colgroup>
                                 <col width="250"/>
                                 <col width="500"/>
@@ -164,7 +164,7 @@ class Table extends React.Component{
                         </table>
                     </div>
                 </div>
-            </div>
+
         );
     }
 }
