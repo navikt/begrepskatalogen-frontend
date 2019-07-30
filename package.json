@@ -4,11 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "mocha",
-=======
     "test": "mocha || true",
->>>>>>> 618826f516151f00d7b824f3d12c2e0556e99e57
     "start": "rimraf .cache && parcel src/index.html",
     "serve": "rimraf .cache && node server/server-dev.js",
     "build": "parcel build src/index.html",
