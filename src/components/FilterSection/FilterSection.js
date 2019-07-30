@@ -1,10 +1,10 @@
-import React from 'react';
-import { Checkbox} from 'nav-frontend-skjema';
+import React from './node_modules/react';
+import { Checkbox} from './node_modules/nav-frontend-skjema';
 import './FilterSection.less';
-import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
-import { connect } from 'react-redux';
+import { Undertittel, Systemtittel } from './node_modules/nav-frontend-typografi';
+import { connect } from './node_modules/react-redux';
 import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from './node_modules/redux';
 import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
 class FilterSection extends React.Component{
