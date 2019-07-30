@@ -20,7 +20,7 @@ export class Home extends Component {
         return (
             <div>
                 { (this.props.isHiddenTable && (this.props.search == "")) ? 
-                    <Ingress className="seAlleBegrepText">Søk etter et begrep, stykkord eller
+                    <Ingress className="seAlleBegrepText">Søk etter ett begrep, stikkord eller
                         <button onClick={ this.toggleHidden.bind(this) }>
                             se alle begrepene.
                         </button> 
@@ -36,7 +36,7 @@ export class Home extends Component {
                 }
                 {(this.props.isHiddenTable && (this.props.search == ""))? 
                     <div className="beforeSearch">
-                        <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
+                        <Ingress>Katalogen skal vises etter du har søkt etter en term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
                     </div>
                     :
                     <Table/>
