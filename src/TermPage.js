@@ -3,7 +3,7 @@ import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-fron
 import './TermPage.less';
 import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
-import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
+import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel} from 'nav-frontend-alertstriper';
 import { bindActionCreators } from 'redux';
 import { termKeyFinder } from './redux/actions/AppActions';
 
@@ -37,12 +37,13 @@ export class TermPage extends React.Component{
         this.props.termKeyFinder(found[0]);
     }
 
-
     relationFinder = () => {
         const length = this.props.termKey.relasjoner.length;
+        
         if( length == 0 ) {
             return <Normaltekst>Ingen relasjoner funnet.</Normaltekst>;
         }
+        
         return (
             <div className="relasjonListe">
                 {this.props.termKey.relasjoner.map( rel => (
@@ -58,7 +59,6 @@ export class TermPage extends React.Component{
                 ))}
             </div>
         );
-
     }
     
     render(){
@@ -104,6 +104,7 @@ export class TermPage extends React.Component{
                         <p>{this.formatDate(this.props.termKey.oppdatert)}</p>
                     </div>
                 </div>
+                
                 <div className="hoyreFeltAvSiden">
                     <div className="beskrivelsestype">
                         <Ingress>Skrevet av</Ingress>

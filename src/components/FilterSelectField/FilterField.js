@@ -14,16 +14,14 @@ function FilterField(){
             </div>
 
             <div className="filterselect">
-                <Select label=""  
-                    bredde="m"
-                    >
-                        <option value='Begrepseier'>Begrepseier</option>
-                        <option value='Implisitt_Status'>Implisitt status</option>
-                        <option value='Fagområder'>Fagområder</option>
-                        <option value='Brukerrettede_begreper'>Brukerrettede begreper</option>
-                        <option value='Kildetype'>Kildetype</option>
-                        <option value='Ekstern_eierskap'>Ekstern eierskap</option>
-                        <option value='Offentlig_tilgjengelig'>Offentlig tilgjengelig</option>
+                <Select label="" bredde="m">
+                    <option value='Begrepseier'>Begrepseier</option>
+                    <option value='Implisitt_Status'>Implisitt status</option>
+                    <option value='Fagområder'>Fagområder</option>
+                    <option value='Brukerrettede_begreper'>Brukerrettede begreper</option>
+                    <option value='Kildetype'>Kildetype</option>
+                    <option value='Ekstern_eierskap'>Ekstern eierskap</option>
+                    <option value='Offentlig_tilgjengelig'>Offentlig tilgjengelig</option>
                 </Select>
             </div>
         </div>

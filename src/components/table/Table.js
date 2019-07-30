@@ -109,7 +109,6 @@ class Table extends React.Component{
         
         const handleClick = (e) => {
             this.props.dispatch(termKeyFinder(e));
-            console.log("klikk", e);
         }
         
         const formatDate = (string) => {
@@ -170,7 +169,7 @@ class Table extends React.Component{
     }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
     return {
         search: state.search,
         items: state.items,
