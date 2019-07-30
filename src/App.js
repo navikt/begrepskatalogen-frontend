@@ -6,6 +6,7 @@ import Footer from './composition/footer/Footer';
 import { connect } from 'react-redux';
 import Home from './pages/home/Home';
 import KontaktOss from './pages/KontaktOss';
+import OmBegrepskatalogen from './pages/OmBegrepskatalogen';
 import TermPage from './pages/termpage/TermPage';
 import Table from './components/table/Table';
 import { fetchData } from './redux/actions/AppActions';
@@ -28,11 +29,12 @@ class App extends Component{
                     <Header/>
                     <div className="body">
                         <Route exact path='/' component={Home}/>
+                        <Route exact path='/ombegrepskatalogen' component={OmBegrepskatalogen}/>
                         <Route exact path='/kontaktoss' component={KontaktOss}/>
-                        <Route exact path ='/begrepsside' component={TermPage}/>
+                        <Route exact path='/begrepsside' component={TermPage}/>
                         <Route exact path='/søketabell' component={Table}/>
                         <Route exact path='/meld-inn-nytt-begrep' component={() => {
-                            window.location.href = 'http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010'; 
+                            window.location.href='http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010'; 
                             return null;
                         }}/>
                     </div>
