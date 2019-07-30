@@ -11,13 +11,11 @@ class FilterSection extends React.Component{
 
     constructor(props) {
         super(props);
-        //this.state = {filterList: []}
         this.handleClick.bind(this);
         this.state = {statuses: [], fagomrade: []}
     }
 
     componentWillMount() {
-        //const statuses = [...new Set(this.props.items.map( x => x.status))];
         this.setState({
             statuses: [...new Set(this.props.items.map( x => x.status))],
             fagomrader: [...new Set(this.props.items.map( x => x.fagomrade))]
@@ -26,30 +24,14 @@ class FilterSection extends React.Component{
     handleClick(e) {
         console.log(e.value, e.checked);
         if(e.checked) {
-            /*this.setState({
-                filterList: [...this.state.filterList, e.value]
-            });*/
             this.props.addFilter(e.value);
         }
         else {
-           /* this.setState({
-                filterList: this.state.filterList.filter(function(status) {
-                    return status !== e.value
-                })
-            });*/
             this.props.removeFilter(e.value);
         }  
     }
-    /*
-    filterStatus() {
-        if(this.filterList != []) {
-            const result = this.props.items.filter(({status}) => this.state.filterList.includes(status));
-            return result;
-        }
-        
-    }*/
+
     findDistinctStatuses() {
-        //const statuses = [...new Set(this.props.items.map( x => x.status))];
         return this.state.statuses.map((status) => {
             return (
                 <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick(e.target)}/>
@@ -119,21 +101,17 @@ class FilterSection extends React.Component{
                     <Checkbox label={"Ja"}/>
                     <Checkbox label={"Nei"}/>
                 </div>
-
-
-
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) =>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         filterStatus: state.filterStatus,
         items: state.items,
         approvedTerms: state.approvedTerms,
         numNotApprovedTerms: state.numNotApprovedTerms,
-        
     }
 }
 
@@ -142,18 +120,6 @@ function matchDispatchToProps(dispatch){
         addFilter: addFilter,
         removeFilter: removeFilter,
         hideNonApprovedTerms: hideNonApprovedTerms,
-        //start utkastdel
-        hideNonUtkastTerms: hideNonUtkastTerms,
-        //slutt utkastdel
-
-        //start avvistdel
-        hideNonAvvistTerms: hideNonAvvistTerms,
-        //slutt avvistdel
-
-        //start statelist
-        selectFilter: selectFilter
-        //slutt statelist
-
     }, dispatch);
 }
 

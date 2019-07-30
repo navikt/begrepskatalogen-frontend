@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import Table from './components/table/Table';
+import Table from '../../components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
 import { connect } from 'react-redux';
-import { toggleSeeAllTerms } from './redux/actions/AppActions';
+import { toggleSeeAllTerms } from '../../redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
-import { hideNonApprovedTerms } from './redux/actions/SearchAction';
+import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
 
 export class Home extends Component {
-    constructor(){
-        super();
-        this.state = {
-            isHidden: true //true når tabellen skal være skjult 
-        }
+    constructor(props){
+        super(props);
     }
     
     toggleHidden(){
         this.props.toggleSeeAllTerms()
-        this.setState({
-            isHidden: false
-        });
     }
 
     render() {
@@ -42,7 +36,7 @@ export class Home extends Component {
                 }
                 {(this.props.isHiddenTable && (this.props.search == ""))? 
                     <div className="beforeSearch">
-                    <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
+                        <Ingress>Katalogen skal vises etter du har søkt etter term, eller valgt å vise<br/>alle begrepene i katalogen</Ingress> 
                     </div>
                     :
                     <Table/>
@@ -62,7 +56,10 @@ const mapStateToProps = (state) => {
 };
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleSeeAllTerms: toggleSeeAllTerms, hideNonApprovedTerms: hideNonApprovedTerms }, dispatch);
+    return bindActionCreators({ 
+        toggleSeeAllTerms: toggleSeeAllTerms, 
+        hideNonApprovedTerms: hideNonApprovedTerms 
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home);

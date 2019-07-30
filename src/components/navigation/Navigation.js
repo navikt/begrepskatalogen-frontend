@@ -13,7 +13,7 @@ class Navigation extends React.Component{
                 <nav className="navStyle">
                     <ul className="navStyle__navLinks">
                         <li>
-                            <Link to={"/"} className="navStyle__navLink lenke"> 
+                            <Link to={"/ombegrepskatalogen"} className="navStyle__navLink lenke"> 
                                 <Element>Om begrepskatalogen</Element>
                             </Link>
                         </li>
