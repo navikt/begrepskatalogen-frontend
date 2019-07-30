@@ -48,12 +48,12 @@ export class TermPage extends React.Component{
                 {this.props.termKey.relasjoner.map( rel => (
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
-                            <Normaltekst>{rel.type.inward}
+                            <Normaltekst className="capitalize">{rel.type.inward}
                                 <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                        
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
-                            <Normaltekst>{rel.type.outward}
+                            <Normaltekst className="capitalize">{rel.type.outward}
                             <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>
                         </React.Fragment>
                 ))}
