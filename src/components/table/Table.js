@@ -8,7 +8,7 @@ import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
 import { termKeyFinder } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
-import ListToShow from '../ResultList';
+
 class Table extends React.Component{
 
     constructor(props){

@@ -13,13 +13,14 @@ class FilterSection extends React.Component{
         super(props);
         //this.state = {filterList: []}
         this.handleClick.bind(this);
-        this.state = {statuses: []}
+        this.state = {statuses: [], fagomrade: []}
     }
 
     componentWillMount() {
         //const statuses = [...new Set(this.props.items.map( x => x.status))];
         this.setState({
-            statuses: [...new Set(this.props.items.map( x => x.status))]
+            statuses: [...new Set(this.props.items.map( x => x.status))],
+            fagomrader: [...new Set(this.props.items.map( x => x.fagomrade))]
         });
     }
     handleClick(e) {
@@ -57,7 +58,13 @@ class FilterSection extends React.Component{
     }
 
     findDistinctFagområder() {
-
+        return this.state.fagomrader.map((fagomrade) => {
+            if(fagomrade != "") {
+                return (
+                    <Checkbox key={fagomrade} label={fagomrade} value={fagomrade}/>
+                );
+            }
+        });
     }
 
     render(){
@@ -80,9 +87,7 @@ class FilterSection extends React.Component{
                 </div>
 
                 <div className="filtercheckbox">
-                    <Checkbox label={"Fagområde1"}/>
-                    <Checkbox label={"Fagområde2"}/>
-                    <Checkbox label={"Fagområde3"}/>
+                    {this.findDistinctFagområder()}
                 </div>
 
                 <div className="katergorioverskrift">
