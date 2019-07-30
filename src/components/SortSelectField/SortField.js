@@ -1,8 +1,8 @@
-import React from './node_modules/react';
-import { Select } from './node_modules/nav-frontend-skjema';
-import { Normaltekst } from './node_modules/nav-frontend-typografi';
+import React from 'react';
+import { Select } from 'nav-frontend-skjema';
+import { Normaltekst } from 'nav-frontend-typografi';
 import './SortField.less';
-import { connect } from './node_modules/react-redux';
+import { connect } from 'react-redux';
 import { sortBy } from '../../redux/actions/AppActions';
 
 const SortField=({ dispatch })=>(
