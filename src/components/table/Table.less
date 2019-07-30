@@ -46,18 +46,19 @@ th, td {
     box-shadow: 0px 3px 1px rgba(184, 182, 182, 0.892);
 }
 
-.altaltalt{ //gråfarge fra header og ned
+.altavBody {
     background: @navLysGra;
 }
-
 .altalt{
     position: relative;
+    width: fit-content;
+    background: @navLysGra;
 }
 
 .selectfields{
     position: relative;
     top: 0.2rem;
-    padding-left: 3.4rem; //posisjon fra venstre på selectfields
+    padding-left: 9.8rem; //posisjon fra venstre på selectfields
 }
 
 .sorterselect, .filterselect {
@@ -66,6 +67,9 @@ th, td {
 }
 
 .altavtabell{
+    display: flex;
+    flex-direction: row;
+    padding-left: 2.5rem;
     position: relative;
     top: 6rem;
 }

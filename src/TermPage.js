@@ -2,15 +2,15 @@ import React from 'react';
 import { Sidetittel, Ingress, Undertittel, Normaltekst, Element } from 'nav-frontend-typografi';
 import './TermPage.less';
 import { Link } from 'react-router-dom';
-import {connect} from  'react-redux';
-import {AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
+import { connect } from  'react-redux';
+import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel, AlertStripe} from 'nav-frontend-alertstriper';
+import { bindActionCreators } from 'redux';
+import { termKeyFinder } from './redux/actions/AppActions';
 
 export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
-
-      
     }
 
     isGodkjent = () => {
@@ -18,7 +18,7 @@ export class TermPage extends React.Component{
             return <AlertStripeSuksess size="25">Godkjent begrep</AlertStripeSuksess>;
         }
         else if(this.props.termKey.status === 'Utkast') {
-            return <AlertStripeAdvarsel size="25">Utkast</AlertStripeAdvarsel>;
+            return <AlertStripeAdvarsel className="utkastBegrep" size="25">Utkast</AlertStripeAdvarsel>;
         }
         else {
             return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
@@ -30,22 +30,50 @@ export class TermPage extends React.Component{
         return new Date(string).toLocaleDateString([], options);
     }
 
-    
+    findTerm = (termName) => {
+        var found = this.props.items.filter(function(item) {
+            return item.key == termName;
+        });
+        this.props.termKeyFinder(found[0]);
+    }
+
+
+    relationFinder = () => {
+        const length = this.props.termKey.relasjoner.length;
+        if( length == 0 ) {
+            return <Normaltekst>Ingen relasjoner funnet.</Normaltekst>;
+        }
+        return (
+            <div className="relasjonListe">
+                {this.props.termKey.relasjoner.map( rel => (
+                    rel.hasOwnProperty("inwardIssue") ?
+                        <React.Fragment key={rel.id}>
+                            <Normaltekst>{rel.type.inward}</Normaltekst>
+                            <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button>                        </React.Fragment>
+                        :
+                        <React.Fragment key={rel.id}>
+                            <Normaltekst>{rel.type.outward}</Normaltekst>
+                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button>
+                        </React.Fragment>
+                ))}
+            </div>
+        );
+
+    }
     
     render(){
         return(
             <div className="gridContainer">
-          
                 <div className="begrepsHeader">
-                    <Link className="tilbake" to={'/søketabell'}><Element>⇦ Tilbake</Element></Link>
+                    <Link className="tilbake" to={'/'}><Element>⇦ Tilbake</Element></Link>
                     <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
-                    <Link className="linker" to={'/'}><Element >Gi innspill til begrepet</Element></Link>
+                    <Link className="linker" to={'/'}><Element>Gi innspill til begrepet</Element></Link>
                 </div>
-                <div className="status"> {this.isGodkjent()}</div>
+                <div className="status">{this.isGodkjent()}</div>
                 <div className="venstreFeltAvSiden">
                     <div className="begrepsoverskrift">
                         <Sidetittel>
-                        {this.props.termKey.term}
+                            {this.props.termKey.term}
                         </Sidetittel>
                         <br/>
                         <Undertittel>{this.props.termKey.key}</Undertittel>
@@ -57,7 +85,7 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="eksempler">
-                        <Ingress>PLACEHOLDER</Ingress>
+                        <Ingress>Eksempler</Ingress>
                         <Normaltekst>PLACEHOLDER PLACEHOLDER</Normaltekst>
                     </div>
 
@@ -67,8 +95,8 @@ export class TermPage extends React.Component{
                     </div>
 
                     <div className="relasjoner">
-                        <Ingress>Relasjon til andre begreper (Relasjonstre?)</Ingress>
-                        <p>PLACEHOLDER . PLACEHOLDER</p>
+                        <Ingress>Relasjon til andre begreper</Ingress>
+                        {this.relationFinder()}
                     </div>
 
                     <div className="revidert">
@@ -84,7 +112,7 @@ export class TermPage extends React.Component{
 
                     <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
-                        <Normaltekst>PLACEHOLDER</Normaltekst>
+                        <Normaltekst>{this.props.termKey.fagomrade}</Normaltekst>
                     </div>
 
                     <div className="begrepseier">
@@ -99,8 +127,14 @@ export class TermPage extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        termKey: state.termKey
+        termKey: state.termKey,
+        items: state.items
     }
 };
 
-export default connect(mapStateToProps)(TermPage);
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+       termKeyFinder: termKeyFinder
+    }, dispatch);
+}
+export default connect(mapStateToProps, matchDispatchToProps)(TermPage);

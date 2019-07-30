@@ -21,7 +21,9 @@ export function fetchData(){
 export function toggleSeeAllTerms() {
     return {
         type: 'TOGGLE_SEE_ALL_TERMS',
-        seeAllTerms: true
+        payload: {
+            seeAllTerms: true
+        }
     };
 }
 
@@ -45,11 +47,31 @@ export const sortBy = (sort) => (dispatch) =>{
     });
 }
 
-export const termKey = (newKey) => {
-    return {
+export const termKeyFinder = (newKey) => {
+    return ({
         type: 'TERM_KEY',
-        termKey: newKey, 
-    };
+        payload: {
+            termKey: newKey
+        }
+    });
+}
+
+export const addFilter = (newFilter) => {
+    return {
+        type: 'ADD_FILTER',
+        payload: {
+            newFilter: newFilter
+        }
+    }
+}
+
+export const removeFilter = (oldFilter) => {
+    return {
+        type: 'REMOVE_FILTER',
+        payload: {
+            oldFilter: oldFilter
+        }
+    }
 }
 
 

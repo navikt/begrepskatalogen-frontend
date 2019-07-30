@@ -45,13 +45,21 @@
             color: #0067C5;
         }
     }
-    .status{
 
+    .status {
+        justify-content: center
     }
-
+    .alertstripe {
+        &__ikon {
+            margin: 1rem;   
+        }
+    }
     .venstreFeltAvSiden{
         .begrepsoverskrift{
             margin-left: 3%;
+            padding-top: 1%;
+            //padding-bottom: 5%;
+            border-bottom: solid 0.001rem lightgray;
         }
     
         .begrepsforklaring{
@@ -68,6 +76,12 @@
     
         .relasjoner{
             margin-left: 3%;
+
+            .relasjonListe {
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+            }
         }
     
         .revidert{
@@ -82,7 +96,7 @@
         }
 
         .fagomraade{
-            margin-left: 3
+            margin-left: 3%;
         }
 
         .begrepseier{
