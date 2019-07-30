@@ -4,9 +4,9 @@ import Header from './composition/header/Header';
 import './App.less';
 import Footer from './composition/footer/Footer';
 import { connect } from 'react-redux';
-import Home from './Home';
-import KontaktOss from './KontaktOss';
-import TermPage from './TermPage';
+import Home from './pages/home/Home';
+import KontaktOss from './pages/KontaktOss';
+import TermPage from './pages/termpage/TermPage';
 import Table from './components/table/Table';
 import { fetchData } from './redux/actions/AppActions';
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
 import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel} from 'nav-frontend-alertstriper';
 import { bindActionCreators } from 'redux';
-import { termKeyFinder } from './redux/actions/AppActions';
+import { termKeyFinder } from '../../redux/actions/AppActions';
 
 export class TermPage extends React.Component{
 

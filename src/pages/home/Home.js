@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Table from './components/table/Table';
+import Table from '../../components/table/Table';
 import { Ingress } from 'nav-frontend-typografi';
 import './Home.less';
 import { connect } from 'react-redux';
-import { toggleSeeAllTerms } from './redux/actions/AppActions';
+import { toggleSeeAllTerms } from '../../redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
-import { hideNonApprovedTerms } from './redux/actions/SearchAction';
+import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
 
 export class Home extends Component {
     constructor(props){
