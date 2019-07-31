@@ -39,4 +39,11 @@ Dersom du trykker deg inn på et bestemt begrep, får du opp denne siden:
 Her finner du informasjon om hva slags begrep det er, BegrepsID, Begrepsforklaring, kilder, dato for siste endring, og relaterte begreper. I kolonnen til høyre finner du informasjon om hvem som har skrevet begrepet, hvilket fagområde det er en del av, og begrepseier.
 
 
+## Testing
+
+### Cypress
+
+For å bruke test-rammeverket `cypress`, kjør følgende kommando: `./node_modules/.bin/cypress open`. Dette vil åpne cypress test rammeverket og klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
+
+
 
