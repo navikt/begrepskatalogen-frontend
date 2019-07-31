@@ -73,9 +73,9 @@ export class TermPage extends React.Component{
         return(
             <div className="gridContainer">
                 <div className="begrepsHeader">
-                    <Link className="tilbake" to={'/'}><Element>⇦ Tilbake</Element></Link>
-                    <Link className="linker" to={'/'}><Element>Del begrepet</Element></Link>
-                    <Link className="linker" to={'/'}><Element>Gi innspill til begrepet</Element></Link>
+                    <Link className="tilbake" to={'/begrepskatalogen'}><Element>⇦ Tilbake</Element></Link>
+                    <Link className="linker" to={'/begrepskatalogen'}><Element>Del begrepet</Element></Link>
+                    <Link className="linker" to={'/begrepskatalogen'}><Element>Gi innspill til begrepet</Element></Link>
                 </div>
                 <div className="status">{this.isGodkjent()}</div>
                 <div className="venstreFeltAvSiden">

@@ -15,7 +15,7 @@ export class Home extends Component {
     toggleHidden(){
         this.props.toggleSeeAllTerms()
     }
-
+//Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
     render() {
         return (
             <div>
@@ -30,7 +30,7 @@ export class Home extends Component {
                         <Ingress>
                             Viser { this.props.approvedTerms } godkjente begreper relevant til ditt søk.<br/>
                             Viser { this.props.numNotApprovedTerms } ikke-godkjente begreper.<button onClick={ this.props.hideNonApprovedTerms }>Vil du skjule dem?</button><br/>
-                            Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
+                            
                         </Ingress>
                     </div>
                 }
