@@ -3,7 +3,11 @@ import { Checkbox} from 'nav-frontend-skjema';
 import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { hideNonApprovedTerms } from '../../redux/actions/SearchAction';
+=======
+import { hideNonApprovedTerms} from '../../redux/actions/SearchAction';
+>>>>>>> f22ceac0e4d05e574a2d21c3afde03f4372f69ae
 import { bindActionCreators } from 'redux';
 import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
