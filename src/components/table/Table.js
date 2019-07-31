@@ -65,14 +65,14 @@ class Table extends React.Component{
         if( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
-        if(this.props.filterList.length != 0) {
+        if(this.props.filters.length != 0) {
             return this.filterStatus(list);
         }
         return list;
     }
 
     filterStatus(list) {
-        const result = list.filter(({status}) => this.props.filterList.includes(status));
+        const result = list.filter(({status}) => this.props.filters.includes(status));
         return result;
     }
 
@@ -175,7 +175,7 @@ const mapStateToProps = (state) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
-        filterList: state.filterList,
+        filters: state.filters,
         sort: state.sort,
     }
 };

@@ -4,7 +4,7 @@ export const initialState = {
     search: '',
     filteredItems:[],
     hideNotApproved: false,
-    filterList: [],
+    filters: [],
     isHiddenTable: true
 };
 
@@ -27,12 +27,12 @@ function appReducer(state = initialState, action) {
         case 'ADD_FILTER':
             return {
                 ...state,
-                filterList: [...state.filterList, action.payload.newFilter]
+                filters: [...state.filters, action.payload.newFilter]
             }
         case 'REMOVE_FILTER':
             return {
                 ...state,
-                filterList: state.filterList.filter(function(status) {
+                filters: state.filters.filter(function(status) {
                     return status !== action.payload.oldFilter
                 })
             }
