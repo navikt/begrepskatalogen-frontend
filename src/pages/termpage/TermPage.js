@@ -11,6 +11,7 @@ export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
+        this.state = {isFound: true}
     }
 
     isGodkjent = () => {
@@ -34,7 +35,13 @@ export class TermPage extends React.Component{
         var found = this.props.items.filter(function(item) {
             return item.key == termName;
         });
-        this.props.termKeyFinder(found[0]);
+        if(found[0] == undefined) {
+            this.setState({isFound: false})
+        }
+        else {
+            this.props.termKeyFinder(found[0]);
+            this.setState({isFound: true})
+        }
     }
 
     relationFinder = () => {
@@ -50,12 +57,12 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst className="capitalize">{rel.type.inward}
-                                <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                        
+                                <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                    
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst className="capitalize">{rel.type.outward}
-                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>
+                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>                       
                         </React.Fragment>
                 ))}
             </div>
@@ -99,7 +106,7 @@ export class TermPage extends React.Component{
 
                     <div className="relasjoner">
                         <Ingress>Relasjon til andre begreper</Ingress>
-                        {this.relationFinder()}
+                        {this.relationFinder()}{this.state.isFound ? "" : <AlertStripeFeil>Begrepet finnes ikke.</AlertStripeFeil>}
                     </div>
 
                     <div className="revidert">

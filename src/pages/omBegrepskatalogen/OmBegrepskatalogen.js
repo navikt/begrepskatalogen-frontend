@@ -1,10 +1,9 @@
 import React from 'react';
-
-import "./home/Home.less"
+import "./OmBegrepskatalogen.less"
 
 function OmBegrepskatalogen(){
     return (
-        <div className = "omBegrepsKatalogen">
+        <div className="omBegrepsKatalogen">
             <h1>Om Begrepskatalogen</h1>
 
             <p>Begrepskatalogen i NAV skal samle NAVs viktigste begreper på ett sted og være kilde for NAVs forståelse av termer og begreper. 
