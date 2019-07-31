@@ -21,7 +21,6 @@ class FilterSection extends React.Component{
         });
     }
     handleClick(e) {
-        console.log(e.value, e.checked);
         if(e.checked) {
             this.props.addFilter(e.value);
         }
