@@ -21,7 +21,7 @@ export class Home extends Component {
             <div>
                 { (this.props.isHiddenTable && (this.props.search == "")) ? 
                     <Ingress className="seAlleBegrepText">Søk etter ett begrep, stikkord eller
-                        <button onClick={ this.toggleHidden.bind(this) }>
+                        <button id="seAlleBegreper" onClick={ this.toggleHidden.bind(this) }>
                             se alle begrepene.
                         </button> 
                     </Ingress> 
