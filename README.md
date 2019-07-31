@@ -43,7 +43,15 @@ Her finner du informasjon om hva slags begrep det er, BegrepsID, Begrepsforklari
 
 ### Cypress
 
-For å bruke test-rammeverket `cypress`, kjør følgende kommando: `./node_modules/.bin/cypress open`. Dette vil åpne cypress test rammeverket og klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
+For å bruke test-rammeverket `cypress`, kjør følgende en av følgende kommando: 
+* `./node_modules/.bin/cypress open`
+
+eller:
+* `npm run cy:open` 
+  
+Dette vil åpne cypress test rammeverket. 
+
+Klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
 
 
 
