@@ -49,7 +49,7 @@ For å bruke test-rammeverket `cypress`, kjør følgende en av følgende kommand
 eller:
 * `npm run cy:open` 
   
-Dette vil åpne cypress test rammeverket. 
+Dette vil åpne cypress test rammeverket. Du må ha [localhost](http://localhost:8080/begrepskatalogen) kjørende i bakgrunnen for at du kan kjøre end-to-end testene.
 
 Klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
 
