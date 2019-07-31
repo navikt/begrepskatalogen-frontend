@@ -3,7 +3,6 @@ import { Checkbox} from 'nav-frontend-skjema';
 import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
-import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
@@ -108,10 +107,7 @@ class FilterSection extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        filterStatus: state.filterStatus,
         items: state.items,
-        approvedTerms: state.approvedTerms,
-        numNotApprovedTerms: state.numNotApprovedTerms,
     }
 }
 
@@ -119,7 +115,6 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         addFilter: addFilter,
         removeFilter: removeFilter,
-        hideNonApprovedTerms: hideNonApprovedTerms,
     }, dispatch);
 }
 
