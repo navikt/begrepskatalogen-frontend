@@ -38,7 +38,6 @@ class Table extends React.Component{
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search);
-        console.log("restable", resultTable);
         return resultTable;
     }
 
@@ -56,9 +55,9 @@ class Table extends React.Component{
             ]
         }
         var fuse = new Fuse(allTerms, options);
-        const approvedList = fuse.search("Godkjent begrep");
-        this.props.dispatch(numOfApprovedTerms( approvedList.length ));
-        return approvedList;
+        const result = fuse.search("Godkjent begrep");
+        this.props.dispatch(numOfApprovedTerms( result.length ));
+        return result;
     }
 
     listToShow(list) {
