@@ -2,7 +2,6 @@ export const initialState = {
     loading: false,
     items: [],
     search: '',
-    filteredItems:[],
     hideNotApproved: false,
     filters: [],
     isHiddenTable: true
