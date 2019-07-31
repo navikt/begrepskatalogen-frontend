@@ -5,7 +5,7 @@ describe("Henter søkefeltet og begynner å skrive, og viser så resultatet", ()
     })
     
     
-    it("trykker på 'se alle begreper'", () => {
+    it("trykker på 'se alle begreper' og registerer endring.", () => {
         cy.get('button[id=seAlleBegreper]').click({force:true})
     })
     
