@@ -21,7 +21,6 @@ class FilterSection extends React.Component{
         });
     }
     handleClick(e) {
-        console.log(e.value, e.checked);
         if(e.checked) {
             this.props.addFilter(e.value);
         }
@@ -38,7 +37,7 @@ class FilterSection extends React.Component{
         });
     }
 
-    findDistinctFagområder() {
+    findDistinctFagomrader() {
         return this.state.fagomrader.map((fagomrade) => {
             if(fagomrade != "") {
                 return (
@@ -68,7 +67,7 @@ class FilterSection extends React.Component{
                 </div>
 
                 <div className="filtercheckbox">
-                    {this.findDistinctFagområder()}
+                    {this.findDistinctFagomrader()}
                 </div>
 
                 <div className="katergorioverskrift">
