@@ -148,7 +148,7 @@ class Table extends React.Component{
                             </colgroup>
                             <thead className="separator">
 
-                            <tr>
+                            <tr className="tableHead">
                                 <th><Systemtittel>Term</Systemtittel></th>
                                 <th ><Systemtittel>Definisjon</Systemtittel></th>
                                 <th><Systemtittel>Status</Systemtittel></th>
