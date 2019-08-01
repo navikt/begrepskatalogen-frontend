@@ -7,7 +7,7 @@
 
 3. Kjør `npm install` for å sette opp prosjektet og installere de nødvendige dependenciene.
 
-For å kjøre prosjektet lokalt, bruk kommandoen `npm run serve` for å kjøre prosjektet på [localhost](http://localhost:8080/begrepskatalogen)
+For å kjøre prosjektet lokalt, bruk kommandoen `npm run serve` for å kjøre prosjektet på [localhost](http://localhost:8080/begrepskatalogen) (http://localhost:8080/begrepskatalogen)
 
 
 
@@ -39,6 +39,16 @@ Dersom du trykker deg inn på et bestemt begrep, får du opp denne siden:
 Her finner du informasjon om hva slags begrep det er, BegrepsID, Begrepsforklaring, kilder, dato for siste endring, og relaterte begreper. I kolonnen til høyre finner du informasjon om hvem som har skrevet begrepet, hvilket fagområde det er en del av, og begrepseier.
 
 
+## Kodestruktur:
+
+### Komponenter
+
+Under mappen `src`, finner du mappen components som essensielt alle elementene en finner på siden består av. Eksempelvis ligger koden for filtreringsdelen under `FilterSection` osv. I hver komponentmappe vil du finne .js kode, samt en .less fil med tilhørende styling. Selve koden som utfører en handling ligger også ofte i .js filene som utgjør den visuelle delen, med noen unntak.
+
+### Redux
+
+Mappen `redux` inneholder alt som blir brukt i tilstandshåndtering med redux, altså `actions` og `reducers`. Disse blir bundet med `connect` som blir hentet med statementet (`import { connect } from 'react-redux'`) der koden brukes. For mer informasjon, sjekk ut dokumentasjonen på https://redux.js.org/.
+
 ## Testing
 
 ### Cypress
@@ -49,9 +59,12 @@ For å bruke test-rammeverket `cypress`, kjør følgende en av følgende kommand
 eller:
 * `npm run cy:open` 
   
-Dette vil åpne cypress test rammeverket. 
+Dette vil åpne cypress test rammeverket. Du må ha [localhost](http://localhost:8080/begrepskatalogen) kjørende i bakgrunnen for at du kan kjøre end-to-end testene.
 
 Klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
 
+Testene ligger i mappen `cypress` i prosjektet. Under `cypress/integration/testfolder` finner du alt av end-to-end tester som er skrevet, og det er her man kan skrive sine egne tester. Konvensjon for å skrive cypress-tester er: `navnPåTest.spec.js`. Cypress er konfigurert slik at den utfører testene på alle som inneholder "`.spec`". 
+
+For mer informasjon og tutorials på hvordan cypress fungerer, sjekk ut dokumentasjonen på https://www.cypress.io/
 
 
