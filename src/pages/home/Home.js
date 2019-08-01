@@ -15,7 +15,7 @@ export class Home extends Component {
     toggleHidden(){
         this.props.toggleSeeAllTerms()
     }
-//Eller vil du se<button onClick={ this.toggleHidden.bind(this) }>alle begrepene i katalogen?</button>
+
     render() {
         return (
             <div>
