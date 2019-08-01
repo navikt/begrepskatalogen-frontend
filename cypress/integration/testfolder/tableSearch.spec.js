@@ -15,6 +15,11 @@ describe("Henter søkefeltet og begynner å skrive, og viser så resultatet", ()
         cy.get('div[class=table]').should('not.contain', 'dagsats')
     })
 
+    it("skriver 'dia' i søkefelt og trykker på 'dialogmøte1", () =>{
+        cy.get('Input[id=inputfelt1]').type("dia{enter}")
+        cy.get('a[class=term_col]').contains('Dialogmøte 1').click({force:true});
+    })
+
 
     
 });
