@@ -3,7 +3,8 @@ import { shallow } from "enzyme";
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'react-redux';
+import configureStore from 'redux-mock-store';
+import ShallowRenderer from 'react-test-renderer/shallow';
 
 import { Provider } from 'react-redux';
 
@@ -11,25 +12,21 @@ import { Table } from '../components/table/Table';
 
 Enzyme.configure({adapter: new Adapter()});
 
-function setup(){
-    const props = {
-        tableItems: jest.fn()
-    }
 
-    const enzymeWrapper = shallow(<Table {...props}/>)
 
-    return {
-        props,
-        enzymeWrapper
-    }
-}
+const mockStore = configureStore();
 
-describe('components', () =>{
-    describe('Table', ()=>{
-        it('should render self and subcomponents', ()=>{
-            const { enzymeWrapper } = setup();
-            expect(enzymeWrapper.find('SortField')).hasClass('selectfields').toBe(true);
-        });
-    })
+
+describe('Table', ()=>{
+    it('should render self and subcomponents', ()=>{
+        const renderer = new ShallowRenderer();
+        const result = renderer.render(
+            <Provider>
+                <Table store = {mockStore}/>
+            </Provider>
+        )
+        expect(result.find('div')).toHaveLength(3);
+    });
 })
+
 
