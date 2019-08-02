@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --no-cache src/test",
     "start": "rimraf .cache && parcel src/index.html",
     "serve": "rimraf .cache && node server/server-dev.js",
     "build": "parcel build src/index.html",
