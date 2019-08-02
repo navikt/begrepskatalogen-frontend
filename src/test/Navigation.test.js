@@ -8,6 +8,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Element } from 'nav-frontend-typografi';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Navigation />', () =>{
@@ -36,6 +37,7 @@ describe('<Navigation />', () =>{
         const wrapper = shallow(<Navigation/>);
         const knapp = wrapper.find('#meldInnNyttBegrep');
         knapp.simulate('click');
+
         //trenger en expect greie her
 
     })
