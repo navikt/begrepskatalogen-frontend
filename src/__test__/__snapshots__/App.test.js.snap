@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-<<<<<<< HEAD
-exports[`test to see if it matches snapshot Searchbar-Render matches the snapshot 1`] = `
-=======
-exports[`test to see if it matches snapshot matches the snapshot 1`] = `
->>>>>>> d96884cfec6ec704535ff3e0a89a9e1432d5a709
+exports[`App matches snapshot 1`] = `
 <Context.Provider
   value={
     Object {
