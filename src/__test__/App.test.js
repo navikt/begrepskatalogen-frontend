@@ -1,10 +1,21 @@
-const assert = require('chai').assert;
-//const app = require('../app');
 
-describe('numberaddingpart', function(){
-    it('addnumbers should be above 5', function(){
-        let result = app.addNumbers(5,5);
-        assert.isAbove(addNumberResult, 5);
+import React from 'react';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+import App from '../App';
+
+const mockStore = configureMockStore();
+const store = mockStore({});
+
+describe('App', ()=>{
+    it('matches snapshot', ()=>{
+        const renderer = new ShallowRenderer();
+        const result = renderer.render(
+            <Provider store = {store}>
+                <App />
+            </Provider>
+        )
+        expect(result).toMatchSnapshot();
     });
-
 })
