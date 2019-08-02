@@ -11,7 +11,7 @@ const store = mockStore({});
 
 describe('test to see if it matches snapshot', ()=>{
 
-    it('matches the snapshot', ()=>{
+    it('Searchbar-Render matches the snapshot', ()=>{
         const renderer = new ShallowRenderer();
         const result = renderer.render(
             <Provider store={store}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from "enzyme";
+import ShallowRenderer from "react-test-renderer/shallow";
 
 
 import Header from '../composition/header/Header';
@@ -44,5 +45,18 @@ describe('Header component', () =>{
         const wrapper = shallow(<Header/>);
         expect(wrapper.find('svg')).toHaveLength(1);
     })
+
+
+    
+    it("Render of headercomponent should match snapshot", () => {
+        const renderer = new ShallowRenderer();
+        const result = renderer.render(<Header/>);
+        expect(result).toMatchSnapshot();
+    });
+
+    it("Header renders without crashing", () => {
+        shallow(<Header/>);
+    });
+    
 
 });
