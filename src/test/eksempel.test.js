@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
-import KontaktOss from './pages/kontaktoss/KontaktOss';
+import KontaktOss from '../pages/kontaktoss/KontaktOss';
 
 const mockStore = configureMockStore();
 
