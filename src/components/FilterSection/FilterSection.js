@@ -3,7 +3,6 @@ import { Checkbox} from 'nav-frontend-skjema';
 import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
-import { hideNonApprovedTerms, hideNonUtkastTerms, hideNonAvvistTerms, selectFilter } from '../../redux/actions/SearchAction';
 import { bindActionCreators } from 'redux';
 import { addFilter, removeFilter } from '../../redux/actions/AppActions';
 
@@ -22,7 +21,6 @@ class FilterSection extends React.Component{
         });
     }
     handleClick(e) {
-        console.log(e.value, e.checked);
         if(e.checked) {
             this.props.addFilter(e.value);
         }
@@ -39,7 +37,7 @@ class FilterSection extends React.Component{
         });
     }
 
-    findDistinctFagområder() {
+    findDistinctFagomrader() {
         return this.state.fagomrader.map((fagomrade) => {
             if(fagomrade != "") {
                 return (
@@ -69,7 +67,7 @@ class FilterSection extends React.Component{
                 </div>
 
                 <div className="filtercheckbox">
-                    {this.findDistinctFagområder()}
+                    {this.findDistinctFagomrader()}
                 </div>
 
                 <div className="katergorioverskrift">
@@ -108,10 +106,7 @@ class FilterSection extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        filterStatus: state.filterStatus,
         items: state.items,
-        approvedTerms: state.approvedTerms,
-        numNotApprovedTerms: state.numNotApprovedTerms,
     }
 }
 
@@ -119,7 +114,6 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         addFilter: addFilter,
         removeFilter: removeFilter,
-        hideNonApprovedTerms: hideNonApprovedTerms,
     }, dispatch);
 }
 

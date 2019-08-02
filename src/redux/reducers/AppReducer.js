@@ -2,9 +2,8 @@ export const initialState = {
     loading: false,
     items: [],
     search: '',
-    filteredItems:[],
     hideNotApproved: false,
-    filterList: [],
+    filters: [],
     isHiddenTable: true
 };
 
@@ -17,7 +16,7 @@ function appReducer(state = initialState, action) {
         case 'UPDATE_SEARCH':
             return Object.assign({}, state, { search: action.payload.search, seeAllTerms: false, hideNotApproved: false });
         case 'TOGGLE_SEE_ALL_TERMS':
-            return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false, isHiddenTable: !state.isHiddenTable });
+            return Object.assign({}, state, { seeAllTerms: true, hideNotApproved: false, isHiddenTable: false });
         case 'NUM_APPROVED_TERMS':
             return Object.assign({}, state, { approvedTerms: action.payload.approvedTerms });
         case 'NOT_APPROVED_TERMS':
@@ -27,12 +26,12 @@ function appReducer(state = initialState, action) {
         case 'ADD_FILTER':
             return {
                 ...state,
-                filterList: [...state.filterList, action.payload.newFilter]
+                filters: [...state.filters, action.payload.newFilter]
             }
         case 'REMOVE_FILTER':
             return {
                 ...state,
-                filterList: state.filterList.filter(function(status) {
+                filters: state.filters.filter(function(status) {
                     return status !== action.payload.oldFilter
                 })
             }

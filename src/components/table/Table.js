@@ -38,7 +38,6 @@ class Table extends React.Component{
         };
         var fuse = new Fuse(this.props.items, options);
         const resultTable = fuse.search(this.props.search);
-        console.log("restable", resultTable);
         return resultTable;
     }
 
@@ -56,23 +55,23 @@ class Table extends React.Component{
             ]
         }
         var fuse = new Fuse(allTerms, options);
-        const approvedList = fuse.search("Godkjent begrep");
-        this.props.dispatch(numOfApprovedTerms( approvedList.length ));
-        return approvedList;
+        const result = fuse.search("Godkjent begrep");
+        this.props.dispatch(numOfApprovedTerms( result.length ));
+        return result;
     }
 
     listToShow(list) {
         if( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
-        if(this.props.filterList.length != 0) {
+        if(this.props.filters.length != 0) {
             return this.filterStatus(list);
         }
         return list;
     }
 
     filterStatus(list) {
-        const result = list.filter(({status}) => this.props.filterList.includes(status));
+        const result = list.filter(({status}) => this.props.filters.includes(status));
         return result;
     }
 
@@ -149,7 +148,7 @@ class Table extends React.Component{
                             </colgroup>
                             <thead className="separator">
 
-                            <tr>
+                            <tr className="tableHead">
                                 <th><Systemtittel>Term</Systemtittel></th>
                                 <th ><Systemtittel>Definisjon</Systemtittel></th>
                                 <th><Systemtittel>Status</Systemtittel></th>
@@ -175,7 +174,7 @@ const mapStateToProps = (state) => {
         items: state.items,
         seeAllTerms: state.seeAllTerms,
         hideNotApproved: state.hideNotApproved,
-        filterList: state.filterList,
+        filters: state.filters,
         sort: state.sort,
     }
 };
