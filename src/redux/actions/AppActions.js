@@ -30,12 +30,12 @@ export function fetchItem(key){
         .then(function(response){
             response.json()
             .then((items) => {
-                console.log(items.find((i) => i.key === key));
-            },
+                const item = items.find((i) => i.key === key)
+                console.log(item)
             dispatch({
                 type: 'FETCH_ITEM_COMPLETE',
-                //item: item
-            }));
+                item: item
+            })});
         });
     }
 }

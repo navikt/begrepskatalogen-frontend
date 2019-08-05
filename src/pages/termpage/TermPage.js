@@ -18,6 +18,7 @@ export class TermPage extends React.Component{
         const { id } = this.props.match.params;
         this.props.fetchItem(id);
         console.log(id);
+        
     }
 
     isGodkjent = () => {
@@ -51,6 +52,7 @@ export class TermPage extends React.Component{
     }
 
     relationFinder = () => {
+        //console.log("item", this.props.item)
         const length = this.props.termKey.relasjoner.length;
         
         if( length == 0 ) {
@@ -147,7 +149,7 @@ export class TermPage extends React.Component{
 const mapStateToProps = (state) => {
     return {
         termKey: state.termKey,
-        items: state.items
+        items: state.items,
     }
 };
 
