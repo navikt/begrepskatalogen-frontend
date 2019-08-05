@@ -16,8 +16,7 @@ export class TermPage extends React.Component{
 
     componentWillMount() {
         const { id } = this.props.match.params;
-        this.props.fetchItem(id);
-        console.log("id", id);     
+        this.props.fetchItem(id);  
     }
 
     componentWillReceiveProps(nextProps) {
