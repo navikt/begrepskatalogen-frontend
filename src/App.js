@@ -30,11 +30,11 @@ class App extends Component{
                     <div className="body">
                         <Route exact path='/' ><Redirect to="/begrepskatalogen"/></Route>
                         <Route exact path='/begrepskatalogen' component={Home}/>
-                        <Route exact path='/ombegrepskatalogen' component={OmBegrepskatalogen}/>
-                        <Route exact path='/kontaktoss' component={KontaktOss}/>
-                        <Route exact path='/begrepsside' component={TermPage}/>
-                        <Route exact path='/søketabell' component={Table}/>
-                        <Route exact path='/meld-inn-nytt-begrep' component={() => {
+                        <Route exact path='/begrepskatalogen/ombegrepskatalogen' component={OmBegrepskatalogen}/>
+                        <Route exact path='/begrepskatalogen/kontaktoss' component={KontaktOss}/>
+                        <Route exact path='/begrepskatalogen/begrepsside' component={TermPage}/>
+                        <Route exact path='/begrepskatalogen/søketabell' component={Table}/>
+                        <Route exact path='/begrepskatalogen/meld-inn-nytt-begrep' component={() => {
                             window.location.href='http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010';
                             return null;
                         }}/>
