@@ -51,7 +51,12 @@ Mappen `redux` inneholder alt som blir brukt i tilstandshåndtering med redux, a
 
 ## Testing
 
-### Cypress
+### Unit og Snapshot
+
+Under mappen `src/__test__` finner man tester for komponentene. For å kjøre testene, kjør kommandoen `npm test` eller `yarn test`. For testene som inneholder snapshottesting av koden, blir det lagret i mappen  `__snapshots__` under `src/__test__`. For mer informasjon om snapshottesting: https://jestjs.io/docs/en/snapshot-testing
+
+
+### End-to-end Cypress
 
 For å bruke test-rammeverket `cypress`, kjør følgende en av følgende kommando: 
 * `./node_modules/.bin/cypress open`
