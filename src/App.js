@@ -32,7 +32,7 @@ class App extends Component{
                         <Route exact path='/begrepskatalogen' component={Home}/>
                         <Route exact path='/begrepskatalogen/ombegrepskatalogen' component={OmBegrepskatalogen}/>
                         <Route exact path='/begrepskatalogen/kontaktoss' component={KontaktOss}/>
-                        <Route exact path='/begrepskatalogen/begrepsside' component={TermPage}/>
+                        <Route exact path='/begrepskatalogen/begrepsside/:id?' component={TermPage}/>
                         <Route exact path='/begrepskatalogen/søketabell' component={Table}/>
                         <Route exact path='/begrepskatalogen/meld-inn-nytt-begrep' component={() => {
                             window.location.href='http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010';
