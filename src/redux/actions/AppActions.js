@@ -17,7 +17,7 @@ export function fetchData(){
         });
     }
 }
-
+// her eirik
 export function fetchItem(key){
     console.log("finner id");
     const API = '/api/issues';
