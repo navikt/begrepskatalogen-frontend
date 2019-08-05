@@ -22,7 +22,6 @@ export class TermPage extends React.Component{
 
     componentWillReceiveProps(nextProps) {
         const { id } = nextProps.match.params;
-        console.log("nextprops id", id);
         if( id !== this.props.match.params.id) {
             this.props.fetchItem(id);
         }
