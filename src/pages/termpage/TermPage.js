@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
 import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel} from 'nav-frontend-alertstriper';
 import { bindActionCreators } from 'redux';
-import { fetchItem } from '../../redux/actions/AppActions';
+import { fetchItem, termKeyFinder } from '../../redux/actions/AppActions';
 
 export class TermPage extends React.Component{
 
@@ -63,12 +63,12 @@ export class TermPage extends React.Component{
                     rel.hasOwnProperty("inwardIssue") ?
                         <React.Fragment key={rel.id}>
                             <Normaltekst className="capitalize">{rel.type.inward}
-                                <button onClick={() => this.findTerm(rel.inwardIssue.key)}>{rel.inwardIssue.fields.summary}</button></Normaltekst>                    
+                                <Link onClick={() => this.findTerm(rel.inwardIssue.key)} to={`/begrepskatalogen/begrepsside/${rel.inwardIssue.key}`}>{rel.inwardIssue.fields.summary }</Link></Normaltekst>                    
                         </React.Fragment>
                         :
                         <React.Fragment key={rel.id}>
                             <Normaltekst className="capitalize">{rel.type.outward}
-                            <button onClick={() => this.findTerm(rel.outwardIssue.key)}>{rel.outwardIssue.fields.summary}</button></Normaltekst>                       
+                            <Link onClick={() => this.findTerm(rel.outwardIssue.key)} to={`/begrepskatalogen/begrepsside/${rel.outwardIssue.key}`}>{rel.outwardIssue.fields.summary}</Link></Normaltekst>                       
                         </React.Fragment>
                 ))}
             </div>
@@ -153,7 +153,8 @@ const mapStateToProps = (state) => {
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
-       fetchItem: fetchItem
+       fetchItem: fetchItem,
+       termKeyFinder: termKeyFinder
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(TermPage);
