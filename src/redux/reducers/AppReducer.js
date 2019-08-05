@@ -5,7 +5,7 @@ export const initialState = {
     hideNotApproved: false,
     filters: [],
     isHiddenTable: true,
-    item: []
+    item: undefined
 };
 
 function appReducer(state = initialState, action) {
@@ -44,8 +44,6 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { sort:  action.payload.sort});
         case 'ORDER_BY_BEGREPSEIER':
             return Object.assign({}, state, { sort: action.payload.sort});
-        case 'TERM_KEY':
-            return Object.assign({}, state, { termKey: action.payload.termKey });
         default:
             return state; 
     }

@@ -17,7 +17,7 @@ export function fetchData(){
         });
     }
 }
-// her eirik
+
 export function fetchItem(key){
     console.log("finner id");
     const API = '/api/issues';
@@ -31,7 +31,6 @@ export function fetchItem(key){
             response.json()
             .then((items) => {
                 const item = items.find((i) => i.key === key)
-                console.log(item)
             dispatch({
                 type: 'FETCH_ITEM_COMPLETE',
                 item: item
@@ -65,15 +64,6 @@ export const sortBy = (sort) => (dispatch) =>{
         type: 'ORDER_BY_ALPH',
         payload: {
             sort: sort
-        }
-    });
-}
-
-export const termKeyFinder = (newKey) => {
-    return ({
-        type: 'TERM_KEY',
-        payload: {
-            termKey: newKey
         }
     });
 }

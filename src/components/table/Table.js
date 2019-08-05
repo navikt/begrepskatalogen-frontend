@@ -6,7 +6,6 @@ import SortField from '../SortSelectField/SortField';
 import {connect } from 'react-redux';
 import Fuse from 'fuse.js';
 import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
-import { termKeyFinder } from '../../redux/actions/AppActions';
 import { Link } from 'react-router-dom';
 
 class Table extends React.Component{
@@ -106,10 +105,6 @@ class Table extends React.Component{
             }
         }
         
-        const handleClick = (e) => {
-            this.props.dispatch(termKeyFinder(e));
-        }
-        
         const formatDate = (string) => {
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
@@ -119,7 +114,7 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
-                    <td><Link className="term_col" onClick={() => handleClick(item)} to={`/begrepskatalogen/begrepsside/${key}`}>{term}</Link></td>
+                    <td><Link className="term_col" to={`/begrepskatalogen/begrepsside/${key}`}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
@@ -131,7 +126,6 @@ class Table extends React.Component{
 
     render() {
         return (
-
                 <div className="table_content">
                     <div className="selectfields">
                         <SortField/>

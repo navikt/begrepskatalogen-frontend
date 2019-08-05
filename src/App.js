@@ -28,7 +28,7 @@ class App extends Component{
                 <Router>
                     <Header/>
                     <div className="body">
-                        <Route exact path='/' ><Redirect to="/begrepskatalogen"/></Route>
+                        <Route exact path='/'><Redirect to="/begrepskatalogen"/></Route>
                         <Route exact path='/begrepskatalogen' component={Home}/>
                         <Route exact path='/begrepskatalogen/ombegrepskatalogen' component={OmBegrepskatalogen}/>
                         <Route exact path='/begrepskatalogen/kontaktoss' component={KontaktOss}/>
