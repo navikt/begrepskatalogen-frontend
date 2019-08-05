@@ -5,13 +5,19 @@ import { Link } from 'react-router-dom';
 import { connect } from  'react-redux';
 import { AlertStripeSuksess, AlertStripeFeil, AlertStripeAdvarsel} from 'nav-frontend-alertstriper';
 import { bindActionCreators } from 'redux';
-import { termKeyFinder } from '../../redux/actions/AppActions';
+import { fetchItem } from '../../redux/actions/AppActions';
 
 export class TermPage extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {isFound: true}
+    }
+
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        this.props.fetchItem(id);
+        console.log(id);
     }
 
     isGodkjent = () => {
@@ -147,7 +153,7 @@ const mapStateToProps = (state) => {
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
-       termKeyFinder: termKeyFinder
+       fetchItem: fetchItem
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(TermPage);

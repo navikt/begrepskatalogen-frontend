@@ -18,6 +18,28 @@ export function fetchData(){
     }
 }
 
+export function fetchItem(key){
+    console.log("finner id");
+    const API = '/api/issues';
+    return function(dispatch){
+        dispatch({
+            type: 'FETCH_ITEM_BEGIN'
+        });
+
+        fetch(API)
+        .then(function(response){
+            response.json()
+            .then((items) => {
+                console.log(items.find((i) => i.key === key));
+            },
+            dispatch({
+                type: 'FETCH_ITEM_COMPLETE',
+                //item: item
+            }));
+        });
+    }
+}
+
 export function toggleSeeAllTerms() {
     return {
         type: 'TOGGLE_SEE_ALL_TERMS',

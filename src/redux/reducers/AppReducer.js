@@ -4,7 +4,8 @@ export const initialState = {
     search: '',
     hideNotApproved: false,
     filters: [],
-    isHiddenTable: true
+    isHiddenTable: true,
+    item: []
 };
 
 function appReducer(state = initialState, action) {
@@ -13,6 +14,10 @@ function appReducer(state = initialState, action) {
             return Object.assign({}, state, { loading: true }); 
         case 'FETCH_DATA_COMPLETE':
             return Object.assign({}, state, { loading: false, items: action.items });
+        case 'FETCH_ITEM_BEGIN':
+            return Object.assign({}, state, { loading: true }); 
+        case 'FETCH_ITEM_COMPLETE':
+            return Object.assign({}, state, { loading: false, item: action.item });
         case 'UPDATE_SEARCH':
             return Object.assign({}, state, { search: action.payload.search, seeAllTerms: false, hideNotApproved: false });
         case 'TOGGLE_SEE_ALL_TERMS':
