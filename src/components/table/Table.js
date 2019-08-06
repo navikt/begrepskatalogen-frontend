@@ -114,7 +114,7 @@ class Table extends React.Component{
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
             return(
                 <tr key={key} className="definisjon">
-                    <td><Link className="term_col" to={`/begrepskatalogen/begrepsside/${key}`}>{term}</Link></td>
+                    <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
                     <td><Normaltekst>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
