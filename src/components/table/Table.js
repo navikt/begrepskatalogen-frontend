@@ -111,7 +111,7 @@ class Table extends React.Component{
         }
     
         return resList.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
+            const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key={key} className="definisjon">
                     <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>

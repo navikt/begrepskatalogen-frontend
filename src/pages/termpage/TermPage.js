@@ -105,7 +105,7 @@ export class TermPage extends React.Component{
 
                     <div className="begrepsforklaring">
                         <Ingress>Begrepsforklaring</Ingress>
-                        <Normaltekst>{this.props.item.definisjon}</Normaltekst>
+                        <Normaltekst>{this.props.item.begrepsforklaring}</Normaltekst>
                     </div>
 
                     <div className="eksempler">
