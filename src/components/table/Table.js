@@ -63,15 +63,17 @@ class Table extends React.Component{
         if( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
-        /*if(this.props.filters.length != 0) {
-            return this.filterStatus(list);
-        }*/
         return list;
     }
 
-    filterStatus(list) {
-        const result = list.filter(({status}) => this.props.filters.includes(status));
-        return result;
+    filterStatus() {
+        let availableKeys = Object.keys(this.props.filters);
+        console.log("keys", availableKeys);
+        const resKeys = availableKeys.map((keya) => {
+            
+        }        )
+            console.log("listene", this.props.filters["status"])
+        
     }
 
     renderTableData(){
@@ -79,7 +81,9 @@ class Table extends React.Component{
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
-      
+        
+        this.filterStatus();
+
         if(!this.props.items){
             return false;
         }
