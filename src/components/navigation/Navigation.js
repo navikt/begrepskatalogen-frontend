@@ -13,12 +13,12 @@ class Navigation extends React.Component{
                 <nav className="navStyle">
                     <ul className="navStyle__navLinks">
                         <li>
-                            <Link to={"/begrepskatalogen/ombegrepskatalogen"} id="omBegrepeskatalog" className="navStyle__navLink lenke"> 
+                            <Link to={"/begrepskatalogen/Om-begrepskatalogen"} id="omBegrepeskatalog" className="navStyle__navLink lenke"> 
                                 <Element>Om begrepskatalogen</Element>
                             </Link>
                         </li>
                         <li> 
-                            <Link to={"/begrepskatalogen/kontaktoss"} id="kontak-tOss" className="navStyle__navLink lenke">
+                            <Link to={"/begrepskatalogen/kontakt-oss"} id="kontaktOss" className="navStyle__navLink lenke">
                                 <Element>Kontakt oss</Element>
                             </Link>
                         </li>
