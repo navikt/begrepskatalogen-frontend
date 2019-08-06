@@ -63,9 +63,9 @@ class Table extends React.Component{
         if( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
-        if(this.props.filters.length != 0) {
+        /*if(this.props.filters.length != 0) {
             return this.filterStatus(list);
-        }
+        }*/
         return list;
     }
 
