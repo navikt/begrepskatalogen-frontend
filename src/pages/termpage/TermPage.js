@@ -69,12 +69,12 @@ export class TermPage extends React.Component{
                         rel.hasOwnProperty("inwardIssue") ?
                             <React.Fragment key={rel.id}>
                                 <Normaltekst className="capitalize">{rel.type.inward}
-                                    <Link to={`/begrepskatalogen/begrepsside/${rel.inwardIssue.key}`}>{rel.inwardIssue.fields.summary}</Link></Normaltekst>                    
+                                    <Link className="relationWord" to={`/begrepskatalogen/Begrepsside/${rel.inwardIssue.key}`}>{rel.inwardIssue.fields.summary}</Link></Normaltekst>                    
                             </React.Fragment>
                             :
                             <React.Fragment key={rel.id}>
                                 <Normaltekst className="capitalize">{rel.type.outward}
-                                <Link to={`/begrepskatalogen/begrepsside/${rel.outwardIssue.key}`}>{rel.outwardIssue.fields.summary}</Link></Normaltekst>                       
+                                <Link className="relationWord" to={`/begrepskatalogen/Begrepsside/${rel.outwardIssue.key}`}>{rel.outwardIssue.fields.summary}</Link></Normaltekst>                       
                             </React.Fragment>
                     ))}
                 </div>
@@ -116,7 +116,7 @@ export class TermPage extends React.Component{
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
                         <Normaltekst>
-                            {this.props.item.kilde != "" ? this.props.item.kilde : "Ingen funnet."}
+                            {this.props.item.kilde !== "" ? this.props.item.kilde : "Ingen funnet."}
                         </Normaltekst>
                     </div>
 
@@ -140,7 +140,7 @@ export class TermPage extends React.Component{
                     <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
                         <Normaltekst>
-                            {this.props.item.fagomrade != "" ? this.props.item.fagomrade : "Ingen funnet."}
+                            {this.props.item.fagomrade !== "" ? this.props.item.fagomrade : "Ingen funnet."}
                         </Normaltekst>
                     </div>
 

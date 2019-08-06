@@ -49,6 +49,7 @@ describe('<Navigation />', () =>{
         expect(wrapper.find('li')).to.have.lengthOf(3);
     })
 
+
     it('renders one <ul> tag', ()=>{
         const wrapper = shallow(<Navigation/>);
         expect(wrapper.find('ul')).to.have.lengthOf(1);
