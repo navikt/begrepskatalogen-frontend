@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import configureStore from 'redux-mock-store';
@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 
 import { Table } from '../components/table/Table';
 
-
+Enzyme.configure({ adapter: new Adapter() });
 
 
 
@@ -28,6 +28,15 @@ describe('Table', ()=>{
         )
         expect(result).toMatchSnapshot();
     });
-})
+    
+    /*it('renders x div tags', () =>{
+        const wrapper = shallow(
+            <Provider store = {store}>
+                <Table/>
+            </Provider>
+        )
 
+        expect(wrapper.find('div')).toHaveLength(3)
+    })*/
 
+});

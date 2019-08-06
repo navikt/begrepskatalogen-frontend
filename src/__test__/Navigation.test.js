@@ -1,10 +1,8 @@
 import React from 'react';
 import Navigation from '../components/navigation/Navigation';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { expect } from 'chai';
-
 import { Link } from 'react-router-dom';
-import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Element } from 'nav-frontend-typografi';
@@ -50,6 +48,7 @@ describe('<Navigation />', () =>{
         const wrapper = shallow(<Navigation/>);
         expect(wrapper.find('li')).to.have.lengthOf(3);
     })
+
 
     it('renders one <ul> tag', ()=>{
         const wrapper = shallow(<Navigation/>);
