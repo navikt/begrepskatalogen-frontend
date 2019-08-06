@@ -1,5 +1,4 @@
 @import (reference) '~nav-frontend-core/less/_variabler';
-
 .terms{
     border-top: 2px solid lightgray ;
     width: 10rem;
@@ -21,6 +20,27 @@
         td {
             border-bottom: 0.2px solid gray; //delelinjene i selve tabellen
             padding: 0.5rem; 
+
+
+            
+            .statusFargeGodkjent{
+                font-weight: bold;
+                color: @navGronn;
+
+            }
+            .statusFargeAvvist{
+                color: @redError;
+                font-weight: bold;
+            }
+            .statusFargeUtkast{
+                color: @navGra80;
+                font-weight: bold;
+            }
+            .statusFargeRevisjon{
+                color: @navLilla;
+                font-weight: bold;
+            }
+        
         }
     }
 }

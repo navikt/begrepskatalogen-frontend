@@ -109,6 +109,26 @@ class Table extends React.Component{
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
         }
+
+        const decideColorCode =(tekst) => {
+            if(tekst === 'Godkjent begrep'){
+                return 'statusFargeGodkjent';
+            }
+            if (tekst === 'Utkast'){
+                return 'statusFargeUtkast';
+            }
+            if(tekst === 'Avvist'){
+                return 'statusFargeAvvist';
+            }
+            if(tekst === 'Revisjon'){
+                return 'statusFargeRevisjon'
+            }
+            if(tekst === 'Utgått'){
+                return 'statusFargeAvvist'
+            }
+            return "";
+        }
+        
     
         return resList.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
@@ -116,7 +136,12 @@ class Table extends React.Component{
                 <tr key={key} className="definisjon">
                     <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
-                    <td><Normaltekst>{status}</Normaltekst></td>
+
+                    <td><Normaltekst className = {decideColorCode(status)}>
+                    {status}
+                    </Normaltekst></td>
+
+
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
