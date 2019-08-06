@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Header from './composition/header/Header';
 import './App.less';
 import Footer from './composition/footer/Footer';
@@ -27,7 +27,7 @@ class App extends Component{
             <div className="App">
                 <Router>
                     <Header/>
-                    <div className="body">
+                        <Switch>
                         <Route exact path='/'><Redirect to="/begrepskatalogen"/></Route>
                         <Route exact path='/begrepskatalogen' component={Home}/>
                         <Route exact path='/begrepskatalogen/ombegrepskatalogen' component={OmBegrepskatalogen}/>
@@ -38,7 +38,7 @@ class App extends Component{
                             window.location.href='http://jira.adeo.no/secure/CreateIssueDetails!init.jspa?pid=10550&issuetype=47&summary=Term&customfield_15719=18010';
                             return null;
                         }}/>
-                    </div>
+                        </Switch>
                     <Footer/>
                 </Router>
             </div>
