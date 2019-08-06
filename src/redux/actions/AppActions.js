@@ -19,7 +19,6 @@ export function fetchData(){
 }
 
 export function fetchItem(key){
-    console.log("finner id");
     const API = '/api/issues';
     return function(dispatch){
         dispatch({
