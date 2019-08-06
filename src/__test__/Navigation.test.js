@@ -41,5 +41,18 @@ describe('<Navigation />', () =>{
         //trenger en expect greie her
 
     })
+    it('renders one <div> tag', ()=>{
+        const wrapper = shallow(<Navigation/>);
+        expect(wrapper.find('div')).to.have.lengthOf(1);
+    })
 
-});
+    it('renders three <li> tags', ()=>{
+        const wrapper = shallow(<Navigation/>);
+        expect(wrapper.find('li')).to.have.lengthOf(3);
+    })
+
+    it('renders one <ul> tag', ()=>{
+        const wrapper = shallow(<Navigation/>);
+        expect(wrapper.find('ul')).to.have.lengthOf(1);
+    })
+})
