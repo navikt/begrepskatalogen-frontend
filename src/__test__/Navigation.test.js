@@ -1,10 +1,8 @@
 import React from 'react';
 import Navigation from '../components/navigation/Navigation';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { expect } from 'chai';
-
 import { Link } from 'react-router-dom';
-import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { Element } from 'nav-frontend-typografi';
