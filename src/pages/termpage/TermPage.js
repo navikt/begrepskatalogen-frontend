@@ -69,12 +69,12 @@ export class TermPage extends React.Component{
                         rel.hasOwnProperty("inwardIssue") ?
                             <React.Fragment key={rel.id}>
                                 <Normaltekst className="capitalize">{rel.type.inward}
-                                    <Link to={`/begrepskatalogen/Begrepsside/${rel.inwardIssue.key}`}>{rel.inwardIssue.fields.summary}</Link></Normaltekst>                    
+                                    <Link className="relationWord" to={`/begrepskatalogen/Begrepsside/${rel.inwardIssue.key}`}>{rel.inwardIssue.fields.summary}</Link></Normaltekst>                    
                             </React.Fragment>
                             :
                             <React.Fragment key={rel.id}>
                                 <Normaltekst className="capitalize">{rel.type.outward}
-                                <Link to={`/begrepskatalogen/Begrepsside/${rel.outwardIssue.key}`}>{rel.outwardIssue.fields.summary}</Link></Normaltekst>                       
+                                <Link className="relationWord" to={`/begrepskatalogen/Begrepsside/${rel.outwardIssue.key}`}>{rel.outwardIssue.fields.summary}</Link></Normaltekst>                       
                             </React.Fragment>
                     ))}
                 </div>
