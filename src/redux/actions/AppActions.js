@@ -18,6 +18,27 @@ export function fetchData(){
     }
 }
 
+export function fetchItem(key){
+    console.log("finner id");
+    const API = '/api/issues';
+    return function(dispatch){
+        dispatch({
+            type: 'FETCH_ITEM_BEGIN'
+        });
+
+        fetch(API)
+        .then(function(response){
+            response.json()
+            .then((items) => {
+                const item = items.find((i) => i.key === key)
+            dispatch({
+                type: 'FETCH_ITEM_COMPLETE',
+                item: item
+            })});
+        });
+    }
+}
+
 export function toggleSeeAllTerms() {
     return {
         type: 'TOGGLE_SEE_ALL_TERMS',
@@ -43,15 +64,6 @@ export const sortBy = (sort) => (dispatch) =>{
         type: 'ORDER_BY_ALPH',
         payload: {
             sort: sort
-        }
-    });
-}
-
-export const termKeyFinder = (newKey) => {
-    return ({
-        type: 'TERM_KEY',
-        payload: {
-            termKey: newKey
         }
     });
 }

@@ -47,7 +47,16 @@ Under mappen `src`, finner du mappen components som essensielt alle elementene e
 
 ### Redux
 
-Mappen `redux` inneholder alt som blir brukt i tilstandshåndtering med redux, altså `actions` og `reducers`. Disse blir bundet med `connect` som blir hentet med statementet (`import { connect } from 'react-redux'`) der koden brukes. For mer informasjon, sjekk ut dokumentasjonen på https://redux.js.org/.
+Mappen `redux` inneholder alt som blir brukt i tilstandshåndtering med redux, altså `actions` og `reducers`. Disse blir bundet med `connect` som blir hentet med statementet (`import { connect } from 'react-redux'`) der koden brukes. 
+
+Bakgrunnen for å bruke redux, er å la applikasjonen oppføre seg konsistent samt tillate å håndtere tilstand effektivt, selv når applikasjonen blir stor og kompleks. Ved å bruke redux, fremtidssikrer vi applikasjonen i det tilfellet dersom den blir større.
+
+Redux fungerer slik at alt av tilstand blir lagret i en global tilstandsvariabel, altså store. Istedet for at state og props blir sendt opp og ned, hentes og sendes alt av tilstand via den globale storen.
+
+
+<a href="https://ibb.co/yBdn4Px"><img src="https://i.ibb.co/7NjJkC0/store.png" alt="store" border="0"></a>
+
+For mer informasjon, sjekk ut dokumentasjonen på https://redux.js.org/.
 
 ## Testing
 
