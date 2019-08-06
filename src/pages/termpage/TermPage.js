@@ -116,7 +116,7 @@ export class TermPage extends React.Component{
                     <div className="kilde">
                         <Ingress>Kilde</Ingress>
                         <Normaltekst>
-                            {this.props.item.kilde != "" ? this.props.item.kilde : "Ingen funnet."}
+                            {this.props.item.kilde !== "" ? this.props.item.kilde : "Ingen funnet."}
                         </Normaltekst>
                     </div>
 
@@ -140,7 +140,7 @@ export class TermPage extends React.Component{
                     <div className="fagomraade">
                         <Ingress>Fagområde</Ingress>
                         <Normaltekst>
-                            {this.props.item.fagomrade != "" ? this.props.item.fagomrade : "Ingen funnet."}
+                            {this.props.item.fagomrade !== "" ? this.props.item.fagomrade : "Ingen funnet."}
                         </Normaltekst>
                     </div>
 
