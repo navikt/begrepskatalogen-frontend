@@ -17,7 +17,8 @@ module.exports = function transform(jiraData, existingData) {
       kilde: issue.fields.customfield_12811 !== null ? issue.fields.customfield_12811 : '',
       komponenter: issue.fields.components.name !== null ? issue.fields.components.name : '',
       relasjoner: issue.fields.issuelinks,
-      fagomrade: issue.fields.customfield_12711 !== null ? issue.fields.customfield_12711.value : ''
+      fagomrade: issue.fields.customfield_12711 !== null ? issue.fields.customfield_12711.value : '',
+      eksempel: issue.fields.customfield_10517
     });
   });
   return transformedData;

@@ -110,7 +110,7 @@ export class TermPage extends React.Component{
 
                     <div className="eksempler">
                         <Ingress>Eksempler</Ingress>
-                        <Normaltekst>PLACEHOLDER PLACEHOLDER</Normaltekst>
+                        <Normaltekst>{this.props.item.eksempel !== null ? this.props.item.eksempel : "Ingen eksempler funnet."}</Normaltekst>
                     </div>
 
                     <div className="kilde">
