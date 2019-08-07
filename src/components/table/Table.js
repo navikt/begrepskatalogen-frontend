@@ -71,9 +71,7 @@ class Table extends React.Component{
         console.log("keys", availableKeys);
         const resKeys = availableKeys.map((keya) => {
             
-        }        )
-            console.log("listene", this.props.filters["status"])
-        
+        })
     }
 
     renderTableData(){
