@@ -10,7 +10,6 @@ executors:
   nais-deployer:
     environment:
       TEAM: begrepskatalogen
-      CLUSTER: dev-fss
     docker:
       - image: navikt/deployment-cli:latest
 
@@ -37,9 +36,9 @@ jobs:
           paths:
             - ./.netrc
             - ./github.key.pem
-
   build:
-    executor: docker-publisher
+    docker:
+      - image: circleci/node:latest
     working_directory: ~/repo
     steps:
       - attach_workspace:
@@ -48,11 +47,6 @@ jobs:
           name: Unpack variables
           command: cp /tmp/workspace/.netrc ~/.netrc
       - checkout
-      #- run: (doesn't work yet)
-      #    name: Install and test
-      #    command: yarn install && yarn test
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Determin release version
           command: |
@@ -61,57 +55,120 @@ jobs:
             export VERSION=1.0_${GIT_COMMIT_DATE}_${GIT_COMMIT_HASH}
             echo $VERSION > ./VERSION.txt
             echo "export VERSION=$VERSION" >> $BASH_ENV
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Build Docker image
-          command: |
-            docker build -t $REGISTRY_NAME/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$IMAGE_NAME:$VERSION .
+          name: Installing npm dependecies
+          command: yarn install --ignore-optional --ignore-scripts --no-progress --frozen-lockfile
       - run:
-          name: Archive Docker image
-          command: docker save -o image.tar $REGISTRY_NAME/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$IMAGE_NAME:$VERSION
+          name: Build project for production
+          command: yarn build
+      - run:
+          name: Running tests
+          command: yarn test
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - persist_to_workspace:
           root: .
           paths:
-            - ./image.tar
+            - ./Dockerfile
             - ./VERSION.txt
+            - ./k8s
+            - ./dist
+            - ./server
 
-  publish:
+  docker-build:
     executor: docker-publisher
     working_directory: ~/repo
     steps:
-      - checkout
       - attach_workspace:
           at: /tmp/workspace
+      - run:
+          name: Unpack variables
+          command: |
+            cp /tmp/workspace/Dockerfile ./Dockerfile
+            cp -r /tmp/workspace/server  ./server
+            cp -r /tmp/workspace/dist    ./dist
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
-          name: Load archived Docker image
-          command: docker load -i /tmp/workspace/image.tar
+          name: Test build docker image
+          command: |
+            export VERSION=$(cat /tmp/workspace/VERSION.txt)
+            docker build -t $REGISTRY_NAME/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$IMAGE_NAME:$VERSION .
+
+  docker-publish:
+    executor: docker-publisher
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run:
+          name: Unpack variables
+          command: |
+            cp /tmp/workspace/Dockerfile ./Dockerfile
+            cp -r /tmp/workspace/server  ./server
+            cp -r /tmp/workspace/dist    ./dist
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Publish Docker Image to Github Package registry
           command: |
             export VERSION=$(cat /tmp/workspace/VERSION.txt)
             echo "$GITHUB_PASSWORD" | docker login $REGISTRY_NAME -u "$GITHUB_USERNAME" --password-stdin
+            docker build -t $REGISTRY_NAME/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$IMAGE_NAME:$VERSION .
             docker push $REGISTRY_NAME/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$IMAGE_NAME:$VERSION
 
-  deploy:
+  deploy-dev:
     executor: nais-deployer
     working_directory: ~/repo
     steps:
-      - checkout
       - attach_workspace:
           at: /tmp/workspace
+      - run:
+          name: Create vars.json
+          command: echo "{\"ingress\":\"app-q0.adeo.no\"}" > vars.json
       - run:
           name: Create NAIS Github deployment
           command: |
             export VERSION=$(cat /tmp/workspace/VERSION.txt)
             deployment-cli deploy create \
-            --cluster=${CLUSTER} \
+            --cluster=dev-fss \
             --repository=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
             --appid=${GITHUB_APP_ID} \
             --team=${TEAM} \
             --version=${VERSION} \
+            --vars=vars.json \
             --key=/tmp/workspace/github.key.pem \
-            --resource=./app.yaml
+            --resource=/tmp/workspace/k8s/app.yaml
+
+  deploy-prod:
+    executor: nais-deployer
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run:
+          name: Create vars.json
+          command: echo "{\"ingress\":\"app.adeo.no\"}" > vars.json
+      - run:
+          name: Create NAIS Github deployment
+          command: |
+            export VERSION=$(cat /tmp/workspace/VERSION.txt)
+            deployment-cli deploy create \
+            --cluster=prod-fss \
+            --repository=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+            --appid=${GITHUB_APP_ID} \
+            --team=${TEAM} \
+            --version=${VERSION} \
+            --vars=vars.json \
+            --key=/tmp/workspace/github.key.pem \
+            --resource=/tmp/workspace/k8s/app.yaml
 
 workflows:
   version: 2
@@ -123,17 +180,28 @@ workflows:
           context: familie-ci
           requires:
             - verify
-      - publish:
+      - docker-build:
           context: familie-ci
           requires:
             - build
+      - docker-publish:
+          context: familie-ci
+          requires:
+            - docker-build
           filters:
             branches:
               only: master
-      - deploy:
+      - deploy-dev:
           context: familie-ci
           requires:
-            - publish
+            - docker-publish
+          filters:
+            branches:
+              only: master
+      - deploy-prod:
+          context: familie-ci
+          requires:
+            - deploy-dev
           filters:
             branches:
               only: master

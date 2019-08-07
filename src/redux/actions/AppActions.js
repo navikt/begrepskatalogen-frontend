@@ -1,12 +1,11 @@
+const API_ISSUES = '/begrepskatalogen/api/issues';
 
 export function fetchData(){
-    const API = '/api/issues';
     return function(dispatch){
         dispatch({
             type: 'FETCH_DATA_BEGIN'
         });
-
-        fetch(API)
+        fetch(API_ISSUES)
         .then(function(response){
             response.json()
             .then((items) =>
@@ -19,13 +18,11 @@ export function fetchData(){
 }
 
 export function fetchItem(key){
-    const API = '/api/issues';
     return function(dispatch){
         dispatch({
             type: 'FETCH_ITEM_BEGIN'
         });
-
-        fetch(API)
+        fetch(API_ISSUES)
         .then(function(response){
             response.json()
             .then((items) => {
@@ -58,7 +55,7 @@ export const sortCategories = (category, updated) =>(dispatch) =>{
     });
 }
 
-export const sortBy = (sort) => (dispatch) =>{    
+export const sortBy = (sort) => (dispatch) =>{
     return dispatch({
         type: 'ORDER_BY_ALPH',
         payload: {

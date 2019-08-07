@@ -10,13 +10,13 @@ spec:
   port: 9090
   team: {{team}}
   liveness:
-    path: /its-alive
+    path: /begrepskatalogen/its-alive
     initialDelay: 20
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
-    path: /its-alive
+    path: /begrepskatalogen/its-alive
     initialDelay: 20
     timeout: 1
   replicas:
@@ -37,7 +37,7 @@ spec:
       cpu: 200m
       memory: 256Mi
   ingresses:
-    - "https://begrepskatalogen.nais.preprod.local/"
+    - "https://{{ingress}}/begrepskatalogen"
   logformat: accesslog
   logtransform: dns_loglevel
   webproxy: false

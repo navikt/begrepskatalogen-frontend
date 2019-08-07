@@ -7,7 +7,7 @@
     "test": "jest --no-cache src/__test__",
     "start": "rimraf .cache && parcel src/index.html",
     "serve": "rimraf .cache && node server/server-dev.js",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url /begrepskatalogen",
     "up": "docker-compose up -d --remove-orphans --build",
     "serve-prod": "NAIS_NAMESPACE=default node server/server.js",
     "cy:open": "cypress open",
