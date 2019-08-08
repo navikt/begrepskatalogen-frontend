@@ -4,7 +4,7 @@ import './FilterSection.less';
 import { Undertittel, Systemtittel } from 'nav-frontend-typografi';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addFilter, removeFilter } from '../../redux/actions/AppActions';
+import { toggleFilter } from '../../redux/actions/AppActions';
 
 class FilterSection extends React.Component{
 
@@ -20,20 +20,14 @@ class FilterSection extends React.Component{
             fagomrader: [...new Set(this.props.items.map( x => x.fagomrade))]
         });
     }
-
-    handleClick(e) {
-        if (e.checked) {
-            this.props.addFilter(e.value);
-        }
-        else {
-            this.props.removeFilter(e.value);
-        }  
+    handleClick(category, e) {
+        this.props.toggleFilter(category, e.value, e.checked);
     }
 
     findDistinctStatuses() {
         return this.state.statuses.map((status) => {
             return (
-                <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick(e.target)}/>
+                <Checkbox key={status} label={status} value={status} onChange={(e) => this.handleClick("status", e.target)}/>
             );
         });
     }
@@ -42,7 +36,7 @@ class FilterSection extends React.Component{
         return this.state.fagomrader.map((fagomrade) => {
             if (fagomrade !== "") {
                 return (
-                    <Checkbox key={fagomrade} label={fagomrade} value={fagomrade}/>
+                    <Checkbox key={fagomrade} label={fagomrade} value={fagomrade} onChange={(e) => this.handleClick("fagomrade", e.target)}/>
                 );
             }
         });
@@ -111,8 +105,7 @@ const mapStateToProps = (state) => {
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
-        addFilter: addFilter,
-        removeFilter: removeFilter,
+        toggleFilter: toggleFilter,
     }, dispatch);
 }
 

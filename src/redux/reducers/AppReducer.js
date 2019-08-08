@@ -3,7 +3,10 @@ export const initialState = {
     items: [],
     search: '',
     hideNotApproved: false,
-    filters: [],
+    filters: {
+        status: [],
+        fagomrade: []
+    },
     isHiddenTable: true,
     item: undefined
 };
@@ -29,17 +32,9 @@ function appReducer(state = initialState, action) {
         case 'NUM_NOT_APPROVED_TERMS':
                 return Object.assign({}, state, { numNotApprovedTerms: action.payload.numNotApprovedTerms });
         case 'ADD_FILTER':
-            return {
-                ...state,
-                filters: [...state.filters, action.payload.newFilter]
-            }
+            return addFilter(state, action.payload.category, action.payload.value);
         case 'REMOVE_FILTER':
-            return {
-                ...state,
-                filters: state.filters.filter(function(status) {
-                    return status !== action.payload.oldFilter
-                })
-            }
+            return removeFilter(state, action.payload.category, action.payload.value);
         case 'ORDER_BY_ALPH':
             return Object.assign({}, state, { sort:  action.payload.sort});
         case 'ORDER_BY_BEGREPSEIER':
@@ -50,3 +45,21 @@ function appReducer(state = initialState, action) {
 }
 
 export default appReducer;
+
+function addFilter(state, category, value) {
+    const newFilters = state.filters[category].slice();
+    if(newFilters.indexOf(value) < 0 ) {
+        newFilters.push(value);
+    }
+    const newState = Object.assign({}, state);
+    newState.filters[category] = newFilters;
+    return Object.assign({}, state, newState);
+}
+
+function removeFilter(state, category, value) {
+    const newFilters = state.filters[category].slice();
+    newFilters.filter((filter) => filter !== value);
+    const newState = Object.assign({}, state);
+    newState.filters[category] = newFilters;
+    return Object.assign({}, state, newState);
+}

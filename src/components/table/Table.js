@@ -60,18 +60,18 @@ class Table extends React.Component{
     }
 
     listToShow(list) {
-        if( this.props.hideNotApproved ) {
+        if ( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
-        }
-        if(this.props.filters.length != 0) {
-            return this.filterStatus(list);
         }
         return list;
     }
 
-    filterStatus(list) {
-        const result = list.filter(({status}) => this.props.filters.includes(status));
-        return result;
+    filterStatus() {
+        let availableKeys = Object.keys(this.props.filters);
+        console.log("keys", availableKeys);
+        const resKeys = availableKeys.map((keya) => {
+            
+        })
     }
 
     renderTableData() {
@@ -79,7 +79,9 @@ class Table extends React.Component{
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
-      
+        
+        this.filterStatus();
+
         if (!this.props.items){
             return false;
         }
@@ -131,9 +133,8 @@ class Table extends React.Component{
             }
         }
         
-    
         return resList.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status,relasjoner} = item
+            const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key={key} className="definisjon">
                     <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>

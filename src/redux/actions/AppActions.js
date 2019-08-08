@@ -64,20 +64,33 @@ export const sortBy = (sort) => (dispatch) =>{
     });
 }
 
-export const addFilter = (newFilter) => {
-    return {
-        type: 'ADD_FILTER',
-        payload: {
-            newFilter: newFilter
+export const toggleFilter = (category, value, checked) => {
+    if(checked) {
+        return {
+            type: 'ADD_FILTER',
+            payload: {
+                category: category,
+                value: value
+            }
+        }
+    }
+    else {
+        return {
+            type: 'REMOVE_FILTER',
+            payload: {
+                category: category,
+                value: value
+            }
         }
     }
 }
 
-export const removeFilter = (oldFilter) => {
+export const removeFilter = (category, value) => {
     return {
         type: 'REMOVE_FILTER',
         payload: {
-            oldFilter: oldFilter
+            category: category,
+            value: value
         }
     }
 }
