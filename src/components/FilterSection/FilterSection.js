@@ -11,7 +11,7 @@ class FilterSection extends React.Component{
     constructor(props) {
         super(props);
         this.handleClick.bind(this);
-        this.state = {statuses: [], fagomrade: []}
+        this.state = {statuses: [], fagomrader: []}
     }
 
     componentWillMount() {
@@ -22,7 +22,7 @@ class FilterSection extends React.Component{
     }
 
     handleClick(e) {
-        if(e.checked) {
+        if (e.checked) {
             this.props.addFilter(e.value);
         }
         else {
@@ -40,7 +40,7 @@ class FilterSection extends React.Component{
 
     findDistinctFagomrader() {
         return this.state.fagomrader.map((fagomrade) => {
-            if(fagomrade != "") {
+            if (fagomrade !== "") {
                 return (
                     <Checkbox key={fagomrade} label={fagomrade} value={fagomrade}/>
                 );
