@@ -1,6 +1,6 @@
 # Begrepskatalogen-frontend
 
-### Setup:
+### Setup
 1. Last ned node.js. Dette kan gjøres via terminalen for Mac med kommandoen `brew install node`. Eller fra https://nodejs.org/en/ for de som har Windows.
 
 2. Kjør kommandoen `git clone https://github.com/navikt/begrepskatalogen-frontend.git` i terminalen, git Bash eller Windows powershell. Du skal nå ha en kopi av prosjektet lokalt på  din enhet.
@@ -30,7 +30,7 @@ Når du trykker på hyperlenken "`se alle begrepene`", får du opp følgende skj
 
 Samme søkefelt og søkefunksjonalitet ligger over alle begrepene, samt muligheter for å filtrere og sortere begrepene, henholdsvis til høyre for alle begrepene og over. Per nå er det ikke mulig og filtrere på begrepene. Alt av Redux er satt opp til å få til filtreringen, men mangler kode for det i Table-komponentet.
 
-### Et bestemt begrep:
+### Et bestemt begrep
 
 Dersom du trykker deg inn på et bestemt begrep, får du opp denne siden:
 
@@ -39,7 +39,7 @@ Dersom du trykker deg inn på et bestemt begrep, får du opp denne siden:
 Her finner du informasjon om hva slags begrep det er, BegrepsID, Begrepsforklaring, kilder, dato for siste endring, og relaterte begreper. I kolonnen til høyre finner du informasjon om hvem som har skrevet begrepet, hvilket fagområde det er en del av, og begrepseier. Det er mulig å klikke seg videre på de relaterte begrepene.
 
 
-## Kodestruktur:
+## Kodestruktur
 
 ### Komponenter
 
@@ -57,6 +57,10 @@ Redux fungerer slik at alt av tilstand blir lagret i en global tilstandsvariabel
 <a href="https://ibb.co/yBdn4Px"><img src="https://i.ibb.co/7NjJkC0/store.png" alt="store" border="0"></a>
 
 For mer informasjon, sjekk ut dokumentasjonen på https://redux.js.org/.
+
+## Teknologier
+### Fuse.js
+Vi har brukt Fuse.js til å søke etter begrepene i søkefeltet. Fuse.js er et fussy-search bibliotek for JavaScript. Det lar deg velge hvilke "keys" man vil søke etter. I katalogen kan du søke etter match i `terms`, `definisjon`, `begrepseier`og `kilde`. Det gir deg også andre valg som threhold, findAllMatches og vekting av søket. Mer dokumentasjon finnes på https://fusejs.io/.
 
 ## Testing
 
