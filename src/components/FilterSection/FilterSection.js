@@ -20,6 +20,7 @@ class FilterSection extends React.Component{
             fagomrader: [...new Set(this.props.items.map( x => x.fagomrade))]
         });
     }
+
     handleClick(e) {
         if(e.checked) {
             this.props.addFilter(e.value);
@@ -80,7 +81,6 @@ class FilterSection extends React.Component{
                     <Checkbox label={"Kildetype3"}/>
                 </div>
 
-
                 <div className="katergorioverskrift">
                     <Undertittel>Ekstern eierskap?</Undertittel>
                 </div>
@@ -89,7 +89,6 @@ class FilterSection extends React.Component{
                     <Checkbox label={"Ja"}/>
                     <Checkbox label={"Nei"}/>
                 </div>
-
 
                 <div className="katergorioverskrift">
                     <Undertittel>Offentlig Status</Undertittel>

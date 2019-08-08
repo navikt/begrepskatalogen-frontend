@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 class Table extends React.Component{
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
     }
@@ -74,18 +74,18 @@ class Table extends React.Component{
         return result;
     }
 
-    renderTableData(){
+    renderTableData() {
         const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
         this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
       
-        if(!this.props.items){
+        if (!this.props.items){
             return false;
         }
 
         const { sort } = this.props
-        if(sort){
+        if (sort){
             console.log(`sorting ${sort}`)
 
             if (sort ==='Alfabetisk'){
@@ -93,12 +93,12 @@ class Table extends React.Component{
                 (a.term > b.term? 1:-1)
                 : (a.term < b.term ? 1:-1))
             }
-            if(sort === 'Begrepseier'){
+            if (sort === 'Begrepseier'){
                 list.sort((a,b)=>(sort ==='Begrepseier')?
                 (a.assignee > b.assignee? 1:-1)
                 : (a.assignee < b.assignee ? 1:-1))
             }
-            if(sort === 'Sist_Oppdatert'){
+            if (sort === 'Sist_Oppdatert'){
                 list.sort((a,b)=>(sort ==='Sist_Oppdatert')?
                 (a.oppdatert < b.oppdatert? 1:-1)
                 : (a.oppdatert > b.oppdatert ? 1:-1))
@@ -110,23 +110,25 @@ class Table extends React.Component{
             return new Date(string).toLocaleDateString([], options);
         }
 
-        const decideColorCode =(tekst) => {
-            if(tekst === 'Godkjent begrep'){
+        const decideColorCode = (tekst) => {
+            if (tekst === 'Godkjent begrep'){
                 return 'statusFargeGodkjent';
             }
-            if (tekst === 'Utkast'){
+            else if (tekst === 'Utkast'){
                 return 'statusFargeUtkast';
             }
-            if(tekst === 'Avvist'){
+            else if (tekst === 'Avvist'){
                 return 'statusFargeAvvist';
             }
-            if(tekst === 'Revisjon'){
+            else if (tekst === 'Revisjon'){
                 return 'statusFargeRevisjon'
             }
-            if(tekst === 'Utgått'){
+            else if (tekst === 'Utgått'){
                 return 'statusFargeAvvist'
             }
-            return "";
+            else {
+                return "";
+            }
         }
         
     
@@ -136,12 +138,7 @@ class Table extends React.Component{
                 <tr key={key} className="definisjon">
                     <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
-
-                    <td><Normaltekst className = {decideColorCode(status)}>
-                    {status}
-                    </Normaltekst></td>
-
-
+                    <td><Normaltekst className={decideColorCode(status)}>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>
