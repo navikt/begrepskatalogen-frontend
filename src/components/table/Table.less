@@ -1,5 +1,6 @@
 @import (reference) '~nav-frontend-core/less/_variabler';
-.terms{
+
+.terms {
     border-top: 2px solid lightgray ;
     width: 10rem;
     margin-bottom: 12rem; //avstand til bunnen av tabellen for å hindre overlapp i header og tabellfelter
@@ -7,12 +8,10 @@
     background: @navLysGra;
     box-sizing: border-box;
 
-    th{
+    th {
         text-align: left;
         padding: 1.2rem;
         background-color: #efeded;
-
-        
     }
 
     tr {  
@@ -20,27 +19,23 @@
         td {
             border-bottom: 0.2px solid gray; //delelinjene i selve tabellen
             padding: 0.5rem; 
-
-
             
-            .statusFargeGodkjent{
+            .statusFargeGodkjent {
                 font-weight: bold;
                 color: @navGronn;
-
             }
-            .statusFargeAvvist{
+            .statusFargeAvvist {
                 color: @redError;
                 font-weight: bold;
             }
-            .statusFargeUtkast{
+            .statusFargeUtkast {
                 color: @navGra80;
                 font-weight: bold;
             }
-            .statusFargeRevisjon{
+            .statusFargeRevisjon {
                 color: @navLilla;
                 font-weight: bold;
             }
-        
         }
     }
 }
@@ -56,24 +51,21 @@ th, td {
 
 }
 
-
-
 .typo-normal {
     margin: 1rem;
 }
 
-.separator{
+.separator {
     width: 100%;
-    box-shadow: 0px 2px 1px rgba(184, 182, 182, 0.892);
-    
+    box-shadow: 0px 2px 1px rgba(184, 182, 182, 0.892); 
 }
 
-.table_content{
+.table_content {
     position: relative;
     background: @navLysGra;
 }
 
-.selectfields{
+.selectfields {
     position: relative;
     top: 0.2rem;
     padding-left: 32.5rem; //posisjon fra venstre på selectfields
@@ -84,7 +76,7 @@ th, td {
     top: 1rem;
 }
 
-.table{
+.table {
     display: flex;
     flex-direction: row;
     justify-content: center;
