@@ -43,7 +43,7 @@ Her finner du informasjon om hva slags begrep det er, BegrepsID, Begrepsforklari
 
 ### Komponenter
 
-Under mappen `src`, finner du mappen components som essensielt alle elementene en finner på siden består av. Eksempelvis ligger koden for filtreringsdelen under `FilterSection` osv. I hver komponentmappe vil du finne .js kode, samt en .less fil med tilhørende styling. Selve koden som utfører en handling ligger også ofte i .js filene som utgjør den visuelle delen, med noen unntak.
+Under mappen `src`, finner du mappen components som essensielt alle elementene en finner på siden består av. For eksempel ligger koden for filtreringsdelen under `FilterSection` osv. I hver komponentmappe vil du finne .js kode, samt en .less fil med tilhørende styling. Selve koden som utfører en handling ligger også ofte i .js filene som utgjør den visuelle delen, med noen unntak.
 
 ### Redux
 
