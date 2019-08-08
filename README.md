@@ -62,6 +62,12 @@ For mer informasjon, sjekk ut dokumentasjonen på https://redux.js.org/.
 ### Fuse.js
 Vi har brukt Fuse.js til å søke etter begrepene i søkefeltet. Fuse.js er et fussy-search bibliotek for JavaScript. Det lar deg velge hvilke "keys" man vil søke etter. I katalogen kan du søke etter match i `terms`, `definisjon`, `begrepseier`og `kilde`. Det gir deg også andre valg som threhold, findAllMatches og vekting av søket. Mer dokumentasjon finnes på https://fusejs.io/.
 
+### Parcel
+Parcel er en web application bundler som hjelper oss med å transformere JavaScript-koden vha Babel og bygger prosjektet vårt. Dokumentasjonen til Parcel finnes på: https://parceljs.org/getting_started.html. 
+
+### Babel
+Vi har brukt Babel til å kompilere JavaScript koden. Mer informasjon om Babel finnes på https://babeljs.io/.
+
 ## Testing
 
 ### Unit og Snapshot
