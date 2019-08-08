@@ -166,7 +166,7 @@ class Table extends React.Component{
                             <thead className="separator">
 
                             <tr className="tableHead">
-                                <th><Systemtittel>Term</Systemtittel></th>
+                                <th><Systemtittel>Term og heisann</Systemtittel></th>
                                 <th ><Systemtittel>Definisjon</Systemtittel></th>
                                 <th><Systemtittel>Status</Systemtittel></th>
                                 <th><Systemtittel>Begrepseier</Systemtittel></th>
