@@ -11,7 +11,7 @@ class FilterSection extends React.Component{
     constructor(props) {
         super(props);
         this.handleClick.bind(this);
-        this.state = {statuses: [], fagomrade: []}
+        this.state = {statuses: [], fagomrader: []}
     }
 
     componentWillMount() {
@@ -21,7 +21,6 @@ class FilterSection extends React.Component{
         });
     }
     handleClick(category, e) {
-        console.log("kategori", category, e.value, e.checked);
         this.props.toggleFilter(category, e.value, e.checked);
     }
 
@@ -35,7 +34,7 @@ class FilterSection extends React.Component{
 
     findDistinctFagomrader() {
         return this.state.fagomrader.map((fagomrade) => {
-            if(fagomrade != "") {
+            if (fagomrade !== "") {
                 return (
                     <Checkbox key={fagomrade} label={fagomrade} value={fagomrade} onChange={(e) => this.handleClick("fagomrade", e.target)}/>
                 );
@@ -76,7 +75,6 @@ class FilterSection extends React.Component{
                     <Checkbox label={"Kildetype3"}/>
                 </div>
 
-
                 <div className="katergorioverskrift">
                     <Undertittel>Ekstern eierskap?</Undertittel>
                 </div>
@@ -85,7 +83,6 @@ class FilterSection extends React.Component{
                     <Checkbox label={"Ja"}/>
                     <Checkbox label={"Nei"}/>
                 </div>
-
 
                 <div className="katergorioverskrift">
                     <Undertittel>Offentlig Status</Undertittel>

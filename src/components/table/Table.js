@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 class Table extends React.Component{
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.renderTableData = this.renderTableData.bind(this);
     }
@@ -60,7 +60,7 @@ class Table extends React.Component{
     }
 
     listToShow(list) {
-        if( this.props.hideNotApproved ) {
+        if ( this.props.hideNotApproved ) {
             return this.godkjenteBegreper(list);
         }
         return list;
@@ -74,7 +74,7 @@ class Table extends React.Component{
         })
     }
 
-    renderTableData(){
+    renderTableData() {
         const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
         const resList = this.listToShow(list);
         const approvedList = this.godkjenteBegreper(resList);
@@ -82,12 +82,12 @@ class Table extends React.Component{
         
         this.filterStatus();
 
-        if(!this.props.items){
+        if (!this.props.items){
             return false;
         }
 
         const { sort } = this.props
-        if(sort){
+        if (sort){
             console.log(`sorting ${sort}`)
 
             if (sort ==='Alfabetisk'){
@@ -95,12 +95,12 @@ class Table extends React.Component{
                 (a.term > b.term? 1:-1)
                 : (a.term < b.term ? 1:-1))
             }
-            if(sort === 'Begrepseier'){
+            if (sort === 'Begrepseier'){
                 list.sort((a,b)=>(sort ==='Begrepseier')?
                 (a.assignee > b.assignee? 1:-1)
                 : (a.assignee < b.assignee ? 1:-1))
             }
-            if(sort === 'Sist_Oppdatert'){
+            if (sort === 'Sist_Oppdatert'){
                 list.sort((a,b)=>(sort ==='Sist_Oppdatert')?
                 (a.oppdatert < b.oppdatert? 1:-1)
                 : (a.oppdatert > b.oppdatert ? 1:-1))
@@ -111,14 +111,35 @@ class Table extends React.Component{
             var options = { year: 'numeric', month: 'long', day: 'numeric'};
             return new Date(string).toLocaleDateString([], options);
         }
-    
+
+        const decideColorCode = (tekst) => {
+            if (tekst === 'Godkjent begrep'){
+                return 'statusFargeGodkjent';
+            }
+            else if (tekst === 'Utkast'){
+                return 'statusFargeUtkast';
+            }
+            else if (tekst === 'Avvist'){
+                return 'statusFargeAvvist';
+            }
+            else if (tekst === 'Revisjon'){
+                return 'statusFargeRevisjon'
+            }
+            else if (tekst === 'Utgått'){
+                return 'statusFargeAvvist'
+            }
+            else {
+                return "";
+            }
+        }
+        
         return resList.map((item) => {
             const {key,term,assignee,definisjon,oppdatert,status} = item
             return(
                 <tr key={key} className="definisjon">
                     <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>
                     <td><Normaltekst>{definisjon}</Normaltekst></td>
-                    <td><Normaltekst>{status}</Normaltekst></td>
+                    <td><Normaltekst className={decideColorCode(status)}>{status}</Normaltekst></td>
                     <td><Normaltekst>{assignee}</Normaltekst></td>
                     <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
                 </tr>

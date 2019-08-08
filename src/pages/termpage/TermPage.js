@@ -28,13 +28,13 @@ export class TermPage extends React.Component{
 
     isGodkjent = () => {
         if( this.props.item.status === 'Godkjent begrep') {
-            return <AlertStripeSuksess size="25">Godkjent begrep</AlertStripeSuksess>;
+            return <AlertStripeSuksess size="25">{this.props.item.status}</AlertStripeSuksess>;
         }
         else if(this.props.item.status === 'Utkast') {
-            return <AlertStripeAdvarsel className="utkastBegrep" size="25">Utkast</AlertStripeAdvarsel>;
+            return <AlertStripeAdvarsel className="utkastBegrep" size="25">{this.props.item.status}</AlertStripeAdvarsel>;
         }
         else {
-            return <AlertStripeFeil size="25">Avvist begrep</AlertStripeFeil>;
+            return <AlertStripeFeil size="25">{this.props.item.status}</AlertStripeFeil>;
         }
     }
 

@@ -1,3 +1,4 @@
 module.exports = {
-  API_ISSUES: '/api/issues',
+  API_ISSUES: '/begrepskatalogen/api/issues',
+  ITS_ALIVE: '/begrepskatalogen/its-alive',
 };
