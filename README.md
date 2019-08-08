@@ -1,7 +1,7 @@
 # Begrepskatalogen-frontend
 
 ### Setup:
-1. Last ned node.js fra https://nodejs.org/en/
+1. Last ned node.js. Dette kan gjøres via terminalen for Mac med kommandoen `brew install node`. Eller fra https://nodejs.org/en/ for de som har Windows.
 
 2. Kjør kommandoen `git clone https://github.com/navikt/begrepskatalogen-frontend.git` i terminalen, git Bash eller Windows powershell. Du skal nå ha en kopi av prosjektet lokalt på  din enhet.
 
