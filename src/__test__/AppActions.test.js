@@ -15,7 +15,7 @@ describe('actions', () =>{
         }
         expect(actions.toggleSeeAllTerms(text)).toEqual(expectedAction);
     });
-
+    /*
     it('should add filter for filtering terms', () =>{
         const type = 'ADD_FILTER';
         const filter = 'Alfabetisk';
@@ -39,4 +39,5 @@ describe('actions', () =>{
         }
         expect(actions.removeFilter(filter)).toEqual(expectedAction);
     });
+    */
 });
