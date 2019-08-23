@@ -57,7 +57,6 @@ exports[`Header component Render of headercomponent should match snapshot 1`] = 
     className="navigation"
   >
     <Navigation />
-    <Memo(ConnectFunction) />
   </div>
 </div>
 `;

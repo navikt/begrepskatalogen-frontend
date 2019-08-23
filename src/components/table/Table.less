@@ -68,15 +68,17 @@ th, td {
 .table_content {
   position: relative;
   background: @navLysGra;
+  display: flex;
+  flex-direction: row;
 }
 
 .selectfields {
   position: relative;
   top: 0.2rem;
-  padding-left: 32.5rem; //posisjon fra venstre på selectfields
+  padding-left: 10.5rem; //posisjon fra venstre på selectfields
 }
 
-.sorterselect, .filterselect {
+.filterselect {
   margin-left: 1rem;
   top: 1rem;
 }
@@ -86,7 +88,16 @@ th, td {
   flex-direction: row;
   justify-content: center;
   padding-left: 2.5rem;
+  padding-top: 2.5rem;
   position: relative;
-  top: 6rem;
+  top: 3rem;
 }
 
+.filterAndSort {
+  z-index: 100;
+  display: block;
+  justify-content: center;
+  padding-left: 23rem;
+  padding-top: 1rem;
+  position:absolute;
+}

@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux';
 import {hideNonApprovedTerms} from '../../redux/actions/SearchAction';
 import SortField from '../../components/SortSelectField/SortField';
 import FilterSection from '../../components/FilterSection/FilterSection';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 export class Home extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ export class Home extends Component {
     return (
         <div>
           <div className="table_content">
-            <div className="selectfields">
+            <div className="filterAndSort">
+              <SearchBar/>
               <SortField/>
             </div>
             <div className="table">

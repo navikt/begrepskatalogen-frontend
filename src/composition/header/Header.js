@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Systemtittel} from 'nav-frontend-typografi';
 import {NavLink} from 'react-router-dom';
 import Navigation from '../../components/navigation/Navigation';
-import SearchBar from '../../components/SearchBar/SearchBar';
 import './Header.less';
 
 class Header extends Component {
@@ -32,7 +31,6 @@ class Header extends Component {
 
           <div className="navigation">
             <Navigation/>
-            <SearchBar/>
           </div>
         </div>
     );
