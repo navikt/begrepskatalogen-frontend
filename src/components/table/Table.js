@@ -1,199 +1,164 @@
 import React from 'react';
 import './Table.less';
-import { Systemtittel, Normaltekst } from 'nav-frontend-typografi';
-import FilterSection from '../FilterSection/FilterSection';
-import SortField from '../SortSelectField/SortField';
-import {connect } from 'react-redux';
+import {Normaltekst, Systemtittel} from 'nav-frontend-typografi';
+import {connect} from 'react-redux';
 import Fuse from 'fuse.js';
-import { numOfApprovedTerms, numOfNotApprovedTerms } from '../../redux/actions/SearchAction';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import JiraText from '../JiraText';
 
-class Table extends React.Component{
+class Table extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.renderTableData = this.renderTableData.bind(this);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    searchResult() {
-        var options = {
-            shouldSort: true,
-            findAllMatches: true,
-            threshold: 0.2,
-            //score: true,
-            distance: 100,
-            maxPatternLength: 32,
-            minMatchCharLength: 1,
-            keys: [ {
-                name: "term",
-                //weight: 0.9
-            }, { 
-                mame: "definisjon",
-                //weight: 0.8 
-            },
-                "begrepseier",
-                "kilde",
-            ]
-        };
-        var fuse = new Fuse(this.props.items, options);
-        const resultTable = fuse.search(this.props.search);
-        return resultTable;
-    }
-
-    godkjenteBegreper(list) {
-        const allTerms = list
-        var options = {
-            shouldSort: true, 
-            findAllMatches: true,
-            threshold:0, 
-            location: 0,
-            maxPatternLength: 32,
-            minMatchCharLength: 1,
-            keys: [ 
-                "status"
-            ]
+  filterItems(items, filters) {
+    const sortedFilters = {};
+    filters.forEach(filter => {
+      if (!sortedFilters[filter.category]) {
+        sortedFilters[filter.category] = [];
+      }
+      sortedFilters[filter.category].push(filter.value);
+    });
+    const filteredList = items.filter(item => {
+      let keepItem = true;
+      Object.keys(sortedFilters).forEach(keyName => {
+        if (!sortedFilters[keyName].includes(item[keyName])) {
+          keepItem = false;
         }
-        var fuse = new Fuse(allTerms, options);
-        const result = fuse.search("Godkjent begrep");
-        this.props.dispatch(numOfApprovedTerms( result.length ));
-        return result;
+      });
+      return keepItem;
+    });
+    return filteredList;
+  }
+
+  searchResult(items, searchTerm) {
+    const options = {
+      shouldSort: true,
+      findAllMatches: true,
+      threshold: 0.2,
+      //score: true,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: [
+        {
+          name: 'term',
+          //weight: 0.9
+        }, {
+          mame: 'definisjon',
+          //weight: 0.8
+        },
+        'begrepseier',
+        'kilde',
+      ],
+    };
+    const fuse = new Fuse(items, options);
+    return fuse.search(searchTerm);
+  }
+
+  renderTableData() {
+    if (!this.props.items) {
+      return false;
     }
 
-    listToShow(list) {
-        if ( this.props.hideNotApproved ) {
-            return this.godkjenteBegreper(list);
-        }
-        return list;
+    const filteredList = this.filterItems(this.props.items, this.props.filters);
+    const list = this.props.search === '' ? filteredList : this.searchResult(filteredList, this.props.search);
+
+    const {sort} = this.props;
+    if (sort) {
+      console.log(`sorting ${sort}`);
+
+      if (sort === 'Alfabetisk') {
+        list.sort((a, b) => (sort === 'Alfabetisk') ?
+            (a.term > b.term ? 1 : -1)
+            : (a.term < b.term ? 1 : -1));
+      }
+      if (sort === 'Begrepseier') {
+        list.sort((a, b) => (sort === 'Begrepseier') ?
+            (a.assignee > b.assignee ? 1 : -1)
+            : (a.assignee < b.assignee ? 1 : -1));
+      }
+      if (sort === 'Sist_Oppdatert') {
+        list.sort((a, b) => (sort === 'Sist_Oppdatert') ?
+            (a.oppdatert < b.oppdatert ? 1 : -1)
+            : (a.oppdatert > b.oppdatert ? 1 : -1));
+      }
     }
 
-    filterStatus() {
-        let availableKeys = Object.keys(this.props.filters);
-        console.log("keys", availableKeys);
-        const resKeys = availableKeys.map((keya) => {
-            
-        })
-    }
+    const formatDate = (string) => {
+      const options = {year: 'numeric', month: 'long', day: 'numeric'};
+      return new Date(string).toLocaleDateString([], options);
+    };
 
-    renderTableData() {
-        const list = ((this.props.search == "" || this.props.seeAllTerms) ? this.props.items : this.searchResult())
-        const resList = this.listToShow(list);
-        const approvedList = this.godkjenteBegreper(resList);
-        this.props.dispatch(numOfNotApprovedTerms( (resList.length - approvedList.length) ));
-        
-        this.filterStatus();
+    const decideColorCode = (tekst) => {
+      if (tekst === 'Godkjent begrep') {
+        return 'statusFargeGodkjent';
+      } else if (tekst === 'Utkast') {
+        return 'statusFargeUtkast';
+      } else if (tekst === 'Avvist') {
+        return 'statusFargeAvvist';
+      } else if (tekst === 'Revisjon') {
+        return 'statusFargeRevisjon';
+      } else if (tekst === 'Utgått') {
+        return 'statusFargeAvvist';
+      } else {
+        return '';
+      }
+    };
 
-        if (!this.props.items){
-            return false;
-        }
+    return list.map((item) => {
+      const {key, term, assignee, definisjon, oppdatert, status} = item;
+      return (
+          <tr key={key} className="definisjon">
+            <td><Link className="term_col" to={`/begrepskatalogen/begrep/${key}`}>{term}</Link></td>
+            <td><JiraText>{definisjon}</JiraText></td>
+            <td><Normaltekst className={decideColorCode(status)}>{status}</Normaltekst></td>
+            <td><Normaltekst>{assignee}</Normaltekst></td>
+            <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
+          </tr>
+      );
+    });
+  }
 
-        const { sort } = this.props
-        if (sort){
-            console.log(`sorting ${sort}`)
+  render() {
+    return (
+        <table className="terms">
+          <colgroup>
+            <col width="250"/>
+            <col width="500"/>
+            <col width="150"/>
+            <col width="180"/>
+            <col width="250"/>
+          </colgroup>
+          <thead className="separator">
 
-            if (sort ==='Alfabetisk'){
-                list.sort((a,b)=>(sort ==='Alfabetisk')?
-                (a.term > b.term? 1:-1)
-                : (a.term < b.term ? 1:-1))
-            }
-            if (sort === 'Begrepseier'){
-                list.sort((a,b)=>(sort ==='Begrepseier')?
-                (a.assignee > b.assignee? 1:-1)
-                : (a.assignee < b.assignee ? 1:-1))
-            }
-            if (sort === 'Sist_Oppdatert'){
-                list.sort((a,b)=>(sort ==='Sist_Oppdatert')?
-                (a.oppdatert < b.oppdatert? 1:-1)
-                : (a.oppdatert > b.oppdatert ? 1:-1))
-            }
-        }
-        
-        const formatDate = (string) => {
-            var options = { year: 'numeric', month: 'long', day: 'numeric'};
-            return new Date(string).toLocaleDateString([], options);
-        }
+          <tr className="tableHead">
+            <th><Systemtittel>Term</Systemtittel></th>
+            <th><Systemtittel>Definisjon</Systemtittel></th>
+            <th><Systemtittel>Status</Systemtittel></th>
+            <th><Systemtittel>Begrepseier</Systemtittel></th>
+            <th><Systemtittel>Oppatert</Systemtittel></th>
+          </tr>
 
-        const decideColorCode = (tekst) => {
-            if (tekst === 'Godkjent begrep'){
-                return 'statusFargeGodkjent';
-            }
-            else if (tekst === 'Utkast'){
-                return 'statusFargeUtkast';
-            }
-            else if (tekst === 'Avvist'){
-                return 'statusFargeAvvist';
-            }
-            else if (tekst === 'Revisjon'){
-                return 'statusFargeRevisjon'
-            }
-            else if (tekst === 'Utgått'){
-                return 'statusFargeAvvist'
-            }
-            else {
-                return "";
-            }
-        }
-        
-        return resList.map((item) => {
-            const {key,term,assignee,definisjon,oppdatert,status} = item
-            return(
-                <tr key={key} className="definisjon">
-                    <td><Link className="term_col" to={`/begrepskatalogen/Begrepsside/${key}`}>{term}</Link></td>
-                    <td><Normaltekst>{definisjon}</Normaltekst></td>
-                    <td><Normaltekst className={decideColorCode(status)}>{status}</Normaltekst></td>
-                    <td><Normaltekst>{assignee}</Normaltekst></td>
-                    <td><Normaltekst>{formatDate(oppdatert)}</Normaltekst></td>
-                </tr>
-            );
-        })
-    }
-
-    render() {
-        return (
-                <div className="table_content">
-                    <div className="selectfields">
-                        <SortField/>
-                    </div>
-                    <div className="table">
-                        <FilterSection/>
-                        <table className="terms">
-                            <colgroup>
-                                <col width="250"/>
-                                <col width="500"/>
-                                <col width="150"/>
-                                <col width="180"/>
-                                <col width="250"/>
-                            </colgroup>
-                            <thead className="separator">
-
-                            <tr className="tableHead">
-                                <th><Systemtittel>Term</Systemtittel></th>
-                                <th ><Systemtittel>Definisjon</Systemtittel></th>
-                                <th><Systemtittel>Status</Systemtittel></th>
-                                <th><Systemtittel>Begrepseier</Systemtittel></th>
-                                <th><Systemtittel>Oppatert</Systemtittel></th>   
-                            </tr>
-
-                            </thead>
-                            <tbody>
-                                {this.renderTableData()}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-        );
-    }
+          </thead>
+          <tbody>
+          {this.renderTableData()}
+          </tbody>
+        </table>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        search: state.search,
-        items: state.items,
-        seeAllTerms: state.seeAllTerms,
-        hideNotApproved: state.hideNotApproved,
-        filters: state.filters,
-        sort: state.sort,
-    }
+  return {
+    search: state.search,
+    items: state.items,
+    seeAllTerms: state.seeAllTerms,
+    hideNotApproved: state.hideNotApproved,
+    filters: state.filters,
+    sort: state.sort,
+  };
 };
 
 export default connect(mapStateToProps)(Table);

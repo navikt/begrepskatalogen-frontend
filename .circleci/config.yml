@@ -63,11 +63,11 @@ jobs:
           name: Installing npm dependecies
           command: yarn install --ignore-optional --ignore-scripts --no-progress --frozen-lockfile
       - run:
-          name: Build project for production
-          command: yarn build
-      - run:
           name: Running tests
           command: yarn test
+      - run:
+          name: Build project for production
+          command: yarn build
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}

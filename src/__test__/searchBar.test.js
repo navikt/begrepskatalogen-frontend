@@ -1,23 +1,22 @@
 import React from 'react';
-import ShallowRenderer from "react-test-renderer/shallow";
-import { Provider } from "react-redux";
-import configureMockStore from "redux-mock-store";
+import ShallowRenderer from 'react-test-renderer/shallow';
+import {Provider} from 'react-redux';
+import configureMockStore from 'redux-mock-store';
 
-import SearchBar from "../components/SearchBar/SearchBar";
-
+import SearchBar from '../components/SearchBar/SearchBar';
 
 const mockStore = configureMockStore();
 const store = mockStore({});
 
-describe('test to see if it matches snapshot', ()=>{
+describe('test to see if it matches snapshot', () => {
 
-    it('Searchbar-Render matches the snapshot', ()=>{
-        const renderer = new ShallowRenderer();
-        const result = renderer.render(
-            <Provider store={store}>
-                <SearchBar/>
-            </Provider>
-            );
-        expect(result).toMatchSnapshot();
-    });
-})
+  it('Searchbar-Render matches the snapshot', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+        <Provider store={store}>
+          <SearchBar/>
+        </Provider>,
+    );
+    expect(result).toMatchSnapshot();
+  });
+});
