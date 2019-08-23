@@ -11,7 +11,7 @@ const bundler = new Bundler(file, options);
 app.get(routes.API_ISSUES, require('./mock/issues'));
 app.use(bundler.middleware());
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5113;
 app.listen(port, () => {
   console.log('Listening to port ' + port);
 });

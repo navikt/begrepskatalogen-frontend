@@ -1,87 +1,92 @@
 @import (reference) '~nav-frontend-core/less/_variabler';
 
 .terms {
-    border-top: 2px solid lightgray ;
-    width: 10rem;
-    margin-bottom: 12rem; //avstand til bunnen av tabellen for å hindre overlapp i header og tabellfelter
-    margin-left: 2%;
-    background: @navLysGra;
-    box-sizing: border-box;
+  border-top: 2px solid lightgray;
+  width: 10rem;
+  margin-bottom: 12rem; //avstand til bunnen av tabellen for å hindre overlapp i header og tabellfelter
+  margin-left: 2%;
+  background: @navLysGra;
+  box-sizing: border-box;
 
-    th {
-        text-align: left;
-        padding: 1.2rem;
-        background-color: #efeded;
+  th {
+    text-align: left;
+    padding: 1.2rem;
+    background-color: #efeded;
+  }
+
+  tr {
+
+    td {
+      border-bottom: 0.2px solid gray; //delelinjene i selve tabellen
+      padding: 0.5rem;
+
+      .statusFargeGodkjent {
+        font-weight: bold;
+        color: @navGronn;
+      }
+
+      .statusFargeAvvist {
+        color: @redError;
+        font-weight: bold;
+      }
+
+      .statusFargeUtkast {
+        color: @navGra80;
+        font-weight: bold;
+      }
+
+      .statusFargeRevisjon {
+        color: @navLilla;
+        font-weight: bold;
+      }
     }
-
-    tr {  
-
-        td {
-            border-bottom: 0.2px solid gray; //delelinjene i selve tabellen
-            padding: 0.5rem; 
-            
-            .statusFargeGodkjent {
-                font-weight: bold;
-                color: @navGronn;
-            }
-            .statusFargeAvvist {
-                color: @redError;
-                font-weight: bold;
-            }
-            .statusFargeUtkast {
-                color: @navGra80;
-                font-weight: bold;
-            }
-            .statusFargeRevisjon {
-                color: @navLilla;
-                font-weight: bold;
-            }
-        }
-    }
+  }
 }
 
 .term_col {
-    color: @navBla;
+  color: @navBla;
 }
+
 table {
-    table-layout: fixed;
+  table-layout: fixed;
 }
+
 th, td {
-    width: 20rem;  
+  width: 20rem;
 
 }
 
 .typo-normal {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .separator {
-    width: 100%;
-    box-shadow: 0px 2px 1px rgba(184, 182, 182, 0.892); 
+  width: 100%;
+  box-shadow: 0px 2px 1px rgba(184, 182, 182, 0.892);
 }
 
 .table_content {
-    position: relative;
-    background: @navLysGra;
+  position: relative;
+  background: @navLysGra;
 }
 
 .selectfields {
-    position: relative;
-    top: 0.2rem;
-    padding-left: 32.5rem; //posisjon fra venstre på selectfields
+  position: relative;
+  top: 0.2rem;
+  padding-left: 32.5rem; //posisjon fra venstre på selectfields
 }
 
 .sorterselect, .filterselect {
-    margin-left: 1rem;
-    top: 1rem;
+  margin-left: 1rem;
+  top: 1rem;
 }
 
 .table {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-left: 2.5rem;
-    position: relative;
-    top: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 2.5rem;
+  position: relative;
+  top: 6rem;
 }
 

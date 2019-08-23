@@ -7,7 +7,7 @@
 
 3. Kjør `npm install` for å sette opp prosjektet og installere de nødvendige dependenciene.
 
-For å kjøre prosjektet lokalt, bruk kommandoen `npm run serve` for å kjøre prosjektet på [localhost](http://localhost:8080/begrepskatalogen) (http://localhost:8080/begrepskatalogen)
+For å kjøre prosjektet lokalt, bruk kommandoen `npm run serve` for å kjøre prosjektet på [localhost](http://localhost:5113/begrepskatalogen) (http://localhost:8080/begrepskatalogen)
 
 
 
@@ -83,7 +83,7 @@ For å bruke test-rammeverket `cypress`, kjør følgende en av følgende kommand
 eller:
 * `npm run cy:open` 
   
-Dette vil åpne cypress test rammeverket. Du må ha [localhost](http://localhost:8080/begrepskatalogen) kjørende i bakgrunnen for at du kan kjøre end-to-end testene.
+Dette vil åpne cypress test rammeverket. Du må ha [localhost](http://localhost:5113/begrepskatalogen) kjørende i bakgrunnen for at du kan kjøre end-to-end testene.
 
 Klikk på `Run all specs` i høyre hjørne for å kjøre alle tester.
 

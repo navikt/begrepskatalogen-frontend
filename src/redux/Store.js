@@ -1,6 +1,6 @@
-import { createLogger } from 'redux-logger';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
-import thunk  from 'redux-thunk';
+import {createLogger} from 'redux-logger';
+import {applyMiddleware, createStore} from 'redux';
+import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import appReducer from './reducers/AppReducer';
 //import searchReducer from './reducers/SearchReducer';

@@ -1,9 +1,9 @@
-describe("Henter søkefeltet og begynner å skrive, og viser så resultatet", () => { 
-    
+describe("Henter søkefeltet og begynner å skrive, og viser så resultatet", () => {
+
     beforeEach(()=>{
-        cy.visit('http://localhost:8080/begrepskatalogen')
+        cy.visit('http://localhost:5113/begrepskatalogen')
     })
-    
+
 
     it("skriver 'dia' i søkefeltet, og ser etter Dialogmøte 1", ()=> {
         cy.get('Input[id=inputfelt1]').type("dia{enter}")
@@ -21,5 +21,5 @@ describe("Henter søkefeltet og begynner å skrive, og viser så resultatet", ()
     })
 
 
-    
+
 });
