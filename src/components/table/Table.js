@@ -20,7 +20,7 @@ class Table extends React.Component {
       }
       sortedFilters[filter.category].push(filter.value);
     });
-    const filteredList = items.filter(item => {
+    return items.filter(item => {
       let keepItem = true;
       Object.keys(sortedFilters).forEach(keyName => {
         if (!sortedFilters[keyName].includes(item[keyName])) {
@@ -29,7 +29,6 @@ class Table extends React.Component {
       });
       return keepItem;
     });
-    return filteredList;
   }
 
   searchResult(items, searchTerm) {
