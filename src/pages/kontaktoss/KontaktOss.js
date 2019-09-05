@@ -35,7 +35,7 @@ function KontaktOss() {
                 Ansvarlig for Begrepskatalogen i NAV
             </td>
               <td>
-              <a href="mailto:Marte.Vidnes.Jensen@nav.no"></a>
+              <a href="mailto:Marte.Vidnes.Jensen@nav.no">Marte.Vidnes.Jensen@nav.no</a>
             </td>
               <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
@@ -50,7 +50,7 @@ function KontaktOss() {
                 Strategisk produkteier
         </td>
               <td>
-              <a href="mailto:Silje.Emilienne.Aanderud-Larsen@nav.no"></a>
+              <a href="mailto:Silje.Emilienne.Aanderud-Larsen@nav.no">Silje.Emilienne.Aanderud-Larsen@nav.no</a>
         </td>
               <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
@@ -65,7 +65,7 @@ function KontaktOss() {
                 Prosessdriver
     </td>
               <td>
-              <a href="mailto:Ingvild.Marie.Alderslyst@nav.no"></a>
+              <a href="mailto:Ingvild.Marie.Alderslyst@nav.no">Ingvild.Marie.Alderslyst@nav.no</a>
     </td>
               <td>
                 NAV Registerforvaltning
@@ -80,7 +80,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-              <a href="mailto:Rita.Johansen@nav.no"></a>
+              <a href="mailto:Rita.Johansen@nav.no">Rita.Johansen@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
@@ -95,7 +95,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-              <a href="mailto:Helle.Ekern@nav.no"></a>
+              <a href="mailto:Helle.Ekern@nav.no">Helle.Ekern@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
@@ -110,7 +110,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-              <a href="mailto:Ken.Ingvar.Friskile@nav.no"></a>
+              <a href="mailto:Ken.Ingvar.Friskile@nav.no">Ken.Ingvar.Friskile@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
