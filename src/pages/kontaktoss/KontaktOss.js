@@ -6,9 +6,9 @@ function KontaktOss() {
     <div className="kontaktOss">
       <h1>Kontakt oss</h1>
       <p>Her kan du ta kontakt med oss i begrepskatalogen:))</p>
-      <p> " " </p>
+      <p> </p>
       <h2> Ressurser og kontaktpersoner </h2>
-      <p> " " </p>
+      <p> </p>
         <table columnWidths={[2, 2, 1]}>
           <thead>
             <tr>
