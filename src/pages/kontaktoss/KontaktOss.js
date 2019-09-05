@@ -6,116 +6,118 @@ function KontaktOss() {
     <div className="kontaktOss">
       <h1>Kontakt oss</h1>
       <p>Her kan du ta kontakt med oss i begrepskatalogen:))</p>
-
+      <p> " " </p>
       <h2> Ressurser og kontaktpersoner </h2>
-
-        <NavTable columnWidths={[2, 2, 1]}>
-          <NavTableHead>
-            <NavTableHeadCell>
+      <p> " " </p>
+        <table columnWidths={[2, 2, 1]}>
+          <thead>
+            <tr>
+            <th>
               Navn
-        </NavTableHeadCell>
-            <NavTableHeadCell>
+        </th>
+            <th>
               Rolle
-        </NavTableHeadCell>
-            <NavTableHeadCell>
+        </th>
+            <th>
               e-post
-        </NavTableHeadCell>
-            <NavTableHeadCell>
+        </th>
+            <th>
               Tilhørighet
-        </NavTableHeadCell>
-          </NavTableHead>
-          <NavTableBody>
-            <NavTableRow key={1}>
-              <NavTableCell>
+        </th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr key={1}>
+              <td>
                 Marte Vidnes Jensen
-            </NavTableCell>
-              <NavTableCell>
+            </td>
+              <td>
                 Ansvarlig for Begrepskatalogen i NAV
-            </NavTableCell>
-              <NavTableCell>
+            </td>
+              <td>
                 Marte.Vidnes.Jensen@nav.no
-            </NavTableCell>
-              <NavTableCell>
+            </td>
+              <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
-            </NavTableCell>
-            </NavTableRow>
+            </td>
+            </tr>
 
-            <NavTableRow key={2}>
-              <NavTableCell>
+            <tr key={2}>
+              <td>
                 Silje Emilienne Aanderud-Larsen
-        </NavTableCell>
-              <NavTableCell>
+        </td>
+              <td>
                 Strategisk produkteier
-        </NavTableCell>
-              <NavTableCell>
+        </td>
+              <td>
                 Silje.Emilienne.Aanderud-Larsen@nav.no
-        </NavTableCell>
-              <NavTableCell>
+        </td>
+              <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
-    </NavTableCell>
-            </NavTableRow>
+    </td>
+            </tr>
 
-            <NavTableRow key={3}>
-              <NavTableCell>
+            <tr key={3}>
+              <td>
                 Ingvild Alderslyst
-    </NavTableCell>
-              <NavTableCell>
+    </td>
+              <td>
                 Prosessdriver
-    </NavTableCell>
-              <NavTableCell>
+    </td>
+              <td>
                 Ingvild.Marie.Alderslyst@nav.no
-    </NavTableCell>
-              <NavTableCell>
+    </td>
+              <td>
                 NAV Registerforvaltning
-</NavTableCell>
-            </NavTableRow>
+</td>
+            </tr>
 
-            <NavTableRow key={4}>
-              <NavTableCell>
+            <tr key={4}>
+              <td>
                 Rita Johansen
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Prosessdriver
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Rita.Johansen@nav.no
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 NAV Registerforvaltning
-</NavTableCell>
-            </NavTableRow>
+</td>
+            </tr>
 
-            <NavTableRow key={5}>
-              <NavTableCell>
+            <tr key={5}>
+              <td>
                 Helle Ekern
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Prosessdriver
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Helle.Ekern@nav.no
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 NAV Registerforvaltning
-</NavTableCell>
-            </NavTableRow>
+</td>
+            </tr>
 
-            <NavTableRow key={6}>
-              <NavTableCell>
+            <tr key={6}>
+              <td>
                 Ken Ingvar Friskilæ
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Prosessdriver
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 Ken.Ingvar.Friskile@nav.no
-</NavTableCell>
-              <NavTableCell>
+</td>
+              <td>
                 NAV Registerforvaltning
-</NavTableCell>
-            </NavTableRow>
-          </NavTableBody>
-        </NavTable>
+</td>
+            </tr>
+          </tbody>
+        </table>
 
   
     </div > 
