@@ -6,9 +6,9 @@ function KontaktOss() {
     <div className="kontaktOss">
       <h1>Kontakt oss</h1>
       <p>Her kan du ta kontakt med oss i begrepskatalogen:))</p>
-      <p> " " </p>
+      <p> </p>
       <h2> Ressurser og kontaktpersoner </h2>
-      <p> " " </p>
+      <p> </p>
         <table columnWidths={[2, 2, 1]}>
           <thead>
             <tr>
@@ -35,7 +35,7 @@ function KontaktOss() {
                 Ansvarlig for Begrepskatalogen i NAV
             </td>
               <td>
-                Marte.Vidnes.Jensen@nav.no
+              <a href="mailto:Marte.Vidnes.Jensen@nav.no">Marte.Vidnes.Jensen@nav.no</a>
             </td>
               <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
@@ -50,7 +50,7 @@ function KontaktOss() {
                 Strategisk produkteier
         </td>
               <td>
-                Silje.Emilienne.Aanderud-Larsen@nav.no
+              <a href="mailto:Silje.Emilienne.Aanderud-Larsen@nav.no">Silje.Emilienne.Aanderud-Larsen@nav.no</a>
         </td>
               <td>
                 Ytelsesavdelingen - Seksjon informasjonsforvaltning
@@ -65,7 +65,7 @@ function KontaktOss() {
                 Prosessdriver
     </td>
               <td>
-                Ingvild.Marie.Alderslyst@nav.no
+              <a href="mailto:Ingvild.Marie.Alderslyst@nav.no">Ingvild.Marie.Alderslyst@nav.no</a>
     </td>
               <td>
                 NAV Registerforvaltning
@@ -80,7 +80,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-                Rita.Johansen@nav.no
+              <a href="mailto:Rita.Johansen@nav.no">Rita.Johansen@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
@@ -95,7 +95,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-                Helle.Ekern@nav.no
+              <a href="mailto:Helle.Ekern@nav.no">Helle.Ekern@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
@@ -110,7 +110,7 @@ function KontaktOss() {
                 Prosessdriver
 </td>
               <td>
-                Ken.Ingvar.Friskile@nav.no
+              <a href="mailto:Ken.Ingvar.Friskile@nav.no">Ken.Ingvar.Friskile@nav.no</a>
 </td>
               <td>
                 NAV Registerforvaltning
