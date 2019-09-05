@@ -7,9 +7,8 @@ function KontaktOss() {
       <h1>Kontakt oss</h1>
       <p>Her kan du ta kontakt med oss i begrepskatalogen:))</p>
 
-      <div>
-        <h2> Ressurser og kontaktpersoner </h2>
-        <p>" "</p>
+      <h2> Ressurser og kontaktpersoner </h2>
+
         <NavTable columnWidths={[2, 2, 1]}>
           <NavTableHead>
             <NavTableHeadCell>
@@ -28,101 +27,99 @@ function KontaktOss() {
           <NavTableBody>
             <NavTableRow key={1}>
               <NavTableCell>
-              Marte Vidnes Jensen
+                Marte Vidnes Jensen
             </NavTableCell>
               <NavTableCell>
-              Ansvarlig for Begrepskatalogen i NAV
+                Ansvarlig for Begrepskatalogen i NAV
             </NavTableCell>
               <NavTableCell>
-              Marte.Vidnes.Jensen@nav.no
+                Marte.Vidnes.Jensen@nav.no
             </NavTableCell>
               <NavTableCell>
-              Ytelsesavdelingen - Seksjon informasjonsforvaltning
-        </NavTableCell>
+                Ytelsesavdelingen - Seksjon informasjonsforvaltning
+            </NavTableCell>
             </NavTableRow>
 
             <NavTableRow key={2}>
               <NavTableCell>
-              Silje Emilienne Aanderud-Larsen
+                Silje Emilienne Aanderud-Larsen
         </NavTableCell>
               <NavTableCell>
-              Strategisk produkteier
+                Strategisk produkteier
         </NavTableCell>
               <NavTableCell>
-              Silje.Emilienne.Aanderud-Larsen@nav.no
+                Silje.Emilienne.Aanderud-Larsen@nav.no
         </NavTableCell>
               <NavTableCell>
-              Ytelsesavdelingen - Seksjon informasjonsforvaltning
+                Ytelsesavdelingen - Seksjon informasjonsforvaltning
     </NavTableCell>
             </NavTableRow>
 
             <NavTableRow key={3}>
               <NavTableCell>
-              Ingvild Alderslyst
+                Ingvild Alderslyst
     </NavTableCell>
               <NavTableCell>
-              Prosessdriver
+                Prosessdriver
     </NavTableCell>
               <NavTableCell>
-              Ingvild.Marie.Alderslyst@nav.no
+                Ingvild.Marie.Alderslyst@nav.no
     </NavTableCell>
               <NavTableCell>
-              NAV Registerforvaltning
+                NAV Registerforvaltning
 </NavTableCell>
             </NavTableRow>
 
             <NavTableRow key={4}>
-<NavTableCell>
-Rita Johansen
+              <NavTableCell>
+                Rita Johansen
 </NavTableCell>
-            <NavTableCell>
-            Prosessdriver
+              <NavTableCell>
+                Prosessdriver
 </NavTableCell>
-            <NavTableCell>
-            Rita.Johansen@nav.no
+              <NavTableCell>
+                Rita.Johansen@nav.no
 </NavTableCell>
-            <NavTableCell>
-            NAV Registerforvaltning
+              <NavTableCell>
+                NAV Registerforvaltning
 </NavTableCell>
-</NavTableRow>
+            </NavTableRow>
 
-          <NavTableRow key={5}>
-            <NavTableCell>
-            Helle Ekern
+            <NavTableRow key={5}>
+              <NavTableCell>
+                Helle Ekern
 </NavTableCell>
-            <NavTableCell>
-            Prosessdriver
+              <NavTableCell>
+                Prosessdriver
 </NavTableCell>
-            <NavTableCell>
-            Helle.Ekern@nav.no
+              <NavTableCell>
+                Helle.Ekern@nav.no
 </NavTableCell>
-            <NavTableCell>
-            NAV Registerforvaltning
+              <NavTableCell>
+                NAV Registerforvaltning
 </NavTableCell>
-          </NavTableRow>
+            </NavTableRow>
 
-          <NavTableRow key={6}>
-            <NavTableCell>
-            Ken Ingvar Friskilæ
+            <NavTableRow key={6}>
+              <NavTableCell>
+                Ken Ingvar Friskilæ
 </NavTableCell>
-            <NavTableCell>
-            Prosessdriver	
+              <NavTableCell>
+                Prosessdriver
 </NavTableCell>
-            <NavTableCell>
-            Ken.Ingvar.Friskile@nav.no
+              <NavTableCell>
+                Ken.Ingvar.Friskile@nav.no
 </NavTableCell>
-            <NavTableCell>
-            NAV Registerforvaltning
+              <NavTableCell>
+                NAV Registerforvaltning
 </NavTableCell>
-          </NavTableRow>
-    </NavTableBody>
-</NavTable>
+            </NavTableRow>
+          </NavTableBody>
+        </NavTable>
 
-    </div> 
-       </div > 
+  
+    </div > 
 
-        
-      </div >
   );
 }
 
