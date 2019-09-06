@@ -9,7 +9,7 @@ function KontaktOss() {
       <p> </p>
       <h2> Ressurser og kontaktpersoner </h2>
       <p> </p>
-        <table columnWidths={[2, 2, 1]}>
+        <table className="kontaktOssTable" columnWidths={[2, 2, 1]}>
           <thead>
             <tr>
             <th>
