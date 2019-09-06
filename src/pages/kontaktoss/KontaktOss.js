@@ -3,13 +3,13 @@ import './KontaktOss.less';
 
 function KontaktOss() {
   return (
-    <div className="kontaktOss">
+    <div className="container kontaktOss">
       <h1>Kontakt oss</h1>
       <p>Her kan du ta kontakt med oss i begrepskatalogen:))</p>
       <p> </p>
       <h2> Ressurser og kontaktpersoner </h2>
       <p> </p>
-        <table columnWidths={[2, 2, 1]}>
+        <table className="kontaktOssTable" columnWidths={[2, 2, 1]}>
           <thead>
             <tr>
             <th>
