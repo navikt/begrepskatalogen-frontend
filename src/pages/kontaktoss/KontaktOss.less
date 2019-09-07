@@ -8,42 +8,39 @@
   padding-right: 3%;
   background: @navLysGra; 
   
-  & table {
+  table {
       width: 100%;
     }
     
-    & th {
+   th {
       padding: 0.5rem;
     }
     
-    & tr {
+    tr {
       display: flex;
       flex-direction: row;
-    }
-    
- 
-    & td {
-      position: relative;
-    }
-    
-    & tr {
-      display: flex;
       flex-direction: column;
       border-bottom: 1px solid @navGra40;
     }
     
+ 
+   td {
+      position: relative;
+    }
+
+    
     @media screen and (max-width: 640px ) {
-      & thead {
+      head {
         display: none;
       }
     
-      & tr {
+      tr {
         flex-direction: column;
         padding-top: 6px;
         padding-bottom: 6px;
       }
     
-      & td{
+      td{
         padding: 1px 0.5rem 1px 0.5rem;
         width: 100% !important;
         text-align: left !important;
@@ -53,22 +50,22 @@
     
     @media screen and (min-width: 641px ) {
     
-      & thead{
+     thead{
         display: block;
         border-bottom: 1px solid @navGra40;
       }
     
-      & tr {
+      tr {
         flex-direction: row;
         height: 48px;
         align-items: center;
       }
     
-      & td {
+      td {
         padding: 0.5rem;
       }
     
-      & td:not(:first-child)::before {
+      td:not(:first-child)::before {
         content: '';
         display: block;
         position: absolute;
